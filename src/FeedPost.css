@@ -1,0 +1,29 @@
+#topRectangle {
+    position: absolute;
+    width: 682px;
+    height: 741px;
+    left: 383px;
+    top: 116px;
+
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 30px;
+}
+
+#postImage {
+    position: relative;
+    width: 682px;
+    height: 557px;
+    left: 0px;
+    top: -6px;
+}
+
+#authorContainer {
+    position: absolute;
+    width: 201px;
+    height: 67px;
+    left: 460px;
+    top: 517px;
+
+    background: linear-gradient(251.4deg, #56A190 31.02%, #2C5241 106.95%);
+    border-radius: 30px;
+}
