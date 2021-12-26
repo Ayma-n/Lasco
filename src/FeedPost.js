@@ -13,7 +13,9 @@ function FeedPost() {
         <div id="container">
             <div id="topRectangle">
                 <img id="postImage" src={postSrc}></img>
-                <div id="authorContainer"></div>
+                <div id="authorContainer">
+                    <p id="authorName">Johnny R.</p>
+                </div>
             </div>
         </div>
     </>
