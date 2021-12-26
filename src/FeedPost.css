@@ -1,16 +1,17 @@
 #topRectangle {
-    position: absolute;
+    position: relative;
     width: 682px;
     height: 741px;
-    left: 383px;
-    top: 116px;
+    margin: 0 auto;
+    /* left: 383px;
+    top: 116px; */
 
     background: rgba(255, 255, 255, 0.9);
     border-radius: 30px;
 }
 
 #postImage {
-    position: relative;
+    position: absolute;
     width: 682px;
     height: 557px;
     left: 0px;

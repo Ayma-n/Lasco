@@ -9,9 +9,6 @@ function App() {
         
       </body>
       <FeedPost></FeedPost>
-      <header className="App-header">
-       
-      </header>
     </div>
     
     </>);
