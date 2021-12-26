@@ -1,9 +1,10 @@
 body {
-  background: linear-gradient(57.84deg, #B7D3FF -6.8%, #C1D9FF 29.9%, #E5F8FF 108.49%);
 }
 
 .App {
   text-align: center;
+  height: 100vh;
+  background: linear-gradient(57.84deg, #B7D3FF -6.8%, #C1D9FF 29.9%, #E5F8FF 108.49%);
 }
 
 .App-logo {
