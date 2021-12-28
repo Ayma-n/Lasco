@@ -1,37 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-#topRectangle {
+#containerRect {
     position: relative;
-    width: 45vw;
-    /* padding-top: 41.4vw; */
-    /* width: 682px; */
-    /* height: 741px; */
-    height: 48.6vw;
+      /* (container rectangle width (688px)  / macbook width (1512px)) */ 
+    width: 45.5vw;
+    /* container rectangle height (747px) / macbook width (1512px)*/
+    height: 49.4vw;
     margin: 0 auto;
-    /* left: 383px;
-    top: 116px; */
-
     background: rgba(255, 255, 255, 0.9);
+
+    /* Justification: https://stackoverflow.com/questions/29966499/border-radius-in-percentage-and-pixels-px-or-em
+
+    (border-radius (30px) / container rectangle width (688px)) / (border-radius (30px) / container rectangle height (747px)) */
     border-radius: 4.36% / 4.02%;
 }
 
 #postImage {
+    /* parent is relative */
     position: absolute;
     width: 100%;
-    /* width: 682px; */
-    /* height: 557px; */
     left: 0px;
     top: -6px;
 }
 
 #authorContainer {
     position: absolute;
-    /* width: 201px; */
+    /* author container width (201px) / container rectangle width (682px) */
     width: 29.4%;
-    height: 9.04%;
-    /* height: 67px; */
+    /* author container height (67px) / container rectangle height (747px) */
+    height: 8.97%;
+    /* relative left position from container rectangle (460px) / container rectangle width (682px) */
     left: 67.4%;
-    top: 69.8%;
+    /* relative top positioning from container rectangle (523px) / container rectangle height (747px) */
+    top: 70.01%;
 
     background: linear-gradient(251.4deg, #56A190 31.02%, #2C5241 106.95%);
     border-radius: 14.93%/44.78%;
@@ -39,16 +40,21 @@
 
 #authorName {
     position: relative;
+    /* margin-top (13px) / author container width (201px) */
+    /* https://stackoverflow.com/questions/18331716/css-position-with-percent */
+    top: 6.56%;
 
-    margin-top: 20px;
-    margin-left: 83px;
+    /* margin-left (83px) / author container width (201px) */
+    left: 41.3%;
 
     font-family: "Inter";
     font-style: normal;
     font-weight: bold;
-    font-size: clamp(10px, calc(10px + (18px - 10px) * ((100vw - 300px) / (1600px - 300px))), 18px);
+    /* font-size: clamp(10px, calc(10px + (18px - 10px) * ((100vw - 300px) / (1600px - 300px))), 18px); */
+    /* font size (18px) / author container width */
     /* font-size: 18px; */
-    line-height: 22px;
+    font-size: 1.19vw;
+    /* line-height: 22px; */
     display: flex;
     align-items: center;
 
