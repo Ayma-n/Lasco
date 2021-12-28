@@ -1,5 +1,30 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @use "sass:list";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+$contRectW: 682px;
+$contRectH: 747px;
+$contRectLeft: 383px;
+$contRectTop: 110px;
+
+$authContW: 201px;
+$authContH: 67px;
+$authContLeft: 850px;
+$authContTop: 633px;
+
+$authNameW: 120px;
+$authNameH: 41px;
+$authNameLeft: 931px;
+$authNameTop: 646px;
+
+$authImgW: 46px; 
+$authImgH: 46px;
+$authImgLeft: 863px;
+$authImgTop: 643px;
+
+$border-radius: 30px;
+$border-radiusW: (($border-radius / $authContW) * 100%);
+$border-radiusH: (($border-radius / $authContH) * 100%);
+
 #postImage {
   /* parent is relative */
   position: absolute;
@@ -12,16 +37,21 @@
   #authorContainer {
     /* author container width (201px) / container rectangle width (682px) */
     /* width: calc(100% * var(--authorContW) / var(--contW)); */
-    width: 29.47214%;
+    width: ($authContW / $contRectW) * 100%;
     /* author container height (67px) / container rectangle height (747px) */
-    height: 8.96921%;
+    height: ($authContH / $contRectH) * 100%;
     /* relative left position from container rectangle (460px) / container rectangle width (682px) */
-    left: 68.47507%;
+    // left: 67.4%;
+    left: (($authContLeft - $contRectLeft) / $contRectW) * 100%;
     /* relative top positioning from container rectangle (523px) / container rectangle height (747px) */
-    top: 70.01339%;
+    // top: 70.01%;
+    top: (($authContTop - $contRectTop) / $contRectH) * 100%;
     /* (border-radius (30px) / author container width (201px)) / (border-radius (30px) / author container height (67px)) */
+    // border-radius: 14.93%/44.78%;
+    // border-radius: $border-radiusW / $border-radiusH;
+    // border-radius: list.join(20%, '/', 40%);
     /* https://stackoverflow.com/questions/4988944/how-to-prevent-division-when-using-variables-separated-by-a-slash-in-css-propert */
-    border-radius: 14.92537%/44.77612%;
+    border-radius: #{$border-radiusW}/#{$border-radiusH};
   }
   #containerRect {
     position: relative;
@@ -56,8 +86,8 @@
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
     color: #FFFFFF;
   }
 }
@@ -108,8 +138,8 @@
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
     color: #FFFFFF;
   }
   #profileImg {
