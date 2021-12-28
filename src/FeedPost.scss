@@ -95,37 +95,37 @@ $border-radiusH: (($border-radius / $authContH) * 100%);
 /* sets feed box to stay same as long as screen width is at least as great as it. */
 @media only screen and (min-width: 682px) {
   #authorContainer {
-    /* position: relative; */
     /* author container width (201px) */
-    width: 187px;
+    width: $authContW;
     /* author container height (67px) */
-    height: 67px;
+    height: $authContH;
     /* relative left position from container rectangle (460px) */
-    left: 460px;
+    left: $authContLeft - $contRectLeft;
     /* relative top positioning from container rectangle (523px)*/
-    top: 523px;
+    top: $authContTop - $contRectTop;
     /* (border-radius (30px)) */
-    border-radius: 30px;
+    border-radius: $border-radius;
   }
   #containerRect {
     position: relative;
     /* (container rectangle width (688px)  / macbook width (1512px)) */
-    width: 688px;
+    width: $contRectW;
     /* container rectangle height (747px) / macbook width (1512px)*/
-    height: 747px;
+    height: $contRectH;
     margin: 0 auto;
     background: rgba(255, 255, 255, 0.9);
     /* Justification: https://stackoverflow.com/questions/29966499/border-radius-in-percentage-and-pixels-px-or-em
     
         (border-radius (30px) / container rectangle width (688px)) / (border-radius (30px) / container rectangle height (747px)) */
-    border-radius: 30px;
+    border-radius: $border-radius;
   }
   #authorName {
-    position: relative;
+    position: absolute;
     /* margin-top (13px) */
-    top: 13px;
+    top: $authNameTop - $authContTop;
     /* margin-left (81px) */
-    left: 81px;
+    // left: 81px;
+    left: $authNameLeft - $authContLeft;
     font-family: "Inter";
     font-style: normal;
     font-weight: bold;
