@@ -1,30 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-#containerRect {
-    position: relative;
-      /* (container rectangle width (688px)  / macbook width (1512px)) */ 
-    width: 45.5vw;
-    /* container rectangle height (747px) / macbook width (1512px)*/
-    height: 49.4vw;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.9);
-
-    /* Justification: https://stackoverflow.com/questions/29966499/border-radius-in-percentage-and-pixels-px-or-em
-
-    (border-radius (30px) / container rectangle width (688px)) / (border-radius (30px) / container rectangle height (747px)) */
-    border-radius: 4.36% / 4.02%;
-}
-
 #postImage {
     /* parent is relative */
     position: absolute;
     width: 100%;
     left: 0px;
-    top: -6px;
+    top: 0px;
 }
+@media only screen and (max-width: 682px) {
 
-#authorContainer {
-    position: absolute;
+    #authorContainer {
     /* author container width (201px) / container rectangle width (682px) */
     width: 29.4%;
     /* author container height (67px) / container rectangle height (747px) */
@@ -33,11 +17,26 @@
     left: 67.4%;
     /* relative top positioning from container rectangle (523px) / container rectangle height (747px) */
     top: 70.01%;
-
-    background: linear-gradient(251.4deg, #56A190 31.02%, #2C5241 106.95%);
+    /* (border-radius (30px) / author container width (201px)) / (border-radius (30px) / author container height (67px)) */
     border-radius: 14.93%/44.78%;
-}
+    }
 
+#containerRect {
+    position: relative;
+      /* (container rectangle width (688px)  / macbook width (1512px)) */ 
+    /* width: 45.5vw; */
+    width: 100vw;
+    height: 108vw;
+    /* container rectangle height (747px) / macbook width (1512px)*/
+    /* height: 49.4vw; */
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.9);
+
+    /* Justification: https://stackoverflow.com/questions/29966499/border-radius-in-percentage-and-pixels-px-or-em
+
+    (border-radius (30px) / container rectangle width (688px)) / (border-radius (30px) / container rectangle height (747px)) */
+    border-radius: 4.36% / 4.02%;
+}
 #authorName {
     position: relative;
     /* margin-top (13px) / author container width (201px) */
@@ -51,9 +50,8 @@
     font-style: normal;
     font-weight: bold;
     /* font-size: clamp(10px, calc(10px + (18px - 10px) * ((100vw - 300px) / (1600px - 300px))), 18px); */
-    /* font size (18px) / author container width */
-    /* font-size: 18px; */
-    font-size: 1.19vw;
+    /* font size (18px) / big container width (682px) */
+    font-size: 2.6vw;
     /* line-height: 22px; */
     display: flex;
     align-items: center;
@@ -63,7 +61,70 @@
     
 }
 
+}
+/* sets feed box to stay same as long as screen width is at least as great as it. */
+@media only screen and (min-width: 682px) {
+    #authorContainer {
+       /* position: relative; */
+    /* author container width (201px) */
+    width: 201px;
+    /* author container height (67px) */
+    height: 67px;
+    /* relative left position from container rectangle (460px) */
+    left: 460px;
+    /* relative top positioning from container rectangle (523px)*/
+    top: 523px;
+    /* (border-radius (30px)) */
+    border-radius: 30px;
+
+    }
+
+    #containerRect {
+        position: relative;
+          /* (container rectangle width (688px)  / macbook width (1512px)) */ 
+        width: 688px;
+        /* container rectangle height (747px) / macbook width (1512px)*/
+        height: 747px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.9);
+    
+        /* Justification: https://stackoverflow.com/questions/29966499/border-radius-in-percentage-and-pixels-px-or-em
+    
+        (border-radius (30px) / container rectangle width (688px)) / (border-radius (30px) / container rectangle height (747px)) */
+        border-radius: 30px;
+    }
+
+    #authorName {
+        position: relative;
+        /* margin-top (13px) */
+        top: 6px;
+    
+        /* margin-left (83px) */
+        left: 83px;
+    
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: bold;
+        /* font-size: clamp(10px, calc(10px + (18px - 10px) * ((100vw - 300px) / (1600px - 300px))), 18px); */
+        /* font size (18px) / author container width */
+        /* font-size: 18px; */
+        font-size: 18px;
+        /* line-height: 22px; */
+        display: flex;
+        align-items: center;
+    
+        color: #FFFFFF;
+    
+        
+    }
+}
+
+#authorContainer {
+    position: absolute;
+    background: linear-gradient(251.4deg, #56A190 31.02%, #2C5241 106.95%);
+}
+/* 
 #authorProfile {
     margin-left: 15px;
     margin-top: 11px;
-}
+} */
