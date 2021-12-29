@@ -15,25 +15,29 @@ $authNameW: 120px;
 $authNameH: 41px;
 $authNameLeft: 931px;
 $authNameTop: 646px;
+$authNameFntSz: 18px;
 
-$authImgW: 46px; 
-$authImgH: 46px;
-$authImgLeft: 863px;
-$authImgTop: 643px;
+$profileImgW: 46px;
+$profileImgLeft: 858px;
+$profileImgTop: 644px;
 
 $border-radius: 30px;
 $border-radiusW: (($border-radius / $authContW) * 100%);
 $border-radiusH: (($border-radius / $authContH) * 100%);
 
-#postImage {
-  /* parent is relative */
-  position: absolute;
-  width: 100%;
-  left: 0px;
-  top: 0px;
-}
-
 @media only screen and (max-width: 682px) {
+  #containerRect {
+    /* (container rectangle width (688px)  / macbook width (1512px)) */
+    /* width: 45.5vw; */
+    width: 100vw;
+    /* container rectangle height (747px) / container rectangle width (688px) */
+    height: 108vw;
+    /* container rectangle height (747px) / macbook width (1512px)*/
+    /* height: 49.4vw; */
+    /* Justification: https://stackoverflow.com/questions/29966499/border-radius-in-percentage-and-pixels-px-or-em
+
+    (border-radius (30px) / container rectangle width (688px)) / (border-radius (30px) / container rectangle height (747px)) */
+  }
   #authorContainer {
     /* author container width (201px) / container rectangle width (682px) */
     /* width: calc(100% * var(--authorContW) / var(--contW)); */
@@ -42,10 +46,10 @@ $border-radiusH: (($border-radius / $authContH) * 100%);
     height: ($authContH / $contRectH) * 100%;
     /* relative left position from container rectangle (460px) / container rectangle width (682px) */
     // left: 67.4%;
-    left: (($authContLeft - $contRectLeft) / $contRectW) * 100%;
+    left: (($authContLeft - $contRectLeft) / $contRectW) * 100vw;
     /* relative top positioning from container rectangle (523px) / container rectangle height (747px) */
     // top: 70.01%;
-    top: (($authContTop - $contRectTop) / $contRectH) * 100%;
+    top: (($authContTop - $contRectTop) / $contRectW) * 100vw;
     /* (border-radius (30px) / author container width (201px)) / (border-radius (30px) / author container height (67px)) */
     // border-radius: 14.93%/44.78%;
     // border-radius: $border-radiusW / $border-radiusH;
@@ -53,47 +57,42 @@ $border-radiusH: (($border-radius / $authContH) * 100%);
     /* https://stackoverflow.com/questions/4988944/how-to-prevent-division-when-using-variables-separated-by-a-slash-in-css-propert */
     border-radius: #{$border-radiusW}/#{$border-radiusH};
   }
-  #containerRect {
-    position: relative;
-    /* (container rectangle width (688px)  / macbook width (1512px)) */
-    /* width: 45.5vw; */
-    width: 100vw;
-    /* container rectangle height (747px) / container rectangle width (688px) */
-    height: 108vw;
-    /* container rectangle height (747px) / macbook width (1512px)*/
-    /* height: 49.4vw; */
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.9);
-    /* Justification: https://stackoverflow.com/questions/29966499/border-radius-in-percentage-and-pixels-px-or-em
-
-    (border-radius (30px) / container rectangle width (688px)) / (border-radius (30px) / container rectangle height (747px)) */
+  #profileImg {
+    width: ($profileImgW / $authContW) * 100%;
+    /* relative positioning of image to closest relative parent--container rect */
+    left: (($profileImgLeft - $authContLeft) / $authContW) * 100%;
+    top: (($profileImgTop - $authContTop) / $authContH) * 100%;
   }
   #authorName {
-    position: relative;
-    /* margin-top (13px) / author container width (201px) */
+     /* margin-left (81px) / author container width (201px) */
+    // left: 40.3%;
+    left: (($authNameLeft - $authContLeft) / $authContW) * 100%;
+    /* margin-top (13px) / author container width */
     /* https://stackoverflow.com/questions/18331716/css-position-with-percent */
-    top: 6.47%;
-    /* margin-left (81px) / author container width (201px) */
-    left: 40.3%;
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: bold;
+    // top: 6.47%;
+    // top: (($authNameTop - $authContTop) / $authContH) * 100%;
     /* font-size: clamp(10px, calc(10px + (18px - 10px) * ((100vw - 300px) / (1600px - 300px))), 18px); */
     /* font size (18px) / big container width (682px) */
-    font-size: 2.64vw;
-    /* line-height: 22px; */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    color: #FFFFFF;
+    // font-size: 2.64vw;
+    font-size: ($authNameFntSz / $contRectW) * 100vw;
+    line-height: (67px / $contRectW) * 100vw;
+    width: (201px / $contRectW) * 100vw;
+    height: (67px / $contRectW) * 100vw;
   }
 }
 
+
+
 /* sets feed box to stay same as long as screen width is at least as great as it. */
 @media only screen and (min-width: 682px) {
+  #containerRect {
+    /* (container rectangle width (688px)  / macbook width (1512px)) */
+    width: $contRectW;
+    /* container rectangle height (747px) / macbook width (1512px)*/
+    height: $contRectH;
+    /* (border-radius (30px) */
+    border-radius: $border-radius;
+  }
   #authorContainer {
     /* author container width (201px) */
     width: $authContW;
@@ -106,55 +105,66 @@ $border-radiusH: (($border-radius / $authContH) * 100%);
     /* (border-radius (30px)) */
     border-radius: $border-radius;
   }
-  #containerRect {
-    position: relative;
-    /* (container rectangle width (688px)  / macbook width (1512px)) */
-    width: $contRectW;
-    /* container rectangle height (747px) / macbook width (1512px)*/
-    height: $contRectH;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.9);
-    /* Justification: https://stackoverflow.com/questions/29966499/border-radius-in-percentage-and-pixels-px-or-em
-    
-        (border-radius (30px) / container rectangle width (688px)) / (border-radius (30px) / container rectangle height (747px)) */
-    border-radius: $border-radius;
+  #profileImg {
+    width: $profileImgW;
+    /* relative positioning of image to direct parent */
+    left: $profileImgLeft - $authContLeft;
+    top: $profileImgTop - $authContTop;
   }
   #authorName {
-    position: absolute;
     /* margin-top (13px) */
-    top: $authNameTop - $authContTop;
-    /* margin-left (81px) */
-    // left: 81px;
+    // top: $authNameTop - $authContTop;
+    // /* margin-left (81px) */
+    // // left: 81px;
     left: $authNameLeft - $authContLeft;
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: bold;
     /* font-size: clamp(10px, calc(10px + (18px - 10px) * ((100vw - 300px) / (1600px - 300px))), 18px); */
     /* font size (18px) / author container width */
     /* font-size: 18px; */
-    font-size: 18px;
-    /* line-height: 22px; */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    color: #FFFFFF;
-  }
-  #profileImg {
-    position: absolute;
-    width: 46px;
-    /* left: 858px;
-        top: 644px; */
-    left: 13px;
-    top: 10px;
+    font-size: $authNameFntSz;
+
+    line-height:67px;
+    width:201px;
+    height:67px;
+    font-size:18px;
+
   }
 }
 
+/* rounded rectangle that holds a post */
+#containerRect {
+  position: relative;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.9);
+}
+/* artwork post */
+#postImage {
+  /* parent is relative */
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+}
+/* rounded container that contains author img and name */
 #authorContainer {
   position: absolute;
   background: linear-gradient(251.4deg, #56A190 31.02%, #2C5241 106.95%);
+}
+#profileImg {
+  position: absolute;
+}
+/* name of author */
+#authorName {
+  position: absolute;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  color: #FFFFFF;
+  // line-height: 22px;
+   // vertically centers text
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 /* 

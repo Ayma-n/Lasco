@@ -1,5 +1,6 @@
 import React from 'react';
-import astronight from './sample/posts/astronight.png'
+import astronight from './sample/posts/astronight.png';
+import profileImg from './sample/posts/fakeProfileCircle.png';
 import './FeedPost.css';
 
 function FeedPost() {
@@ -12,8 +13,9 @@ function FeedPost() {
     <>
         <div id="container">
             <div id="containerRect">
-                <img id="postImage" src={postSrc}></img>
+                <img id="postImage" src={postSrc} />
                 <div id="authorContainer">
+                    <img id="profileImg" src={profileImg} />
                     <p id="authorName">Johnny R.</p>
                 </div>
             </div>

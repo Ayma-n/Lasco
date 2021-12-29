@@ -1,30 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
-#postImage {
-  /* parent is relative */
-  position: absolute;
-  width: 100%;
-  left: 0px;
-  top: 0px;
-}
-
+@use "sass:list";
 @media only screen and (max-width: 682px) {
-  #authorContainer {
-    /* author container width (201px) / container rectangle width (682px) */
-    /* width: calc(100% * var(--authorContW) / var(--contW)); */
-    width: 29.47214%;
-    /* author container height (67px) / container rectangle height (747px) */
-    height: 8.96921%;
-    /* relative left position from container rectangle (460px) / container rectangle width (682px) */
-    left: 68.47507%;
-    /* relative top positioning from container rectangle (523px) / container rectangle height (747px) */
-    top: 70.01339%;
-    /* (border-radius (30px) / author container width (201px)) / (border-radius (30px) / author container height (67px)) */
-    /* https://stackoverflow.com/questions/4988944/how-to-prevent-division-when-using-variables-separated-by-a-slash-in-css-propert */
-    border-radius: 14.92537%/44.77612%;
-  }
   #containerRect {
-    position: relative;
     /* (container rectangle width (688px)  / macbook width (1512px)) */
     /* width: 45.5vw; */
     width: 100vw;
@@ -32,38 +9,54 @@
     height: 108vw;
     /* container rectangle height (747px) / macbook width (1512px)*/
     /* height: 49.4vw; */
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.9);
     /* Justification: https://stackoverflow.com/questions/29966499/border-radius-in-percentage-and-pixels-px-or-em
 
     (border-radius (30px) / container rectangle width (688px)) / (border-radius (30px) / container rectangle height (747px)) */
   }
+  #authorContainer {
+    /* author container width (201px) / container rectangle width (682px) */
+    /* width: calc(100% * var(--authorContW) / var(--contW)); */
+    width: 29.47214%;
+    /* author container height (67px) / container rectangle height (747px) */
+    height: 8.96921%;
+    /* relative left position from container rectangle (460px) / container rectangle width (682px) */
+    left: 68.47507vw;
+    /* relative top positioning from container rectangle (523px) / container rectangle height (747px) */
+    top: 76.68622vw;
+    /* (border-radius (30px) / author container width (201px)) / (border-radius (30px) / author container height (67px)) */
+    /* https://stackoverflow.com/questions/4988944/how-to-prevent-division-when-using-variables-separated-by-a-slash-in-css-propert */
+    border-radius: 14.92537%/44.77612%;
+  }
+  #profileImg {
+    width: 22.88557%;
+    /* relative positioning of image to closest relative parent--container rect */
+    left: 3.9801%;
+    top: 16.41791%;
+  }
   #authorName {
-    position: relative;
-    /* margin-top (13px) / author container width (201px) */
-    /* https://stackoverflow.com/questions/18331716/css-position-with-percent */
-    top: 6.47%;
     /* margin-left (81px) / author container width (201px) */
-    left: 40.3%;
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: bold;
+    left: 40.29851%;
+    /* margin-top (13px) / author container width */
+    /* https://stackoverflow.com/questions/18331716/css-position-with-percent */
     /* font-size: clamp(10px, calc(10px + (18px - 10px) * ((100vw - 300px) / (1600px - 300px))), 18px); */
     /* font size (18px) / big container width (682px) */
-    font-size: 2.64vw;
-    /* line-height: 22px; */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    color: #FFFFFF;
+    font-size: 2.6393vw;
+    line-height: 9.82405vw;
+    width: 29.47214vw;
+    height: 9.82405vw;
   }
 }
 
 /* sets feed box to stay same as long as screen width is at least as great as it. */
 @media only screen and (min-width: 682px) {
+  #containerRect {
+    /* (container rectangle width (688px)  / macbook width (1512px)) */
+    width: 682px;
+    /* container rectangle height (747px) / macbook width (1512px)*/
+    height: 747px;
+    /* (border-radius (30px) */
+    border-radius: 30px;
+  }
   #authorContainer {
     /* author container width (201px) */
     width: 201px;
@@ -76,54 +69,67 @@
     /* (border-radius (30px)) */
     border-radius: 30px;
   }
-  #containerRect {
-    position: relative;
-    /* (container rectangle width (688px)  / macbook width (1512px)) */
-    width: 682px;
-    /* container rectangle height (747px) / macbook width (1512px)*/
-    height: 747px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.9);
-    /* Justification: https://stackoverflow.com/questions/29966499/border-radius-in-percentage-and-pixels-px-or-em
-    
-        (border-radius (30px) / container rectangle width (688px)) / (border-radius (30px) / container rectangle height (747px)) */
-    border-radius: 30px;
+  #profileImg {
+    width: 46px;
+    /* relative positioning of image to direct parent */
+    left: 8px;
+    top: 11px;
   }
   #authorName {
-    position: absolute;
     /* margin-top (13px) */
-    top: 13px;
-    /* margin-left (81px) */
     left: 81px;
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: bold;
     /* font-size: clamp(10px, calc(10px + (18px - 10px) * ((100vw - 300px) / (1600px - 300px))), 18px); */
     /* font size (18px) / author container width */
     /* font-size: 18px; */
     font-size: 18px;
-    /* line-height: 22px; */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    color: #FFFFFF;
-  }
-  #profileImg {
-    position: absolute;
-    width: 46px;
-    /* left: 858px;
-        top: 644px; */
-    left: 13px;
-    top: 10px;
+    line-height: 67px;
+    width: 201px;
+    height: 67px;
+    font-size: 18px;
   }
 }
 
+/* rounded rectangle that holds a post */
+#containerRect {
+  position: relative;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* artwork post */
+#postImage {
+  /* parent is relative */
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+}
+
+/* rounded container that contains author img and name */
 #authorContainer {
   position: absolute;
   background: linear-gradient(251.4deg, #56A190 31.02%, #2C5241 106.95%);
+}
+
+#profileImg {
+  position: absolute;
+}
+
+/* name of author */
+#authorName {
+  position: absolute;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #FFFFFF;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 /* 
