@@ -18,6 +18,7 @@ function FeedPost() {
                     <img id="profileImg" src={profileImg} />
                     <p id="authorName">Johnny R.</p>
                 </div>
+                <h1 id="artTitle">Astronight</h1>
             </div>
         </div>
     </>

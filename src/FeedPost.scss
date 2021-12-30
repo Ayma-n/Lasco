@@ -25,6 +25,13 @@ $border-radius: 30px;
 $border-radiusW: (($border-radius / $authContW) * 100%);
 $border-radiusH: (($border-radius / $authContH) * 100%);
 
+$titleW: 251px;
+$titleH: 41px;
+$titleLeft: 415px;
+$titleTop: 678px;
+$titleFntSz: 36px;
+$titleLnH: 43px;
+
 @media only screen and (max-width: 682px) {
   #containerRect {
     /* (container rectangle width (688px)  / macbook width (1512px)) */
@@ -64,6 +71,13 @@ $border-radiusH: (($border-radius / $authContH) * 100%);
     line-height: (67px / $contRectW) * 100vw;
     width: (201px / $contRectW) * 100vw;
     height: (67px / $contRectW) * 100vw;
+  }
+  #artTitle {
+    /* relative left pos */
+  left: 100% * ($titleLeft - $contRectLeft) / $contRectW ;
+  /* relative top pos */
+  top: 100% * ($titleTop - $contRectTop) / $contRectH;
+  font-size: 100vw * $titleFntSz / $contRectW;
   }
 }
 
@@ -105,7 +119,14 @@ $border-radiusH: (($border-radius / $authContH) * 100%);
     width:201px;
     height:67px;
     font-size:18px;
-
+  }
+  #artTitle {
+    /* relative left pos */
+  left: $titleLeft - $contRectLeft;
+  /* relative top pos */
+  top: $titleTop - $contRectTop;
+  font-size: $titleFntSz;
+  line-height: $titleLnH;
   }
 }
 
@@ -141,6 +162,14 @@ $border-radiusH: (($border-radius / $authContH) * 100%);
   align-items: center;
   color: #FFFFFF;
    // vertically centers text
-    margin-top: auto;
-    margin-bottom: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* title of artwork (placed below art) */
+#artTitle {
+  /* positioning is relative to container Rect */
+  position: absolute;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }

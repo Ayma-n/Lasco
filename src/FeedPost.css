@@ -39,6 +39,13 @@
     width: 29.47214vw;
     height: 9.82405vw;
   }
+  #artTitle {
+    /* relative left pos */
+    left: 4.69208%;
+    /* relative top pos */
+    top: 76.03748%;
+    font-size: 5.27859vw;
+  }
 }
 
 /* sets feed box to stay same as long as screen width is at least as great as it. */
@@ -77,6 +84,14 @@
     width: 201px;
     height: 67px;
     font-size: 18px;
+  }
+  #artTitle {
+    /* relative left pos */
+    left: 32px;
+    /* relative top pos */
+    top: 568px;
+    font-size: 36px;
+    line-height: 43px;
   }
 }
 
@@ -121,5 +136,15 @@
   color: #FFFFFF;
   margin-top: auto;
   margin-bottom: auto;
+}
+
+/* title of artwork (placed below art) */
+#artTitle {
+  /* positioning is relative to container Rect */
+  position: absolute;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
 }
 /*# sourceMappingURL=FeedPost.css.map */
