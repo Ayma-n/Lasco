@@ -40,7 +40,7 @@ $titleLnH: 43px;
     height: 108vw;
     /* Why Border-radius is weird: https://stackoverflow.com/questions/29966499/border-radius-in-percentage-and-pixels-px-or-em
     (border-radius (30px) / container rectangle width (688px)) / (border-radius (30px) / container rectangle height (747px)) */
-    /* calc is parsed into a string so that div is used as slash instead of div:  */
+    /* calc is parsed into a string so that "/" is used as slash instead of div:  */
     border-radius: #{100% * $border-radius/$contRectW}/#{100% * $border-radius/$contRectH};
   }
   #authorContainer {
