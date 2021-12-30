@@ -32,7 +32,7 @@ $titleTop: 678px;
 $titleFntSz: 36px;
 $titleLnH: 43px;
 
-@media only screen and (max-width: 682px) {
+@media only screen and (max-width: $contRectW) {
   #containerRect {
     /* (container rectangle width (688px)  / macbook width (1512px)) */
     width: 100vw;
