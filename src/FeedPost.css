@@ -6,8 +6,9 @@
     width: 100vw;
     /* container rectangle height (747px) / container rectangle width (688px) */
     height: 108vw;
-    /* Justification: https://stackoverflow.com/questions/29966499/border-radius-in-percentage-and-pixels-px-or-em
+    /* Why Border-radius is weird: https://stackoverflow.com/questions/29966499/border-radius-in-percentage-and-pixels-px-or-em
     (border-radius (30px) / container rectangle width (688px)) / (border-radius (30px) / container rectangle height (747px)) */
+    /* calc is parsed into a string so that div is used as slash instead of div:  */
     border-radius: 4.39883%/4.01606%;
   }
   #authorContainer {
