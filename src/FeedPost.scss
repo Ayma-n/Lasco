@@ -64,7 +64,7 @@ $titleLnH: 43px;
     top: (($profileImgTop - $authContTop) / $authContH) * 100%;
   }
   #authorName {
-     /* margin-left (81px) / author container width (201px) */
+    /* margin-left (81px) / author container width (201px) */
     left: (($authNameLeft - $authContLeft) / $authContW) * 100%;
     /* margin-top (13px) / author container width */
     /* https://stackoverflow.com/questions/18331716/css-position-with-percent */
@@ -75,14 +75,12 @@ $titleLnH: 43px;
   }
   #artTitle {
     /* relative left pos */
-  left: 100% * ($titleLeft - $contRectLeft) / $contRectW ;
-  /* relative top pos */
-  top: 100% * ($titleTop - $contRectTop) / $contRectH;
-  font-size: 100vw * $titleFntSz / $contRectW;
+    left: 100% * ($titleLeft - $contRectLeft) / $contRectW;
+    /* relative top pos */
+    top: 100% * ($titleTop - $contRectTop) / $contRectH;
+    font-size: 100vw * $titleFntSz / $contRectW;
   }
 }
-
-
 
 /* sets feed box to stay same as long as screen width is at least as great as it. */
 @media only screen and (min-width: 682px) {
@@ -116,18 +114,18 @@ $titleLnH: 43px;
     /* absolute positioning for author name */
     left: $authNameLeft - $authContLeft;
     font-size: $authNameFntSz;
-    line-height:67px;
-    width:201px;
-    height:67px;
-    font-size:18px;
+    line-height: 67px;
+    width: 201px;
+    height: 67px;
+    font-size: 18px;
   }
   #artTitle {
     /* relative left pos */
-  left: $titleLeft - $contRectLeft;
-  /* relative top pos */
-  top: $titleTop - $contRectTop;
-  font-size: $titleFntSz;
-  line-height: $titleLnH;
+    left: $titleLeft - $contRectLeft;
+    /* relative top pos */
+    top: $titleTop - $contRectTop;
+    font-size: $titleFntSz;
+    line-height: $titleLnH;
   }
 }
 
@@ -148,7 +146,7 @@ $titleLnH: 43px;
 /* rounded container that contains author img and name */
 #authorContainer {
   position: absolute;
-  background: linear-gradient(251.4deg, #56A190 31.02%, #2C5241 106.95%);
+  background: linear-gradient(251.4deg, #56a190 31.02%, #2c5241 106.95%);
 }
 #profileImg {
   position: absolute;
@@ -161,8 +159,8 @@ $titleLnH: 43px;
   font-weight: bold;
   display: flex;
   align-items: center;
-  color: #FFFFFF;
-   // vertically centers text
+  color: #ffffff;
+  // vertically centers text
   margin-top: auto;
   margin-bottom: auto;
 }

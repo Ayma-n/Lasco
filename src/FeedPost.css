@@ -115,7 +115,7 @@
 /* rounded container that contains author img and name */
 #authorContainer {
   position: absolute;
-  background: linear-gradient(251.4deg, #56A190 31.02%, #2C5241 106.95%);
+  background: linear-gradient(251.4deg, #56a190 31.02%, #2c5241 106.95%);
 }
 
 #profileImg {
@@ -134,7 +134,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-top: auto;
   margin-bottom: auto;
 }
