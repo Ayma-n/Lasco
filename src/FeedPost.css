@@ -3,19 +3,15 @@
 @media only screen and (max-width: 682px) {
   #containerRect {
     /* (container rectangle width (688px)  / macbook width (1512px)) */
-    /* width: 45.5vw; */
     width: 100vw;
     /* container rectangle height (747px) / container rectangle width (688px) */
     height: 108vw;
-    /* container rectangle height (747px) / macbook width (1512px)*/
-    /* height: 49.4vw; */
     /* Justification: https://stackoverflow.com/questions/29966499/border-radius-in-percentage-and-pixels-px-or-em
-
     (border-radius (30px) / container rectangle width (688px)) / (border-radius (30px) / container rectangle height (747px)) */
+    border-radius: 4.39883%/4.01606%;
   }
   #authorContainer {
     /* author container width (201px) / container rectangle width (682px) */
-    /* width: calc(100% * var(--authorContW) / var(--contW)); */
     width: 29.47214%;
     /* author container height (67px) / container rectangle height (747px) */
     height: 8.96921%;
@@ -24,7 +20,7 @@
     /* relative top positioning from container rectangle (523px) / container rectangle height (747px) */
     top: 76.68622vw;
     /* (border-radius (30px) / author container width (201px)) / (border-radius (30px) / author container height (67px)) */
-    /* https://stackoverflow.com/questions/4988944/how-to-prevent-division-when-using-variables-separated-by-a-slash-in-css-propert */
+    /* Why border-radius is weird: https://stackoverflow.com/questions/4988944/how-to-prevent-division-when-using-variables-separated-by-a-slash-in-css-propert */
     border-radius: 14.92537%/44.77612%;
   }
   #profileImg {
@@ -38,8 +34,6 @@
     left: 40.29851%;
     /* margin-top (13px) / author container width */
     /* https://stackoverflow.com/questions/18331716/css-position-with-percent */
-    /* font-size: clamp(10px, calc(10px + (18px - 10px) * ((100vw - 300px) / (1600px - 300px))), 18px); */
-    /* font size (18px) / big container width (682px) */
     font-size: 2.6393vw;
     line-height: 9.82405vw;
     width: 29.47214vw;
@@ -76,11 +70,8 @@
     top: 11px;
   }
   #authorName {
-    /* margin-top (13px) */
+    /* absolute positioning for author name */
     left: 81px;
-    /* font-size: clamp(10px, calc(10px + (18px - 10px) * ((100vw - 300px) / (1600px - 300px))), 18px); */
-    /* font size (18px) / author container width */
-    /* font-size: 18px; */
     font-size: 18px;
     line-height: 67px;
     width: 201px;
@@ -131,10 +122,4 @@
   margin-top: auto;
   margin-bottom: auto;
 }
-
-/* 
-#authorProfile {
-    margin-left: 15px;
-    margin-top: 11px;
-} */
 /*# sourceMappingURL=FeedPost.css.map */
