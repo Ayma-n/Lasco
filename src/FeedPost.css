@@ -47,6 +47,17 @@
     top: 76.03748%;
     font-size: 5.27859vw;
   }
+  .commentDiv {
+    left: 3.07918%;
+    top: 84.33735%;
+  }
+  .commentImg {
+    width: 7.33138vw;
+    margin-right: 2.05279vw;
+  }
+  .commentText {
+    font-size: 2.6393vw;
+  }
 }
 
 /* sets feed box to stay same as long as screen width is at least as great as it. */
@@ -93,6 +104,14 @@
     top: 568px;
     font-size: 36px;
     line-height: 43px;
+  }
+  .commentDiv {
+    left: 21px;
+    top: 630px;
+  }
+  .commentImg {
+    width: 50px;
+    margin-right: 14px;
   }
 }
 
@@ -147,5 +166,17 @@
           margin-block-start: 0;
   -webkit-margin-after: 0;
           margin-block-end: 0;
+  font-weight: normal;
+}
+
+.commentDiv {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 38px;
 }
 /*# sourceMappingURL=FeedPost.css.map */

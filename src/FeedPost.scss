@@ -32,6 +32,14 @@ $titleTop: 678px;
 $titleFntSz: 36px;
 $titleLnH: 43px;
 
+$commentLeft: 404px;
+$commentTop: 740px;
+$commentH: 38px;
+
+$commentImgW: 50px;
+$commentSpac: 14px;
+$commentFntSz: 18px;
+
 @media only screen and (max-width: $contRectW) {
   #containerRect {
     /* (container rectangle width (688px)  / macbook width (1512px)) */
@@ -80,6 +88,17 @@ $titleLnH: 43px;
     top: 100% * ($titleTop - $contRectTop) / $contRectH;
     font-size: 100vw * $titleFntSz / $contRectW;
   }
+  .commentDiv {
+    left: 100% * ($commentLeft - $contRectLeft) / $contRectW;
+    top: 100% * ($commentTop - $contRectTop) / $contRectH;
+  }
+  .commentImg {
+    width: 100vw * $commentImgW / $contRectW;
+    margin-right: 100vw * $commentSpac / $contRectW;
+  }
+  .commentText {
+    font-size: 100vw * $commentFntSz / $contRectW;
+  }
 }
 
 /* sets feed box to stay same as long as screen width is at least as great as it. */
@@ -127,6 +146,14 @@ $titleLnH: 43px;
     font-size: $titleFntSz;
     line-height: $titleLnH;
   }
+  .commentDiv {
+    left: $commentLeft - $contRectLeft;
+    top: $commentTop - $contRectTop;
+  }
+  .commentImg {
+    width: $commentImgW;
+    margin-right: $commentSpac;
+  }
 }
 
 /* rounded rectangle that holds a post */
@@ -171,4 +198,18 @@ $titleLnH: 43px;
   position: absolute;
   margin-block-start: 0;
   margin-block-end: 0;
+  font-weight: normal;
+}
+// TODO: add constants
+.commentDiv {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: $commentH;
+}
+
+.commentText {
+}
+
+.commentImg {
 }
