@@ -17,46 +17,6 @@
     font-size: 18px;
 }
 
-#followBtn, #followingBtn {
-    height: 38px;
-    border-radius: 10px;
-    border: none;
-    font-weight: bold;
-    font-size: 18px;
-    display: flex;
-    margin: 0 auto;
-    align-items: center;
-}
-
-#followBtn {
-    width: 118px;
-    padding-left: 15px;
-    /* BtnGradient */
-    background: linear-gradient(226.58deg, rgba(173, 0, 255, 0.459) -25.99%, rgba(219, 0, 255, 0.85) 46.08%, rgba(160, 0, 255, 0.85) 75.24%, rgba(51, 0, 255, 0.85) 129.49%);
-    color: white;
-}
-
-#followingBtn {
-width: 132px;
-padding-left: 11px;
-// height: 38px;
-/* NavGray */
-background: #EDEDED;
-color: #7A7979;
-// border-radius: 10px;
-// border: none;
-// padding-left: 11px;
-}
-#check, #plus {
-
-}
-#check {
-    margin-right: 10px;
-}
-#plus {
-    margin-right: 15px;
-}
-
 #dashboard * {
     font-family: "Inter";
 }
