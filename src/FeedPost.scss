@@ -165,10 +165,8 @@ $commentFntSz: 18px;
 /* artwork post */
 #postImage {
   /* parent is relative */
-  position: absolute;
+  position: relative;
   width: 100%;
-  left: 0px;
-  top: 0px;
 }
 /* rounded container that contains author img and name */
 #authorContainer {
