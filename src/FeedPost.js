@@ -18,9 +18,19 @@ function FeedPost() {
             <p id="authorName">Johnny R.</p>
           </div>
           <h1 id="artTitle">Astronight</h1>
-          <div className="commentDiv">
-            <img src={profileImg} className="commentImg" />
-            <p className="commentText">Awesome artwork! Keep it up!</p>
+          <div className="commentSec">
+            <div className="commentDiv">
+              <img src={profileImg} className="commentImg" />
+              <p className="commentText">Awesome artwork! Keep it up!</p>
+            </div>
+            <div className="commentDiv">
+              <img src={profileImg} className="commentImg" />
+              <p className="commentText">Awesome artwork! Keep it up!</p>
+            </div>
+            <div className="commentDiv">
+              <img src={profileImg} className="commentImg" />
+              <p className="commentText">Awesome artwork! Keep it up!</p>
+            </div>
           </div>
         </div>
       </div>

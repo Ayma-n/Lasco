@@ -42,21 +42,15 @@
   }
   #artTitle {
     /* relative left pos */
-    left: 4.69208%;
-    /* relative top pos */
-    top: 76.03748%;
+    left: 4.69208vw;
     font-size: 5.27859vw;
   }
-  .commentDiv {
-    left: 3.07918%;
-    top: 84.33735%;
-  }
   .commentImg {
-    width: 7.33138vw;
-    margin-right: 2.05279vw;
+    width: 5.8651vw;
+    margin-right: 1.17302vw;
   }
   .commentText {
-    font-size: 2.6393vw;
+    font-size: 2.19941vw;
   }
 }
 
@@ -100,18 +94,18 @@
   #artTitle {
     /* relative left pos */
     left: 32px;
-    /* relative top pos */
-    top: 568px;
-    font-size: 36px;
-    line-height: 43px;
   }
-  .commentDiv {
+  .commentSec {
+    height: 110px;
     left: 21px;
-    top: 630px;
+    top: 21px;
   }
   .commentImg {
-    width: 50px;
-    margin-right: 14px;
+    width: 40px;
+    margin-right: 8px;
+  }
+  .commentText {
+    font-size: 15px;
   }
 }
 
@@ -159,7 +153,8 @@
 /* title of artwork (placed below art) */
 #artTitle {
   /* positioning is relative to container Rect */
-  position: absolute;
+  position: relative;
+  text-align: left;
   -webkit-margin-before: 0;
           margin-block-start: 0;
   -webkit-margin-after: 0;
@@ -167,14 +162,20 @@
   font-weight: normal;
 }
 
+.commentSec {
+  position: relative;
+  overflow: scroll;
+  width: 100%;
+}
+
 .commentDiv {
-  position: absolute;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 38px;
+  margin-bottom: 8px;
 }
 /*# sourceMappingURL=FeedPost.css.map */

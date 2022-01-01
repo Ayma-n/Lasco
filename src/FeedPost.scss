@@ -36,9 +36,10 @@ $commentLeft: 404px;
 $commentTop: 740px;
 $commentH: 38px;
 
-$commentImgW: 50px;
-$commentSpac: 14px;
-$commentFntSz: 18px;
+$commentImgW: 40px;
+$commentSpac: 8px;
+$commentFntSz: 15px;
+$commentSecH: 110px;
 
 @media only screen and (max-width: $contRectW) {
   #containerRect {
@@ -83,14 +84,15 @@ $commentFntSz: 18px;
   }
   #artTitle {
     /* relative left pos */
-    left: 100% * ($titleLeft - $contRectLeft) / $contRectW;
-    /* relative top pos */
-    top: 100% * ($titleTop - $contRectTop) / $contRectH;
+    left: 100vw * ($titleLeft - $contRectLeft) / $contRectW;
     font-size: 100vw * $titleFntSz / $contRectW;
   }
+  .commentSec {
+    height: ;
+  }
   .commentDiv {
-    left: 100% * ($commentLeft - $contRectLeft) / $contRectW;
-    top: 100% * ($commentTop - $contRectTop) / $contRectH;
+    // left: 100% * ($commentLeft - $contRectLeft) / $contRectW;
+    // top: 100% * ($commentTop - $contRectTop) / $contRectH;
   }
   .commentImg {
     width: 100vw * $commentImgW / $contRectW;
@@ -140,19 +142,28 @@ $commentFntSz: 18px;
   }
   #artTitle {
     /* relative left pos */
+    // left: $titleLeft - $contRectLeft;
+    // /* relative top pos */
+    // top: $titleTop - $contRectTop;
+    // font-size: $titleFntSz;
+    // line-height: $titleLnH;
     left: $titleLeft - $contRectLeft;
-    /* relative top pos */
-    top: $titleTop - $contRectTop;
-    font-size: $titleFntSz;
-    line-height: $titleLnH;
+  }
+  .commentSec {
+    height: $commentSecH;
+    left: $commentLeft - $contRectLeft;
+    top: 21px;
   }
   .commentDiv {
-    left: $commentLeft - $contRectLeft;
-    top: $commentTop - $contRectTop;
+    // left: $commentLeft - $contRectLeft;
+    // top: $commentTop - $contRectTop;
   }
   .commentImg {
     width: $commentImgW;
     margin-right: $commentSpac;
+  }
+  .commentText {
+    font-size: $commentFntSz;
   }
 }
 
@@ -193,20 +204,29 @@ $commentFntSz: 18px;
 /* title of artwork (placed below art) */
 #artTitle {
   /* positioning is relative to container Rect */
-  position: absolute;
+  position: relative;
+  text-align: left;
   margin-block-start: 0;
   margin-block-end: 0;
   font-weight: normal;
 }
+.commentSec {
+  position: relative;
+  overflow: scroll;
+  width: 100%;
+  // padding: 0;
+}
 // TODO: add constants
 .commentDiv {
-  position: absolute;
+  position: relative;
   display: flex;
   align-items: center;
-  height: $commentH;
+  margin-bottom: $commentSpac;
+  // height: $commentH;
 }
 
 .commentText {
+  
 }
 
 .commentImg {
