@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import FeedPost from './FeedPost.js';
+import Profile from './Profile.js';
 
 function App() {
   return (<>
@@ -8,7 +9,9 @@ function App() {
       <body>
         
       </body>
-      <FeedPost></FeedPost>
+      {/*comments out feedpost for testing purposes */}
+      {/* <FeedPost></FeedPost> */}
+      <Profile></Profile>
     </div>
     
     </>);
