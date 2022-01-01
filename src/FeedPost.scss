@@ -40,6 +40,7 @@ $commentImgW: 40px;
 $commentSpac: 8px;
 $commentFntSz: 15px;
 $commentSecH: 110px;
+$commentSecTop: 21px;
 
 @media only screen and (max-width: $contRectW) {
   #containerRect {
@@ -84,15 +85,19 @@ $commentSecH: 110px;
   }
   #artTitle {
     /* relative left pos */
-    left: 100vw * ($titleLeft - $contRectLeft) / $contRectW;
+    left: 100vw * 32px / $contRectW;
+    top: 100vw * 11px / $contRectH;
     font-size: 100vw * $titleFntSz / $contRectW;
   }
   .commentSec {
-    height: ;
+    height: 100vw * $commentSecH / $contRectH;
+    top: 100% * $commentSecTop / $contRectH;
+    left: 100% * ($commentLeft - $contRectLeft) / $contRectW;
   }
   .commentDiv {
     // left: 100% * ($commentLeft - $contRectLeft) / $contRectW;
     // top: 100% * ($commentTop - $contRectTop) / $contRectH;
+    margin-bottom: 100vw * $commentSpac / $contRectW;
   }
   .commentImg {
     width: 100vw * $commentImgW / $contRectW;
@@ -142,21 +147,21 @@ $commentSecH: 110px;
   }
   #artTitle {
     /* relative left pos */
-    // left: $titleLeft - $contRectLeft;
-    // /* relative top pos */
-    // top: $titleTop - $contRectTop;
-    // font-size: $titleFntSz;
-    // line-height: $titleLnH;
-    left: $titleLeft - $contRectLeft;
+    left: 32px;
+    /* relative top pos */
+    top: 11px;
+    font-size: $titleFntSz;
+    line-height: $titleLnH;
   }
   .commentSec {
     height: $commentSecH;
     left: $commentLeft - $contRectLeft;
-    top: 21px;
+    top: $commentSecTop;
   }
   .commentDiv {
     // left: $commentLeft - $contRectLeft;
     // top: $commentTop - $contRectTop;
+    margin-bottom: $commentSpac;
   }
   .commentImg {
     width: $commentImgW;
@@ -221,7 +226,6 @@ $commentSecH: 110px;
   position: relative;
   display: flex;
   align-items: center;
-  margin-bottom: $commentSpac;
   // height: $commentH;
 }
 
