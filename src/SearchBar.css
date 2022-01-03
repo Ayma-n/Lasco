@@ -19,10 +19,14 @@
 }
 
 @media only screen and (max-width: 650px) {
-    html {
-        scroll-behavior: smooth;
-        overflow: scroll;
+    /* https://css-tricks.com/the-trick-to-viewport-units-on-mobile/ */
+    /* fixes edge case where vh doesnt take into account browser ui in mobile */
+    .App {
+        /* Fallback for browsers that do not support Custom Properties */
+        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
     }
+    
     #searchBar {
         /* resizes search bar for mobile */
         position: absolute;
