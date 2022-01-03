@@ -1,0 +1,71 @@
+#searchBar {
+    position: relative;
+    top: 331px;
+    height: 73px;
+    width: 621px;
+    border-radius: 20px;
+    margin: 0 auto;
+    padding-left: 25px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    background: #FFFFFF;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+
+}
+
+#searchText {
+     /* removes default styling for input */
+     outline: none;
+     box-shadow: none;
+     border:none;
+     color: black;
+     /* color: rgb(195,55,245); */
+     z-index: 3;
+     background: transparent;
+     caret-color: rgb(195,55,245);	
+     font-family: "Inter";
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 36px;
+}
+
+#magGlass {
+    margin-right: 14px;
+    width: 34px;
+    height: 34px;
+}
+
+/* changes placeholder text styling to gray */
+#searchText::placeholder {
+    color: gray;
+    opacity: 0.8;
+  }
+  
+  /* does not display x button in search field */
+  #searchText::-webkit-search-cancel-button {
+    display: none;
+  }
+
+#placeholder {
+    font-family: "Inter";
+    font-size: 24px;
+    line-height: 36px;
+    color: rgba(137, 137, 137, 0.9);
+    position: absolute;
+    left: 67px;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+.placeholderGradient {
+    background: linear-gradient(217.19deg, rgba(173, 0, 255, 0.378) 52.86%, rgba(219, 0, 255, 0.7) 68.49%, rgba(160, 0, 255, 0.7) 74.81%);
+    background-clip: text;
+    color: transparent;
+    fill-opacity: 0;
+
+}

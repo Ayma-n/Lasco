@@ -11,7 +11,7 @@ function Profile() {
     const [isFollowing, setIsFollowing] = useState(true);
     
     return (
-        <div id="container">
+        <>
         <div id="dashboard">
             <img className="profileImg" src={profileImg} />
            <h2 className="profileName">Johnny Rose</h2>
@@ -28,7 +28,7 @@ function Profile() {
             <img className="galleryImg" src={img2} />
             <img className="galleryImg" src={img3} />
         </div>
-        </div>
+        </>
       );
 }
 
