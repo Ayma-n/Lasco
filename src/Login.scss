@@ -25,15 +25,7 @@ $baseRectH: 982px;
     left: 400px;
 }
 
-#inputSec {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: red;
-}
-
 form {
-    // margin: 0 auto;
     display: flex;
     align-content: center;
     flex-direction: column;
@@ -44,8 +36,6 @@ form {
     font-style: normal;
     font-weight: bold;
     font-size: 54px;
-    // line-height: 65px;
-    // display: flex;
     margin-bottom: 61px;
     align-items: center;
     text-align: center;
