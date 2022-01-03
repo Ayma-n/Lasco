@@ -6,6 +6,9 @@ function SearchBar() {
 
     function handleFocus() {
         document.getElementById("placeholder").style.display = 'none';
+        document.getElementById("searchBar").style.top = "83px";
+        document.getElementById("searchBar").style.width = "1075px";
+
     }
 
     function handleFocusOut() {
@@ -27,12 +30,14 @@ function SearchBar() {
         }
         
       }
-        
+
     return (<>
         <div id="searchBar" type="search">
             <img id="magGlass" src={magGlass} />
             <p id="placeholder"> Find <span className='placeholderGradient'>Artists...</span></p>
-            <input id="searchText" type="search" value={searchTerm} onChange={handleChangeSearch} onFocus={handleFocus} onFocusOut={handleFocusOut} />
+            <input 
+            // whileFocus={{y: 20}}
+            id="searchText" type="search" value={searchTerm} onChange={handleChangeSearch} onFocus={handleFocus} onFocusOut={handleFocusOut} />
         </div>
     </>);
 }
