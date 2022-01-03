@@ -5,7 +5,7 @@ import Profile from './Profile';
 import Login from './Login';
 import Register from './Register';
 import SearchBar from './SearchBar';
-import View from './View';
+import View from './ViewPage';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
         {/* <SearchBar></SearchBar> */}
         {/* <View></View> */}
 
-      /* https://stackoverflow.com/questions/70393557/react-routes-not-showing-when-using-routes */
+      {/* https://stackoverflow.com/questions/70393557/react-routes-not-showing-when-using-routes */}
         <Routes>
           <Route path="/feedpost" element={<FeedPost />} />
           <Route path={`/profiles/${user}`} element={< Profile />} />

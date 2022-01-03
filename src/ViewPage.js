@@ -3,6 +3,7 @@ import close from './sample/posts/close.svg';
 import fire from './sample/posts/fire.svg';
 import profileImg from './sample/posts/profile2.png'
 import testImg from './sample/posts/Rectangle 3.png'
+import './ViewPage.css'
 function View() {
     return (<>
         <img id="close" src={close} />
