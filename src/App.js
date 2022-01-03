@@ -5,7 +5,7 @@ import Profile from './Profile';
 import Login from './Login';
 import Register from './Register';
 import SearchBar from './SearchBar';
-import View from './ViewPage';
+import ViewPage from './ViewPage';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
@@ -29,6 +29,7 @@ function App() {
         <Routes>
           <Route path="/feedpost" element={<FeedPost />} />
           <Route path={`/profiles/${user}`} element={< Profile />} />
+          <Route path="/view" element={< ViewPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>
