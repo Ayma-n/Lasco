@@ -13,8 +13,8 @@ function App() {
       {/*comments out feedpost for testing purposes */}
       {/* <FeedPost></FeedPost> */}
       {/* comments out profile for testing purposes */}
-      {/* <Profile></Profile> */}
-      <SearchBar></SearchBar>
+      <Profile></Profile>
+      {/* <SearchBar></SearchBar> */}
     </div>
     
     </>);

@@ -15,6 +15,10 @@
   font-size: 18px;
 }
 
+.profileImg {
+  width: 118px;
+}
+
 .bio {
   -webkit-margin-after: 19px;
           margin-block-end: 19px;
