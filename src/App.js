@@ -3,6 +3,7 @@ import './App.css';
 import FeedPost from './FeedPost';
 import Profile from './Profile';
 import SearchBar from './SearchBar';
+import View from './View';
 
 function App() {
   return (<>
@@ -13,8 +14,9 @@ function App() {
       {/*comments out feedpost for testing purposes */}
       {/* <FeedPost></FeedPost> */}
       {/* comments out profile for testing purposes */}
-      <Profile></Profile>
+      {/* <Profile></Profile> */}
       {/* <SearchBar></SearchBar> */}
+      <View></View>
     </div>
     
     </>);
