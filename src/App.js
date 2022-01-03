@@ -13,8 +13,8 @@ function App() {
   const user = "johnnyrose";
 
   return (<>
-  <Router>
   <div className="App">
+  <Router>
   
     
 
@@ -29,16 +29,15 @@ function App() {
       {/* <View></View> */}
 
     <Routes>
-      <Route path="/feedpost" component={FeedPost}/>
-      <Route path={`/profiles/${user}`} component={Profile}/>
-      <Route path="/login" component={Login}/>
-      <Route path="/register" component={Register}/>
+      <Route path="/feedpost" element={<FeedPost />}/>
+      <Route path={`/profiles/${user}`} element={< Profile />}/>
+      <Route path="/login" element={Login}/>
+      <Route path="/register" element={Register}/>
     </Routes>
     
     
-    
-    </div>
     </Router>
+    </div>
     </>);
 }
 
