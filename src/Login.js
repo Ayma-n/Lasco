@@ -4,7 +4,7 @@ import demoImg from "./sample/posts/demo-login-artwork.png";
 
 function Login() {
     return (<>
-        <div id="container">
+        <div id="Login">
             <div id="loginRect">
                 <div id="welcomeText">Welcome <span id="backColor">Back.</span></div>
                 <form>

@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @use "sass:list";
-#container {
+#Login {
   text-align: left;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11,7 +11,7 @@
           flex-direction: row;
 }
 
-#loginRect {
+#Login #loginRect {
   background-color: white;
   width: 50vw;
   height: 100vh;
@@ -27,7 +27,7 @@
           justify-content: center;
 }
 
-#imgDiv {
+#Login #imgDiv {
   background-image: url("http://prod-upp-image-read.ft.com/e9a0d7ee-a1be-11e8-85da-eeb7a9ce36e4");
   background-size: cover;
   background-position: center;
@@ -36,7 +36,7 @@
   left: 400px;
 }
 
-form {
+#Login form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -49,7 +49,7 @@ form {
   gap: 28px;
 }
 
-#welcomeText {
+#Login #welcomeText {
   font-style: normal;
   font-weight: bold;
   font-size: 54px;
@@ -60,7 +60,7 @@ form {
   text-align: center;
 }
 
-#loginButton {
+#Login #loginButton {
   position: relative;
   width: 392px;
   height: 67px;
@@ -77,12 +77,12 @@ form {
   border: none;
 }
 
-#backColor {
+#Login #backColor {
   color: #de35ff;
   font-family: Inter;
 }
 
-input {
+#Login input {
   position: relative;
   padding-left: 24px;
   width: 392px;
@@ -98,11 +98,11 @@ input {
   margin: 0 auto;
 }
 
-input:focus {
+#Login input:focus {
   outline: none;
 }
 
-input::-webkit-input-placeholder {
+#Login input::-webkit-input-placeholder {
   position: relative;
   font-family: Inter;
   font-style: normal;
@@ -113,7 +113,7 @@ input::-webkit-input-placeholder {
           align-items: center;
 }
 
-input:-ms-input-placeholder {
+#Login input:-ms-input-placeholder {
   position: relative;
   font-family: Inter;
   font-style: normal;
@@ -124,7 +124,7 @@ input:-ms-input-placeholder {
       align-items: center;
 }
 
-input::-ms-input-placeholder {
+#Login input::-ms-input-placeholder {
   position: relative;
   font-family: Inter;
   font-style: normal;
@@ -135,7 +135,7 @@ input::-ms-input-placeholder {
       align-items: center;
 }
 
-input::placeholder {
+#Login input::placeholder {
   position: relative;
   font-family: Inter;
   font-style: normal;
@@ -148,16 +148,16 @@ input::placeholder {
 }
 
 @media screen and (max-width: 920px) {
-  #imgDiv {
+  #Login #imgDiv {
     display: none;
   }
-  #loginRect {
+  #Login #loginRect {
     width: 100vw;
   }
 }
 
 @media screen and (max-width: 435px) {
-  input, #loginButton {
+  #Login input, #Login #loginButton {
     width: 90vw;
   }
 }

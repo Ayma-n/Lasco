@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
-.profileName {
+#Profile .profileName {
   -webkit-margin-after: 0;
           margin-block-end: 0;
   font-weight: bold;
   font-size: 24px;
 }
 
-.username {
+#Profile .username {
   -webkit-margin-before: 9px;
           margin-block-start: 9px;
   -webkit-margin-after: 28px;
@@ -15,23 +15,23 @@
   font-size: 18px;
 }
 
-.profileImg {
+#Profile .profileImg {
   width: 118px;
 }
 
-.bio {
+#Profile .bio {
   -webkit-margin-after: 19px;
           margin-block-end: 19px;
   font-weight: 200;
   font-size: 18px;
 }
 
-#dashboard * {
+#Profile #dashboard * {
   font-family: "Inter";
 }
 
 @media only screen and (max-width: 900px) {
-  #gallery {
+  #Profile #gallery {
     -ms-grid-columns: (auto)[3];
         grid-template-columns: repeat(3, auto);
     width: 665px;
@@ -39,7 +39,7 @@
 }
 
 @media only screen and (max-width: 665px) {
-  #gallery {
+  #Profile #gallery {
     -ms-grid-columns: (auto)[2];
         grid-template-columns: repeat(2, auto);
     width: 430px;
@@ -47,25 +47,25 @@
 }
 
 @media only screen and (max-width: 430px) {
-  #gallery {
+  #Profile #gallery {
     -ms-grid-columns: (auto)[1];
         grid-template-columns: repeat(1, auto);
     width: 95%;
   }
-  #gallery * {
+  #Profile #gallery * {
     width: 100%;
   }
 }
 
 @media only screen and (min-width: 900px) {
-  #gallery {
+  #Profile #gallery {
     width: 900px;
     -ms-grid-columns: (195px)[4];
         grid-template-columns: repeat(4, 195px);
   }
 }
 
-#gallery {
+#Profile #gallery {
   display: -ms-grid;
   display: grid;
   position: relative;

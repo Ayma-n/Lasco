@@ -4,13 +4,13 @@
 
 $baseRectW: 755px;
 $baseRectH: 982px;
-
-#container {
+#Login {
     text-align: left;
     display: flex;
     flex-direction: row;
 }
 
+#Login {
 #loginRect {
     background-color: white;
     width: 50vw;
@@ -110,4 +110,5 @@ input::placeholder {
     input, #loginButton {
         width: 90vw;
     }
+}
 }

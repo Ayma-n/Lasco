@@ -69,7 +69,7 @@ function handleSetData(body) {
   }
 
     return (
-        <>
+        <div id="Profile">
         <div id="dashboard">
         {isDataLoaded && <img className="profileImg" src={userData.profile_picture} />}
            <h2 className="profileName">Johnny Rose</h2>
@@ -92,7 +92,7 @@ function handleSetData(body) {
       })} */}
 
         </div>
-        </>
+        </div>
       );
 }
 

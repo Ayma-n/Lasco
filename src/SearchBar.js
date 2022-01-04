@@ -52,12 +52,15 @@ window.addEventListener('resize', () => {
       }
 
     return (<>
-        <div id="searchBar" type="search">
+        <div id="SearchBar">
+        {/*TODO: bad name, will fix later */}
+        <div id="searchBar">
             <img id="magGlass" role="presentation" src={magGlass} />
             <p id="placeholder"> Find <span className='placeholderGradient'>Artists...</span></p>
             <input
             // whileFocus={{y: 20}}
             id="searchText" type="search" value={searchTerm} onChange={handleChangeSearch} onFocus={handleFocus} onFocusOut={handleFocusOut} />
+        </div>
         </div>
     </>);
 }

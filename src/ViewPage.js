@@ -4,9 +4,9 @@ import fire from "./sample/posts/fire.svg";
 import profileImg from "./sample/posts/profile2.png";
 import testImg from "./sample/posts/viewArt.jpeg";
 import "./ViewPage.css";
-function View() {
+function ViewPage() {
   return (
-    <>
+    <div id="ViewPage">
       <img id="close" src={close} />
       <div id="modal">
         <div className="left">
@@ -122,8 +122,8 @@ function View() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
-export default View;
+export default ViewPage;
