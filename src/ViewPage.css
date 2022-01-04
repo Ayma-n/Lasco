@@ -13,7 +13,7 @@
 }
 
 #ViewPage #artView {
-  width: 822px;
+  width: 90.32967%;
   position: relative;
   /* margin-left: auto;
     margin-right: auto; */
@@ -58,8 +58,9 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 910px;
-  overflow: scroll;
+  width: 69.09643%;
+  height: 100%;
+  overflow-y: auto;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -68,7 +69,7 @@
 
 #ViewPage .right {
   position: relative;
-  width: 408px;
+  width: 30.90357%;
   height: 100vh;
   overflow: scroll;
 }
@@ -90,8 +91,8 @@
   -ms-flex-line-pack: center;
       align-content: center;
   color: rgba(0, 0, 0, 0.82);
-  margin-bottom: 19px;
-  margin-top: 16px;
+  margin-bottom: 1.44267vw;
+  margin-top: 1.21488vw;
   /* display: flex;
     align-items: center; */
 }
@@ -111,6 +112,7 @@
   text-align: left;
   font-size: 16px;
   margin-left: 10px;
+  padding-right: 37px;
   /* https://stackoverflow.com/
     questions/1165497/how-to-prevent-text-from-overflowing-in-css
     */
@@ -119,21 +121,18 @@
 }
 
 #ViewPage #commentSec {
-  width: -webkit-min-content;
-  width: -moz-min-content;
-  width: min-content;
+  width: 100%;
   position: relative;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 51px 319px;
-      grid-template-columns: 51px 319px;
-  grid-auto-rows: -webkit-min-content;
-  grid-auto-rows: min-content;
+}
+
+#ViewPage .comment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: start;
       -ms-flex-align: start;
-          align-items: start;
-  row-gap: 20px;
-  margin-top: 80px;
+          align-items: flex-start;
+  width: 100%;
 }
 
 #ViewPage .profileImg {
@@ -150,20 +149,15 @@
           align-items: start;
 }
 
-#ViewPage .commentDiv {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  overflow: hidden;
-}
-
 #ViewPage #description {
   font-family: 'Lato';
   font-style: normal;
   font-weight: 300;
   font-size: 24px;
   text-align: center;
+  width: 327px;
+  word-wrap: break-word;
+  margin-bottom: 26px;
 }
 
 #ViewPage #price {
@@ -171,7 +165,6 @@
   font-style: normal;
   font-weight: 600;
   font-size: 30px;
-  line-height: 36px;
 }
 
 #ViewPage #priceAndBuy {
@@ -180,7 +173,10 @@
   display: flex;
   -ms-flex-line-pack: center;
       align-content: center;
-  gap: 10px;
+  gap: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #ViewPage #buyBtn {
@@ -188,13 +184,56 @@
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
+  width: 111px;
+  height: 55.19px;
+  background: rgba(0, 0, 0, 0.85);
+  -webkit-transition: background 0.5s;
+  transition: background 0.5s;
+  border-radius: 12px;
+  color: white;
+  border: none;
+}
+
+#ViewPage #buyBtn:hover {
+  background: gray;
+}
+
+#ViewPage #titleAndLike {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 #ViewPage #like {
-  position: absolute;
-  left: 812px;
-  top: 550px;
+  position: relative;
+  left: 250px;
+  top: 16px;
   width: 48px;
   height: 48px;
+}
+
+@media screen and (max-width: 1317px) {
+  #ViewPage #modal {
+    width: 100vw;
+  }
+  #ViewPage #artTitle {
+    font-size: 3.64465vw;
+  }
+  #ViewPage #description {
+    font-size: 1.82232vw;
+  }
+  #ViewPage #price {
+    font-size: 2.2779vw;
+  }
+  #ViewPage #like {
+    left: 18.37509vw;
+    width: 3.64465vw;
+    top: 1.21488vw;
+  }
+  #ViewPage #buyBtn {
+    font-size: 1.82232vw;
+    width: 8.42825vw;
+    height: 4.19058vw;
+  }
 }
 /*# sourceMappingURL=ViewPage.css.map */
