@@ -7,6 +7,8 @@ $baseRectH: 982px;
 
 #container {
     text-align: left;
+    display: flex;
+    flex-direction: row;
 }
 
 #loginRect {
@@ -19,21 +21,15 @@ $baseRectH: 982px;
 }
 
 #imgDiv {
-    background-color: #c4c4c4;
+    background-image: url("http://prod-upp-image-read.ft.com/e9a0d7ee-a1be-11e8-85da-eeb7a9ce36e4");
+    background-size: cover;
+    background-position: center;
     width: 50vw;
     height: 100vh;
     left: 400px;
 }
 
-#inputSec {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: red;
-}
-
 form {
-    // margin: 0 auto;
     display: flex;
     align-content: center;
     flex-direction: column;
@@ -44,8 +40,6 @@ form {
     font-style: normal;
     font-weight: bold;
     font-size: 54px;
-    // line-height: 65px;
-    // display: flex;
     margin-bottom: 61px;
     align-items: center;
     text-align: center;
@@ -62,8 +56,6 @@ form {
     font-weight: bold;
     font-size: 24px;
     line-height: 29px;
-    // display: flex;
-    // align-items: center;
     text-align: center;
     color: #FFFFFF;
     margin: 0 auto;
@@ -101,6 +93,21 @@ input::placeholder {
     font-weight: 600;
     font-size: 24px;
     line-height: 29px;
-    // display: flex;
     align-items: center;
+}
+
+@media screen and (max-width: 920px) {
+    #imgDiv {
+        display: none;
+    }
+
+    #loginRect {
+        width: 100vw;
+    }
+}
+
+@media screen and (max-width: 435px) {
+    input, #loginButton {
+        width: 90vw;
+    }
 }

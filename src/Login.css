@@ -2,6 +2,13 @@
 @use "sass:list";
 #container {
   text-align: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 #loginRect {
@@ -21,23 +28,12 @@
 }
 
 #imgDiv {
-  background-color: #c4c4c4;
+  background-image: url("http://prod-upp-image-read.ft.com/e9a0d7ee-a1be-11e8-85da-eeb7a9ce36e4");
+  background-size: cover;
+  background-position: center;
   width: 50vw;
   height: 100vh;
   left: 400px;
-}
-
-#inputSec {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: red;
 }
 
 form {
@@ -149,5 +145,20 @@ input::placeholder {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media screen and (max-width: 920px) {
+  #imgDiv {
+    display: none;
+  }
+  #loginRect {
+    width: 100vw;
+  }
+}
+
+@media screen and (max-width: 435px) {
+  input, #loginButton {
+    width: 90vw;
+  }
 }
 /*# sourceMappingURL=Login.css.map */
