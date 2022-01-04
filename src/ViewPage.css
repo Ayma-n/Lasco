@@ -44,6 +44,12 @@
   height: 100vh;
 }
 
+@media screen and (max-width: 1317px) {
+  #ViewPage #modal {
+    width: 100vw;
+  }
+}
+
 #ViewPage .left {
   position: relative;
   margin: 0 auto;
@@ -58,8 +64,9 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 910px;
-  overflow: scroll;
+  width: 69.09643%;
+  height: 100%;
+  overflow-y: auto;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -68,7 +75,7 @@
 
 #ViewPage .right {
   position: relative;
-  width: 408px;
+  width: 30.90357%;
   height: 100vh;
   overflow: scroll;
 }
@@ -164,6 +171,9 @@
   font-weight: 300;
   font-size: 24px;
   text-align: center;
+  width: 327px;
+  word-wrap: break-word;
+  margin-bottom: 26px;
 }
 
 #ViewPage #price {
@@ -180,7 +190,10 @@
   display: flex;
   -ms-flex-line-pack: center;
       align-content: center;
-  gap: 10px;
+  gap: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #ViewPage #buyBtn {
@@ -188,12 +201,30 @@
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
+  width: 111px;
+  height: 55.19px;
+  background: rgba(0, 0, 0, 0.85);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  border-radius: 12px;
+  color: white;
+  border: none;
+}
+
+#ViewPage #buyBtn:hover {
+  background: gray;
+}
+
+#ViewPage #titleAndLike {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 #ViewPage #like {
-  position: absolute;
-  left: 812px;
-  top: 550px;
+  position: relative;
+  left: 250px;
+  top: 16px;
   width: 48px;
   height: 48px;
 }
