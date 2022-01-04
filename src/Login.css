@@ -78,7 +78,7 @@
   border: none;
 }
 
-#Login #backColor {
+#Login .magenta-text {
   color: #de35ff;
   font-family: Inter;
 }
@@ -148,19 +148,6 @@
           align-items: center;
 }
 
-#Login #logoDiv {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
 @media screen and (max-width: 920px) {
   #Login #imgDiv {
     display: none;
@@ -178,6 +165,13 @@
 }
 
 #Login #logoDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   position: absolute;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -190,8 +184,8 @@
 }
 
 #Login #logoDiv > img {
-  width: 51px;
-  height: 51px;
+  width: 40px;
+  height: 40px;
 }
 
 #Login #logoDiv > div {
@@ -199,7 +193,7 @@
   font-style: normal;
   font-weight: bold;
   text-align: center;
-  font-size: 36px;
+  font-size: 30px;
 }
 
 @media screen and (max-height: 608px) {
@@ -225,16 +219,16 @@
     font-size: 12vh;
     margin-bottom: 6.22222vh;
   }
-  #Login input::-webkit-input-placeholder, #Login #loginButton {
+  #Login input, #Login input::-webkit-input-placeholder, #Login #loginButton {
     font-size: 5.33333vh;
   }
-  #Login input:-ms-input-placeholder, #Login #loginButton {
+  #Login input, #Login input:-ms-input-placeholder, #Login #loginButton {
     font-size: 5.33333vh;
   }
-  #Login input::-ms-input-placeholder, #Login #loginButton {
+  #Login input, #Login input::-ms-input-placeholder, #Login #loginButton {
     font-size: 5.33333vh;
   }
-  #Login input::placeholder, #Login #loginButton {
+  #Login input, #Login input::placeholder, #Login #loginButton {
     font-size: 5.33333vh;
   }
   #Login form {
@@ -246,6 +240,9 @@
   #Login #logoDiv > img {
     width: 11.33333vh;
     height: 11.33333vh;
+  }
+  #Login input {
+    padding-left: 5.33333vh;
   }
 }
 /*# sourceMappingURL=Login.css.map */

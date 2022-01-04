@@ -5,29 +5,30 @@ $baseRectW: 755px;
 $baseRectH: 982px;
 
 $initialInputW: 392px;
-$initialInputH: 67px;
+$initialInputH: 60px;
 
-$resizeHBreakpoint: 450px;
+$resizeHBreakpoint: 630px;
 
-$welcomeFontSz: 54px;
+$welcomeFontSz: 45px;
 $inputPlaceholderFontSz: 24px;
-$lascoFontSz: 36px;
+$lascoFontSz: 30px;
 
-$lascoLogoSz: 51px;
+$lascoLogoSz: 40px;
 
-$initialWelcomeBotMargin: 28px;
-$initialFormGap: 28px;
+$initialExploreBotMargin: 30px;
+$initialFormGap: 20px;
 
 $initialInputPaddingLeft: 24px;
 
-#Login {
+#Signup {
     text-align: left;
     display: flex;
     flex-direction: row;
 }
 
-#Login {
-    #loginRect {
+#Signup {
+
+    #left-rect {
         position: relative;
         background-color: white;
         width: 50vw;
@@ -37,7 +38,7 @@ $initialInputPaddingLeft: 24px;
         justify-content: center;
     }
 
-    #imgDiv {
+    #right-rect {
         background-image: url("http://prod-upp-image-read.ft.com/e9a0d7ee-a1be-11e8-85da-eeb7a9ce36e4");
         background-size: cover;
         background-position: center;
@@ -46,23 +47,44 @@ $initialInputPaddingLeft: 24px;
         left: 400px;
     }
 
+    .magenta-text {
+        color: #de35ff;
+        font-family: Inter;
+    }
+
+    #exploreText {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 45px;
+        margin-bottom: 30px;
+        align-items: center;
+        text-align: center;
+    }
+    
+    input, select {
+        position: relative;
+        padding-left: 24px;
+        width: 392px;
+        height: 60px;
+        border: 2px solid #000000;
+        box-sizing: border-box;
+        border-radius: 12px;
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        margin: 0 auto;
+    }
+
     form {
         display: flex;
         align-content: center;
         flex-direction: column;
-        gap: 28px;
+        gap: 20px;
+        margin-bottom: 50px;
     }
 
-    #welcomeText {
-        font-style: normal;
-        font-weight: bold;
-        font-size: 54px;
-        margin-bottom: 61px;
-        align-items: center;
-        text-align: center;
-    }
-
-    #loginButton {
+    #sign-button {
         position: relative;
         width: 392px;
         height: 67px;
@@ -85,57 +107,6 @@ $initialInputPaddingLeft: 24px;
         border: none;
     }
 
-    .magenta-text {
-        color: #de35ff;
-        font-family: Inter;
-    }
-
-    input {
-        position: relative;
-        padding-left: 24px;
-        width: 392px;
-        height: 67px;
-        border: 2px solid #000000;
-        box-sizing: border-box;
-        border-radius: 12px;
-        font-family: Inter;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 24px;
-        margin: 0 auto;
-    }
-
-    input:focus {
-        outline: none;
-    }
-
-    input::placeholder {
-        position: relative;
-        font-family: Inter;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 24px;
-        line-height: 29px;
-        align-items: center;
-    }
-
-    @media screen and (max-width: 920px) {
-        #imgDiv {
-            display: none;
-        }
-
-        #loginRect {
-            width: 100vw;
-        }
-    }
-
-    @media screen and (max-width: 435px) {
-        input,
-        #loginButton {
-            width: 90vw;
-        }
-    }
-
     #logoDiv {
         display: flex;
         flex-direction: row;
@@ -143,7 +114,7 @@ $initialInputPaddingLeft: 24px;
         align-items: center;
         justify-content: center;
         width: 100%;
-        bottom: 34px;
+        bottom: 20px;
     }
 
     #logoDiv > img {
@@ -159,32 +130,35 @@ $initialInputPaddingLeft: 24px;
         font-size: 30px;
     }
 
-    @media screen and (max-height: 608px) {
-        #logoDiv {
-            position: relative;
-            bottom: 0;
-            padding-top: 15px;
+    @media screen and (max-width: 920px) {
+        #right-rect {
+            display: none;
+        }
+
+        #left-rect {
+            width: 100vw;
         }
     }
 
-    @media screen and (max-height: 500px) {
-        #welcomeText {
-            margin-bottom: 28px;
+    @media screen and (max-width: 435px) {
+        input, select,
+        #sign-button {
+            width: 90vw;
         }
     }
 
     @media screen and (max-height: $resizeHBreakpoint) {
-        input, #loginButton {
+        input, select, #sign-button {
             width: ($initialInputW/$resizeHBreakpoint) * 100vh;
             height: ($initialInputH/$resizeHBreakpoint) * 100vh;
         }
 
-        #welcomeText {
+        #exploreText {
             font-size: ($welcomeFontSz/$resizeHBreakpoint) * 100vh;
-            margin-bottom: ($initialWelcomeBotMargin/$resizeHBreakpoint) * 100vh;
+            margin-bottom: ($initialExploreBotMargin/$resizeHBreakpoint) * 100vh;
         }
 
-        input, input::placeholder, #loginButton {
+        input, input::placeholder, select, #sign-button {
             font-size: ($inputPlaceholderFontSz/$resizeHBreakpoint) * 100vh;
         }
 
@@ -201,9 +175,11 @@ $initialInputPaddingLeft: 24px;
             height: ($lascoLogoSz/$resizeHBreakpoint) * 100vh;
         }
 
-        input {
+        input, select {
             padding-left: ($initialInputPaddingLeft/$resizeHBreakpoint) * 100vh;
         }
 
     }
+
 }
+

@@ -6,7 +6,7 @@ function Login() {
     return (<>
         <div id="Login">
             <div id="loginRect">
-                <div id="welcomeText">Welcome <span id="backColor">Back.</span></div>
+                <div id="welcomeText">Welcome <span class="magenta-text">Back.</span></div>
                 <form>
                     <input id="username" type="text" placeholder="Username" />
                     <input id="password" type="password" placeholder='Password' />
