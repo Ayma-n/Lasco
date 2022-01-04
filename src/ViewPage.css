@@ -60,7 +60,10 @@
     font-weight: bold;
     /* width: 110px; */
     margin: 0 12px;
-    white-space: nowrap;
+    /* white-space: nowrap; */
+    width: 130px;
+    paddiing-left: auto;
+    text-align: center;
     /* flex-grow: 1; */
 }
 
