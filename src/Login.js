@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./Login.css";
-import demoImg from "./sample/posts/demo-login-artwork.png";
+import demoLogo from "./sample/posts/demo-logo.png";
 
 function Login() {
     return (<>
@@ -12,10 +12,12 @@ function Login() {
                     <input id="password" type="password" placeholder='Password' />
                     <button id="loginButton">Login</button>
                 </form>
+                <div id="logoDiv">
+                    <img src={demoLogo}></img>
+                    <div>Lasco</div>
+                </div>
             </div>
-            <div id="imgDiv">
-                {/* <img src={demoImg}></img> */}
-            </div>
+            <div id="imgDiv"></div>
         </div>
     </>);
 }
