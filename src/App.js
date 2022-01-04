@@ -32,6 +32,7 @@ function App() {
           <Route path="/view" element={< ViewPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/search" element={<SearchBar />} />
         </Routes>
       </Router>
     </div>
