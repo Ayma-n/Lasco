@@ -10,7 +10,7 @@ function FeedPost() {
 
   return (
     <>
-      <div id="container">
+      <div id="FeedPost">
         <div id="containerRect">
           <img id="postImage" src={postSrc} />
           <div id="authorContainer">

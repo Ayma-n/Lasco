@@ -8,7 +8,7 @@
 
 #artView {
     width: 822px;
-    margin-top: 152px;
+    margin-top: 80px;
     position: relative;
     /* margin-left: auto;
     margin-right: auto; */
@@ -21,6 +21,7 @@
     margin: 0 auto;
     position: relative;
     display: flex;
+    height: 100vh;
 }
 .left {
     position: relative;
@@ -30,11 +31,15 @@
     align-items: center;
     flex-direction: column;
     width: 910px;
+    overflow: scroll;
+    /* text-align: center; */
 }
 
 .right {
     position: relative;
     width: 408px;
+    height: 100vh;
+    overflow: scroll;
 }
 
 .right * {
@@ -59,20 +64,24 @@
 .name {
     font-weight: bold;
     /* width: 110px; */
-    margin: 0 12px;
+    margin-right: 8px;
     /* white-space: nowrap; */
     width: 130px;
-    paddiing-left: auto;
-    text-align: center;
+    /* paddiing-left: auto; */
     /* flex-grow: 1; */
 }
 
 .comment {
     font-weight: 400;
     text-align: left;
-    font-size: 16;
+    font-size: 16px;
     flex-shrink: 3;
+    margin-left: 10px;
 }
+
+/* #comments {
+    overflow: scroll;
+} */
 
 .profileImg {
     width: 51px;
@@ -99,6 +108,12 @@
     line-height: 36px;
 }
 
+#priceAndBuy {
+    display: flex;
+    align-content: center;
+    gap: 10px;
+}
+
 #buyBtn {
     font-family: 'Inter';
     font-style: normal;
@@ -109,7 +124,7 @@
 #like {
     position: absolute;
     left: 812px;
-    top: 631px;
+    top: 550px;
     width: 48px;
     height: 48px;
 }
