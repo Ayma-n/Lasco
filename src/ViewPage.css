@@ -1,5 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 #close {
-    position: fixed;
+    position: absolute;
     top: 0px;
     right: 50px;
+}
+
+#artView {
+    width: 822px;
+    margin-top: 152px;
+    position: relative;
+    /* margin-left: auto;
+    margin-right: auto; */
+}
+
+#modal {
+    width: 1317px;
+    background: rgba(255, 250, 243, 0.9);
+    border-radius: 30px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+}
+.left {
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    /* hor centers items */
+    align-items: center;
+    flex-direction: column;
+    width: 910px;
+}
+
+.right {
+    position: relative;
+    width: 408px;
+}
+
+.right * {
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 18px;
+}
+#artTitle {
+    text-align: center;
+    font-family: Lato;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 58px;
+    align-self: center;
+    align-content: center;
+    color: rgba(0, 0, 0, 0.82);
+
+    /* display: flex;
+    align-items: center; */
+}
+
+.name {
+    font-weight: bold;
+    /* width: 110px; */
+    margin: 0 12px;
+    white-space: nowrap;
+    /* flex-grow: 1; */
+}
+
+.comment {
+    font-weight: 400;
+    text-align: left;
+    font-size: 16;
+    flex-shrink: 3;
+}
+
+.profileImg {
+    width: 51px;
+}
+
+.commentDiv {
+    display: flex;
+}
+
+#description {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+}
+
+#price {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 36px;
+}
+
+#buyBtn {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+#like {
+    position: absolute;
+    left: 812px;
+    top: 631px;
+    width: 48px;
+    height: 48px;
 }
