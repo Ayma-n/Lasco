@@ -146,4 +146,19 @@ input::placeholder {
       -ms-flex-align: center;
           align-items: center;
 }
+
+@media screen and (max-width: 920px) {
+  #imgDiv {
+    display: none;
+  }
+  #loginRect {
+    width: 100vw;
+  }
+}
+
+@media screen and (max-width: 435px) {
+  input, #loginButton {
+    width: 90vw;
+  }
+}
 /*# sourceMappingURL=Login.css.map */
