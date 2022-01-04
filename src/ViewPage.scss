@@ -6,8 +6,14 @@ $imageW: 822px;
 $descrW: 322px;
 $descrFontSz: 24px;
 $titleFontSz: 48px;
+$priceFontSz: 30px;
+$buyFontSz: 24px;
+$buyW: 111px;
+$buyH: 55.19px;
+$modalH: 982px;
 
 #ViewPage {
+
 #close {
     position: absolute;
     top: 0px;
@@ -15,7 +21,7 @@ $titleFontSz: 48px;
 }
 
 #artView {
-    width: 822px;
+    width: 100% * $imageW / $leftW;
     // margin-top: 80px;
     position: relative;
     /* margin-left: auto;
@@ -36,12 +42,6 @@ $titleFontSz: 48px;
     position: relative;
     display: flex;
     height: 100vh;
-}
-
-@media screen and (max-width: $modalW) {
-    #modal {
-        width: 100vw;
-    }
 }
 .left {
     position: relative;
@@ -82,8 +82,8 @@ $titleFontSz: 48px;
     align-self: center;
     align-content: center;
     color: rgba(0, 0, 0, 0.82);
-    margin-bottom: 19px;
-    margin-top: 16px;
+    margin-bottom: 100vw * 19px / $modalW;
+    margin-top: 100vw * 16px / $modalW;
 
     /* display: flex;
     align-items: center; */
@@ -105,6 +105,7 @@ $titleFontSz: 48px;
     font-size: 16px;
     // flex-shrink: 3;
     margin-left: 10px;
+    padding-right: 37px;
     /* https://stackoverflow.com/
     questions/1165497/how-to-prevent-text-from-overflowing-in-css
     */
@@ -114,16 +115,22 @@ $titleFontSz: 48px;
 
 #commentSec {
     // width: 405px;
-    width: min-content;
+    width: 100%;
     position: relative;
-    display: grid;
-    grid-template-columns: 51px 319px;
-    // align-items: center;
-    grid-auto-rows: min-content;
-    align-items: start;
-    row-gap: 20px;
-    margin-top: 80px;
+    // display: grid;
+    // grid-template-columns: 51px 319px;
+    // // align-items: center;
+    // grid-auto-rows: min-content;
+    // align-items: start;
+    // row-gap: 20px;
+    // margin-top: 80px;
 
+}
+
+.comment {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
 }
 
 /* #comments {
@@ -140,12 +147,11 @@ $titleFontSz: 48px;
     align-items: start;
 }
 
-.commentDiv {
-    display: flex;
-    width: 100%;
-    overflow: hidden;
-    // flex: 0.5;
-}
+// .commentDiv {
+//     display: flex;
+//     overflow: hidden;
+//     // flex: 0.5;
+// }
 
 #description {
     font-family: 'Lato';
@@ -164,7 +170,6 @@ $titleFontSz: 48px;
     font-style: normal;
     font-weight: 600;
     font-size: 30px;
-    line-height: 36px;
 }
 
 #priceAndBuy {
@@ -180,9 +185,9 @@ $titleFontSz: 48px;
     font-weight: bold;
     font-size: 24px;
     width: 111px;
-    height: 55.19px;
+    height: $buyH;
     background: rgba(0, 0, 0, 0.85);
-    transition: all 0.5s;
+    transition: background 0.5s;
     border-radius: 12px;  
     color: white;
     border:none;  
@@ -205,5 +210,33 @@ $titleFontSz: 48px;
     top: 16px;
     width: 48px;
     height: 48px;
+}
+
+@media screen and (max-width: $modalW) {
+    #modal {
+        width: 100vw;
+    }
+    #artTitle {
+        font-size: 100vw * $titleFontSz / $modalW;
+    }
+    #description {
+        font-size: 100vw * $descrFontSz / $modalW;
+    }
+    #price {
+        font-size: 100vw * $priceFontSz / $modalW;
+    }
+    // #priceAndBuy {
+    //     gap: 20px / 
+    // }
+    #like {
+        left: 100vw * 242px / $modalW;
+        width: 100vw* 48px / $modalW;
+        top: 100vw * 16px / $modalW;
+    }
+    #buyBtn {
+        font-size: 100vw * $buyFontSz / $modalW;
+        width: 100vw * $buyW / $modalW;
+        height: 100vw * $buyH / $modalW;
+    }
 }
 }
