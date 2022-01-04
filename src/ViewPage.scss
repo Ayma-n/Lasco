@@ -8,10 +8,16 @@
 
 #artView {
     width: 822px;
-    margin-top: 80px;
+    // margin-top: 80px;
     position: relative;
     /* margin-left: auto;
     margin-right: auto; */
+}
+
+.centered {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 #modal {
@@ -32,6 +38,7 @@
     flex-direction: column;
     width: 910px;
     overflow: scroll;
+    justify-content: center;
     /* text-align: center; */
 }
 
@@ -52,10 +59,11 @@
     font-family: Lato;
     font-weight: 400;
     font-size: 48px;
-    line-height: 58px;
     align-self: center;
     align-content: center;
     color: rgba(0, 0, 0, 0.82);
+    margin-bottom: 19px;
+    margin-top: 16px;
 
     /* display: flex;
     align-items: center; */
@@ -70,13 +78,32 @@
     /* paddiing-left: auto; */
     /* flex-grow: 1; */
 }
-
-.comment {
+/* TODO: change name to text */
+.commentText {
     font-weight: 400;
     text-align: left;
     font-size: 16px;
-    flex-shrink: 3;
+    // flex-shrink: 3;
     margin-left: 10px;
+    /* https://stackoverflow.com/
+    questions/1165497/how-to-prevent-text-from-overflowing-in-css
+    */
+    /* allows words to wrap when they reach edge of container */
+    word-wrap: break-word;
+}
+
+#commentSec {
+    // width: 405px;
+    width: min-content;
+    position: relative;
+    display: grid;
+    grid-template-columns: 51px 319px;
+    // align-items: center;
+    grid-auto-rows: min-content;
+    align-items: start;
+    row-gap: 20px;
+    margin-top: 80px;
+
 }
 
 /* #comments {
@@ -87,8 +114,17 @@
     width: 51px;
 }
 
+.profileImgDiv {
+    width: 51px;
+    display: flex;
+    align-items: start;
+}
+
 .commentDiv {
     display: flex;
+    width: 100%;
+    overflow: hidden;
+    // flex: 0.5;
 }
 
 #description {
@@ -96,7 +132,7 @@
     font-style: normal;
     font-weight: 300;
     font-size: 24px;
-    line-height: 29px;
+    // line-height: 29px;
     text-align: center;
 }
 

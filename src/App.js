@@ -27,7 +27,7 @@ function App() {
 
       {/* https://stackoverflow.com/questions/70393557/react-routes-not-showing-when-using-routes */}
         <Routes>
-          <Route path="/feedpost" element={<FeedPost />} />
+          <Route path="/feed" element={<FeedPost />} />
           <Route path={`/profiles/${user}`} element={< Profile />} />
           <Route path="/view" element={< ViewPage />} />
           <Route path="/login" element={<Login />} />
