@@ -24,7 +24,7 @@ $input-padding-left-ini: 24px;
 }
 
 #Login {
-    #loginRect {
+    #left-rect {
         position: relative;
         background-color: white;
         width: 50vw;
@@ -34,7 +34,7 @@ $input-padding-left-ini: 24px;
         justify-content: center;
     }
 
-    #imgDiv {
+    #right-rect {
         background-image: url("http://prod-upp-image-read.ft.com/e9a0d7ee-a1be-11e8-85da-eeb7a9ce36e4");
         background-size: cover;
         background-position: center;
@@ -50,7 +50,7 @@ $input-padding-left-ini: 24px;
         gap: 28px;
     }
 
-    #welcomeText {
+    #welcome-text {
         font-style: normal;
         font-weight: bold;
         font-size: 54px;
@@ -59,7 +59,7 @@ $input-padding-left-ini: 24px;
         text-align: center;
     }
 
-    #loginButton {
+    #sign-button {
         position: relative;
         width: 392px;
         height: 67px;
@@ -117,23 +117,23 @@ $input-padding-left-ini: 24px;
     }
 
     @media screen and (max-width: 920px) {
-        #imgDiv {
-            display: none;
+        #left-rect {
+            width: 100vw;
         }
 
-        #loginRect {
-            width: 100vw;
+        #right-rect {
+            display: none;
         }
     }
 
     @media screen and (max-width: 435px) {
         input,
-        #loginButton {
+        #sign-button {
             width: 90vw;
         }
     }
 
-    #logoDiv {
+    #logo-div {
         display: flex;
         flex-direction: row;
         position: absolute;
@@ -143,12 +143,12 @@ $input-padding-left-ini: 24px;
         bottom: 34px;
     }
 
-    #logoDiv > img {
+    #logo-div > img {
         width: 40px;
         height: 40px;
     }
 
-    #logoDiv > div {
+    #logo-div > div {
         font-family: Inter;
         font-style: normal;
         font-weight: bold;
@@ -157,7 +157,7 @@ $input-padding-left-ini: 24px;
     }
 
     @media screen and (max-height: 608px) {
-        #logoDiv {
+        #logo-div {
             position: relative;
             bottom: 0;
             padding-top: 15px;
@@ -165,26 +165,26 @@ $input-padding-left-ini: 24px;
     }
 
     @media screen and (max-height: 500px) {
-        #welcomeText {
+        #welcome-text {
             margin-bottom: 28px;
         }
     }
 
     @media screen and (max-height: $height-resize-brk) {
         input,
-        #loginButton {
+        #sign-button {
             width: ($input-width-ini/$height-resize-brk) * 100vh;
             height: ($input-height-ini/$height-resize-brk) * 100vh;
         }
 
-        #welcomeText {
+        #welcome-text {
             font-size: ($welcome-font-size/$height-resize-brk) * 100vh;
             margin-bottom: ($welcome-margin-bot-ini/$height-resize-brk) * 100vh;
         }
 
         input,
         input::placeholder,
-        #loginButton {
+        #sign-button {
             font-size: ($input-pholder-font-size/$height-resize-brk) * 100vh;
         }
 
@@ -192,11 +192,11 @@ $input-padding-left-ini: 24px;
             gap: ($form-gap-ini/$height-resize-brk) * 100vh;
         }
 
-        #logoDiv > div {
+        #logo-div > div {
             font-size: ($lasco-font-size/$height-resize-brk) * 100vh;
         }
 
-        #logoDiv > img {
+        #logo-div > img {
             width: ($lasco-logo-size/$height-resize-brk) * 100vh;
             height: ($lasco-logo-size/$height-resize-brk) * 100vh;
         }

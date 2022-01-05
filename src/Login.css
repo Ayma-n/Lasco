@@ -11,7 +11,7 @@
           flex-direction: row;
 }
 
-#Login #loginRect {
+#Login #left-rect {
   position: relative;
   background-color: white;
   width: 50vw;
@@ -28,7 +28,7 @@
           justify-content: center;
 }
 
-#Login #imgDiv {
+#Login #right-rect {
   background-image: url("http://prod-upp-image-read.ft.com/e9a0d7ee-a1be-11e8-85da-eeb7a9ce36e4");
   background-size: cover;
   background-position: center;
@@ -50,7 +50,7 @@
   gap: 28px;
 }
 
-#Login #welcomeText {
+#Login #welcome-text {
   font-style: normal;
   font-weight: bold;
   font-size: 54px;
@@ -61,7 +61,7 @@
   text-align: center;
 }
 
-#Login #loginButton {
+#Login #sign-button {
   position: relative;
   width: 392px;
   height: 67px;
@@ -149,22 +149,22 @@
 }
 
 @media screen and (max-width: 920px) {
-  #Login #imgDiv {
-    display: none;
-  }
-  #Login #loginRect {
+  #Login #left-rect {
     width: 100vw;
+  }
+  #Login #right-rect {
+    display: none;
   }
 }
 
 @media screen and (max-width: 435px) {
   #Login input,
-  #Login #loginButton {
+  #Login #sign-button {
     width: 90vw;
   }
 }
 
-#Login #logoDiv {
+#Login #logo-div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -183,12 +183,12 @@
   bottom: 34px;
 }
 
-#Login #logoDiv > img {
+#Login #logo-div > img {
   width: 40px;
   height: 40px;
 }
 
-#Login #logoDiv > div {
+#Login #logo-div > div {
   font-family: Inter;
   font-style: normal;
   font-weight: bold;
@@ -197,7 +197,7 @@
 }
 
 @media screen and (max-height: 608px) {
-  #Login #logoDiv {
+  #Login #logo-div {
     position: relative;
     bottom: 0;
     padding-top: 15px;
@@ -205,48 +205,48 @@
 }
 
 @media screen and (max-height: 500px) {
-  #Login #welcomeText {
+  #Login #welcome-text {
     margin-bottom: 28px;
   }
 }
 
 @media screen and (max-height: 450px) {
   #Login input,
-  #Login #loginButton {
+  #Login #sign-button {
     width: 87.11111vh;
     height: 14.88889vh;
   }
-  #Login #welcomeText {
+  #Login #welcome-text {
     font-size: 12vh;
     margin-bottom: 6.22222vh;
   }
   #Login input,
   #Login input::-webkit-input-placeholder,
-  #Login #loginButton {
+  #Login #sign-button {
     font-size: 5.33333vh;
   }
   #Login input,
   #Login input:-ms-input-placeholder,
-  #Login #loginButton {
+  #Login #sign-button {
     font-size: 5.33333vh;
   }
   #Login input,
   #Login input::-ms-input-placeholder,
-  #Login #loginButton {
+  #Login #sign-button {
     font-size: 5.33333vh;
   }
   #Login input,
   #Login input::placeholder,
-  #Login #loginButton {
+  #Login #sign-button {
     font-size: 5.33333vh;
   }
   #Login form {
     gap: 6.22222vh;
   }
-  #Login #logoDiv > div {
+  #Login #logo-div > div {
     font-size: 8vh;
   }
-  #Login #logoDiv > img {
+  #Login #logo-div > img {
     width: 11.33333vh;
     height: 11.33333vh;
   }
