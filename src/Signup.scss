@@ -1,24 +1,21 @@
 @use "sass:list";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-$baseRectW: 755px;
-$baseRectH: 982px;
+$input-width-ini: 392px;
+$input-height-ini: 60px;
 
-$initialInputW: 392px;
-$initialInputH: 60px;
+$height-resize-brk: 630px;
 
-$resizeHBreakpoint: 630px;
+$explore-font-size: 45px;
+$input-pholder-font-size: 24px;
+$lasco-font-size: 30px;
 
-$welcomeFontSz: 45px;
-$inputPlaceholderFontSz: 24px;
-$lascoFontSz: 30px;
+$lasco-logo-size: 40px;
 
-$lascoLogoSz: 40px;
+$explore-margin-bot-ini: 30px;
+$form-gap-ini: 20px;
 
-$initialExploreBotMargin: 30px;
-$initialFormGap: 20px;
-
-$initialInputPaddingLeft: 24px;
+$input-padding-left-ini: 24px;
 
 #Signup {
     text-align: left;
@@ -27,7 +24,6 @@ $initialInputPaddingLeft: 24px;
 }
 
 #Signup {
-
     #left-rect {
         position: relative;
         background-color: white;
@@ -52,7 +48,7 @@ $initialInputPaddingLeft: 24px;
         font-family: Inter;
     }
 
-    #exploreText {
+    #explore-text {
         font-style: normal;
         font-weight: bold;
         font-size: 45px;
@@ -60,8 +56,9 @@ $initialInputPaddingLeft: 24px;
         align-items: center;
         text-align: center;
     }
-    
-    input, select {
+
+    input,
+    #use-for {
         position: relative;
         padding-left: 24px;
         width: 392px;
@@ -107,7 +104,7 @@ $initialInputPaddingLeft: 24px;
         border: none;
     }
 
-    #logoDiv {
+    #logo-div {
         display: flex;
         flex-direction: row;
         position: absolute;
@@ -117,12 +114,12 @@ $initialInputPaddingLeft: 24px;
         bottom: 20px;
     }
 
-    #logoDiv > img {
+    #logo-div > img {
         width: 40px;
         height: 40px;
     }
 
-    #logoDiv > div {
+    #logo-div > div {
         font-family: Inter;
         font-style: normal;
         font-weight: bold;
@@ -141,45 +138,49 @@ $initialInputPaddingLeft: 24px;
     }
 
     @media screen and (max-width: 435px) {
-        input, select,
+        input,
+        #use-for,
         #sign-button {
             width: 90vw;
         }
     }
 
-    @media screen and (max-height: $resizeHBreakpoint) {
-        input, select, #sign-button {
-            width: ($initialInputW/$resizeHBreakpoint) * 100vh;
-            height: ($initialInputH/$resizeHBreakpoint) * 100vh;
+    @media screen and (max-height: $height-resize-brk) {
+        input,
+        #use-for,
+        #sign-button {
+            width: ($input-width-ini/$height-resize-brk) * 100vh;
+            height: ($input-height-ini/$height-resize-brk) * 100vh;
         }
 
-        #exploreText {
-            font-size: ($welcomeFontSz/$resizeHBreakpoint) * 100vh;
-            margin-bottom: ($initialExploreBotMargin/$resizeHBreakpoint) * 100vh;
+        #explore-text {
+            font-size: ($explore-font-size/$height-resize-brk) * 100vh;
+            margin-bottom: ($explore-margin-bot-ini/$height-resize-brk) * 100vh;
         }
 
-        input, input::placeholder, select, #sign-button {
-            font-size: ($inputPlaceholderFontSz/$resizeHBreakpoint) * 100vh;
+        input,
+        input::placeholder,
+        #use-for,
+        #sign-button {
+            font-size: ($input-pholder-font-size/$height-resize-brk) * 100vh;
         }
 
         form {
-            gap: ($initialFormGap/$resizeHBreakpoint) * 100vh;
+            gap: ($form-gap-ini/$height-resize-brk) * 100vh;
         }
 
-        #logoDiv > div {
-            font-size: ($lascoFontSz/$resizeHBreakpoint) * 100vh;
+        #logo-div > div {
+            font-size: ($lasco-font-size/$height-resize-brk) * 100vh;
         }
 
-        #logoDiv > img {
-            width: ($lascoLogoSz/$resizeHBreakpoint) * 100vh;
-            height: ($lascoLogoSz/$resizeHBreakpoint) * 100vh;
+        #logo-div > img {
+            width: ($lasco-logo-size/$height-resize-brk) * 100vh;
+            height: ($lasco-logo-size/$height-resize-brk) * 100vh;
         }
 
-        input, select {
-            padding-left: ($initialInputPaddingLeft/$resizeHBreakpoint) * 100vh;
+        input,
+        #use-for {
+            padding-left: ($input-padding-left-ini/$height-resize-brk) * 100vh;
         }
-
     }
-
 }
-

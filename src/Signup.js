@@ -6,7 +6,7 @@ function Signup() {
     return (<>
         <div id="Signup">
             <div id="left-rect">
-                <div id="exploreText">Explore Art. <span class="magenta-text">Together.</span></div>
+                <div id="explore-text">Explore Art. <span class="magenta-text">Together.</span></div>
                 <form>
                     <input id="name" type="text" placeholder="Name" />
                     <input id="email" type="text" placeholder="E-mail"/>
@@ -19,7 +19,7 @@ function Signup() {
                     </select>
                     <button id="sign-button">Sign Up</button>
                 </form>
-                <div id="logoDiv">
+                <div id="logo-div">
                     <img src={demoLogo}></img>
                     <div>Lasco</div>
                 </div>

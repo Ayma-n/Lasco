@@ -174,7 +174,8 @@ $initialInputPaddingLeft: 24px;
     }
 
     @media screen and (max-height: $resizeHBreakpoint) {
-        input, #loginButton {
+        input,
+        #loginButton {
             width: ($initialInputW/$resizeHBreakpoint) * 100vh;
             height: ($initialInputH/$resizeHBreakpoint) * 100vh;
         }
@@ -184,7 +185,9 @@ $initialInputPaddingLeft: 24px;
             margin-bottom: ($initialWelcomeBotMargin/$resizeHBreakpoint) * 100vh;
         }
 
-        input, input::placeholder, #loginButton {
+        input,
+        input::placeholder,
+        #loginButton {
             font-size: ($inputPlaceholderFontSz/$resizeHBreakpoint) * 100vh;
         }
 
@@ -204,6 +207,5 @@ $initialInputPaddingLeft: 24px;
         input {
             padding-left: ($initialInputPaddingLeft/$resizeHBreakpoint) * 100vh;
         }
-
     }
 }
