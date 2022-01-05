@@ -44,6 +44,10 @@
   height: 100vh;
   /* sets padding for top and bottom, useful for long iPhones in horizontal */
   padding: 10px 0;
+  /* ensures that cal for w and h take into account padding */
+  /* https://stackoverflow.com/questions/485827/css-100-height-with-padding-margin */
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 #ViewPage .left {
