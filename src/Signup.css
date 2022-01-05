@@ -42,9 +42,10 @@
   font-family: Inter;
 }
 
-#Signup #exploreText {
+#Signup #explore-text {
   font-style: normal;
   font-weight: bold;
+  font-family: Inter;
   font-size: 45px;
   margin-bottom: 30px;
   -webkit-box-align: center;
@@ -53,7 +54,8 @@
   text-align: center;
 }
 
-#Signup input, #Signup select {
+#Signup input,
+#Signup #use-for {
   position: relative;
   padding-left: 24px;
   width: 392px;
@@ -100,7 +102,7 @@
   border: none;
 }
 
-#Signup #logoDiv {
+#Signup #logo-div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -119,12 +121,12 @@
   bottom: 20px;
 }
 
-#Signup #logoDiv > img {
+#Signup #logo-div > img {
   width: 40px;
   height: 40px;
 }
 
-#Signup #logoDiv > div {
+#Signup #logo-div > div {
   font-family: Inter;
   font-style: normal;
   font-weight: bold;
@@ -142,44 +144,60 @@
 }
 
 @media screen and (max-width: 435px) {
-  #Signup input, #Signup select,
+  #Signup input,
+  #Signup #use-for,
   #Signup #sign-button {
     width: 90vw;
   }
 }
 
 @media screen and (max-height: 630px) {
-  #Signup input, #Signup select, #Signup #sign-button {
+  #Signup input,
+  #Signup #use-for,
+  #Signup #sign-button {
     width: 62.22222vh;
     height: 9.52381vh;
   }
-  #Signup #exploreText {
+  #Signup #explore-text {
     font-size: 7.14286vh;
     margin-bottom: 4.7619vh;
   }
-  #Signup input, #Signup input::-webkit-input-placeholder, #Signup select, #Signup #sign-button {
+  #Signup input,
+  #Signup input::-webkit-input-placeholder,
+  #Signup #use-for,
+  #Signup #sign-button {
     font-size: 3.80952vh;
   }
-  #Signup input, #Signup input:-ms-input-placeholder, #Signup select, #Signup #sign-button {
+  #Signup input,
+  #Signup input:-ms-input-placeholder,
+  #Signup #use-for,
+  #Signup #sign-button {
     font-size: 3.80952vh;
   }
-  #Signup input, #Signup input::-ms-input-placeholder, #Signup select, #Signup #sign-button {
+  #Signup input,
+  #Signup input::-ms-input-placeholder,
+  #Signup #use-for,
+  #Signup #sign-button {
     font-size: 3.80952vh;
   }
-  #Signup input, #Signup input::placeholder, #Signup select, #Signup #sign-button {
+  #Signup input,
+  #Signup input::placeholder,
+  #Signup #use-for,
+  #Signup #sign-button {
     font-size: 3.80952vh;
   }
   #Signup form {
     gap: 3.1746vh;
   }
-  #Signup #logoDiv > div {
+  #Signup #logo-div > div {
     font-size: 4.7619vh;
   }
-  #Signup #logoDiv > img {
+  #Signup #logo-div > img {
     width: 6.34921vh;
     height: 6.34921vh;
   }
-  #Signup input, #Signup select {
+  #Signup input,
+  #Signup #use-for {
     padding-left: 3.80952vh;
   }
 }

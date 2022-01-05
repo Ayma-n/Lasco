@@ -211,7 +211,8 @@
 }
 
 @media screen and (max-height: 450px) {
-  #Login input, #Login #loginButton {
+  #Login input,
+  #Login #loginButton {
     width: 87.11111vh;
     height: 14.88889vh;
   }
@@ -219,16 +220,24 @@
     font-size: 12vh;
     margin-bottom: 6.22222vh;
   }
-  #Login input, #Login input::-webkit-input-placeholder, #Login #loginButton {
+  #Login input,
+  #Login input::-webkit-input-placeholder,
+  #Login #loginButton {
     font-size: 5.33333vh;
   }
-  #Login input, #Login input:-ms-input-placeholder, #Login #loginButton {
+  #Login input,
+  #Login input:-ms-input-placeholder,
+  #Login #loginButton {
     font-size: 5.33333vh;
   }
-  #Login input, #Login input::-ms-input-placeholder, #Login #loginButton {
+  #Login input,
+  #Login input::-ms-input-placeholder,
+  #Login #loginButton {
     font-size: 5.33333vh;
   }
-  #Login input, #Login input::placeholder, #Login #loginButton {
+  #Login input,
+  #Login input::placeholder,
+  #Login #loginButton {
     font-size: 5.33333vh;
   }
   #Login form {
