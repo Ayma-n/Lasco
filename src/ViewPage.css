@@ -198,18 +198,26 @@
   background: gray;
 }
 
-#ViewPage #titleAndLike {
+#ViewPage #titleLn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-#ViewPage #like {
+#ViewPage #commentIcon, #ViewPage #like {
   position: relative;
-  left: 250px;
   top: 16px;
   width: 48px;
   height: 48px;
+}
+
+#ViewPage #commentIcon {
+  position: relative;
+  left: 250px;
+}
+
+#ViewPage #like {
+  right: 250px;
 }
 
 @media screen and (max-width: 1317px) {
@@ -225,15 +233,85 @@
   #ViewPage #price {
     font-size: 2.2779vw;
   }
-  #ViewPage #like {
+  #ViewPage #commentIcon {
     left: 18.37509vw;
     width: 3.64465vw;
     top: 1.21488vw;
+    height: 3.64465vw;
+  }
+  #ViewPage #like {
+    right: 18.37509vw;
+    width: 3.64465vw;
+    top: 1.21488vw;
+    height: 3.64465vw;
   }
   #ViewPage #buyBtn {
     font-size: 1.82232vw;
     width: 8.42825vw;
     height: 4.19058vw;
+    border-radius: 10.81081%/21.74307%;
+  }
+}
+
+@media screen and (max-width: 774px) {
+  #ViewPage #modal {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    border-radius: 3.87597%/3.87597%;
+    height: auto;
+    overflow: auto;
+  }
+  #ViewPage #artView {
+    margin-top: 10.33592%;
+  }
+  #ViewPage .left {
+    width: 100%;
+    overflow: auto;
+    margin-bottom: 50px;
+  }
+  #ViewPage .right {
+    height: auto;
+    width: 100%;
+  }
+  #ViewPage #modal {
+    height: auto;
+  }
+  #ViewPage #artTitle {
+    font-size: 8vw;
+  }
+  #ViewPage #description {
+    font-size: 4vw;
+    margin-bottom: 10px;
+  }
+  #ViewPage #price {
+    font-size: 5vw;
+  }
+  #ViewPage #like, #ViewPage #commentIcon {
+    position: relative;
+    width: 7.75194vw;
+    height: 7.75194vw;
+    top: 1.21488vw;
+  }
+  #ViewPage #like {
+    right: 18.37509vw;
+  }
+  #ViewPage #commentIcon {
+    left: 18.37509vw;
+  }
+  #ViewPage #priceAndBuy {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 10px;
+  }
+  #ViewPage #buyBtn {
+    font-size: 4vw;
+    width: 18.5vw;
+    height: 9.19833vw;
+    border-radius: 10.81081%/21.74307%;
   }
 }
 /*# sourceMappingURL=ViewPage.css.map */

@@ -11,6 +11,10 @@ $buyFontSz: 24px;
 $buyW: 111px;
 $buyH: 55.19px;
 $modalH: 982px;
+$borderRadius: 12px;
+$breakpoint: 774px;
+$iconW: 60px;
+
 
 #ViewPage {
 
@@ -188,7 +192,7 @@ $modalH: 982px;
     height: $buyH;
     background: rgba(0, 0, 0, 0.85);
     transition: background 0.5s;
-    border-radius: 12px;  
+    border-radius: $borderRadius;  
     color: white;
     border:none;  
 }
@@ -197,19 +201,27 @@ $modalH: 982px;
     background: gray;
 }
 
-#titleAndLike {
+#titleLn {
     display: flex;
 }
-
-#like {
+%absolute {
+    position: relative;
+    top: 16px;
+    width: 48px;
+    height: 48px;
+}
+#commentIcon {
     // position: absolute;
     // left: 812px;
     // top: 64%;
     position: relative;
+    @extend %absolute;
     left: 250px;
-    top: 16px;
-    width: 48px;
-    height: 48px;
+}
+
+#like {
+    @extend %absolute;
+    right: 250px;
 }
 
 @media screen and (max-width: $modalW) {
@@ -228,15 +240,90 @@ $modalH: 982px;
     // #priceAndBuy {
     //     gap: 20px / 
     // }
-    #like {
+    #commentIcon {
         left: 100vw * 242px / $modalW;
-        width: 100vw* 48px / $modalW;
+        width: 100vw * 48px / $modalW;
         top: 100vw * 16px / $modalW;
+        height: 100vw * 48px / $modalW;
+    }
+    #like {
+        right: 100vw * 242px / $modalW;
+        width: 100vw * 48px / $modalW;
+        top: 100vw * 16px / $modalW;
+        height: 100vw * 48px / $modalW;
     }
     #buyBtn {
         font-size: 100vw * $buyFontSz / $modalW;
         width: 100vw * $buyW / $modalW;
-        height: 100vw * $buyH / $modalW;
+        height: 100vw * $buyH / $modalW;  
+        border-radius: #{100% * $borderRadius / $buyW}/#{100% * $borderRadius / $buyH};
+    }
+}
+@media screen and (max-width: $breakpoint) {
+    // $modalW: 900px;
+
+    #modal {     
+        flex-direction: column; 
+        border-radius: #{100% * 30px / $breakpoint}/#{100% * 30px / $breakpoint};
+        height: auto;
+        overflow: auto;
+    }
+    #artView {
+       margin-top: 100% * 80px / $breakpoint;
+    }
+    .left {
+        width: 100%;
+        overflow: auto;
+        margin-bottom: 50px;
+    }
+    .right {
+        height: auto;
+        width: 100%;
+
+    }
+    #modal {
+        height: auto;
+    }
+
+    #artTitle {
+        font-size: 100vw * $titleFontSz / 600px;
+    }
+    #description {
+        font-size: 100vw * $descrFontSz / 600px;
+        margin-bottom: 10px;
+    }
+    #price {
+        font-size: 100vw * $priceFontSz / 600px;
+    }
+    // #priceAndBuy {
+    //     gap: 20px / 
+    // }
+
+    %imgIcons {
+        position: relative;
+        width: 100vw * 60px / $breakpoint;
+        height: 100vw * 60px / $breakpoint;
+        top: 100vw * 16px / $modalW;
+    }
+
+    #like {
+        @extend %imgIcons;
+        right: 100vw * 242px / $modalW;
+    }
+
+    #commentIcon {
+        @extend %imgIcons;
+        left: 100vw * 242px / $modalW;
+    }
+    #priceAndBuy {
+        flex-direction: column;
+        gap: 10px;
+    }
+    #buyBtn {
+        font-size: 100vw * $buyFontSz / 600px;
+        width: 100vw * $buyW / 600px;
+        height: 100vw * $buyH / 600px;  
+        border-radius: #{100% * $borderRadius / $buyW}/#{100% * $borderRadius / $buyH};
     }
 }
 }

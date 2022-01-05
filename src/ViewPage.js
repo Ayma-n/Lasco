@@ -1,10 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import close from "./sample/posts/close.svg";
 import fire from "./sample/posts/fire.svg";
 import profileImg from "./sample/posts/profile2.png";
 import testImg from "./sample/posts/viewArt.jpeg";
+import comment from "./sample/posts/message-circle.svg";
 import "./ViewPage.css";
+
 function ViewPage() {
+  const [seeComments, setSeeComments] = useState(false);
+
+function setCommVis() {
+  let value = seeComments ? 'block' : 'none';
+  document.querySelector(".right").style.display = value;
+}
+
+useEffect( () => {
+  setCommVis()
+}, [seeComments])
+
   return (
     <div id="ViewPage">
       <img id="close" src={close} />
@@ -12,9 +25,10 @@ function ViewPage() {
         <div className="left">
           <div className="centered">
             <img id="artView" src={testImg} />
-            <div id="titleAndLike">
+            <div id="titleLn">
+            <img src={fire} alt="fire icon" id="like" />
               <div id="artTitle">JungleCity</div>
-              <img src={fire} alt="fireIcon" id="like" />
+              <img src={comment} alt="comment icon" id="commentIcon" onClick={() => setSeeComments(seeComments => !seeComments)} />
             </div>
             <div id="description">
               Lucious greens and blues drawn in Procreate.
