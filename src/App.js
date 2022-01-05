@@ -3,7 +3,7 @@ import './App.css';
 import FeedPost from './FeedPost';
 import Profile from './Profile';
 import Login from './Login';
-import Register from './Register';
+import Signup from './Signup';
 import SearchBar from './SearchBar';
 import ViewPage from './ViewPage';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
@@ -31,7 +31,7 @@ function App() {
           <Route path={`/profiles/${user}`} element={< Profile />} />
           <Route path="/view" element={< ViewPage />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/search" element={<SearchBar />} />
         </Routes>
       </Router>
