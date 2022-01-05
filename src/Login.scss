@@ -1,24 +1,21 @@
 @use "sass:list";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-$baseRectW: 755px;
-$baseRectH: 982px;
+$input-width-ini: 392px;
+$input-height-ini: 67px;
 
-$initialInputW: 392px;
-$initialInputH: 67px;
+$height-resize-brk: 450px;
 
-$resizeHBreakpoint: 450px;
+$welcome-font-size: 54px;
+$input-pholder-font-size: 24px;
+$lasco-font-size: 36px;
 
-$welcomeFontSz: 54px;
-$inputPlaceholderFontSz: 24px;
-$lascoFontSz: 36px;
+$lasco-logo-size: 51px;
 
-$lascoLogoSz: 51px;
+$welcome-margin-bot-ini: 28px;
+$form-gap-ini: 28px;
 
-$initialWelcomeBotMargin: 28px;
-$initialFormGap: 28px;
-
-$initialInputPaddingLeft: 24px;
+$input-padding-left-ini: 24px;
 
 #Login {
     text-align: left;
@@ -173,39 +170,39 @@ $initialInputPaddingLeft: 24px;
         }
     }
 
-    @media screen and (max-height: $resizeHBreakpoint) {
+    @media screen and (max-height: $height-resize-brk) {
         input,
         #loginButton {
-            width: ($initialInputW/$resizeHBreakpoint) * 100vh;
-            height: ($initialInputH/$resizeHBreakpoint) * 100vh;
+            width: ($input-width-ini/$height-resize-brk) * 100vh;
+            height: ($input-height-ini/$height-resize-brk) * 100vh;
         }
 
         #welcomeText {
-            font-size: ($welcomeFontSz/$resizeHBreakpoint) * 100vh;
-            margin-bottom: ($initialWelcomeBotMargin/$resizeHBreakpoint) * 100vh;
+            font-size: ($welcome-font-size/$height-resize-brk) * 100vh;
+            margin-bottom: ($welcome-margin-bot-ini/$height-resize-brk) * 100vh;
         }
 
         input,
         input::placeholder,
         #loginButton {
-            font-size: ($inputPlaceholderFontSz/$resizeHBreakpoint) * 100vh;
+            font-size: ($input-pholder-font-size/$height-resize-brk) * 100vh;
         }
 
         form {
-            gap: ($initialFormGap/$resizeHBreakpoint) * 100vh;
+            gap: ($form-gap-ini/$height-resize-brk) * 100vh;
         }
 
         #logoDiv > div {
-            font-size: ($lascoFontSz/$resizeHBreakpoint) * 100vh;
+            font-size: ($lasco-font-size/$height-resize-brk) * 100vh;
         }
 
         #logoDiv > img {
-            width: ($lascoLogoSz/$resizeHBreakpoint) * 100vh;
-            height: ($lascoLogoSz/$resizeHBreakpoint) * 100vh;
+            width: ($lasco-logo-size/$height-resize-brk) * 100vh;
+            height: ($lasco-logo-size/$height-resize-brk) * 100vh;
         }
 
         input {
-            padding-left: ($initialInputPaddingLeft/$resizeHBreakpoint) * 100vh;
+            padding-left: ($input-padding-left-ini/$height-resize-brk) * 100vh;
         }
     }
 }
