@@ -5,22 +5,16 @@ import demoLandingBelt from "./sample/posts/Demo-Landing-Belt.png"
 function Landing() {
 
     const [beltLeft, setBeltLeft] = useState(-620);
-    const belt = document.querySelector('#belt');
+    var belt;
 
 
     function moveBeltLeft() {
-        belt.style.left = parseInt(belt.style.left) + 5 + "px";
-        console.log(beltLeft);
-        //setBeltLeft(beltLeft+1);
-        //console.log(beltLeft);
+        belt.style.left = parseInt(belt.style.left) + 1 + "px";
     }
     
-    const [hovered, setHovered] = useState(false);
-
-    var foo = "";
-
     useEffect(() => {
-        repeatWhileMouseOver(document.querySelector('#scroll-left-div'), moveBeltLeft, 10);
+        belt = document.querySelector('#belt');
+        repeatWhileMouseOver(document.querySelector('#scroll-left-div'), moveBeltLeft, 1);
     }, [])
 
     function repeatWhileMouseOver(element, action, milliseconds) {
