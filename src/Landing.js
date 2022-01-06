@@ -45,7 +45,7 @@ function Landing() {
     return (<>
         <div id="Landing">
             <div id="intro-text">So you're curious about <span className="text-gradient"> NFTs</span> ?</div>
-            <div id="belt-div"  style={{left: 0 }}>
+            <div id="belt-div"  style={{left: '50%', transform: 'translate(-50%)' }}>
                 <img id="belt" src={demoLandingBelt}></img>
                 <img id="belt" src={demoLandingBelt}></img>
                 <img id="belt" src={demoLandingBelt}></img>
@@ -54,10 +54,10 @@ function Landing() {
             <div id="scroll-right-div"></div>
             <div id="button-div"> 
                 <a href="/login">
-                    <button class="login-signup" id="login-button"><div class="text-gradient">Login</div></button>
+                    <button className="login-signup" id="login-button"><div className="text-gradient">Login</div></button>
                 </a>
                 <a href="/signup">
-                    <button class="login-signup" id="signup-button"><div class="text-white">Signup</div></button>
+                    <button className="login-signup" id="signup-button"><div className="text-white">Signup</div></button>
                 </a>
             </div>
             <div id="logo-div">
