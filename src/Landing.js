@@ -19,6 +19,7 @@ function Landing() {
         belt = document.querySelector('#belt');
         repeatWhileMouseOver(document.querySelector('#scroll-left-div'), moveBeltLeft, 1);
         repeatWhileMouseOver(document.querySelector('#scroll-right-div'), moveBeltRight, 1);
+        scrolling(moveBeltRight, 10);
     }, [])
 
     function repeatWhileMouseOver(element, action, milliseconds) {
@@ -30,6 +31,10 @@ function Landing() {
         element.addEventListener('mouseout', function () {
             clearInterval(interval);
         });
+    }
+    function scrolling(action, milliseconds) {
+        var interval = null;
+            interval = setInterval(action, milliseconds);
     }
     
     return (<>
