@@ -46,6 +46,11 @@ $iconW: 60px;
     position: relative;
     display: flex;
     height: 100vh;
+    /* sets padding for top and bottom, useful for long iPhones in horizontal */
+    padding: 10px 0;
+    /* ensures that cal for w and h take into account padding */
+    /* https://stackoverflow.com/questions/485827/css-100-height-with-padding-margin */
+    box-sizing: border-box;
 }
 .left {
     position: relative;
@@ -56,6 +61,7 @@ $iconW: 60px;
     flex-direction: column;
     width: 100% * $leftW / $modalW;
     height: 100%;
+    height: auto;
     // overflow: scroll;
     overflow-y: auto;
     justify-content: center;
@@ -270,11 +276,12 @@ $iconW: 60px;
     }
     #artView {
        margin-top: 100% * 80px / $breakpoint;
+       margin-top: 100% * 40px / $breakpoint;
     }
     .left {
         width: 100%;
         overflow: auto;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
     }
     .right {
         height: auto;
@@ -282,7 +289,7 @@ $iconW: 60px;
 
     }
     #modal {
-        height: auto;
+        height: 100vh;
     }
 
     #artTitle {

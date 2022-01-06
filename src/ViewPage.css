@@ -42,6 +42,12 @@
   display: -ms-flexbox;
   display: flex;
   height: 100vh;
+  /* sets padding for top and bottom, useful for long iPhones in horizontal */
+  padding: 10px 0;
+  /* ensures that cal for w and h take into account padding */
+  /* https://stackoverflow.com/questions/485827/css-100-height-with-padding-margin */
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 #ViewPage .left {
@@ -60,6 +66,7 @@
           flex-direction: column;
   width: 69.09643%;
   height: 100%;
+  height: auto;
   overflow-y: auto;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -265,18 +272,19 @@
   }
   #ViewPage #artView {
     margin-top: 10.33592%;
+    margin-top: 5.16796%;
   }
   #ViewPage .left {
     width: 100%;
     overflow: auto;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
   }
   #ViewPage .right {
     height: auto;
     width: 100%;
   }
   #ViewPage #modal {
-    height: auto;
+    height: 100vh;
   }
   #ViewPage #artTitle {
     font-size: 8vw;
