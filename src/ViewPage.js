@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import close from "./sample/posts/close.svg";
+import close from "./sample/posts/cancel-black.svg";
 import fire from "./sample/posts/fire.svg";
 import profileImg from "./sample/posts/profile2.png";
 import testImg from "./sample/posts/viewArt.jpeg";
@@ -20,7 +20,7 @@ useEffect( () => {
 
   return (
     <div id="ViewPage">
-      <img id="close" src={close} />
+      <img id="close" src={close} onClick={() => document.getElementById("modal").style.display = 'none'} />
       <div id="modal">
         <div className="left">
           <div className="centered">

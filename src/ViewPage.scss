@@ -11,9 +11,10 @@ $buyFontSz: 24px;
 $buyW: 111px;
 $buyH: 55.19px;
 $modalH: 982px;
-$borderRadius: 12px;
+$btnBorderRadius: 12px;
 $breakpoint: 774px;
-$iconW: 60px;
+$iconSz: 60px;
+$closeSz: 60px;
 
 
 #ViewPage {
@@ -22,6 +23,9 @@ $iconW: 60px;
     position: absolute;
     top: 0px;
     right: 50px;
+    width: $closeSz;
+    height: $closeSz;
+    z-index: 1;
 }
 
 #artView {
@@ -63,7 +67,7 @@ $iconW: 60px;
     height: 100%;
     height: auto;
     // overflow: scroll;
-    overflow-y: auto;
+    // overflow-y: auto;
     justify-content: center;
     /* text-align: center; */
 }
@@ -133,7 +137,8 @@ $iconW: 60px;
     // grid-auto-rows: min-content;
     // align-items: start;
     // row-gap: 20px;
-    // margin-top: 80px;
+    margin-top: 80px;
+    box-sizing: border-box;
 
 }
 
@@ -198,7 +203,7 @@ $iconW: 60px;
     height: $buyH;
     background: rgba(0, 0, 0, 0.85);
     transition: background 0.5s;
-    border-radius: $borderRadius;  
+    border-radius: $btnBorderRadius;  
     color: white;
     border:none;  
 }
@@ -262,7 +267,7 @@ $iconW: 60px;
         font-size: 100vw * $buyFontSz / $modalW;
         width: 100vw * $buyW / $modalW;
         height: 100vw * $buyH / $modalW;  
-        border-radius: #{100% * $borderRadius / $buyW}/#{100% * $borderRadius / $buyH};
+        border-radius: #{100% * $btnBorderRadius / $buyW}/#{100% * $btnBorderRadius / $buyH};
     }
 }
 @media screen and (max-width: $breakpoint) {
@@ -274,14 +279,37 @@ $iconW: 60px;
         height: auto;
         overflow: auto;
     }
+
+    .right {
+        overflow: unset;
+    }
+
+    #commentSec {
+        margin-top: 0;
+        height: auto;
+        overflow: unset;
+    }
+
+    #close {
+        width: 100vw * $closeSz / $breakpoint;
+        height: 100vw * $closeSz / $breakpoint;
+        min-width: 40px;
+        min-height: 40px;
+        /* centers close btn when small enough */
+        left: 50vw;
+        transform: translateX(-50%);
+        transition: opacity 0.5s;
+    }
     #artView {
-       margin-top: 100% * 80px / $breakpoint;
-       margin-top: 100% * 40px / $breakpoint;
+    //    margin-top: 100% * 80px / $breakpoint;
+    //    margin-top: 100% * 40px / $breakpoint;
+    //    margin-top: 100% * 60px / $breakpoint;
     }
     .left {
         width: 100%;
-        overflow: auto;
+        // overflow: auto;
         margin-bottom: 30px;
+        margin-top: 45px;
     }
     .right {
         height: auto;
@@ -330,7 +358,7 @@ $iconW: 60px;
         font-size: 100vw * $buyFontSz / 600px;
         width: 100vw * $buyW / 600px;
         height: 100vw * $buyH / 600px;  
-        border-radius: #{100% * $borderRadius / $buyW}/#{100% * $borderRadius / $buyH};
+        border-radius: #{100% * $btnBorderRadius / $buyW}/#{100% * $btnBorderRadius / $buyH};
     }
 }
 }

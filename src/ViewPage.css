@@ -10,6 +10,9 @@
   position: absolute;
   top: 0px;
   right: 50px;
+  width: 60px;
+  height: 60px;
+  z-index: 1;
 }
 
 #ViewPage #artView {
@@ -67,7 +70,6 @@
   width: 69.09643%;
   height: 100%;
   height: auto;
-  overflow-y: auto;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -130,6 +132,9 @@
 #ViewPage #commentSec {
   width: 100%;
   position: relative;
+  margin-top: 80px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 #ViewPage .comment {
@@ -270,14 +275,30 @@
     height: auto;
     overflow: auto;
   }
-  #ViewPage #artView {
-    margin-top: 10.33592%;
-    margin-top: 5.16796%;
+  #ViewPage .right {
+    overflow: unset;
+  }
+  #ViewPage #commentSec {
+    margin-top: 0;
+    height: auto;
+    overflow: unset;
+  }
+  #ViewPage #close {
+    width: 7.75194vw;
+    height: 7.75194vw;
+    min-width: 40px;
+    min-height: 40px;
+    /* centers close btn when small enough */
+    left: 50vw;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
   }
   #ViewPage .left {
     width: 100%;
-    overflow: auto;
     margin-bottom: 30px;
+    margin-top: 45px;
   }
   #ViewPage .right {
     height: auto;
