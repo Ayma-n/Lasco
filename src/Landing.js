@@ -11,10 +11,20 @@ function Landing() {
     var scrollInterval;
 
     function moveBeltLeft() {
+        if (parseInt(belt.style.left) == - 1 * 3204 + 1070) {
+            // alert("Hi")
+            belt.style.left = `${- 3204 + 535}px`;
+
+        }
         belt.style.left = parseInt(belt.style.left) + 1 + "px";
     }
 
     function moveBeltRight() {
+        if (parseInt(belt.style.left) == - 2 * 3204 + 1070) {
+            // alert("Hi")
+            belt.style.left = `${- 3204 + 535}px`;
+
+        }
         belt.style.left = parseInt(belt.style.left) - 1 + "px";
     }
     
