@@ -56,4 +56,25 @@
   width: 20%;
   height: 550px;
 }
+
+#Landing #button-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10px;
+  margin-top: 50px;
+}
+
+#Landing .login-signup {
+  width: 192px;
+  height: 93px;
+  border-radius: 12px;
+}
 /*# sourceMappingURL=Landing.css.map */
