@@ -11,10 +11,15 @@ function Landing() {
     function moveBeltLeft() {
         belt.style.left = parseInt(belt.style.left) + 1 + "px";
     }
+
+    function moveBeltRight() {
+        belt.style.left = parseInt(belt.style.left) - 1 + "px";
+    }
     
     useEffect(() => {
         belt = document.querySelector('#belt');
         repeatWhileMouseOver(document.querySelector('#scroll-left-div'), moveBeltLeft, 1);
+        repeatWhileMouseOver(document.querySelector('#scroll-right-div'), moveBeltRight, 1);
     }, [])
 
     function repeatWhileMouseOver(element, action, milliseconds) {
