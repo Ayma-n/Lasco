@@ -45,7 +45,7 @@ function Landing() {
     return (<>
         <div id="Landing">
             <div id="intro-text">So you're curious about <span className="text-gradient"> NFTs</span> ?</div>
-            <div id="belt-div"  style={{left: '50%', transform: 'translate(-50%)' }}>
+            <div id="belt-div"  style={{left: `${-3950 + 0.5 * window.innerWidth}px` }}>
                 <img id="belt" src={demoLandingBelt}></img>
                 <img id="belt" src={demoLandingBelt}></img>
                 <img id="belt" src={demoLandingBelt}></img>
