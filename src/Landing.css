@@ -50,11 +50,6 @@
   background-color: red;
 }
 
-#Landing #scroll-left-div:hover {
-  -webkit-animation: scroll-left 15s linear infinite;
-          animation: scroll-left 15s linear infinite;
-}
-
 #Landing #scroll-right-div {
   position: absolute;
   right: 0;
