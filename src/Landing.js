@@ -17,7 +17,7 @@ function Landing() {
     function moveBeltLeft() {
         const widthOffset = (defaultWidthOffset/defaultBeltWidth)*belt.clientWidth;
         if (parseInt(beltDiv.style.left) == -belt.clientWidth) {
-            beltDiv.style.left = `${- belt.clientWidth - 0.5*widthOffset}px`;
+            beltDiv.style.left = `${- 2 * belt.clientWidth - 0.5*widthOffset}px`;
 
         }
         beltDiv.style.left = parseInt(beltDiv.style.left) + 1 + "px";
