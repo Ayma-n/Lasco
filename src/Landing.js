@@ -1,5 +1,4 @@
-import { clear } from '@testing-library/user-event/dist/clear';
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import "./Landing.css"
 import demoLandingBelt from "./sample/posts/Demo-Landing-Belt.png"
 import demoLogo from "./sample/posts/demo-logo.png";
