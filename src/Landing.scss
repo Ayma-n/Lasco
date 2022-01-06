@@ -1,0 +1,82 @@
+@use "sass:list";
+
+$intro-line-height: 77px;
+$intro-top: 32px;
+$belt-top: 34px;
+$belt-height: 550px;
+
+#Landing {
+
+    overflow-x: hidden;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+
+    .text-gradient {
+        // Technically, it is not possible to set a gradient as the color of a text, so we use the background-image property.
+        background-image: linear-gradient(
+            225.34deg,
+            rgba(173, 0, 255, 0.459) 0%,
+            rgba(219, 0, 255, 0.85) 46.35%,
+            rgba(160, 0, 255, 0.85) 65.1%,
+            rgba(51, 0, 255, 0.85) 100%
+        );
+        // This makes sure that the background "sticks" to the text.
+        background-clip: text;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        // This finally sets the text's initial color to transparent, so that the gradient is clearly seen.
+        -webkit-text-fill-color: transparent; 
+        -moz-text-fill-color: transparent;
+        // See: https://fossheim.io/writing/posts/css-text-gradient/
+    }
+
+    #intro-text {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 64px;
+        // line-height: 77px;
+        align-items: center;
+        color: #000000;
+
+        margin-top: 32px;
+        
+    }
+
+    #belt-div {
+        position: relative;
+        height: 550px;
+        width: 100vw;
+        top: 34px;
+    }
+
+    #belt {
+        position: absolute;
+        height: 550px;
+        left: -620px;
+    }
+
+    #scroll-left-div {
+        position: absolute;
+        left: 0;
+        top: $intro-line-height + $intro-top + $belt-top;
+        width: 20%;
+        height: $belt-height;
+        background-color: red;
+    }
+
+    #scroll-left-div:hover {
+        animation: scroll-left 15s linear infinite;
+    }
+
+    #scroll-right-div {
+        position: absolute;
+        right: 0;
+        top: $intro-line-height + $intro-top + $belt-top;
+        width: 20%;
+        height: 550px;
+        background-color: red;
+    }
+
+}

@@ -6,7 +6,7 @@ function Signup() {
     return (<>
         <div id="Signup">
             <div id="left-rect">
-                <div id="explore-text">Explore Art. <span class="magenta-text">Together.</span></div>
+                <div id="explore-text">Explore Art. <span className="magenta-text">Together.</span></div>
                 <form>
                     <input id="name" type="text" placeholder="Name" />
                     <input id="email" type="text" placeholder="E-mail"/>
