@@ -28,13 +28,13 @@ function App() {
 
       {/* https://stackoverflow.com/questions/70393557/react-routes-not-showing-when-using-routes */}
         <Routes>
+          <Route path="/" element= {<Landing />} />
           <Route path="/feed" element={<FeedPost />} />
           <Route path={`/profiles/${user}`} element={< Profile />} />
           <Route path="/view" element={< ViewPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/search" element={<SearchBar />} />
-          <Route path="/landing" element={<Landing />} />
         </Routes>
       </Router>
     </div>

@@ -5,6 +5,7 @@
           box-sizing: border-box;
   width: 100vw;
   height: 100vh;
+  background-color: white;
 }
 
 #Landing .text-gradient {
@@ -14,6 +15,10 @@
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
+}
+
+#Landing .text-white {
+  color: white;
 }
 
 #Landing #intro-text {
@@ -76,5 +81,40 @@
   width: 192px;
   height: 93px;
   border-radius: 12px;
+  background-image: linear-gradient(225.34deg, rgba(173, 0, 255, 0.459) 0%, rgba(219, 0, 255, 0.85) 46.35%, rgba(160, 0, 255, 0.85) 65.1%, rgba(51, 0, 255, 0.85) 100%);
+  border: solid 3px transparent;
+  background-origin: border-box;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: Inter;
+}
+
+#Landing #login-button {
+  -webkit-box-shadow: 2px 1000px 1px #fff inset;
+          box-shadow: 2px 1000px 1px #fff inset;
+}
+
+#Landing #logo-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: absolute;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  left: 36px;
+  bottom: 34px;
+}
+
+#Landing #logo-div > div {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: bold;
+  text-align: center;
+  font-size: 36px;
 }
 /*# sourceMappingURL=Landing.css.map */

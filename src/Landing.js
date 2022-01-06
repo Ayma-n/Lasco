@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import "./Landing.css"
 import demoLandingBelt from "./sample/posts/Demo-Landing-Belt.png"
+import demoLogo from "./sample/posts/demo-logo.png";
+
 
 function Landing() {
 
@@ -44,13 +46,17 @@ function Landing() {
             </div>
             <div id="scroll-left-div"></div>
             <div id="scroll-right-div"></div>
-            <div id="button-div">
+            <div id="button-div"> 
                 <a href="/login">
-                    <button class="login-signup">Login</button>
+                    <button class="login-signup" id="login-button"><div class="text-gradient">Login</div></button>
                 </a>
                 <a href="/signup">
-                    <button class="login-signup">Signup</button>
+                    <button class="login-signup" id="signup-button"><div class="text-white">Signup</div></button>
                 </a>
+            </div>
+            <div id="logo-div">
+                <img src={demoLogo}></img>
+                <div>Lasco</div>
             </div>
         </div>
     </>)

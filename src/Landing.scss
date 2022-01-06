@@ -11,6 +11,7 @@ $belt-height: 550px;
     box-sizing: border-box;
     width: 100vw;
     height: 100vh;
+    background-color: white;
 
     .text-gradient {
         // Technically, it is not possible to set a gradient as the color of a text, so we use the background-image property.
@@ -29,6 +30,10 @@ $belt-height: 550px;
         -webkit-text-fill-color: transparent; 
         -moz-text-fill-color: transparent;
         // See: https://fossheim.io/writing/posts/css-text-gradient/
+    }
+
+    .text-white {
+        color: white;
     }
 
     #intro-text {
@@ -85,6 +90,43 @@ $belt-height: 550px;
         width: 192px;
         height: 93px;
         border-radius: 12px;
+
+        background-image: linear-gradient(
+            225.34deg,
+            rgba(173, 0, 255, 0.459) 0%,
+            rgba(219, 0, 255, 0.85) 46.35%,
+            rgba(160, 0, 255, 0.85) 65.1%,
+            rgba(51, 0, 255, 0.85) 100%
+        );
+
+        border: solid 3px transparent;
+        background-origin: border-box;
+
+        font-size: 24px;
+        font-weight: bold;
+        font-family: Inter;
     }
+
+    #login-button {
+        box-shadow: 2px 1000px 1px #fff inset;
+    }
+
+    #logo-div {
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        align-items: center;
+        left: 36px;
+        bottom: 34px;
+    }
+
+    #logo-div > div {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: bold;
+        text-align: center;
+        font-size: 36px;
+    }
+
 
 }
