@@ -1,3 +1,4 @@
+import { clear } from '@testing-library/user-event/dist/clear';
 import React, {useEffect, useState} from 'react'
 import "./Landing.css"
 import demoLandingBelt from "./sample/posts/Demo-Landing-Belt.png"
@@ -5,8 +6,9 @@ import demoLogo from "./sample/posts/demo-logo.png";
 
 
 function Landing() {
-
+    
     var belt;
+    var scrollInterval;
 
     function moveBeltLeft() {
         belt.style.left = parseInt(belt.style.left) + 1 + "px";
@@ -17,7 +19,7 @@ function Landing() {
     }
     
     useEffect(() => {
-        belt = document.querySelector('#belt');
+        belt = document.querySelector('#belt-div');
         repeatWhileMouseOver(document.querySelector('#scroll-left-div'), moveBeltLeft, 1);
         repeatWhileMouseOver(document.querySelector('#scroll-right-div'), moveBeltRight, 1);
         scrolling(moveBeltRight, 10);
@@ -27,22 +29,26 @@ function Landing() {
         var interval = null;
         element.addEventListener('mouseover', function () {
             interval = setInterval(action, milliseconds);
+            clearInterval(scrollInterval)
         });
     
         element.addEventListener('mouseout', function () {
             clearInterval(interval);
+            scrolling(moveBeltRight, 10)
         });
     }
     function scrolling(action, milliseconds) {
-        var interval = null;
-            interval = setInterval(action, milliseconds);
+            scrollInterval = setInterval(action, milliseconds);
     }
-    
+    console.log(window.innerWidth)
+    console.log(`${-4804 + 0.5 * window.innerWidth}px`);
     return (<>
         <div id="Landing">
             <div id="intro-text">So you're curious about <span className="text-gradient"> NFTs</span> ?</div>
-            <div id="belt-div">
-                <img id="belt" style={{left: '-620px'}} src={demoLandingBelt}></img>
+            <div id="belt-div"  style={{left: 0 }}>
+                <img id="belt" src={demoLandingBelt}></img>
+                <img id="belt" src={demoLandingBelt}></img>
+                <img id="belt" src={demoLandingBelt}></img>
             </div>
             <div id="scroll-left-div"></div>
             <div id="scroll-right-div"></div>

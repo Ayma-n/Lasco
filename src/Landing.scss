@@ -52,14 +52,18 @@ $belt-height: 550px;
     #belt-div {
         position: relative;
         height: 550px;
-        width: 100vw;
         top: 34px;
+        display: flex;
+        flex-direction: row;
+        column-gap: 12px;
+        width: 9639px;
+        translate: (50%);
     }
 
     #belt {
-        position: absolute;
+        position: relative;
         height: 550px;
-        left: -620px;
+        // left: -620px;
     }
 
     #scroll-left-div {
