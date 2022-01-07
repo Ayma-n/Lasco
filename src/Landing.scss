@@ -16,6 +16,8 @@ $title-margin-bottom: 32px;
     width: 100vw;
     height: 100vh;
     background-color: white;
+    display: flex;
+    flex-direction: column;
 
     .text-gradient {
         // Technically, it is not possible to set a gradient as the color of a text, so we use the background-image property.
@@ -50,10 +52,12 @@ $title-margin-bottom: 32px;
         color: #000000;
 
         margin: (100vh * $title-margin-bottom / $mac-height) 0;
+        flex-shrink: 0;
         
     }
 
     #belt-div {
+        height: 100%;
         position: relative;
         // height: 550px;
         // height: 100vh * $belt-height / $mac-height;
@@ -66,24 +70,39 @@ $title-margin-bottom: 32px;
 
     .belt {
         position: relative;
-        height: 100vh * $belt-height / $mac-height;
+        height: auto;
+        // max-height: 100%;
         // left: -620px;
     }
 
     #scroll-left-div {
         position: absolute;
         left: 0;
-        top: $intro-line-height + $intro-top + $belt-top;
+        // left: 0;
+        // top: $intro-line-height + $intro-top + $belt-top;
         width: 20%;
-        height: $belt-height;
+        height: 100%;
+        top: 0;
+    }
+
+    #parent-div {
+        // flex-shrink: 3;
+        width: 100vw;
+        position: relative;
+        // height: 50vh;
+        // flex: auto;
+        // display: flex;
+        flex-shrink: 1;
     }
 
     #scroll-right-div {
         position: absolute;
+        // right: 0;
+        // top: $intro-line-height + $intro-top + $belt-top;
         right: 0;
-        top: $intro-line-height + $intro-top + $belt-top;
+        top: 0;
         width: 20%;
-        height: 550px;
+        height: 100%;
     }
 
     #button-div {
@@ -92,11 +111,12 @@ $title-margin-bottom: 32px;
         justify-content: center;
         gap: 10px;
         margin-top: 50px;
+        flex-shrink: 0;
     }
 
     .login-signup {
         width: 192px;
-        height: 93px;
+        height: 75px;
         border-radius: 12px;
 
         background-image: linear-gradient(
@@ -117,6 +137,10 @@ $title-margin-bottom: 32px;
 
     #login-button {
         box-shadow: 2px 1000px 1px #fff inset;
+    }
+
+    #parent-div {
+
     }
 
     #logo-div {

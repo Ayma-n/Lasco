@@ -6,6 +6,13 @@
   width: 100vw;
   height: 100vh;
   background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 #Landing .text-gradient {
@@ -31,9 +38,12 @@
           align-items: center;
   color: #000000;
   margin: 3.25866vh 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 #Landing #belt-div {
+  height: 100%;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -48,23 +58,30 @@
 
 #Landing .belt {
   position: relative;
-  height: 67.41344vh;
+  height: auto;
 }
 
 #Landing #scroll-left-div {
   position: absolute;
   left: 0;
-  top: 143px;
   width: 20%;
-  height: 662px;
+  height: 100%;
+  top: 0;
+}
+
+#Landing #parent-div {
+  width: 100vw;
+  position: relative;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
 }
 
 #Landing #scroll-right-div {
   position: absolute;
   right: 0;
-  top: 143px;
+  top: 0;
   width: 20%;
-  height: 550px;
+  height: 100%;
 }
 
 #Landing #button-div {
@@ -80,11 +97,13 @@
           justify-content: center;
   gap: 10px;
   margin-top: 50px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 #Landing .login-signup {
   width: 192px;
-  height: 93px;
+  height: 75px;
   border-radius: 12px;
   background-image: linear-gradient(225.34deg, rgba(173, 0, 255, 0.459) 0%, rgba(219, 0, 255, 0.85) 46.35%, rgba(160, 0, 255, 0.85) 65.1%, rgba(51, 0, 255, 0.85) 100%);
   border: solid 3px transparent;
