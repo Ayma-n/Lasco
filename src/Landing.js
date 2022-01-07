@@ -12,11 +12,12 @@ function Landing() {
 
     const defaultWidthOffset = 20;
     const defaultBeltWidth = 2662;
+    const startingOffset = -1288;
 
     function moveBeltLeft() {
         const widthOffset = (defaultWidthOffset/defaultBeltWidth)*belt.clientWidth;
-        if (parseInt(beltDiv.style.left) == -belt.clientWidth) {
-            beltDiv.style.left = `${- 2 * belt.clientWidth - 0.5*widthOffset}px`;
+        if (parseInt(beltDiv.style.left) >= 0) {
+            beltDiv.style.left = `${-belt.clientWidth - 0.5*widthOffset}px`;
 
         }
         beltDiv.style.left = parseInt(beltDiv.style.left) + 1 + "px";
@@ -24,8 +25,9 @@ function Landing() {
 
     function moveBeltRight() {
         const widthOffset = (defaultWidthOffset/defaultBeltWidth)*belt.clientWidth;
-        if (parseInt(beltDiv.style.left) == - 2 * belt.clientWidth - widthOffset) {
-            beltDiv.style.left = `${- belt.clientWidth - 0.5*widthOffset}px`;
+        if (parseInt(beltDiv.style.left) <= -belt.clientWidth - widthOffset) {
+            
+            beltDiv.style.left = `${-0.5*widthOffset}px`;
         }
         beltDiv.style.left = parseInt(beltDiv.style.left) - 1 + "px";
     }
@@ -59,8 +61,7 @@ function Landing() {
     return (<>
         <div id="Landing">
             <div id="intro-text">So you're curious about <span className="text-gradient"> NFTs</span> ?</div>
-            <div id="belt-div"  style={{left: `${-3950 + 0.5 * window.innerWidth}px` }}>
-                <img className="belt" src={demoLandingBelt}></img>
+            <div id="belt-div"  style={{left: `${startingOffset + 0.5 * window.innerWidth}px` }}>
                 <img id="main-belt" className="belt" src={demoLandingBelt}></img>
                 <img className="belt" src={demoLandingBelt}></img>
             </div>
