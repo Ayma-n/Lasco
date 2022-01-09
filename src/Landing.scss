@@ -127,30 +127,13 @@ $button-breakpoint: 500px;
 
     .login-signup {
         // width: 100vh * 192px / 982px;
-        width: 192px;
         // padding-top: 40%;
         height: 100%;
         // border-radius: 12px;
-
-        background-image: linear-gradient(
-            225.34deg,
-            rgba(173, 0, 255, 0.459) 0%,
-            rgba(219, 0, 255, 0.85) 46.35%,
-            rgba(160, 0, 255, 0.85) 65.1%,
-            rgba(51, 0, 255, 0.85) 100%
-        );
-
-        border: solid 3px transparent;
-        border-radius: 12px;
-        font-size: 24px;
-        /* IMPORTANT, DONT DELETE */
-        background-origin: border-box;
-        font-weight: bold;
-        font-family: Inter;
     }
 
     #login-button {
-        box-shadow: 2px 1000px 1px #fff inset;
+        
     }
 
 

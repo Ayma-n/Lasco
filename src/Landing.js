@@ -83,12 +83,12 @@ function Landing() {
         </div>
         <div id="button-div">
             <a href="/login">
-              <button className="login-signup" id="login-button">
+              <button className="clear-btn" id="login-button">
                 <div className="text-gradient">Login</div>
               </button>
             </a>
             <a href="/signup">
-              <button className="login-signup" id="signup-button">
+              <button className="filled-btn" id="signup-button">
                 <div className="text-white">Signup</div>
               </button>
             </a>
