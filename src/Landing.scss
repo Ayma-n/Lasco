@@ -5,9 +5,11 @@ $intro-top: 32px;
 $belt-top: 34px;
 $belt-height: 662px;
 $mac-height: 982px;
+$mac-width: 1512px;
 $column-gap: 12px;
 $title-font-size: 64px;
 $title-margin-bottom: 32px;
+$button-breakpoint: 500px;
 
 #Landing {
 
@@ -16,6 +18,8 @@ $title-margin-bottom: 32px;
     width: 100vw;
     height: 100vh;
     background-color: white;
+    display: flex;
+    flex-direction: column;
 
     .text-gradient {
         // Technically, it is not possible to set a gradient as the color of a text, so we use the background-image property.
@@ -48,12 +52,15 @@ $title-margin-bottom: 32px;
         // line-height: 77px;
         align-items: center;
         color: #000000;
-
+        // TODO: not sure
+        // box-sizing: border-box;
         margin: (100vh * $title-margin-bottom / $mac-height) 0;
+        flex-shrink: 0;
         
     }
 
     #belt-div {
+        height: 100%;
         position: relative;
         // height: 550px;
         // height: 100vh * $belt-height / $mac-height;
@@ -66,24 +73,42 @@ $title-margin-bottom: 32px;
 
     .belt {
         position: relative;
-        height: 100vh * $belt-height / $mac-height;
+        height: 100%;
+        // max-height: 100%;
         // left: -620px;
     }
 
     #scroll-left-div {
         position: absolute;
         left: 0;
-        top: $intro-line-height + $intro-top + $belt-top;
+        // left: 0;
+        // top: $intro-line-height + $intro-top + $belt-top;
         width: 20%;
-        height: $belt-height;
+        height: 100%;
+        top: 0;
+    }
+
+    #parent-div {
+        // flex-shrink: 3;
+        width: 100vw;
+        position: relative;
+        max-height: 1200px;
+        // min-height: 423px;
+        min-height: 20vw;
+        // height: 50vh;
+        // flex: auto;
+        // display: flex;
+        flex-shrink: 1;
     }
 
     #scroll-right-div {
         position: absolute;
+        // right: 0;
+        // top: $intro-line-height + $intro-top + $belt-top;
         right: 0;
-        top: $intro-line-height + $intro-top + $belt-top;
+        top: 0;
         width: 20%;
-        height: 550px;
+        height: 100%;
     }
 
     #button-div {
@@ -91,41 +116,44 @@ $title-margin-bottom: 32px;
         flex-direction: row;
         justify-content: center;
         gap: 10px;
-        margin-top: 50px;
+        // margin-top: 50px;
+        margin-top: 100vh * 50px / $mac-height;
+        // min-height: 75px;
+        margin-bottom: 100vh * 50px / $mac-height;
+        max-height: 93px;
+        height: 93px;
+        flex-shrink: 0;
     }
 
     .login-signup {
-        width: 192px;
-        height: 93px;
-        border-radius: 12px;
-
-        background-image: linear-gradient(
-            225.34deg,
-            rgba(173, 0, 255, 0.459) 0%,
-            rgba(219, 0, 255, 0.85) 46.35%,
-            rgba(160, 0, 255, 0.85) 65.1%,
-            rgba(51, 0, 255, 0.85) 100%
-        );
-
-        border: solid 3px transparent;
-        background-origin: border-box;
-
-        font-size: 24px;
-        font-weight: bold;
-        font-family: Inter;
+        // width: 100vh * 192px / 982px;
+        // padding-top: 40%;
+        height: 100%;
+        // border-radius: 12px;
     }
 
     #login-button {
-        box-shadow: 2px 1000px 1px #fff inset;
+        
     }
+
 
     #logo-div {
         display: flex;
         flex-direction: row;
         position: absolute;
         align-items: center;
-        left: 36px;
-        bottom: 34px;
+        // left: 100vw * 36px / $mac-width;
+        // left: 36px;
+        bottom: 100vh * 34px / $mac-width;
+        // bottom: 34px;
+        left: 100vw * 36px / $mac-width;
+    }
+
+    #join-lasco-button {
+        width: 270px;
+        height: 102px;
+        font-size: 33px;
+        border-radius: 20px;
     }
 
     #logo-div > div {
@@ -133,13 +161,87 @@ $title-margin-bottom: 32px;
         font-style: normal;
         font-weight: bold;
         text-align: center;
+        // font-size: 100vh * 36px / $mac-height;
         font-size: 36px;
     }
 
-    @media screen and (max-width: 725px)  {
+    #logo-img {
+        // height: 100vh * 51px / $mac-height;
+        height: 51px;
+    }
+
+    #join-lasco-button {
+        transition: transform, 0.2s;
+    }
+    #join-lasco-button:hover {
+        transform: translateY(-3px);
+    }
+
+    @media screen and (max-width: 572px)  {
         #intro-text {
             // font-size: 100vw * (100vh * $title-font-size / $mac-height) / $mac-height;
+            // font-size: 100vw * ($title-font-size / $mac-height);
+            // font-size: 100vw;
         }
     }
+
+    // @media screen and (min-width: 1512px) {
+    //     #parent-div {
+    //         min-height: 423px;  
+    //     }
+    // }
+    @media screen and (max-height: $button-breakpoint) {
+        .login-signup {
+            width: 100vh * 192px / $button-breakpoint;
+            border: solid (100vh * 3px / $button-breakpoint) transparent;
+            border-radius: #{100% * 12px / 192px}/#{100% * 12px / 93px};
+            font-size: 100vh * 24px / $button-breakpoint;
+        }
+       
+    #logo-div {
+        // bottom: 100vh * 34px / $button-breakpoint;
+    }
+
+    #logo-div > div {
+        font-size: 100vh * 36px / $button-breakpoint;
+    }
+
+    #logo-img {
+        height: 100vh * 51px / $button-breakpoint;
+    }
+    
+    #button-div {
+        height: (93px / 192px) * 100vh * 192px / $button-breakpoint;
+        // flex-shrink: 1;
+    }
+}
+
+@media screen and (max-width: 809px) and (min-height: $button-breakpoint) {
+    #intro-text {
+        margin: 10px 0;
+    }
+    #button-div {
+        margin-top: 100vh * 30px / $mac-height;
+        margin-bottom: 100vh * 70px / $mac-height;
+    }
+
+    #logo-div {
+       left: 50vw;
+       transform: translateX(-50%);
+       bottom: 100vh * 11px / $mac-height;
+    }
+
+    #logo-div > div {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: bold;
+        text-align: center;
+        font-size: 0.7 * 100vh * 36px / $mac-height;
+    }
+
+    #logo-img {
+        height: 0.7 * 100vh * 51px / $mac-height;
+    }
+}
 
 }

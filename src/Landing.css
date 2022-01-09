@@ -6,6 +6,13 @@
   width: 100vw;
   height: 100vh;
   background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 #Landing .text-gradient {
@@ -31,9 +38,12 @@
           align-items: center;
   color: #000000;
   margin: 3.25866vh 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 #Landing #belt-div {
+  height: 100%;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -48,23 +58,32 @@
 
 #Landing .belt {
   position: relative;
-  height: 67.41344vh;
+  height: 100%;
 }
 
 #Landing #scroll-left-div {
   position: absolute;
   left: 0;
-  top: 143px;
   width: 20%;
-  height: 662px;
+  height: 100%;
+  top: 0;
+}
+
+#Landing #parent-div {
+  width: 100vw;
+  position: relative;
+  max-height: 1200px;
+  min-height: 20vw;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
 }
 
 #Landing #scroll-right-div {
   position: absolute;
   right: 0;
-  top: 143px;
+  top: 0;
   width: 20%;
-  height: 550px;
+  height: 100%;
 }
 
 #Landing #button-div {
@@ -79,24 +98,16 @@
       -ms-flex-pack: center;
           justify-content: center;
   gap: 10px;
-  margin-top: 50px;
+  margin-top: 5.09165vh;
+  margin-bottom: 5.09165vh;
+  max-height: 93px;
+  height: 93px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 #Landing .login-signup {
-  width: 192px;
-  height: 93px;
-  border-radius: 12px;
-  background-image: linear-gradient(225.34deg, rgba(173, 0, 255, 0.459) 0%, rgba(219, 0, 255, 0.85) 46.35%, rgba(160, 0, 255, 0.85) 65.1%, rgba(51, 0, 255, 0.85) 100%);
-  border: solid 3px transparent;
-  background-origin: border-box;
-  font-size: 24px;
-  font-weight: bold;
-  font-family: Inter;
-}
-
-#Landing #login-button {
-  -webkit-box-shadow: 2px 1000px 1px #fff inset;
-          box-shadow: 2px 1000px 1px #fff inset;
+  height: 100%;
 }
 
 #Landing #logo-div {
@@ -111,8 +122,15 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  left: 36px;
-  bottom: 34px;
+  bottom: 2.24868vh;
+  left: 2.38095vw;
+}
+
+#Landing #join-lasco-button {
+  width: 270px;
+  height: 102px;
+  font-size: 33px;
+  border-radius: 20px;
 }
 
 #Landing #logo-div > div {
@@ -121,5 +139,65 @@
   font-weight: bold;
   text-align: center;
   font-size: 36px;
+}
+
+#Landing #logo-img {
+  height: 51px;
+}
+
+#Landing #join-lasco-button {
+  -webkit-transition: 0.2s, -webkit-transform;
+  transition: 0.2s, -webkit-transform;
+  transition: transform, 0.2s;
+  transition: transform, 0.2s, -webkit-transform;
+}
+
+#Landing #join-lasco-button:hover {
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
+}
+
+@media screen and (max-height: 500px) {
+  #Landing .login-signup {
+    width: 38.4vh;
+    border: solid 0.6vh transparent;
+    border-radius: 6.25%/12.90323%;
+    font-size: 4.8vh;
+  }
+  #Landing #logo-div > div {
+    font-size: 7.2vh;
+  }
+  #Landing #logo-img {
+    height: 10.2vh;
+  }
+  #Landing #button-div {
+    height: 18.6vh;
+  }
+}
+
+@media screen and (max-width: 809px) and (min-height: 500px) {
+  #Landing #intro-text {
+    margin: 10px 0;
+  }
+  #Landing #button-div {
+    margin-top: 3.05499vh;
+    margin-bottom: 7.12831vh;
+  }
+  #Landing #logo-div {
+    left: 50vw;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    bottom: 1.12016vh;
+  }
+  #Landing #logo-div > div {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    font-size: 2.56619vh;
+  }
+  #Landing #logo-img {
+    height: 3.63544vh;
+  }
 }
 /*# sourceMappingURL=Landing.css.map */
