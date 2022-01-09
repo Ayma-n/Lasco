@@ -68,7 +68,7 @@ function Landing() {
     <>
       <div id="Landing">
         <div id="intro-text">
-          So you're curious about <span className="text-gradient"> NFTs</span> ?
+          So you're curious about <span className="text-gradient">NFTs</span> ?
         </div>
         <div id="parent-div">
         <div
@@ -94,7 +94,7 @@ function Landing() {
             </a>
           </div>
         <div id="logo-div">
-          <img src={demoLogo}></img>
+          <img id="logo-img" src={demoLogo}></img>
           <div>Lasco</div>
         </div>
       </div>

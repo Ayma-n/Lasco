@@ -5,9 +5,11 @@ $intro-top: 32px;
 $belt-top: 34px;
 $belt-height: 662px;
 $mac-height: 982px;
+$mac-width: 1512px;
 $column-gap: 12px;
 $title-font-size: 64px;
 $title-margin-bottom: 32px;
+$button-breakpoint: 500px;
 
 #Landing {
 
@@ -50,7 +52,8 @@ $title-margin-bottom: 32px;
         // line-height: 77px;
         align-items: center;
         color: #000000;
-
+        // TODO: not sure
+        // box-sizing: border-box;
         margin: (100vh * $title-margin-bottom / $mac-height) 0;
         flex-shrink: 0;
         
@@ -90,11 +93,12 @@ $title-margin-bottom: 32px;
         width: 100vw;
         position: relative;
         max-height: 1200px;
-        min-height: 423px;
+        // min-height: 423px;
+        min-height: 20vw;
         // height: 50vh;
         // flex: auto;
         // display: flex;
-        flex-shrink: 2;
+        flex-shrink: 1;
     }
 
     #scroll-right-div {
@@ -112,17 +116,21 @@ $title-margin-bottom: 32px;
         flex-direction: row;
         justify-content: center;
         gap: 10px;
-
-        margin-top: 50px;
-        min-height: 75px;
+        // margin-top: 50px;
+        margin-top: 100vh * 50px / $mac-height;
+        // min-height: 75px;
+        margin-bottom: 100vh * 50px / $mac-height;
         max-height: 93px;
-        // flex-shrink: 0;
+        height: 93px;
+        flex-shrink: 0;
     }
 
     .login-signup {
+        // width: 100vh * 192px / 982px;
         width: 192px;
+        // padding-top: 40%;
         height: 100%;
-        border-radius: 12px;
+        // border-radius: 12px;
 
         background-image: linear-gradient(
             225.34deg,
@@ -133,9 +141,10 @@ $title-margin-bottom: 32px;
         );
 
         border: solid 3px transparent;
-        background-origin: border-box;
-
+        border-radius: 12px;
         font-size: 24px;
+        /* IMPORTANT, DONT DELETE */
+        background-origin: border-box;
         font-weight: bold;
         font-family: Inter;
     }
@@ -144,17 +153,17 @@ $title-margin-bottom: 32px;
         box-shadow: 2px 1000px 1px #fff inset;
     }
 
-    #parent-div {
-
-    }
 
     #logo-div {
         display: flex;
         flex-direction: row;
         position: absolute;
         align-items: center;
-        left: 36px;
-        bottom: 34px;
+        // left: 100vw * 36px / $mac-width;
+        // left: 36px;
+        bottom: 100vh * 34px / $mac-width;
+        // bottom: 34px;
+        left: 100vw * 36px / $mac-width;
     }
 
     #logo-div > div {
@@ -162,7 +171,13 @@ $title-margin-bottom: 32px;
         font-style: normal;
         font-weight: bold;
         text-align: center;
+        // font-size: 100vh * 36px / $mac-height;
         font-size: 36px;
+    }
+
+    #logo-img {
+        // height: 100vh * 51px / $mac-height;
+        height: 51px;
     }
 
     @media screen and (max-width: 572px)  {
@@ -172,5 +187,64 @@ $title-margin-bottom: 32px;
             // font-size: 100vw;
         }
     }
+
+    // @media screen and (min-width: 1512px) {
+    //     #parent-div {
+    //         min-height: 423px;  
+    //     }
+    // }
+    @media screen and (max-height: $button-breakpoint) {
+        .login-signup {
+            width: 100vh * 192px / $button-breakpoint;
+            border: solid (100vh * 3px / $button-breakpoint) transparent;
+            border-radius: #{100% * 12px / 192px}/#{100% * 12px / 93px};
+            font-size: 100vh * 24px / $button-breakpoint;
+        }
+       
+    #logo-div {
+        // bottom: 100vh * 34px / $button-breakpoint;
+    }
+
+    #logo-div > div {
+        font-size: 100vh * 36px / $button-breakpoint;
+    }
+
+    #logo-img {
+        height: 100vh * 51px / $button-breakpoint;
+    }
+    
+    #button-div {
+        height: (93px / 192px) * 100vh * 192px / $button-breakpoint;
+        // flex-shrink: 1;
+    }
+}
+
+@media screen and (max-width: 809px) and (min-height: $button-breakpoint) {
+    #intro-text {
+        margin: 10px 0;
+    }
+    #button-div {
+        margin-top: 100vh * 30px / $mac-height;
+        margin-bottom: 100vh * 70px / $mac-height;
+    }
+
+    #logo-div {
+       left: 50vw;
+       transform: translateX(-50%);
+       bottom: 100vh * 11px / $mac-height;
+    }
+
+    #logo-div > div {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: bold;
+        text-align: center;
+        font-size: 0.7 * 100vh * 36px / $mac-height;
+    }
+
+    #logo-img {
+        height: 0.7 * 100vh * 51px / $mac-height;
+    }
+}
 
 }
