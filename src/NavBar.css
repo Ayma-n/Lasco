@@ -1,0 +1,107 @@
+#NavBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 1;
+  width: 100vw;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#NavBar .nav-link {
+  -webkit-transition: color, 0.3s;
+  transition: color, 0.3s;
+}
+
+#NavBar .nav-link:hover {
+  color: #de35ff;
+}
+
+#NavBar #logo-div-2 {
+  left: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  width: 312px;
+  margin-left: 24px;
+  gap: 13px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#NavBar #logo-div-2 > div {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: bold;
+  text-align: center;
+  font-size: 36px;
+}
+
+#NavBar #logo-img-2 {
+  height: 51px;
+}
+
+#NavBar #middle-nav {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  gap: 38px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #BEBEBE;
+}
+
+#NavBar a {
+  color: inherit;
+  /* blue colors for links too */
+  text-decoration: inherit;
+  /* no underline */
+}
+
+#NavBar #button-div-2 {
+  margin-right: 52px;
+}
+
+#NavBar #login-button {
+  border: none;
+  /* gets rid of small edges around border */
+  border-radius: 0;
+  width: 142px;
+  background: none;
+}
+
+#NavBar #signup-button {
+  width: 142px;
+  height: 73px;
+}
+
+#NavBar #login-button, #NavBar #signup-button {
+  -webkit-transition: 0.2s, -webkit-transform;
+  transition: 0.2s, -webkit-transform;
+  transition: transform, 0.2s;
+  transition: transform, 0.2s, -webkit-transform;
+}
+
+#NavBar #login-button:hover, #NavBar #signup-button:hover {
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
+}
+/*# sourceMappingURL=NavBar.css.map */

@@ -19,6 +19,7 @@ body {
   background-origin: border-box;
   font-weight: bold;
   font-family: Inter;
+  cursor: pointer;
   width: 192px;
   height: 93px;
   font-size: 24px;

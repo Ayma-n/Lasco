@@ -149,6 +149,13 @@ $button-breakpoint: 500px;
         left: 100vw * 36px / $mac-width;
     }
 
+    #join-lasco-button {
+        width: 270px;
+        height: 102px;
+        font-size: 33px;
+        border-radius: 20px;
+    }
+
     #logo-div > div {
         font-family: Inter;
         font-style: normal;
@@ -161,6 +168,13 @@ $button-breakpoint: 500px;
     #logo-img {
         // height: 100vh * 51px / $mac-height;
         height: 51px;
+    }
+
+    #join-lasco-button {
+        transition: transform, 0.2s;
+    }
+    #join-lasco-button:hover {
+        transform: translateY(-3px);
     }
 
     @media screen and (max-width: 572px)  {

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./Landing.css";
 import demoLandingBelt from "./sample/posts/Demo-Landing-Belt.png";
 import demoLogo from "./sample/posts/demo-logo.png";
+import NavBar from "./NavBar";
 
 function Landing() {
   var belt;
@@ -67,6 +68,7 @@ function Landing() {
   return (
     <>
       <div id="Landing">
+      <NavBar></NavBar>
         <div id="intro-text">
           So you're curious about <span className="text-gradient">NFTs</span> ?
         </div>
@@ -82,21 +84,12 @@ function Landing() {
           <div id="scroll-right-div"></div>
         </div>
         <div id="button-div">
-            <a href="/login">
-              <button className="clear-btn" id="login-button">
-                <div className="text-gradient">Login</div>
-              </button>
-            </a>
             <a href="/signup">
-              <button className="filled-btn" id="signup-button">
-                <div className="text-white">Signup</div>
+              <button className="filled-btn" id="join-lasco-button">
+                <div className="text-white">Join Lasco</div>
               </button>
             </a>
           </div>
-        <div id="logo-div">
-          <img id="logo-img" src={demoLogo}></img>
-          <div>Lasco</div>
-        </div>
       </div>
     </>
   );

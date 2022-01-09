@@ -1,24 +1,25 @@
 import React, { useState } from 'react';
 import './NavBar.css'
+import demoLogo from "./sample/posts/demo-logo.png";
 function NavBar() {
     return (<div id="NavBar">
-        <div id="logo-div">
-        <img id="logo-img" src={demoLogo} />
+        <a href="/" id="logo-div-2">
+        <img id="logo-img-2" src={demoLogo} />
         <div>Lasco</div>
-      </div>
-        <div className="flexbox" id="middle-nav">
+      </a>
+        <div id="middle-nav">
             <a href="community" className="nav-link" id="community">Community</a>
             <a href="governance" className="nav-link"  id="governance">Governance</a>
             <a href="about" className="nav-link" id="about">About</a>
         </div>
         <div id="button-div-2">
             <a href="/login">
-              <button className="login-signup" id="login-button">
+              <button className="clear-btn" id="login-button">
                 <div className="text-gradient">Login</div>
               </button>
             </a>
             <a href="/signup">
-              <button className="login-signup" id="signup-button">
+              <button className="filled-btn" id="signup-button">
                 <div className="text-white">Signup</div>
               </button>
             </a>

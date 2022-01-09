@@ -126,6 +126,13 @@
   left: 2.38095vw;
 }
 
+#Landing #join-lasco-button {
+  width: 270px;
+  height: 102px;
+  font-size: 33px;
+  border-radius: 20px;
+}
+
 #Landing #logo-div > div {
   font-family: Inter;
   font-style: normal;
@@ -136,6 +143,18 @@
 
 #Landing #logo-img {
   height: 51px;
+}
+
+#Landing #join-lasco-button {
+  -webkit-transition: 0.2s, -webkit-transform;
+  transition: 0.2s, -webkit-transform;
+  transition: transform, 0.2s;
+  transition: transform, 0.2s, -webkit-transform;
+}
+
+#Landing #join-lasco-button:hover {
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
 }
 
 @media screen and (max-height: 500px) {
