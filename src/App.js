@@ -9,11 +9,13 @@ import ViewPage from './ViewPage';
 import Landing from './Landing';
 import About from './About';
 import NavBar2 from './NavBar2';
+import Portal from './Portal';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
 
   const user = "johnnyrose";
+  const navBarPages = []
 
   return (<>
     <div className="App">
@@ -31,12 +33,12 @@ function App() {
       {/* https://stackoverflow.com/questions/70393557/react-routes-not-showing-when-using-routes */}
         <Routes>
           <Route path="/" element= {<Landing />} />
-          <Route path="/feed" element={<FeedPost />} />
-          <Route path={`/profiles/${user}`} element={< Profile />} />
+          <Route path="/feed" element={<Portal currentPage={FeedPost} />} />
+          <Route path={`/profiles/${user}`} element={< Portal currentPage={Profile} />} />
           <Route path="/view" element={< ViewPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/search" element={<SearchBar />} />
+          <Route path="/search" element={<Portal currentPage={SearchBar} />} />
           <Route path="/about" element={<About />} />
           <Route path="/navbar" element={<NavBar2 />} />
           {/* <Route path="/community" element={<Community />} />

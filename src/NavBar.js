@@ -8,9 +8,9 @@ function NavBar() {
         <div>Lasco</div>
       </a>
         <div id="middle-nav">
-            <a href="community" className="nav-link" id="community">Community</a>
-            <a href="governance" className="nav-link"  id="governance">Governance</a>
-            <a href="about" className="nav-link" id="about">About</a>
+            <a href="/community" className="nav-link" id="community">Community</a>
+            <a href="/governance" className="nav-link"  id="governance">Governance</a>
+            <a href="/about" className="nav-link" id="about">About</a>
         </div>
         <div id="button-div-2">
             <a href="/login">
