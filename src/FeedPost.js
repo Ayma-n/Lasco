@@ -2,6 +2,7 @@ import React from "react";
 import astronight from "./sample/posts/astronight.png";
 import profileImg from "./sample/posts/fakeProfileCircle.png";
 import "./FeedPost.css";
+import NavBar2 from "./NavBar2";
 
 function FeedPost() {
   // This is just a sample image we get from the public folder
@@ -11,6 +12,7 @@ function FeedPost() {
   return (
     <>
       <div id="FeedPost">
+      <NavBar2></NavBar2>
         <div id="containerRect">
           <img id="postImage" src={postSrc} />
           <div id="authorContainer">

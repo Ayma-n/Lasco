@@ -7,6 +7,7 @@ import img4 from './sample/posts/Rectangle 6.png'
 import './Profile.css'
 import axios from 'axios';
 import FollowBtn from "./FollowBtn"
+import NavBar2 from "./NavBar2"
 
 function Profile() {
     const [isFollowing, setIsFollowing] = useState(true);
@@ -70,6 +71,7 @@ function handleSetData(body) {
 
     return (
         <div id="Profile">
+        <NavBar2></NavBar2>
         <div id="dashboard">
         {isDataLoaded && <img className="profileImg" src={userData.profile_picture} />}
            <h2 className="profileName">Johnny Rose</h2>
