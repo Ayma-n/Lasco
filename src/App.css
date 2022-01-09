@@ -39,6 +39,13 @@ body {
   font-size: 24px;
 }
 
+a {
+  color: inherit;
+  /* blue colors for links too */
+  text-decoration: inherit;
+  /* no underline */
+}
+
 .filled-btn {
   color: #ffffff;
 }

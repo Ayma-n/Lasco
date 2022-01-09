@@ -57,6 +57,12 @@ body {
    font-size: 24px;
    
   }
+
+  // removes default styling for links
+  a {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+  }
   
   .filled-btn {
     @extend %lasco-btn;

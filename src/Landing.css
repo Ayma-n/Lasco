@@ -166,7 +166,6 @@
   }
   #Landing #button-div {
     margin-top: 3.05499vh;
-    margin-bottom: 7.12831vh;
   }
   #Landing #logo-div {
     left: 50vw;
@@ -175,8 +174,6 @@
     bottom: 1.12016vh;
   }
   #Landing #logo-div > div {
-    font-family: Inter;
-    font-style: normal;
     font-weight: bold;
     text-align: center;
     font-size: 2.56619vh;

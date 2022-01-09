@@ -65,13 +65,6 @@
   color: #BEBEBE;
 }
 
-#NavBar a {
-  color: inherit;
-  /* blue colors for links too */
-  text-decoration: inherit;
-  /* no underline */
-}
-
 #NavBar #button-div-2 {
   margin-right: 52px;
 }

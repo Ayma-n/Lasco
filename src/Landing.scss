@@ -201,7 +201,7 @@ $button-breakpoint: 500px;
     }
     #button-div {
         margin-top: 100vh * 30px / $mac-height;
-        margin-bottom: 100vh * 70px / $mac-height;
+        // margin-bottom: 100vh * 70px / $mac-height;
     }
 
     #logo-div {
@@ -211,8 +211,8 @@ $button-breakpoint: 500px;
     }
 
     #logo-div > div {
-        font-family: Inter;
-        font-style: normal;
+        // font-family: Inter;
+        // font-style: normal;
         font-weight: bold;
         text-align: center;
         font-size: 0.7 * 100vh * 36px / $mac-height;

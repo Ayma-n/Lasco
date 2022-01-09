@@ -1,9 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 #ViewPage {
+  /* Hide scrollbar for Chrome, Safari and Opera */
   /* TODO: change name to text */
   /* #comments {
     overflow: scroll;
 } */
+}
+
+#ViewPage *::-webkit-scrollbar {
+  display: none;
+}
+
+#ViewPage * {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 #ViewPage #close {
@@ -79,8 +91,8 @@
 #ViewPage .right {
   position: relative;
   width: 30.90357%;
-  height: 100vh;
-  overflow: scroll;
+  height: 100%;
+  overflow: auto;
 }
 
 #ViewPage .right * {
@@ -133,6 +145,14 @@
   margin-top: 80px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
 }
 
 #ViewPage .comment {
@@ -176,7 +196,7 @@
   font-size: 30px;
 }
 
-#ViewPage #priceAndBuy {
+#ViewPage #price-and-buy {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -188,13 +208,13 @@
           align-items: center;
 }
 
-#ViewPage #buyBtn {
+#ViewPage #buy-btn {
   font-family: 'Inter';
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
   width: 111px;
-  height: 55.19px;
+  height: 55px;
   background: rgba(0, 0, 0, 0.85);
   -webkit-transition: background 0.5s;
   transition: background 0.5s;
@@ -203,7 +223,7 @@
   border: none;
 }
 
-#ViewPage #buyBtn:hover {
+#ViewPage #buy-btn:hover {
   background: gray;
 }
 
@@ -213,19 +233,19 @@
   display: flex;
 }
 
-#ViewPage #commentIcon, #ViewPage #like {
+#ViewPage #comment-icon, #ViewPage #like-icon {
   position: relative;
   top: 16px;
   width: 48px;
   height: 48px;
 }
 
-#ViewPage #commentIcon {
+#ViewPage #comment-icon {
   position: relative;
   left: 250px;
 }
 
-#ViewPage #like {
+#ViewPage #like-icon {
   right: 250px;
 }
 
@@ -242,23 +262,23 @@
   #ViewPage #price {
     font-size: 2.2779vw;
   }
-  #ViewPage #commentIcon {
+  #ViewPage #comment-icon {
     left: 18.37509vw;
     width: 3.64465vw;
     top: 1.21488vw;
     height: 3.64465vw;
   }
-  #ViewPage #like {
+  #ViewPage #like-icon {
     right: 18.37509vw;
     width: 3.64465vw;
     top: 1.21488vw;
     height: 3.64465vw;
   }
-  #ViewPage #buyBtn {
+  #ViewPage #buy-btn {
     font-size: 1.82232vw;
     width: 8.42825vw;
-    height: 4.19058vw;
-    border-radius: 10.81081%/21.74307%;
+    height: 4.17616vw;
+    border-radius: 10.81081%/21.81818%;
   }
 }
 
@@ -314,30 +334,30 @@
   #ViewPage #price {
     font-size: 5vw;
   }
-  #ViewPage #like, #ViewPage #commentIcon {
+  #ViewPage #like-icon, #ViewPage #comment-icon {
     position: relative;
     width: 7.75194vw;
     height: 7.75194vw;
     top: 1.21488vw;
   }
-  #ViewPage #like {
+  #ViewPage #like-icon {
     right: 18.37509vw;
   }
-  #ViewPage #commentIcon {
+  #ViewPage #comment-icon {
     left: 18.37509vw;
   }
-  #ViewPage #priceAndBuy {
+  #ViewPage #price-and-buy {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
     gap: 10px;
   }
-  #ViewPage #buyBtn {
+  #ViewPage #buy-btn {
     font-size: 4vw;
     width: 18.5vw;
-    height: 9.19833vw;
-    border-radius: 10.81081%/21.74307%;
+    height: 9.16667vw;
+    border-radius: 10.81081%/21.81818%;
   }
 }
 /*# sourceMappingURL=ViewPage.css.map */
