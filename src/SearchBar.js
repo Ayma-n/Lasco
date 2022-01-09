@@ -54,7 +54,7 @@ window.addEventListener('resize', () => {
 
     return (<>
         <div id="SearchBar">
-        <NavBar2></NavBar2>
+        {/* <NavBar2></NavBar2> */}
         {/*TODO: bad name, will fix later */}
         <div id="searchBar">
             <img id="magGlass" role="presentation" src={magGlass} />

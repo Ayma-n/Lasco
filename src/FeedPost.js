@@ -12,7 +12,7 @@ function FeedPost() {
   return (
     <>
       <div id="FeedPost">
-      <NavBar2></NavBar2>
+      {/* <NavBar2></NavBar2> */}
         <div id="containerRect">
           <img id="postImage" src={postSrc} />
           <div id="authorContainer">

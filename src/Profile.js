@@ -71,7 +71,7 @@ function handleSetData(body) {
 
     return (
         <div id="Profile">
-        <NavBar2></NavBar2>
+        {/* <NavBar2></NavBar2> */}
         <div id="dashboard">
         {isDataLoaded && <img className="profileImg" src={userData.profile_picture} />}
            <h2 className="profileName">Johnny Rose</h2>
