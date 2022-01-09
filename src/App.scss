@@ -11,6 +11,29 @@ body {
     overscroll-behavior: none;
   }
 
+  .text-gradient {
+    // Technically, it is not possible to set a gradient as the color of a text, so we use the background-image property.
+    background-image: linear-gradient(
+        225.34deg,
+        rgba(173, 0, 255, 0.459) 0%,
+        rgba(219, 0, 255, 0.85) 46.35%,
+        rgba(160, 0, 255, 0.85) 65.1%,
+        rgba(51, 0, 255, 0.85) 100%
+    );
+    // This makes sure that the background "sticks" to the text.
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    // This finally sets the text's initial color to transparent, so that the gradient is clearly seen.
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+    // See: https://fossheim.io/writing/posts/css-text-gradient/
+}
+
+.text-white {
+    color: white;
+}
+
   %lasco-btn {
     background-image: linear-gradient(
       225.34deg,

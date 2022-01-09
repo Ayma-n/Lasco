@@ -7,6 +7,7 @@ import Signup from './Signup';
 import SearchBar from './SearchBar';
 import ViewPage from './ViewPage';
 import Landing from './Landing';
+import About from './About';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
@@ -35,6 +36,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/search" element={<SearchBar />} />
+          <Route path="/about" element={<About />} />
+          {/* <Route path="/community" element={<Community />} />
+          <Route path="/governance" element={<Governance />} /> */}
         </Routes>
       </Router>
     </div>

@@ -1,0 +1,42 @@
+#About {
+  background-color: white;
+  width: 100vw;
+  font-family: Inter;
+  font-style: normal;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#About .sec {
+  width: 77.18254vw;
+  margin: 0 auto;
+  padding-bottom: 30px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#About .main-header {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  color: #0b0037;
+  margin-top: 25px;
+  margin-bottom: 50px;
+}
+
+#About .sub-header {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  color: #0b0037;
+  text-align: left;
+}
+
+#About .paragraph {
+  font-weight: 300;
+  font-size: 24px;
+  text-align: justify;
+}
+/*# sourceMappingURL=About.css.map */
