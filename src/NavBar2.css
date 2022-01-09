@@ -26,6 +26,7 @@
   height: 27px;
   z-index: 2;
   position: relative;
+  color: gray;
 }
 
 #NavBar2 #purple-selector {
