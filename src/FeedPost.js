@@ -15,21 +15,21 @@ function FeedPost() {
           <img id="postImage" src={postSrc} />
           <div id="authorContainer">
             <img id="profileImg" src={profileImg} />
-            <p id="authorName">Johnny R.</p>
+            <div id="authorName">Johnny R.</div>
           </div>
-          <h1 id="artTitle">Astronight</h1>
+          <div id="artTitle">Astronight</div>
           <div className="commentSec">
             <div className="commentDiv">
               <img src={profileImg} className="commentImg" />
-              <p className="commentText">Awesome artwork! Keep it up!</p>
+              <div className="commentText">Awesome artwork! Keep it up!</div>
             </div>
             <div className="commentDiv">
               <img src={profileImg} className="commentImg" />
-              <p className="commentText">Awesome artwork! Keep it up!</p>
+              <div className="commentText">Awesome artwork! Keep it up!</div>
             </div>
             <div className="commentDiv">
               <img src={profileImg} className="commentImg" />
-              <p className="commentText">Awesome artwork! Keep it up!</p>
+              <div className="commentText">Awesome artwork! Keep it up!</div>
             </div>
           </div>
         </div>

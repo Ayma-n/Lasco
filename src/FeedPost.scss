@@ -1,5 +1,5 @@
 @use "sass:list";
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 $contRectW: 682px;
 $contRectH: 747px;
@@ -143,7 +143,7 @@ $commentSecTop: 21px;
       /* absolute positioning for author name */
       left: $authNameLeft - $authContLeft;
       font-size: $authNameFntSz;
-      line-height: 67px;
+      // line-height: 67px;
       width: 201px;
       height: 67px;
       font-size: 18px;
@@ -154,7 +154,7 @@ $commentSecTop: 21px;
       /* relative top pos */
       top: 11px;
       font-size: $titleFntSz;
-      line-height: $titleLnH;
+      // line-height: $titleLnH;
     }
     .commentSec {
       height: $commentSecH;
@@ -199,8 +199,6 @@ $commentSecTop: 21px;
   /* name of author */
   #authorName {
     position: absolute;
-    font-family: "Inter";
-    font-style: normal;
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -215,17 +213,17 @@ $commentSecTop: 21px;
     /* positioning is relative to container Rect */
     position: relative;
     text-align: left;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    font-weight: normal;
+    // margin-block-start: 0;
+    // margin-block-end: 0;
+    // font-weight: normal;
   }
   .commentSec {
     position: relative;
-    overflow: scroll;
+    overflow: auto;
     width: 100%;
     // padding: 0;
   }
-  // TODO: add constants
+
   .commentDiv {
     position: relative;
     display: flex;

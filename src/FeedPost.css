@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @use "sass:list";
 @media only screen and (max-width: 682px) {
   #FeedPost #containerRect {
@@ -95,7 +94,6 @@
     /* absolute positioning for author name */
     left: 81px;
     font-size: 18px;
-    line-height: 67px;
     width: 201px;
     height: 67px;
     font-size: 18px;
@@ -106,7 +104,6 @@
     /* relative top pos */
     top: 11px;
     font-size: 36px;
-    line-height: 43px;
   }
   #FeedPost .commentSec {
     height: 110px;
@@ -156,8 +153,6 @@
 
 #FeedPost #authorName {
   position: absolute;
-  font-family: "Inter";
-  font-style: normal;
   font-weight: bold;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -174,16 +169,11 @@
   /* positioning is relative to container Rect */
   position: relative;
   text-align: left;
-  -webkit-margin-before: 0;
-          margin-block-start: 0;
-  -webkit-margin-after: 0;
-          margin-block-end: 0;
-  font-weight: normal;
 }
 
 #FeedPost .commentSec {
   position: relative;
-  overflow: scroll;
+  overflow: auto;
   width: 100%;
 }
 
