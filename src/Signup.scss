@@ -45,13 +45,13 @@ $input-padding-left-ini: 24px;
 
     .magenta-text {
         color: #de35ff;
-        font-family: Inter;
+        // font-family: Inter;
     }
 
     #explore-text {
-        font-style: normal;
+        // font-style: normal;
         font-weight: bold;
-        font-family: Inter;
+        // font-family: Inter;
         font-size: 45px;
         margin-bottom: 30px;
         align-items: center;
@@ -67,8 +67,8 @@ $input-padding-left-ini: 24px;
         border: 2px solid #000000;
         box-sizing: border-box;
         border-radius: 12px;
-        font-family: Inter;
-        font-style: normal;
+        // font-family: Inter;
+        // font-style: normal;
         font-weight: 600;
         font-size: 24px;
         margin: 0 auto;
@@ -86,23 +86,23 @@ $input-padding-left-ini: 24px;
         position: relative;
         width: 392px;
         height: 67px;
-        background: linear-gradient(
-            225.34deg,
-            rgba(173, 0, 255, 0.459) -26.34%,
-            rgba(219, 0, 255, 0.85) 59.15%,
-            rgba(160, 0, 255, 0.85) 93.73%,
-            rgba(51, 0, 255, 0.85) 158.09%
-        );
-        border-radius: 12px;
-        font-family: Inter;
-        font-style: normal;
-        font-weight: bold;
+        // background: linear-gradient(
+        //     225.34deg,
+        //     rgba(173, 0, 255, 0.459) -26.34%,
+        //     rgba(219, 0, 255, 0.85) 59.15%,
+        //     rgba(160, 0, 255, 0.85) 93.73%,
+        //     rgba(51, 0, 255, 0.85) 158.09%
+        // );
+        // border-radius: 12px;
+        // font-family: Inter;
+        // font-style: normal;
+        // font-weight: bold;
         font-size: 24px;
-        line-height: 29px;
+        // line-height: 29px;
         text-align: center;
-        color: #ffffff;
+        // color: #ffffff;
         margin: 0 auto;
-        border: none;
+        // border: none;
     }
 
     #logo-div {
@@ -121,8 +121,8 @@ $input-padding-left-ini: 24px;
     }
 
     #logo-div > div {
-        font-family: Inter;
-        font-style: normal;
+        // font-family: Inter;
+        // font-style: normal;
         font-weight: bold;
         text-align: center;
         font-size: 30px;

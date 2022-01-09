@@ -7,6 +7,7 @@
 
 #About .sec {
   width: 77.18254vw;
+  max-width: 1167px;
   margin: 0 auto;
   padding-bottom: 30px;
   -webkit-box-sizing: border-box;

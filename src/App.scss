@@ -45,25 +45,29 @@ body {
       rgba(51, 0, 255, 0.85) 100%
   );
   
-  border: solid 3px transparent;
   border-radius: 12px;
+  border: none;
    /* IMPORTANT, DONT DELETE */
    background-origin: border-box;
    font-weight: bold;
-   font-family: Inter;
+//    font-family: Inter;
    cursor: pointer;    
    width: 192px;
    height: 93px;
    font-size: 24px;
+   
   }
   
   .filled-btn {
     @extend %lasco-btn;
+    color: #ffffff;
   }
 
   .clear-btn {
       @extend %lasco-btn;
       box-shadow: 2px 1000px 1px #fff inset;
+      border: solid 3px transparent;
+
   }
 
 

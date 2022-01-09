@@ -15,13 +15,11 @@ function NavBar() {
         <div id="button-div-2">
             <a href="/login">
               <button className="clear-btn" id="login-button">
-                <div className="text-gradient">Login</div>
+                <span className="text-gradient">Login</span>
               </button>
             </a>
             <a href="/signup">
-              <button className="filled-btn" id="signup-button">
-                <div className="text-white">Signup</div>
-              </button>
+              <button className="filled-btn" id="signup-button">Signup</button>
             </a>
           </div>
         </div>);

@@ -84,8 +84,6 @@
 }
 
 #ViewPage .right * {
-  font-family: 'Inter';
-  font-style: normal;
   font-size: 18px;
 }
 
@@ -163,7 +161,6 @@
 
 #ViewPage #description {
   font-family: 'Lato';
-  font-style: normal;
   font-weight: 300;
   font-size: 24px;
   text-align: center;

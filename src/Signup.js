@@ -17,7 +17,7 @@ function Signup() {
                         <option value="buyer">Looking to buy art.</option>
                         <option valie="artist">Looking to be part of a community of artists.</option>
                     </select>
-                    <button id="sign-button">Sign Up</button>
+                    <button id="sign-button" className='filled-btn'>Sign Up</button>
                 </form>
                 <div id="logo-div">
                     <img src={demoLogo}></img>

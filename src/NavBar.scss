@@ -27,8 +27,8 @@
     }
 
     #logo-div-2 > div {
-        font-family: Inter;
-        font-style: normal;
+        // font-family: Inter;
+        // font-style: normal;
         font-weight: bold;
         text-align: center;
         // font-size: 100vh * 36px / $mac-height;
@@ -42,8 +42,8 @@
     }
 
     #middle-nav {
-        font-family: Inter;
-        font-style: normal;
+        // font-family: Inter;
+        // font-style: normal;
         font-weight: bold;
         font-size: 24px;
         align-items: center;
@@ -68,7 +68,7 @@
     #login-button  {
         border: none;
         /* gets rid of small edges around border */
-        border-radius: 0;
+        // border-radius: 0;
         width: 142px;
         background: none;
     }

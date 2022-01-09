@@ -42,8 +42,6 @@
 }
 
 #NavBar #logo-div-2 > div {
-  font-family: Inter;
-  font-style: normal;
   font-weight: bold;
   text-align: center;
   font-size: 36px;
@@ -54,8 +52,6 @@
 }
 
 #NavBar #middle-nav {
-  font-family: Inter;
-  font-style: normal;
   font-weight: bold;
   font-size: 24px;
   -webkit-box-align: center;
@@ -83,7 +79,6 @@
 #NavBar #login-button {
   border: none;
   /* gets rid of small edges around border */
-  border-radius: 0;
   width: 142px;
   background: none;
 }

@@ -10,7 +10,8 @@ function Login() {
                 <form>
                     <input id="username" type="text" placeholder="Username" />
                     <input id="password" type="password" placeholder='Password' />
-                    <button id="sign-button">Login</button>
+                    <button id="sign-button" className='filled-btn'>
+                    Login</button>
                 </form>
                 <div id="logo-div">
                     <img src={demoLogo}></img>

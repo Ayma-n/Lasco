@@ -6,6 +6,7 @@
   .sec {
     //   width: 1167px;
     width: 100vw * 1167px / 1512px;
+    max-width: 1167px;
       margin: 0 auto;
       padding-bottom: 30px;
       box-sizing: border-box;

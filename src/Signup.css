@@ -39,13 +39,10 @@
 
 #Signup .magenta-text {
   color: #de35ff;
-  font-family: Inter;
 }
 
 #Signup #explore-text {
-  font-style: normal;
   font-weight: bold;
-  font-family: Inter;
   font-size: 45px;
   margin-bottom: 30px;
   -webkit-box-align: center;
@@ -64,8 +61,6 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 12px;
-  font-family: Inter;
-  font-style: normal;
   font-weight: 600;
   font-size: 24px;
   margin: 0 auto;
@@ -89,17 +84,9 @@
   position: relative;
   width: 392px;
   height: 67px;
-  background: linear-gradient(225.34deg, rgba(173, 0, 255, 0.459) -26.34%, rgba(219, 0, 255, 0.85) 59.15%, rgba(160, 0, 255, 0.85) 93.73%, rgba(51, 0, 255, 0.85) 158.09%);
-  border-radius: 12px;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: bold;
   font-size: 24px;
-  line-height: 29px;
   text-align: center;
-  color: #ffffff;
   margin: 0 auto;
-  border: none;
 }
 
 #Signup #logo-div {
@@ -127,8 +114,6 @@
 }
 
 #Signup #logo-div > div {
-  font-family: Inter;
-  font-style: normal;
   font-weight: bold;
   text-align: center;
   font-size: 30px;
