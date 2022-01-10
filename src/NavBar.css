@@ -93,6 +93,25 @@
           transform: translateY(-3px);
 }
 
+#NavBar .menu-btn {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  -webkit-transition: all .5s, ease-in-out;
+  transition: all .5s, ease-in-out;
+  border: 3px solid white;
+}
+
 #NavBar .menu-btn-burger {
   width: 50px;
   height: 6px;
@@ -102,12 +121,13 @@
           box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
-  position: relative;
+  left: 0;
 }
 
 #NavBar .menu-btn-burger::before, #NavBar .menu-btn-burger::after {
   content: '';
   position: absolute;
+  left: 0;
   width: 50px;
   height: 6px;
   background: black;
