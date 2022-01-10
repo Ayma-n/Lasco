@@ -156,6 +156,18 @@ $button-breakpoint: 500px;
         transform: translateY(-3px);
     }
 
+    .menu-btn {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        height: 80px;
+        cursor: pointer;
+        transition: all .5s, ease-in-out;
+        border: 3px solid white;
+    }
+
     @media screen and (max-width: 572px)  {
         #intro-text {
             // font-size: 100vw * (100vh * $title-font-size / $mac-height) / $mac-height;

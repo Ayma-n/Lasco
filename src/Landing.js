@@ -72,6 +72,7 @@ function Landing() {
         <div id="intro-text">
           So you're curious about <span className="text-gradient">NFTs</span> ?
         </div>
+        
         <div id="parent-div">
         <div
           id="belt-div"

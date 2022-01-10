@@ -92,4 +92,39 @@
   -webkit-transform: translateY(-3px);
           transform: translateY(-3px);
 }
+
+#NavBar .menu-btn-burger {
+  width: 50px;
+  height: 6px;
+  background: black;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+          box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+}
+
+#NavBar .menu-btn-burger::before, #NavBar .menu-btn-burger::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 6px;
+  background: black;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+          box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+#NavBar .menu-btn-burger::before {
+  -webkit-transform: translateY(-16px);
+          transform: translateY(-16px);
+}
+
+#NavBar .menu-btn-burger::after {
+  -webkit-transform: translateY(16px);
+          transform: translateY(16px);
+}
 /*# sourceMappingURL=NavBar.css.map */
