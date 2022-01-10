@@ -1,10 +1,22 @@
 import React, { useEffect, useState } from "react";
 import "./NavBar.css";
 import demoLogo from "./sample/posts/demo-logo.png";
+import useWindowSize from "./utils/useWindowSize.js";
 function NavBar() {
     const [openHam, setOpenHam] = useState(false);
-
+    const [windowSize, setWindowSize] = useState(useWindowSize());
+    
     useEffect(handleOpenHam, [openHam]);
+    useEffect(() => {
+        setWindowSize(useWindowSize().width);
+    }, [openHam]);
+    useEffect(() => {
+        console.log(windowSize.width);
+        if (parseInt(windowSize.width) >= 800) {
+            setOpenHam(false);
+        }
+    }, [])
+
 
     function handleOpenHam() {
         // setOpenHam(!openHam);
@@ -16,7 +28,7 @@ function NavBar() {
         if (openHam) {
             hamMenu.classList.add('open');
             navBar.classList.add('vertical');
-            navBar.classList.add('nav-bar-vertical');
+            // navBar.classList.add('nav-bar-vertical');
             middleNav.classList.add('vertical');
             buttonDiv.classList.add('vertical');
             // logoDiv2.classList.add('vertical');
@@ -31,15 +43,18 @@ function NavBar() {
 
         }
     }
-  return (
+  return (<>
+    <div id="top-div">
+    <div id="menu-btn" onClick={() => setOpenHam(!openHam)}>
+        <div className="menu-btn-burger"></div>
+      </div>
+      <img id="logo-img-top" src={demoLogo} />
+    </div>
     <div id="NavBar">
       <a href="/" id="logo-div-2">
         <img id="logo-img-2" src={demoLogo} />
         <div id="logo-text-2">Lasco</div>
       </a>
-      <div id="menu-btn" onClick={() => setOpenHam(!openHam)}>
-        <div className="menu-btn-burger"></div>
-      </div>
       <div id="middle-nav">
         <a href="/community" className="nav-link" id="community">
           Community
@@ -64,7 +79,7 @@ function NavBar() {
         </a>
       </div>
     </div>
-  );
+    </>);
 }
 
 export default NavBar;

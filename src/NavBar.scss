@@ -1,3 +1,6 @@
+
+
+
 #NavBar {
     display: flex;
     z-index: 1;
@@ -79,71 +82,9 @@
         transform: translateY(-3px);
     }
 
-    #menu-btn {
-        // position: absolute;
-        // top: 0;
-        display: none;
-        position: relative;
-        justify-content: center;
-        align-items: center;
-        // width: 56px;
-        height: 80px;
-        cursor: pointer;
-        transition: all .5s, ease-in-out;
-        margin-right: 10px;
-    }
-
-    .menu-btn-burger {
-        width: 50px;
-        height: 6px;
-        background: black;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
-        transition: all 0.5s ease-in-out;
-        left: 0;
-    }
-
-    .menu-btn-burger::before, .menu-btn-burger::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        width: 50px;
-        height: 6px;
-        background: black;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px gray;
-        transition: all 0.3s ease-in-out;
-    }
-
-    .menu-btn-burger::before {
-        transform: translateY(-16px);
-    }
-    .menu-btn-burger::after {
-        transform: translateY(16px);
-    }
-
-    #menu-btn.open {
-        position: relative;
-        align-self: flex-end;
-        //resets margin on open, because it is already applied
-        margin-right: 0;
-    }
-
-    /* ANIMATION */ 
-    #menu-btn.open .menu-btn-burger {
-        // transform: translateX(-50px);
-        background: transparent;
-        box-shadow: none;
-    }
-    #menu-btn.open .menu-btn-burger::before {
-        transform: rotate(45deg) ;
-    }
-    #menu-btn.open .menu-btn-burger::after {
-        transform: rotate(-45deg);
-    }
-
+    
     @media screen and (max-width: 976px) {
-        #logo-div-2 > #logo-text-2 {
+        #logo-div-2 {
             display: none;
         }
         #middle-nav {
@@ -155,6 +96,7 @@
         #menu-btn {
             // position: absolute;
             display: flex;
+            order: -1;
             // right: 0;
             // justify-content: left;
         
@@ -162,6 +104,91 @@
         
     }
 }
+
+#top-div {
+    display: none;
+    justify-content: right;
+    align-items: center;
+    padding: 5px 20px;
+    // padding-right: 20px;
+    // padding-top: 10px;
+}
+
+#logo-img-top {
+    height: 51px;
+}
+
+@media screen and (max-width: 976px) {
+    #menu-btn {
+        // position: absolute;
+        display: flex;
+        // right: 0;
+        // justify-content: left;
+    
+    }
+}
+
+#menu-btn {
+    // top: 0;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    // width: 56px;
+    height: 80px;
+    cursor: pointer;
+    transition: all .5s, ease-in-out;
+}
+
+.menu-btn-burger {
+    width: 50px;
+    height: 6px;
+    background: black;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+    transition: all 0.5s ease-in-out;
+    left: 0;
+}
+
+.menu-btn-burger::before, .menu-btn-burger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 50px;
+    height: 6px;
+    background: black;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px gray;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu-btn-burger::before {
+    transform: translateY(-16px);
+}
+.menu-btn-burger::after {
+    transform: translateY(16px);
+}
+
+#menu-btn.open {
+    position: relative;
+    align-self: flex-start;
+    //resets margin on open, because it is already applied
+    margin-right: 0;
+}
+
+/* ANIMATION */ 
+#menu-btn.open .menu-btn-burger {
+    // transform: translateX(-50px);
+    background: transparent;
+    box-shadow: none;
+}
+#menu-btn.open .menu-btn-burger::before {
+    transform: rotate(45deg) ;
+}
+#menu-btn.open .menu-btn-burger::after {
+    transform: rotate(-45deg);
+}
+
+
  /* ham menu nav repositioning */ 
 .vertical {
     display: flex !important;
@@ -173,6 +200,7 @@
 #NavBar #button-div-2.vertical {
     flex-direction: row !important;
     align-items: center;
+    margin-top: 30px;
 }
 
 #NavBar.vertical {
@@ -182,26 +210,35 @@
     background-color: rgb(255, 255, 255);
     height: 100vh;
     justify-content: flex-start;
-    padding: 0 2%;
+    padding: 100px 2%;
     box-shadow: 0 2px 5px rgba(140, 140, 140, 0.3);
-    right: 0;
+    left: 0;
 }
 
 @media screen and (max-width: 976px) {
    #NavBar {
     //   margin-right: auto;
         justify-content: space-between;
+        box-sizing: border-box;
+        padding: 0 10px;
    }
 
    #logo-div-2 {
        width: 51px !important;
    }
+
+   #top-div {
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+}
     
 }
 
 @media screen and (max-width: 425px) {
     #NavBar {
         width: 100% !important;
+       
     }
     
 }
