@@ -83,13 +83,11 @@ function Landing() {
           <div id="scroll-left-div"></div>
           <div id="scroll-right-div"></div>
         </div>
-        <div id="button-div">
-          <a href="/signup">
-            <button className="filled-btn" id="join-lasco-button">
-              <div className="text-white">Join Lasco</div>
-            </button>
-          </a>
-        </div>
+        <a href="/signup">
+          <button className="filled-btn" id="join-lasco-button">
+            <div className="text-white">Join Lasco</div>
+          </button>
+        </a>
       </div>
     </>
   );
