@@ -35,7 +35,7 @@ function NavBar() {
     <div id="NavBar">
       <a href="/" id="logo-div-2">
         <img id="logo-img-2" src={demoLogo} />
-        <div>Lasco</div>
+        <div id="logo-text-2">Lasco</div>
       </a>
       <div id="menu-btn" onClick={() => setOpenHam(!openHam)}>
         <div className="menu-btn-burger"></div>

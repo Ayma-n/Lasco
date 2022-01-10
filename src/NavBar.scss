@@ -80,15 +80,17 @@
     }
 
     #menu-btn {
-        position: absolute;
-        top: 0;
+        // position: absolute;
+        // top: 0;
         display: none;
+        position: relative;
         justify-content: center;
         align-items: center;
         // width: 56px;
         height: 80px;
         cursor: pointer;
         transition: all .5s, ease-in-out;
+        margin-right: 10px;
     }
 
     .menu-btn-burger {
@@ -122,6 +124,9 @@
 
     #menu-btn.open {
         position: relative;
+        align-self: flex-end;
+        //resets margin on open, because it is already applied
+        margin-right: 0;
     }
 
     /* ANIMATION */ 
@@ -138,7 +143,7 @@
     }
 
     @media screen and (max-width: 976px) {
-        #logo-div-2 {
+        #logo-div-2 > #logo-text-2 {
             display: none;
         }
         #middle-nav {
@@ -148,9 +153,10 @@
             display: none;
         }
         #menu-btn {
-            position: absolute;
-            top: 0;
+            // position: absolute;
             display: flex;
+            // right: 0;
+            // justify-content: left;
         
         }
         
@@ -178,6 +184,19 @@
     justify-content: flex-start;
     padding: 0 2%;
     box-shadow: 0 2px 5px rgba(140, 140, 140, 0.3);
+    right: 0;
+}
+
+@media screen and (max-width: 976px) {
+   #NavBar {
+    //   margin-right: auto;
+        justify-content: space-between;
+   }
+
+   #logo-div-2 {
+       width: 51px !important;
+   }
+    
 }
 
 @media screen and (max-width: 425px) {
