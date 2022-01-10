@@ -8,7 +8,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import OutlinedProfileIcon from '@mui/icons-material/AccountCircleOutlined';
 import FilledProfileIcon from '@mui/icons-material/AccountCircle';
 
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 function NavBar2() {
@@ -35,15 +35,15 @@ function NavBar2() {
                 setCurrentPage(1);
                 break;
             case "/profiles/johnnyrose":
-                setCurrentPage(2);      
-                break;  
+                setCurrentPage(2);
+                break;
         }
     }
 
     useEffect(updateCurrentPage, [window.location.pathname])
     useEffect(moveSelector, [currentPage]);
 
-    
+
     function updateSelecElement() {
         setPrevSelecElement(document.getElementById(selecIconArray[currentPage]));
     }
@@ -52,29 +52,29 @@ function NavBar2() {
         <div id="NavBar2">
             <div id="purple-selector"></div>
             <Link onClick={() => updateSelecElement()} to="/feed">
-            {currentPage == 0 ? <FilledHomeIcon
-                id="home-icon"
-                className="icon"
-            ></FilledHomeIcon> : <OutlinedHomeIcon
-                id="home-icon"
-                className="icon"
-                onClick={() => updateSelecElement(0)}
-            ></OutlinedHomeIcon>}
+                {currentPage === 0 ? <FilledHomeIcon
+                    id="home-icon"
+                    className="icon"
+                ></FilledHomeIcon> : <OutlinedHomeIcon
+                    id="home-icon"
+                    className="icon"
+                    onClick={() => updateSelecElement(0)}
+                ></OutlinedHomeIcon>}
             </Link>
             <Link onClick={() => updateSelecElement()} to="/search">
-            <SearchIcon
-                id="search-icon"
-                className="icon"
-            ></SearchIcon>
+                <SearchIcon
+                    id="search-icon"
+                    className="icon"
+                ></SearchIcon>
             </Link>
             <Link onClick={() => updateSelecElement()} to="/profiles/johnnyrose">
-            {currentPage == 2 ? <FilledProfileIcon
-                className="icon"
-                id="profile-icon"
-            /> : <OutlinedProfileIcon
-                className="icon"
-                id="profile-icon"
-            />}
+                {currentPage === 2 ? <FilledProfileIcon
+                    className="icon"
+                    id="profile-icon"
+                /> : <OutlinedProfileIcon
+                    className="icon"
+                    id="profile-icon"
+                />}
             </Link>
         </div>
     );
