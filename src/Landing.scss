@@ -110,8 +110,8 @@ $join-lasco-width: 270px;
         width: $width;
 
         flex-shrink: 0;
-        font-size: (33px / 270px) * $width;
-        border-radius: 20px;
+        font-size: (33px / $join-lasco-width) * $width;
+        border-radius: (20px / $join-lasco-width) * $width;
         transition: transform, 0.2s;
         //flex-grow: 2;
         //width: 270px;
