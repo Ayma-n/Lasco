@@ -15,6 +15,10 @@
           flex-direction: column;
 }
 
+#Landing #navbar {
+  height: 10px;
+}
+
 #Landing #intro-text {
   font-weight: 800;
   font-size: 6.51731vh;
@@ -71,24 +75,20 @@
   height: 100%;
 }
 
-#Landing #button-div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  gap: 10px;
+#Landing #join-lasco-button {
+  margin: 0 auto;
   margin-top: 5.09165vh;
   margin-bottom: 5.09165vh;
-  max-height: 93px;
-  height: 93px;
+  height: 10.38697vh;
+  width: 27.49491vh;
   -ms-flex-negative: 0;
       flex-shrink: 0;
+  font-size: 3.36049vh;
+  border-radius: 2.03666vh;
+  -webkit-transition: 0.2s, -webkit-transform;
+  transition: 0.2s, -webkit-transform;
+  transition: transform, 0.2s;
+  transition: transform, 0.2s, -webkit-transform;
 }
 
 #Landing .login-signup {
@@ -111,11 +111,13 @@
   left: 2.38095vw;
 }
 
-#Landing #join-lasco-button {
-  width: 270px;
-  height: 102px;
-  font-size: 33px;
-  border-radius: 20px;
+#Landing #join-lasco-button:hover {
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
+  min-width: 150px;
+  max-width: 270px;
+  -ms-flex-negative: 2;
+      flex-shrink: 2;
 }
 
 #Landing #logo-div > div {
@@ -128,18 +130,6 @@
 
 #Landing #logo-img {
   height: 51px;
-}
-
-#Landing #join-lasco-button {
-  -webkit-transition: 0.2s, -webkit-transform;
-  transition: 0.2s, -webkit-transform;
-  transition: transform, 0.2s;
-  transition: transform, 0.2s, -webkit-transform;
-}
-
-#Landing #join-lasco-button:hover {
-  -webkit-transform: translateY(-3px);
-          transform: translateY(-3px);
 }
 
 @media screen and (max-height: 500px) {
