@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import "./Landing.css";
 import demoLandingBelt from "./sample/posts/Demo-Landing-Belt.png";
-import demoLogo from "./sample/posts/demo-logo.png";
 import NavBar from "./NavBar";
 
 function Landing() {
@@ -68,29 +67,29 @@ function Landing() {
   return (
     <>
       <div id="Landing">
-      <NavBar></NavBar>
+        <NavBar></NavBar>
         <div id="intro-text">
           So you're curious about <span className="text-gradient">NFTs</span> ?
         </div>
-        
+
         <div id="parent-div">
-        <div
-          id="belt-div"
-          style={{ left: `${startingOffset + 0.5 * window.innerWidth}px` }}
-        >
-          <img id="main-belt" className="belt" src={demoLandingBelt}></img>
-          <img className="belt" src={demoLandingBelt}></img>
-        </div>
+          <div
+            id="belt-div"
+            style={{ left: `${startingOffset + 0.5 * window.innerWidth}px` }}
+          >
+            <img id="main-belt" className="belt" src={demoLandingBelt}></img>
+            <img className="belt" src={demoLandingBelt}></img>
+          </div>
           <div id="scroll-left-div"></div>
           <div id="scroll-right-div"></div>
         </div>
         <div id="button-div">
-            <a href="/signup">
-              <button className="filled-btn" id="join-lasco-button">
-                <div className="text-white">Join Lasco</div>
-              </button>
-            </a>
-          </div>
+          <a href="/signup">
+            <button className="filled-btn" id="join-lasco-button">
+              <div className="text-white">Join Lasco</div>
+            </button>
+          </a>
+        </div>
       </div>
     </>
   );

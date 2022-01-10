@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import magGlass from './sample/posts/magGlass.svg'
 import './SearchBar.css'
-import NavBar2 from './NavBar2';
+import PortalNav from './PortalNav';
 function SearchBar() {
     const [searchTerm, setSearchTerm] = useState("");
 
@@ -54,7 +54,7 @@ window.addEventListener('resize', () => {
 
     return (<>
         <div id="SearchBar">
-        {/* <NavBar2></NavBar2> */}
+        {/* <PortalNav></PortalNav> */}
         {/*TODO: bad name, will fix later */}
         <div id="searchBar">
             <img id="magGlass" role="presentation" src={magGlass} />

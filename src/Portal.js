@@ -1,12 +1,12 @@
 import React from 'react';
-import NavBar2 from './NavBar2';
+import PortalNav from './PortalNav';
 
 
 function Portal(props) {
     // console.log(props.currentPage);
     return (
         <div id="Portal">
-            <NavBar2></NavBar2>
+            <PortalNav></PortalNav>
             {React.createElement(props.currentPage)}
         </div>
         )

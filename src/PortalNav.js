@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./NavBar2.css";
+import "./PortalNav.css";
 import { useEffect } from "react/cjs/react.development";
 
 import FilledHomeIcon from "@mui/icons-material/Home";
@@ -11,7 +11,7 @@ import FilledProfileIcon from '@mui/icons-material/AccountCircle';
 import { Link } from "react-router-dom";
 
 
-function NavBar2() {
+function PortalNav() {
     const [currentPage, setCurrentPage] = useState(0);
     const [prevSelecElement, setPrevSelecElement] = useState();
     const selecPosArray = [0, 78, 156];
@@ -49,7 +49,7 @@ function NavBar2() {
     }
 
     return (
-        <div id="NavBar2">
+        <div id="PortalNav">
             <div id="purple-selector"></div>
             <Link onClick={() => updateSelecElement()} to="/feed">
                 {currentPage === 0 ? <FilledHomeIcon
@@ -80,4 +80,4 @@ function NavBar2() {
     );
 }
 
-export default NavBar2;
+export default PortalNav;
