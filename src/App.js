@@ -18,7 +18,7 @@ function App() {
   const navBarPages = []
 
   return (<>
-    <div className="App">
+    <div id="App">
       <Router>
         <body>
 

@@ -79,16 +79,16 @@
         transform: translateY(-3px);
     }
 
-    .menu-btn {
-        position: relative;
-        display: flex;
+    #menu-btn {
+        position: absolute;
+        top: 0;
+        display: none;
         justify-content: center;
         align-items: center;
         // width: 56px;
         height: 80px;
         cursor: pointer;
         transition: all .5s, ease-in-out;
-        border: 3px solid white;
     }
 
     .menu-btn-burger {
@@ -109,16 +109,80 @@
         height: 6px;
         background: black;
         border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
-        transition: all 0.5s ease-in-out;
+        box-shadow: 0 2px 5px gray;
+        transition: all 0.3s ease-in-out;
     }
 
     .menu-btn-burger::before {
-        left: 0;
         transform: translateY(-16px);
     }
     .menu-btn-burger::after {
         transform: translateY(16px);
     }
 
+    #menu-btn.open {
+        position: relative;
+    }
+
+    /* ANIMATION */ 
+    #menu-btn.open .menu-btn-burger {
+        // transform: translateX(-50px);
+        background: transparent;
+        box-shadow: none;
+    }
+    #menu-btn.open .menu-btn-burger::before {
+        transform: rotate(45deg) ;
+    }
+    #menu-btn.open .menu-btn-burger::after {
+        transform: rotate(-45deg);
+    }
+
+    @media screen and (max-width: 976px) {
+        #logo-div-2 {
+            display: none;
+        }
+        #middle-nav {
+            display: none;
+        }
+        #button-div-2 {
+            display: none;
+        }
+        #menu-btn {
+            position: absolute;
+            top: 0;
+            display: flex;
+        
+        }
+        
+    }
+}
+ /* ham menu nav repositioning */ 
+.vertical {
+    display: flex !important;
+    flex-direction: column !important;
+    margin-right: 0 !important;
+  
+}
+
+#NavBar #button-div-2.vertical {
+    flex-direction: row !important;
+    align-items: center;
+}
+
+#NavBar.vertical {
+    // testing
+    position: absolute;
+    width: 325px;
+    background-color: rgb(255, 255, 255);
+    height: 100vh;
+    justify-content: flex-start;
+    padding: 0 2%;
+    box-shadow: 0 2px 5px rgba(140, 140, 140, 0.3);
+}
+
+@media screen and (max-width: 425px) {
+    #NavBar {
+        width: 100% !important;
+    }
+    
 }

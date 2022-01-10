@@ -1,14 +1,43 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./NavBar.css";
 import demoLogo from "./sample/posts/demo-logo.png";
 function NavBar() {
+    const [openHam, setOpenHam] = useState(false);
+
+    useEffect(handleOpenHam, [openHam]);
+
+    function handleOpenHam() {
+        // setOpenHam(!openHam);
+        let hamMenu = document.getElementById("menu-btn");
+        let navBar = document.getElementById("NavBar");
+        let middleNav = document.getElementById("middle-nav");
+        let buttonDiv = document.getElementById("button-div-2");
+        // let logoDiv2 = document.getElementById("logo-div-2");
+        if (openHam) {
+            hamMenu.classList.add('open');
+            navBar.classList.add('vertical');
+            navBar.classList.add('nav-bar-vertical');
+            middleNav.classList.add('vertical');
+            buttonDiv.classList.add('vertical');
+            // logoDiv2.classList.add('vertical');
+            // navBar.style.flexDirection = 'column'
+        }
+        else {
+            hamMenu.classList.remove('open');
+            navBar.classList.remove('vertical');
+            middleNav.classList.remove('vertical');
+            buttonDiv.classList.remove('vertical');
+
+
+        }
+    }
   return (
     <div id="NavBar">
       <a href="/" id="logo-div-2">
         <img id="logo-img-2" src={demoLogo} />
         <div>Lasco</div>
       </a>
-      <div className="menu-btn">
+      <div id="menu-btn" onClick={() => setOpenHam(!openHam)}>
         <div className="menu-btn-burger"></div>
       </div>
       <div id="middle-nav">
