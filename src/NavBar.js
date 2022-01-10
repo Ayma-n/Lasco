@@ -4,18 +4,16 @@ import demoLogo from "./sample/posts/demo-logo.png";
 import useWindowSize from "./utils/useWindowSize.js";
 function NavBar() {
     const [openHam, setOpenHam] = useState(false);
-    const [windowSize, setWindowSize] = useState(useWindowSize());
+    const windowSize = useWindowSize();
     
     useEffect(handleOpenHam, [openHam]);
+
     useEffect(() => {
-        setWindowSize(useWindowSize().width);
-    }, [openHam]);
-    useEffect(() => {
-        console.log(windowSize.width);
-        if (parseInt(windowSize.width) >= 800) {
+        //console.log(windowSize.width);
+        if (windowSize.width >= 976) {
             setOpenHam(false);
         }
-    }, [])
+    })
 
 
     function handleOpenHam() {
