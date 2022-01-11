@@ -10,6 +10,7 @@ function NavBar() {
 
     useEffect(() => {
         //console.log(windowSize.width);
+        // removes open ham menu if screen width is greater than max width for ham menu
         if (windowSize.width >= 1084) {
             setOpenHam(false);
         }
@@ -33,8 +34,6 @@ function NavBar() {
             navBar.classList.remove('vertical');
             middleNav.classList.remove('vertical');
             buttonDiv.classList.remove('vertical');
-
-
         }
     }
   return (<>

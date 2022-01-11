@@ -235,8 +235,8 @@ $ham-menu-ver-padding: 100px;
 @media screen and (max-width: $nav-bar-breakpoint) {
    #NavBar {
     //   margin-right: auto;
-        justify-content: space-between;
-        box-sizing: border-box;
+        // justify-content: space-between;
+        // box-sizing: border-box;
         padding: 0 $nav-bar-side-padding;
    }
 
