@@ -22,15 +22,11 @@ function NavBar() {
         let navBar = document.getElementById("NavBar");
         let middleNav = document.getElementById("middle-nav");
         let buttonDiv = document.getElementById("button-div-2");
-        // let logoDiv2 = document.getElementById("logo-div-2");
         if (openHam) {
             hamMenu.classList.add('open');
             navBar.classList.add('vertical');
-            // navBar.classList.add('nav-bar-vertical');
             middleNav.classList.add('vertical');
             buttonDiv.classList.add('vertical');
-            // logoDiv2.classList.add('vertical');
-            // navBar.style.flexDirection = 'column'
         }
         else {
             hamMenu.classList.remove('open');
@@ -56,14 +52,14 @@ function NavBar() {
         <div id="logo-text-2">Lasco</div>
       </a>
       <div id="middle-nav">
-        <a href="/community" className="nav-link" id="community">
-          Community
-        </a>
-        <a href="/governance" className="nav-link" id="governance">
-          Governance
-        </a>
         <a href="/about" className="nav-link" id="about">
           About
+        </a>
+        <a href="/plans" className="nav-link" id="plans">
+          Plans 
+        </a>
+        <a href="/community" className="nav-link" id="community">
+          Community
         </a>
       </div>
       <div id="button-div-2">
