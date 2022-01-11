@@ -1,21 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 $default-font-size: 18px;
-$leftW: 910px;
-$modalW: 1317px;
-$rightW: 407px;
-$imageW: 822px;
-$descrW: 322px;
-$descrFontSz: 24px;
-$titleFontSz: 48px;
-$priceFontSz: 30px;
-$buyFontSz: 24px;
-$buyW: 111px;
-$buyH: 55px;
-$modalH: 982px;
-$btnBorderRadius: 12px;
+$left-w: 910px;
+$eight-w: 407px;
+$image-w: 822px;
+$descr-w: 322px;
+$modal-w: 1317px;
+$modal-h: 982px;
+$buy-w: 111px;
+$buy-h: 55px;
+
+$descr-font-size: 24px;
+$title-font-size: 48px;
+$title-font-weight: 400;
+$title-margin-top: 16px;
+$title-margin-bottom: 19px;
+$price-font-size: 30px;
+$price-font-weight: 600;
+$buy-font-size: 24px;
+
+$btn-border-radius: 12px;
+$modal-border-radius: 30px;
 $breakpoint: 774px;
-$iconSz: 60px;
-$closeSz: 60px;
+$icon-size: 60px;
+$close-btn-size: 60px;
+$title-color: rgba(0, 0, 0, 0.82);
+$absolute-icon-side-margin: 250px;
+$icon-side-margin: 242px;
+
+$weird-600px-denom: 600px;
+$gap-bw-post-comments: 30px;
+$top-spacing-for-close-btn: 45px;
+$icon-top-from-post: 16px;
+$descr-margin-bottom: 26px;
+$descr-font-weight: 300;
+$descr-w: 327px;
+$buy-btn-w: 111px;
+$second-icon-size: 48px;
+$price-buy-gap-row: 20px;
+$price-buy-gap-col: 10px;
+$comment-separation: 20px;
+$comment-sec-margin-top: 80px;
+$profile-img-size: 51px;
+$close-btn-right-pos: 50px;
+$modal-ver-padding: 10px;
+$comment-font-weight: 400;
+$comment-font-size: 16px;
+$space-bw-profile-comment-text: 10px;
+
+$comment-text-padding-right: 37px;
+$comment-name-right-gap: 8px;
 
 
 #ViewPage {
@@ -29,17 +63,19 @@ $closeSz: 60px;
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none; /* Firefox */
     }
-#close {
+
+#close-btn {
     position: absolute;
     top: 0px;
-    right: 50px;
-    width: $closeSz;
-    height: $closeSz;
+    right: $close-btn-right-pos;
+    width: $close-btn-size;
+    height: $close-btn-size;
+    // puts it on top so it is visible above modal
     z-index: 1;
 }
 
 #artView {
-    width: 100% * $imageW / $leftW;
+    width: 100% * $image-w / $left-w;
     // margin-top: 80px;
     position: relative;
     /* margin-left: auto;
@@ -53,15 +89,15 @@ $closeSz: 60px;
 }
 
 #modal {
-    width: 1317px;
+    width: $modal-w;
     background: rgba(255, 250, 243, 0.9);
-    border-radius: 30px;
+    border-radius: $modal-border-radius;
     margin: 0 auto;
     position: relative;
     display: flex;
     height: 100vh;
     /* sets padding for top and bottom, useful for long iPhones in horizontal */
-    padding: 10px 0;
+    padding: $modal-ver-padding 0;
     /* ensures that cal for w and h take into account padding */
     /* https://stackoverflow.com/questions/485827/css-100-height-with-padding-margin */
     box-sizing: border-box;
@@ -73,7 +109,7 @@ $closeSz: 60px;
     /* hor centers items */
     align-items: center;
     flex-direction: column;
-    width: 100% * $leftW / $modalW;
+    width: 100% * $left-w / $modal-w;
     height: 100%;
     height: auto;
     // overflow: scroll;
@@ -84,7 +120,7 @@ $closeSz: 60px;
 
 .right {
     position: relative;
-    width: 100% * $rightW / $modalW;
+    width: 100% * $eight-w / $modal-w;
     height: 100%;
     overflow: auto;
     // box-sizing: border-box;
@@ -96,46 +132,48 @@ $closeSz: 60px;
     // box-sizing: border-box;
     font-size: $default-font-size;
 }
-@media screen and (max-height: 774px) {
+// @media screen and (max-height: 774px) {
    
     
-}
+// }
 #artTitle {
     text-align: center;
     font-family: Lato;
-    font-weight: 400;
-    font-size: $titleFontSz;
+    font-weight: $title-font-size;
+    font-size: $title-font-size;
     align-self: center;
     align-content: center;
-    color: rgba(0, 0, 0, 0.82);
-    margin-bottom: 100vw * 19px / $modalW;
-    margin-top: 100vw * 16px / $modalW;
+    color: $title-color;
+    margin-bottom: 100vw * $title-margin-bottom / $modal-w;
+    margin-top: 100vw * $title-margin-top / $modal-w;
 
     /* display: flex;
     align-items: center; */
 }
 
-.name {
+.comment-name {
     font-weight: bold;
-    /* width: 110px; */
-    margin-right: 8px;
+    // spacing between name of commenter and the text of their comment
+    margin-right: $comment-name-right-gap;
     /* white-space: nowrap; */
-    width: 130px;
+    // width: 130px;
     /* paddiing-left: auto; */
     /* flex-grow: 1; */
 }
-/* TODO: change name to text */
+/* TODO: change comment-name to text */
 .commentText {
-    font-weight: 400;
+    font-weight: $comment-font-weight;
     text-align: left;
-    font-size: 16px;
+    font-size: $comment-font-size;
     // flex-shrink: 3;
-    margin-left: 10px;
-    padding-right: 37px;
-    /* https://stackoverflow.com/
+    margin-left: $space-bw-profile-comment-text;
+    // sets gap bw comment and right edge of modal. is added for aesthetic purposes. 
+    padding-right: $comment-text-padding-right;
+  
+    /* allows words to wrap when they reach edge of container */
+      /* see: https://stackoverflow.com/
     questions/1165497/how-to-prevent-text-from-overflowing-in-css
     */
-    /* allows words to wrap when they reach edge of container */
     word-wrap: break-word;
 }
 
@@ -149,14 +187,14 @@ $closeSz: 60px;
     // grid-auto-rows: min-content;
     // align-items: start;
 
-    margin-top: 80px;
+    margin-top: $comment-sec-margin-top;
     box-sizing: border-box;
 
    
     display: flex;
     flex-direction: column;
     // sets gap between comments
-    gap: 20px;
+    gap: $comment-separation;
 }
 
 .comment {
@@ -170,11 +208,11 @@ $closeSz: 60px;
 } */
 
 .profileImg {
-    width: 51px;
+    width: $profile-img-size;
 }
 
 .profileImgDiv {
-    width: 51px;
+    width: $profile-img-size;
     display: flex;
     align-items: start;
 }
@@ -186,41 +224,38 @@ $closeSz: 60px;
 // }
 
 #description {
-    font-family: 'Lato';
+    font-family: Lato;
     // font-style: normal;
-    font-weight: 300;
-    font-size: 24px;
+    font-weight: $descr-font-weight;
+    font-size: $descr-font-size;
     // line-height: 29px;
     text-align: center;
-    width: 327px;
+    width: $descr-w;
     word-wrap: break-word;
-    margin-bottom: 26px;
+    margin-bottom: $descr-margin-bottom;
 }
 
 #price {
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 30px;
+    font-family: Lato;
+    font-weight: $descr-font-weight;
+    font-size: $price-font-size;
 }
 
 #price-and-buy {
     display: flex;
     align-content: center;
-    gap: 20px;
+    gap: $price-buy-gap-row;
     align-items: center;
 }
 
 #buy-btn {
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: bold;
-    font-size: 24px;
-    width: 111px;
-    height: $buyH;
+    font-size: $buy-font-size;
+    width: $buy-btn-w;
+    height: $buy-h;
     background: rgba(0, 0, 0, 0.85);
     transition: background 0.5s;
-    border-radius: $btnBorderRadius;  
+    border-radius: $btn-border-radius;  
     color: white;
     border:none;  
 }
@@ -234,65 +269,69 @@ $closeSz: 60px;
 }
 %absolute-icons {
     position: relative;
-    top: 16px;
-    width: 48px;
-    height: 48px;
+    top: $icon-top-from-post;
+    width: $second-icon-size;
+    height: $second-icon-size;
 }
+
 #comment-icon {
     // position: absolute;
     // left: 812px;
     // top: 64%;
     position: relative;
     @extend %absolute-icons;
-    left: 250px;
+    left: $icon-side-margin;
 }
 
 #like-icon {
     @extend %absolute-icons;
-    right: 250px;
+    right: $icon-side-margin;
 }
 
-@media screen and (max-width: $modalW) {
+@media screen and (max-width: $modal-w) {
     #modal {
         width: 100vw;
     }
     #artTitle {
-        font-size: 100vw * $titleFontSz / $modalW;
+        font-size: 100vw * $title-font-size / $modal-w;
     }
     #description {
-        font-size: 100vw * $descrFontSz / $modalW;
+        font-size: 100vw * $descr-font-size / $modal-w;
     }
     #price {
-        font-size: 100vw * $priceFontSz / $modalW;
+        font-size: 100vw * $price-font-size / $modal-w;
     }
     // #price-and-buy {
     //     gap: 20px / 
     // }
+    // common code for scaling icons dynamically when screen is smaller than modal-w
+    %icons-first-breakpoint-pos {
+        width: 100vw * $second-icon-size / $modal-w;
+        top: 100vw * $icon-top-from-post / $modal-w;
+        height: 100vw * $second-icon-size / $modal-w;
+    }
     #comment-icon {
-        left: 100vw * 242px / $modalW;
-        width: 100vw * 48px / $modalW;
-        top: 100vw * 16px / $modalW;
-        height: 100vw * 48px / $modalW;
+        @extend %icons-first-breakpoint-pos;
+        left: 100vw * $icon-side-margin / $modal-w;
     }
     #like-icon {
-        right: 100vw * 242px / $modalW;
-        width: 100vw * 48px / $modalW;
-        top: 100vw * 16px / $modalW;
-        height: 100vw * 48px / $modalW;
+        @extend %icons-first-breakpoint-pos;
+        right: 100vw * $icon-side-margin / $modal-w;
     }
     #buy-btn {
-        font-size: 100vw * $buyFontSz / $modalW;
-        width: 100vw * $buyW / $modalW;
-        height: 100vw * $buyH / $modalW;  
-        border-radius: #{100% * $btnBorderRadius / $buyW}/#{100% * $btnBorderRadius / $buyH};
+        font-size: 100vw * $buy-font-size / $modal-w;
+        width: 100vw * $buy-w / $modal-w;
+        height: 100vw * $buy-h / $modal-w;  
+        border-radius: #{100% * $btn-border-radius / $buy-w}/#{100% * $btn-border-radius / $buy-h};
     }
 }
+// when screen is small, moves comment sec to below post so that post is large enough
 @media screen and (max-width: $breakpoint) {
-    // $modalW: 900px;
+    // $modal-w: 900px;
 
     #modal {     
         flex-direction: column; 
-        border-radius: #{100% * 30px / $breakpoint}/#{100% * 30px / $breakpoint};
+        border-radius: #{100% * $modal-border-radius / $breakpoint}/#{100% * $modal-border-radius / $breakpoint};
         height: auto;
         overflow: auto;
     }
@@ -304,17 +343,20 @@ $closeSz: 60px;
     #commentSec {
         margin-top: 0;
         height: auto;
+        // sets overflow to its default, which is no scroll
+        //TODO: understand why I need this.
         overflow: unset;
     }
 
     #close {
-        width: 100vw * $closeSz / $breakpoint;
-        height: 100vw * $closeSz / $breakpoint;
-        min-width: 40px;
-        min-height: 40px;
-        /* centers close btn when small enough */
+        width: 100vw * $close-btn-size / $breakpoint;
+        height: 100vw * $close-btn-size / $breakpoint;
+        // min-width: 40px;
+        // min-height: 40px;
+        /* centers close btn when screen is very small (for mobile) */
         left: 50vw;
         transform: translateX(-50%);
+        /* animates close btn on close */
         transition: opacity 0.5s;
     }
     #artView {
@@ -325,8 +367,9 @@ $closeSz: 60px;
     .left {
         width: 100%;
         // overflow: auto;
-        margin-bottom: 30px;
-        margin-top: 45px;
+        // gap bw post and comment sec for vertical positioning
+        margin-bottom: $gap-bw-post-comments;
+        margin-top: $top-spacing-for-close-btn;
     }
     .right {
         height: auto;
@@ -338,44 +381,46 @@ $closeSz: 60px;
     }
 
     #artTitle {
-        font-size: 100vw * $titleFontSz / 600px;
+        //TODO: use constants
+        font-size: 100vw * $title-font-size / 600px;
     }
     #description {
-        font-size: 100vw * $descrFontSz / 600px;
+        font-size: 100vw * $descr-font-size / 600px;
         margin-bottom: 10px;
     }
     #price {
-        font-size: 100vw * $priceFontSz / 600px;
+        font-size: 100vw * $price-font-size / 600px;
     }
     // #price-and-buy {
     //     gap: 20px / 
     // }
 
-    %imgIcons {
+    // sets the dynamic resizing for like and comment icons 
+    %dynamic-pos-icons {
         position: relative;
-        width: 100vw * 60px / $breakpoint;
-        height: 100vw * 60px / $breakpoint;
-        top: 100vw * 16px / $modalW;
+        width: 100vw * $icon-size / $breakpoint;
+        height: 100vw * $icon-size / $breakpoint;
+        top: 100vw * $icon-top-from-post / $modal-w;
     }
 
     #like-icon {
-        @extend %imgIcons;
-        right: 100vw * 242px / $modalW;
+        @extend %dynamic-pos-icons;
+        right: 100vw * $icon-side-margin / $modal-w;
     }
 
     #comment-icon {
-        @extend %imgIcons;
-        left: 100vw * 242px / $modalW;
+        @extend %dynamic-pos-icons;
+        left: 100vw * $icon-side-margin / $modal-w;
     }
     #price-and-buy {
         flex-direction: column;
-        gap: 10px;
+        gap: $price-buy-gap-col;
     }
     #buy-btn {
-        font-size: 100vw * $buyFontSz / 600px;
-        width: 100vw * $buyW / 600px;
-        height: 100vw * $buyH / 600px;  
-        border-radius: #{100% * $btnBorderRadius / $buyW}/#{100% * $btnBorderRadius / $buyH};
+        font-size: 100vw * $buy-font-size / $weird-600px-denom;
+        width: 100vw * $buy-w / $weird-600px-denom;
+        height: 100vw * $buy-h / $weird-600px-denom;  
+        border-radius: #{100% * $btn-border-radius / $buy-w}/#{100% * $btn-border-radius / $buy-h};
     }
 }
 }

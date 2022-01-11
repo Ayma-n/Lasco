@@ -6,6 +6,7 @@ import testImg from "./sample/posts/viewArt.jpeg";
 import comment from "./sample/posts/message-circle.svg";
 import "./ViewPage.css";
 
+
 function ViewPage() {
   const [seeComments, setSeeComments] = useState(false);
 
@@ -20,7 +21,7 @@ useEffect( () => {
 
   return (
     <div id="ViewPage">
-      <img id="close" src={close} onClick={() => document.getElementById("modal").style.display = 'none'} />
+      <img id="close-btn" src={close} onClick={() => document.getElementById("modal").style.display = 'none'} />
       <div id="modal">
         <div className="left">
           <div className="centered">
@@ -46,7 +47,7 @@ useEffect( () => {
               <img src={profileImg} alt="profile" className="profileImg" />
             </div>
             <div className="commentText">
-              <span className="name">Kathleen R.</span>Awesome artwork! Keep it
+              <span className="comment-name">Kathleen R.</span>Awesome artwork! Keep it
               up! Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Aspernatur vel maiores aut qui voluptas atque laboriosam ullam
               debitis ad nisi fugiat sunt quia, dolores aliquam iure harum
@@ -61,7 +62,7 @@ useEffect( () => {
               <img src={profileImg} alt="profile" className="profileImg" />
             </div>
             <div className="commentText">
-              <span className="name">Kathleen R.</span>Awesome artwork! Keep it
+              <span className="comment-name">Kathleen R.</span>Awesome artwork! Keep it
               up! Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Aspernatur vel maiores aut qui voluptas atque laboriosam ullam
               debitis ad nisi fugiat sunt quia, dolores aliquam iure harum
@@ -76,7 +77,7 @@ useEffect( () => {
               <img src={profileImg} alt="profile" className="profileImg" />
             </div>
             <div className="commentText">
-              <span className="name">Kathleen R.</span>Awesome artwork! Keep it
+              <span className="comment-name">Kathleen R.</span>Awesome artwork! Keep it
               up! Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Aspernatur vel maiores aut qui voluptas atque laboriosam ullam
               debitis ad nisi fugiat sunt quia, dolores aliquam iure harum
@@ -91,7 +92,7 @@ useEffect( () => {
               <img src={profileImg} alt="profile" className="profileImg" />
             </div>
             <div className="commentText">
-              <span className="name">Kathleen R.</span>Awesome artwork! Keep it
+              <span className="comment-name">Kathleen R.</span>Awesome artwork! Keep it
               up! Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Aspernatur vel maiores aut qui voluptas atque laboriosam ullam
               debitis ad nisi fugiat sunt quia, dolores aliquam iure harum
@@ -106,7 +107,7 @@ useEffect( () => {
               <img src={profileImg} alt="profile" className="profileImg" />
             </div>
             <div className="commentText">
-              <span className="name">Kathleen R.</span>Awesome artwork! Keep it
+              <span className="comment-name">Kathleen R.</span>Awesome artwork! Keep it
               up! Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Aspernatur vel maiores aut qui voluptas atque laboriosam ullam
               debitis ad nisi fugiat sunt quia, dolores aliquam iure harum

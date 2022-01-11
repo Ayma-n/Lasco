@@ -57,12 +57,6 @@ body {
    font-size: 24px;
    
   }
-
-  // removes default styling for links
-  a {
-    color: inherit; /* blue colors for links too */
-    text-decoration: inherit; /* no underline */
-  }
   
   .filled-btn {
     @extend %lasco-btn;
@@ -73,7 +67,12 @@ body {
       @extend %lasco-btn;
       box-shadow: 2px 1000px 1px #fff inset;
       border: solid 3px transparent;
+  }
 
+  // removes default styling for links
+  a {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
   }
 
 

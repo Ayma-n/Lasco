@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 #ViewPage {
   /* Hide scrollbar for Chrome, Safari and Opera */
-  /* TODO: change name to text */
+  /* TODO: change comment-name to text */
   /* #comments {
     overflow: scroll;
 } */
@@ -18,7 +18,7 @@
   /* Firefox */
 }
 
-#ViewPage #close {
+#ViewPage #close-btn {
   position: absolute;
   top: 0px;
   right: 50px;
@@ -102,7 +102,7 @@
 #ViewPage #artTitle {
   text-align: center;
   font-family: Lato;
-  font-weight: 400;
+  font-weight: 48px;
   font-size: 48px;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
@@ -116,12 +116,10 @@
     align-items: center; */
 }
 
-#ViewPage .name {
+#ViewPage .comment-name {
   font-weight: bold;
-  /* width: 110px; */
   margin-right: 8px;
   /* white-space: nowrap; */
-  width: 130px;
   /* paddiing-left: auto; */
   /* flex-grow: 1; */
 }
@@ -132,10 +130,10 @@
   font-size: 16px;
   margin-left: 10px;
   padding-right: 37px;
-  /* https://stackoverflow.com/
+  /* allows words to wrap when they reach edge of container */
+  /* see: https://stackoverflow.com/
     questions/1165497/how-to-prevent-text-from-overflowing-in-css
     */
-  /* allows words to wrap when they reach edge of container */
   word-wrap: break-word;
 }
 
@@ -180,7 +178,7 @@
 }
 
 #ViewPage #description {
-  font-family: 'Lato';
+  font-family: Lato;
   font-weight: 300;
   font-size: 24px;
   text-align: center;
@@ -190,9 +188,8 @@
 }
 
 #ViewPage #price {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 600;
+  font-family: Lato;
+  font-weight: 300;
   font-size: 30px;
 }
 
@@ -209,8 +206,6 @@
 }
 
 #ViewPage #buy-btn {
-  font-family: 'Inter';
-  font-style: normal;
   font-weight: bold;
   font-size: 24px;
   width: 111px;
@@ -242,11 +237,11 @@
 
 #ViewPage #comment-icon {
   position: relative;
-  left: 250px;
+  left: 242px;
 }
 
 #ViewPage #like-icon {
-  right: 250px;
+  right: 242px;
 }
 
 @media screen and (max-width: 1317px) {
@@ -262,17 +257,16 @@
   #ViewPage #price {
     font-size: 2.2779vw;
   }
-  #ViewPage #comment-icon {
-    left: 18.37509vw;
+  #ViewPage #comment-icon, #ViewPage #like-icon {
     width: 3.64465vw;
     top: 1.21488vw;
     height: 3.64465vw;
   }
+  #ViewPage #comment-icon {
+    left: 18.37509vw;
+  }
   #ViewPage #like-icon {
     right: 18.37509vw;
-    width: 3.64465vw;
-    top: 1.21488vw;
-    height: 3.64465vw;
   }
   #ViewPage #buy-btn {
     font-size: 1.82232vw;
@@ -303,12 +297,11 @@
   #ViewPage #close {
     width: 7.75194vw;
     height: 7.75194vw;
-    min-width: 40px;
-    min-height: 40px;
-    /* centers close btn when small enough */
+    /* centers close btn when screen is very small (for mobile) */
     left: 50vw;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
+    /* animates close btn on close */
     -webkit-transition: opacity 0.5s;
     transition: opacity 0.5s;
   }
