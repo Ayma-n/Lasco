@@ -10,7 +10,7 @@ function NavBar() {
 
     useEffect(() => {
         //console.log(windowSize.width);
-        if (windowSize.width >= 976) {
+        if (windowSize.width >= 1084) {
             setOpenHam(false);
         }
     })

@@ -1,5 +1,6 @@
 import React from 'react';
 import PortalNav from './PortalNav';
+import './Portal.css';
 
 
 function Portal(props) {
