@@ -1,3 +1,11 @@
+$ham-menu-breakpoint: 1084px;
+$full-ham-breakpoint: 575px;
+$logo-size: 51px;
+$nav-bar-side-padding: 10px;
+$ham-menu-w: 325px;
+$ham-menu-side-padding: 2%;
+$ham-menu-ver-padding: 100px;
+
 #NavBar {
     display: flex;
     z-index: 1;
@@ -58,6 +66,8 @@
         // align-items: right;
         // justify-content: right;
         margin-right: 52px;
+        flex-direction: row;
+        align-items: center;
     }
 
     #login-button  {
@@ -118,7 +128,7 @@
     height: 51px;
 }
 
-@media screen and (max-width: 1084px) {
+@media screen and (max-width: $nav-bar-breakpoint) {
     #menu-btn {
         // position: absolute;
         display: flex;
@@ -189,42 +199,49 @@
 }
 
 
- /* ham menu nav repositioning */ 
+ /* shared code for ham menu interior */ 
 .vertical {
     display: flex !important;
+    // flex-direction: column !important;
+}
+
+#NavBar.vertical, #NavBar #middle-nav.vertical {
     flex-direction: column !important;
-    margin-right: 0 !important;
-  
 }
 
 #NavBar #button-div-2.vertical {
-    flex-direction: row !important;
-    align-items: center;
+
+    // sets gap bw buttons and nav links in hamburger menu
     margin-top: 30px;
+    // resets margin-right, which was not zero because of hor nav bar positioning
+    margin-right: 0 !important;
 }
 
 #NavBar.vertical {
-    // testing
+    // styling for hamburger menu interior
     position: absolute;
-    width: 325px;
+    width: $ham-menu-w;
     background-color: rgb(255, 255, 255);
     height: 100vh;
+    // links of hamburger menu start at top of column
     justify-content: flex-start;
-    padding: 100px 2%;
+    padding: $ham-menu-ver-padding $ham-menu-side-padding;
+    // adds neat shadow to hamburger menu
     box-shadow: 0 2px 5px rgba(140, 140, 140, 0.3);
+    // aligns hamburger menu to left of screen
     left: 0;
 }
 
-@media screen and (max-width: 1084px) {
+@media screen and (max-width: $nav-bar-breakpoint) {
    #NavBar {
     //   margin-right: auto;
         justify-content: space-between;
         box-sizing: border-box;
-        padding: 0 10px;
+        padding: 0 $nav-bar-side-padding;
    }
 
    #logo-div-2 {
-       width: 51px !important;
+       width: $logo-size !important;
    }
 
    #top-div {
@@ -235,7 +252,7 @@
     
 }
 
-@media screen and (max-width: 575px) {
+@media screen and (max-width: $full-ham-breakpoint) {
     #NavBar {
         width: 100% !important;
         box-shadow: none !important;
