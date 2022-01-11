@@ -128,7 +128,7 @@ $ham-menu-ver-padding: 100px;
     height: 51px;
 }
 
-@media screen and (max-width: $nav-bar-breakpoint) {
+@media screen and (max-width: $ham-menu-breakpoint) {
     #menu-btn {
         // position: absolute;
         display: flex;
@@ -232,7 +232,7 @@ $ham-menu-ver-padding: 100px;
     left: 0;
 }
 
-@media screen and (max-width: $nav-bar-breakpoint) {
+@media screen and (max-width: $ham-menu-breakpoint) {
    #NavBar {
     //   margin-right: auto;
         // justify-content: space-between;
