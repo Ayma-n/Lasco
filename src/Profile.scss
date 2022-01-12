@@ -1,3 +1,4 @@
+// TODO: remove line above, doesnt need to import Inter
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 // also the height of img
@@ -7,6 +8,8 @@ $imgGap: 40px;
 // number of max images in a row
 $numImgs: 4;
 
+// TODO: add these numbers to constants
+// BONUS: remove uneccessary ones
 #Profile {
 .profileName {
     // eqv to top margin, resets default margins from h2

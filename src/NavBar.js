@@ -9,6 +9,7 @@ function NavBar() {
     useEffect(handleOpenHam, [openHam]);
 
     useEffect(() => {
+      //TODO: remove 
         //console.log(windowSize.width);
         // removes open ham menu if screen width is greater than max width for ham menu
         if (windowSize.width >= 1084) {

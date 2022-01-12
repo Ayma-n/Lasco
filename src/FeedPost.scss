@@ -1,6 +1,8 @@
 @use "sass:list";
+//TODO: remove this line
 // @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
+//TODO: order constants and get rid of unnecessary ones
 $contRectW: 682px;
 $contRectH: 747px;
 $contRectLeft: 383px;
@@ -150,6 +152,7 @@ $commentSecTop: 21px;
     }
     #artTitle {
       /* relative left pos */
+      // TODO: add to constants
       left: 32px;
       /* relative top pos */
       top: 11px;
@@ -231,6 +234,7 @@ $commentSecTop: 21px;
     // height: $commentH;
   }
   
+  //TODO: get rid of
   .commentText {
     
   }

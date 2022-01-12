@@ -8,6 +8,7 @@ import "./ViewPage.css";
 
 
 function ViewPage() {
+  // use state for ability to see comments or not, is changed on click of comment icon
   const [seeComments, setSeeComments] = useState(false);
 
 function setCommVis() {
@@ -25,10 +26,11 @@ useEffect( () => {
       <div id="modal">
         <div className="left">
           <div className="centered">
-            <img id="artView" src={testImg} />
-            <div id="titleLn">
+          {/* TODO: change name to image */}
+            <img id="image" src={testImg} />
+            <div id="title-line">
             <img src={fire} alt="fire icon" id="like-icon" />
-              <div id="artTitle">JungleCity</div>
+              <div id="title">JungleCity</div>
               <img src={comment} alt="comment icon" id="comment-icon" onClick={() => setSeeComments(seeComments => !seeComments)} />
             </div>
             <div id="description">
@@ -41,12 +43,12 @@ useEffect( () => {
           </div>
         </div>
         <div className="right">
-          <div id="commentSec">
+          <div id="comment-sec">
           <div className="comment">
-            <div className="profileImgDiv">
-              <img src={profileImg} alt="profile" className="profileImg" />
+            <div className="profile-img-div">
+              <img src={profileImg} alt="profile" className="profile-img" />
             </div>
-            <div className="commentText">
+            <div className="comment-text">
               <span className="comment-name">Kathleen R.</span>Awesome artwork! Keep it
               up! Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Aspernatur vel maiores aut qui voluptas atque laboriosam ullam
@@ -58,10 +60,10 @@ useEffect( () => {
             </div>
             </div>
           <div className="comment">
-            <div className="profileImgDiv">
-              <img src={profileImg} alt="profile" className="profileImg" />
+            <div className="profile-img-div">
+              <img src={profileImg} alt="profile" className="profile-img" />
             </div>
-            <div className="commentText">
+            <div className="comment-text">
               <span className="comment-name">Kathleen R.</span>Awesome artwork! Keep it
               up! Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Aspernatur vel maiores aut qui voluptas atque laboriosam ullam
@@ -73,10 +75,10 @@ useEffect( () => {
             </div>
             </div>
           <div className="comment">
-            <div className="profileImgDiv">
-              <img src={profileImg} alt="profile" className="profileImg" />
+            <div className="profile-img-div">
+              <img src={profileImg} alt="profile" className="profile-img" />
             </div>
-            <div className="commentText">
+            <div className="comment-text">
               <span className="comment-name">Kathleen R.</span>Awesome artwork! Keep it
               up! Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Aspernatur vel maiores aut qui voluptas atque laboriosam ullam
@@ -88,10 +90,10 @@ useEffect( () => {
             </div>
             </div>
           <div className="comment">
-            <div className="profileImgDiv">
-              <img src={profileImg} alt="profile" className="profileImg" />
+            <div className="profile-img-div">
+              <img src={profileImg} alt="profile" className="profile-img" />
             </div>
-            <div className="commentText">
+            <div className="comment-text">
               <span className="comment-name">Kathleen R.</span>Awesome artwork! Keep it
               up! Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Aspernatur vel maiores aut qui voluptas atque laboriosam ullam
@@ -103,10 +105,10 @@ useEffect( () => {
             </div>
             </div>
           <div className="comment">
-            <div className="profileImgDiv">
-              <img src={profileImg} alt="profile" className="profileImg" />
+            <div className="profile-img-div">
+              <img src={profileImg} alt="profile" className="profile-img" />
             </div>
-            <div className="commentText">
+            <div className="comment-text">
               <span className="comment-name">Kathleen R.</span>Awesome artwork! Keep it
               up! Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Aspernatur vel maiores aut qui voluptas atque laboriosam ullam
