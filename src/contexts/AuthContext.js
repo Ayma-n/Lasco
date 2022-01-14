@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
+import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth"
 import { auth } from "../firebase"
 
 const AuthContext = React.createContext();
@@ -12,7 +13,7 @@ export function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState();
 
     function signup(email, password) {
-        return auth.createUserWithEmailAndPassword(email, password);
+        return createUserWithEmailAndPassword(auth, email, password);
     }
 
     useEffect(handleAuthStateChanged, [])
@@ -23,7 +24,7 @@ export function AuthProvider({ children }) {
     // unsubscribe from the listener (i.e., deactivate it).
     // This is why we return the "unsubscribe" method in this function.
     function handleAuthStateChanged() {
-        const unsubscribe = auth.onAuthStateChanged(user => {
+        const unsubscribe = onAuthStateChanged(auth, user => {
             setCurrentUser(user);
         })
 
