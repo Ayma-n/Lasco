@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./Signup.css"
 import demoLogo from "./sample/posts/demo-logo.png";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Signup() {
     return (<>
