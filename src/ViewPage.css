@@ -28,6 +28,13 @@
   z-index: 1;
 }
 
+#ViewPage #view-author-container {
+  gap: 22px;
+  height: 67px;
+  margin-left: 100px;
+  margin-bottom: 5px;
+}
+
 #ViewPage #image {
   width: 90.32967%;
   position: relative;
@@ -58,7 +65,7 @@
   display: -ms-flexbox;
   display: flex;
   height: 100vh;
-  /* sets padding for top and bottom, useful for long iPhones in horizontal */
+  /* sets padding for top and bottom, useful for long iPhones in horizontal mode */
   padding: 10px 0;
   /* ensures that cal for w and h take into account padding */
   /* https://stackoverflow.com/questions/485827/css-100-height-with-padding-margin */
@@ -165,11 +172,11 @@
 }
 
 #ViewPage .profile-img {
-  width: 51px;
+  width: 49px;
 }
 
 #ViewPage .profile-img-div {
-  width: 51px;
+  width: 49px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -182,7 +189,6 @@
   font-family: Lato;
   font-weight: 300;
   font-size: 24px;
-  text-align: center;
   width: 327px;
   word-wrap: break-word;
   margin-bottom: 26px;

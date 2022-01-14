@@ -17,7 +17,7 @@ function FeedPost() {
           <img id="postImage" src={postSrc} />
           <div id="authorContainer">
             <img id="profileImg" src={profileImg} />
-            <div id="authorName">Johnny R.</div>
+            <div id="authorName" >Johnny R.</div>
           </div>
           <div id="artTitle">Astronight</div>
           <div className="commentSec">

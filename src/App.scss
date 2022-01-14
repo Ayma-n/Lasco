@@ -24,6 +24,8 @@ body {
     padding: 0;
   }
 
+   
+
   .text-gradient {
     // Technically, it is not possible to set a gradient as the color of a text, so we use the background-image property.
     background-image: linear-gradient(
@@ -45,6 +47,20 @@ body {
 
 .text-white {
     color: white;
+}
+
+ /* name of author, used in View and FeedPost */
+ .author-name {
+  font-weight: bold;
+  color: black;
+}
+
+.flex {
+  display: flex;
+}
+
+.al-items-c {
+  align-items: center;
 }
 
   %lasco-btn {

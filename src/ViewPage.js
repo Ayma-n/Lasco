@@ -5,6 +5,7 @@ import profileImg from "./sample/posts/profile2.png";
 import testImg from "./sample/posts/viewArt.jpeg";
 import comment from "./sample/posts/message-circle.svg";
 import "./ViewPage.css";
+import FollowBtn from './FollowBtn';
 
 
 function ViewPage() {
@@ -27,6 +28,11 @@ useEffect( () => {
         <div className="left">
           <div className="centered">
           {/* TODO: change name to image */}
+          <div id="view-author-container" className="flex al-items-c">
+            <img id="view-profile-img" className="profile-img" src={profileImg} />
+            <div id="view-author-name" className="author-name" >Johnny R.</div>
+            <FollowBtn />
+          </div>
             <img id="image" src={testImg} />
             <div id="title-line">
             <img src={fire} alt="fire icon" id="like-icon" />
