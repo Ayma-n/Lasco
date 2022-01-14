@@ -119,6 +119,14 @@
   font-size: 30px;
 }
 
+#Signup #has-account {
+  text-align: center;
+}
+
+#Signup #login-link:hover {
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 920px) {
   #Signup #right-rect {
     display: none;

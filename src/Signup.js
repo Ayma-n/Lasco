@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "./Signup.css"
 import demoLogo from "./sample/posts/demo-logo.png";
+import {Link} from "react-router-dom";
 
 function Signup() {
     return (<>
@@ -18,6 +19,7 @@ function Signup() {
                         <option valie="artist">Looking to be part of a community of artists.</option>
                     </select>
                     <button id="sign-button" className='filled-btn'>Sign Up</button>
+                    <div id="has-account">Already have an account? <Link id= "login-link" class="magenta-text" to="/login">Login</Link></div>
                 </form>
                 <div id="logo-div">
                     <img src={demoLogo}></img>
