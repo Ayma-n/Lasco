@@ -46,7 +46,7 @@ function About() {
       <div className="sec">
         <div className="sub-header">Curious about our name?</div>
         <div className="paragraph">
-          Lasco is a shortened version of ‘Lauscaux’ cave in France--one of the
+          Lasco is a shortened version of ‘Lascaux’ cave in France--one of the
           first caves with handpaintings. It was discovered by Marcel Ravidat
           and his dog Robot in 1940. Recognizing the importance of this cave,
           Ravidat and his friends guarded it for over a year until its
