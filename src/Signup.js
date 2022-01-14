@@ -18,16 +18,38 @@ function Signup() {
     // We get the signup method from the auth context.
     const signup = authContext.signup;
 
-    function handleSubmit(e) {
+    // Creates a state for errors.
+    const [error, setError] = useState('');
+
+    // Creates a loading state that we will use to disable the button when the signup is
+    // being processed.
+    const [loading, setLoading] = useState(false);
+
+    async function handleSubmit(e) {
         e.preventDefault();
-        signup(emailRef.current.value, passwordRef.current.value);
+
+        // If we want a confirm password, we can put this here
+
+
+        // When first signing up, we make sure that the error is blank.
+        // Then, we set loading to true, before we actually fire up the async signup method
+        // When it's done, the loading state is set to false.
+        try {
+            setError('');
+            setLoading(true);
+            await signup(emailRef.current.value, passwordRef.current.value);
+        } catch {
+            setError('Something wrong happened with creating your account...');   
+        }
+        setLoading(false);
     }
 
     return (<>
         <div id="Signup">
             <div id="left-rect">
                 <div id="explore-text">Explore Art. <span className="magenta-text">Together.</span></div>
-                <form onSubmit="handleSubmit()">
+                {error && <div>{error}</div>}
+                <form onSubmit={handleSubmit}>
                     <input id="name" type="text" placeholder="Name" />
                     <input id="email" type="text" placeholder="E-mail" ref={emailRef}/>
                     <input id="username" type="text" placeholder="Username" />
@@ -37,7 +59,8 @@ function Signup() {
                         <option value="buyer">Looking to buy art.</option>
                         <option valie="artist">Looking to be part of a community of artists.</option>
                     </select>
-                    <button id="sign-button" className='filled-btn'>Sign Up</button>
+                    {/* If currently loading, the sign up button is disabled. */}
+                    <button id="sign-button" className='filled-btn' disabled={loading}>Sign Up</button>
                     <div id="has-account">Already have an account? <Link id= "login-link" class="magenta-text" to="/login">Login</Link></div>
                 </form>
                 <div id="logo-div">
