@@ -9,16 +9,22 @@ import Landing from './Landing';
 import About from './About';
 import PortalNav from './PortalNav';
 import Portal from './Portal';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 // We will import AuthContext.Provider which will provide us with the value object,
 // i.e., the email, the signup method, etc.
-import { AuthProvider } from "./contexts/AuthContext";
+import { AuthProvider, useAuth } from "./contexts/AuthContext";
 
 function App() {
 
   const user = "johnnyrose";
   const navBarPages = []
+
+  const { currentUser } = useAuth();
+
+  function RequireAuth({ children, redirectLink }) {
+    return (currentUser ? children : <Navigate to={redirectLink}></Navigate>);
+  }
 
   return (<>
     <AuthProvider>
@@ -37,12 +43,15 @@ function App() {
           {/* https://stackoverflow.com/questions/70393557/react-routes-not-showing-when-using-routes */}
           <Routes>
             <Route path="/" element={<Landing />} />
-            <Route path="/feed" element={<Portal currentPage={FeedPost} />} />
-            <Route path={`/profiles/${user}`} element={< Portal currentPage={Profile} />} />
+            {/* <Route path="/feed" element={<Portal currentPage={FeedPost} />} /> */}
+            <RequireAuth>
+              <Route path="/feed" element={<Portal currentPage={FeedPost} />} />
+              <Route path={`/profiles/${user}`} element={< Portal currentPage={Profile} />} />
+              <Route path="/search" element={<Portal currentPage={SearchBarPage} />} />
+            </RequireAuth>
             <Route path="/view" element={< ViewPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/search" element={<Portal currentPage={SearchBarPage} />} />
             <Route path="/about" element={<About />} />
             <Route path="/navbar" element={<PortalNav />} />
             {/* <Route path="/community" element={<Community />} />
