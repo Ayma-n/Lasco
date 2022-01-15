@@ -1,20 +1,15 @@
 import React from 'react'
-import { Outlet } from "react-router-dom"
+import { Outlet, Navigate } from "react-router-dom"
 import { useAuth } from "./contexts/AuthContext";
-import { Navigate } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import Login from './Login';
-import LoginWaiter from './LoginWaiter';
 
 export default function PrivateRoute() {
 
-    const navigate = useNavigate();
-
     const { currentUser } = useAuth();
-    if (currentUser) {
-        console.log("from private route : " + currentUser.email);
-    } else {
-        console.log("from private route, current user does not exist");
-    }    
-    return (currentUser ? <Outlet/> : <LoginWaiter/>);
+
+    // If the state of the current user is loading, then it displays the loading div.
+    // Else, it checks whether currentUser doesn't exist.
+    // If it doesn't, it goes to /login.
+    // If it exists, it renders the Outlet, which renders the children of the Route containing the PrivateRoute.
+    return ((currentUser === "loading") ? <div>Loading...</div> : (!currentUser ? <Navigate to="/login"/> : <Outlet/>))
+  
 }

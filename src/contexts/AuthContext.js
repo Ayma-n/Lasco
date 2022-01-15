@@ -10,7 +10,7 @@ export function useAuth() {
 
 export function AuthProvider({ children }) {
 
-    const [currentUser, setCurrentUser] = useState();
+    const [currentUser, setCurrentUser] = useState("loading");
 
     function signup(email, password) {
         return createUserWithEmailAndPassword(auth, email, password);
@@ -32,15 +32,13 @@ export function AuthProvider({ children }) {
     // unsubscribe from the listener (i.e., deactivate it).
     // This is why we return the "unsubscribe" method in this function.
     function handleAuthStateChanged() {
-        const unsubscribe = auth.onAuthStateChanged(user => {
+        const unsubscribe = onAuthStateChanged(auth, user => {
             if (user) {
-                console.log("auth state: logged in as " + user.email)
+                setCurrentUser(user)
             } else {
-                console.log("auth state: logged out")
-            }    
-            setCurrentUser(user);
+                setCurrentUser(null);
+            }
         })
-
 
         return unsubscribe;
     }
@@ -53,12 +51,6 @@ export function AuthProvider({ children }) {
         signout
     }
 
-    if (currentUser) {
-        console.log("from value object: " + value.currentUser.email);
-    } else {
-        console.log("from value object, current user does not exist.")
-    }
-    
     return (
         <AuthContext.Provider value={value}>
             {children}
