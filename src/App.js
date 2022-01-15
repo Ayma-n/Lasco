@@ -13,42 +13,37 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 
 // We will import AuthContext.Provider which will provide us with the value object,
 // i.e., the email, the signup method, etc.
-import { AuthProvider, useAuth } from "./contexts/AuthContext";
+import { AuthProvider } from "./contexts/AuthContext";
+import PrivateRoute from './PrivateRoute';
 
 function App() {
 
   const user = "johnnyrose";
   const navBarPages = []
 
-  const { currentUser } = useAuth();
-
-  function RequireAuth({ children, redirectLink }) {
-    return (currentUser ? children : <Navigate to={redirectLink}></Navigate>);
-  }
-
   return (<>
     <AuthProvider>
       <div id="App">
         <Router>
-          <body>
-
-          </body>
-          {/*comments out feedpost for testing purposes */}
-          {/* <FeedPost></FeedPost> */}
-          {/* comments out profile for testing purposes */}
-          {/* <Profile></Profile> */}
-          {/* <SearchBarPage></SearchBarPage> */}
-          {/* <View></View> */}
 
           {/* https://stackoverflow.com/questions/70393557/react-routes-not-showing-when-using-routes */}
           <Routes>
             <Route path="/" element={<Landing />} />
-            {/* <Route path="/feed" element={<Portal currentPage={FeedPost} />} /> */}
-            <RequireAuth>
-              <Route path="/feed" element={<Portal currentPage={FeedPost} />} />
-              <Route path={`/profiles/${user}`} element={< Portal currentPage={Profile} />} />
-              <Route path="/search" element={<Portal currentPage={SearchBarPage} />} />
-            </RequireAuth>
+
+            {/* Paths that require a PrivateRoute (i.e., are only accessible via auth) */}
+
+            <Route path="/feed" element={<PrivateRoute redirectLink="/login">
+              <Portal currentPage={FeedPost} />
+            </PrivateRoute>} />
+
+            <Route path={`/profiles/${user}`} element={<PrivateRoute redirectLink="/login">
+              <Portal currentPage={Profile} />
+            </PrivateRoute>} />
+
+            <Route path={`/search`} element={<PrivateRoute redirectLink="/login">
+              <Portal currentPage={SearchBarPage} />
+            </PrivateRoute>} />
+
             <Route path="/view" element={< ViewPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />

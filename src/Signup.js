@@ -61,7 +61,7 @@ function Signup() {
                     </select>
                     {/* If currently loading, the sign up button is disabled. */}
                     <button id="sign-button" className='filled-btn' disabled={loading}>Sign Up</button>
-                    <div id="has-account">Already have an account? <Link id= "login-link" class="magenta-text" to="/login">Login</Link></div>
+                    <div id="has-account">Already have an account? <Link id= "login-link" className="magenta-text" to="/login">Login</Link></div>
                 </form>
                 <div id="logo-div">
                     <img src={demoLogo}></img>
