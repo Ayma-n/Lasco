@@ -114,7 +114,7 @@ $auth-cont-mb: 5px;
     //TODO: replace with grid system to center author name and img to title but not follow btn
     margin-left: $auth-cont-ml;
     // sets spacing bw artist div and their img
-    margin-bottom: 5px;
+    margin-bottom: $auth-cont-mb;
    
   }
 
@@ -283,7 +283,7 @@ $auth-cont-mb: 5px;
     font-weight: $descr-font-weight;
     font-size: $price-font-size;
   }
-
+  
   #price-and-buy {
     display: flex;
     align-content: center;
@@ -335,6 +335,35 @@ $auth-cont-mb: 5px;
     #modal {
       width: 100vw;
     }
+      // styling for author div on top of image
+  #view-author-container {
+    gap: 100vw * $author-container-gap / $modal-w;
+    height: 100vw * $author-container-height / $modal-w;
+    //TODO: replace with grid system to center author name and img to title but not follow btn
+    margin-left: 100vw * $auth-cont-ml / $modal-w;
+    // sets spacing bw artist div and their img
+    margin-bottom: 100vw * $auth-cont-mb / $modal-w;
+    #view-profile-img {
+      width: 100vw * $profile-img-size / $modal-w;
+    }
+    #view-author-name {
+      font-size: 100vw * $comment-font-size / $modal-w;
+    }
+    #followBtn, #followingBtn {
+      font-size: 100vw * 18px/ $modal-w;
+      height: 100vw * 38px / $modal-w;
+      border-radius: 100vw * 10px / $modal-w;
+      
+    }
+
+    #followBtn {
+      width: 100vw * 118px / $modal-w;
+    }
+    #followingBtn {
+      width: 100vw * 138px / $modal-w;
+    }
+   
+  }
     #title {
       font-size: 100vw * $title-font-size / $modal-w;
     }

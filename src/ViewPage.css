@@ -254,6 +254,29 @@
   #ViewPage #modal {
     width: 100vw;
   }
+  #ViewPage #view-author-container {
+    gap: 1.67046vw;
+    height: 5.08732vw;
+    margin-left: 7.59301vw;
+    margin-bottom: 0.37965vw;
+  }
+  #ViewPage #view-author-container #view-profile-img {
+    width: 3.72058vw;
+  }
+  #ViewPage #view-author-container #view-author-name {
+    font-size: 1.21488vw;
+  }
+  #ViewPage #view-author-container #followBtn, #ViewPage #view-author-container #followingBtn {
+    font-size: 1.36674vw;
+    height: 2.88535vw;
+    border-radius: 0.7593vw;
+  }
+  #ViewPage #view-author-container #followBtn {
+    width: 8.95976vw;
+  }
+  #ViewPage #view-author-container #followingBtn {
+    width: 10.47836vw;
+  }
   #ViewPage #title {
     font-size: 3.64465vw;
   }
