@@ -9,7 +9,7 @@ import Landing from './Landing';
 import About from './About';
 import PortalNav from './PortalNav';
 import Portal from './Portal';
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // We will import AuthContext.Provider which will provide us with the value object,
 // i.e., the email, the signup method, etc.
@@ -22,10 +22,9 @@ function App() {
   const navBarPages = []
 
   return (<>
-    <AuthProvider>
       <div id="App">
         <Router>
-
+        <AuthProvider>
           {/* https://stackoverflow.com/questions/70393557/react-routes-not-showing-when-using-routes */}
           <Routes>
             <Route path="/" element={<Landing />} />
@@ -52,9 +51,9 @@ function App() {
             {/* <Route path="/community" element={<Community />} />
           <Route path="/governance" element={<Governance />} /> */}
           </Routes>
+          </AuthProvider>
         </Router>
       </div>
-    </AuthProvider>
   </>);
 }
 
