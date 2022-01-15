@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import NavBar from "./NavBar";
 import "./About.css";
+
 function About() {
   return (
     <div id="About">
