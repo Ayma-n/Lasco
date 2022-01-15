@@ -9,12 +9,13 @@ import Landing from './Landing';
 import About from './About';
 import PortalNav from './PortalNav';
 import Portal from './Portal';
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // We will import AuthContext.Provider which will provide us with the value object,
 // i.e., the email, the signup method, etc.
 import { AuthProvider } from "./contexts/AuthContext";
 import PrivateRoute from './PrivateRoute';
+import Search from '@mui/icons-material/Search';
 
 function App() {
 
@@ -22,17 +23,22 @@ function App() {
   const navBarPages = []
 
   return (<>
-    <AuthProvider>
       <div id="App">
         <Router>
-
+        <AuthProvider>
           {/* https://stackoverflow.com/questions/70393557/react-routes-not-showing-when-using-routes */}
           <Routes>
             <Route path="/" element={<Landing />} />
 
             {/* Paths that require a PrivateRoute (i.e., are only accessible via auth) */}
 
-            <Route path="/feed" element={<PrivateRoute redirectLink="/login">
+            <Route element={<PrivateRoute/>}>
+              <Route path="/feed" element={<Portal currentPage={FeedPost} />} />
+              <Route path={`/profiles/${user}`} element={<Portal currentPage={Profile} />} />
+              <Route path={`/search`} element={<Portal currentPage={SearchBarPage} />} />
+            </Route>
+
+            {/* <Route path="/feed" element={<PrivateRoute redirectLink="/login">
               <Portal currentPage={FeedPost} />
             </PrivateRoute>} />
 
@@ -42,7 +48,7 @@ function App() {
 
             <Route path={`/search`} element={<PrivateRoute redirectLink="/login">
               <Portal currentPage={SearchBarPage} />
-            </PrivateRoute>} />
+            </PrivateRoute>} /> */}
 
             <Route path="/view" element={< ViewPage />} />
             <Route path="/login" element={<Login />} />
@@ -52,9 +58,9 @@ function App() {
             {/* <Route path="/community" element={<Community />} />
           <Route path="/governance" element={<Governance />} /> */}
           </Routes>
+          </AuthProvider>
         </Router>
       </div>
-    </AuthProvider>
   </>);
 }
 

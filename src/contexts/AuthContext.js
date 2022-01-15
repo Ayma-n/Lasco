@@ -10,7 +10,7 @@ export function useAuth() {
 
 export function AuthProvider({ children }) {
 
-    const [currentUser, setCurrentUser] = useState();
+    const [currentUser, setCurrentUser] = useState("loading");
 
     function signup(email, password) {
         return createUserWithEmailAndPassword(auth, email, password);
@@ -21,7 +21,7 @@ export function AuthProvider({ children }) {
     }
 
     function signout(email, password) {
-        return signOut(auth);
+        return auth.signOut();
     }
 
     useEffect(handleAuthStateChanged, [])
@@ -33,7 +33,11 @@ export function AuthProvider({ children }) {
     // This is why we return the "unsubscribe" method in this function.
     function handleAuthStateChanged() {
         const unsubscribe = onAuthStateChanged(auth, user => {
-            setCurrentUser(user);
+            if (user) {
+                setCurrentUser(user)
+            } else {
+                setCurrentUser(null);
+            }
         })
 
         return unsubscribe;
