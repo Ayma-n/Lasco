@@ -115,7 +115,16 @@ $auth-cont-mb: 5px;
     margin-left: $auth-cont-ml;
     // sets spacing bw artist div and their img
     margin-bottom: $auth-cont-mb;
+    border-radius: 10px;
    
+  }
+
+  #followBtn {
+    // padding-left: 15px;
+  }
+
+  #followingBtn {
+    // padding-left: 11px;
   }
 
   #image {
@@ -352,17 +361,18 @@ $auth-cont-mb: 5px;
     #followBtn, #followingBtn {
       font-size: 100vw * 18px/ $modal-w;
       height: 100vw * 38px / $modal-w;
-      border-radius: 100vw * 10px / $modal-w;
+      // border-radius: 100vw * 10px / $modal-w;
       
     }
 
     #followBtn {
       width: 100vw * 118px / $modal-w;
+      padding-left: 100vw * 15px / $modal-w;
     }
     #followingBtn {
       width: 100vw * 138px / $modal-w;
+      padding-left: 100vw * 11px / $modal-w;
     }
-   
   }
     #title {
       font-size: 100vw * $title-font-size / $modal-w;
@@ -401,7 +411,37 @@ $auth-cont-mb: 5px;
   }
   // when screen is small, moves comment sec to below post so that post is large enough
   @media screen and (max-width: $breakpoint) {
-    // $modal-w: 900px;
+    // styling for author div on top of image
+  #view-author-container {
+    gap: 100vw * $author-container-gap / $post-scaling-denom;
+    height: 100vw * $author-container-height / $post-scaling-denom;
+    //TODO: replace with grid system to center author name and img to title but not follow btn
+    margin-left: 100vw * $auth-cont-ml / $post-scaling-denom;
+    // sets spacing bw artist div and their img
+    margin-bottom: 100vw * $auth-cont-mb / $post-scaling-denom;
+    #view-profile-img {
+      width: 100vw * $profile-img-size / $post-scaling-denom;
+    }
+    #view-author-name {
+      font-size: 100vw * $comment-font-size / $post-scaling-denom;
+    }
+    #followBtn, #followingBtn {
+      font-size: 100vw * 18px/ $post-scaling-denom;
+      height: 100vw * 38px / $post-scaling-denom;
+      // border-radius: 100vw * 10px / $modal-w;
+      
+    }
+
+    #followBtn {
+      width: 100vw * 118px / $post-scaling-denom;
+      padding-left: 100vw * 15px / $post-scaling-denom;
+    }
+    #followingBtn {
+      width: 100vw * 138px / $post-scaling-denom;
+      padding-left: 100vw * 11px / $post-scaling-denom;
+    }
+  }
+  
 
     #modal {
       flex-direction: column;

@@ -33,6 +33,7 @@
   height: 67px;
   margin-left: 100px;
   margin-bottom: 5px;
+  border-radius: 10px;
 }
 
 #ViewPage #image {
@@ -269,13 +270,14 @@
   #ViewPage #view-author-container #followBtn, #ViewPage #view-author-container #followingBtn {
     font-size: 1.36674vw;
     height: 2.88535vw;
-    border-radius: 0.7593vw;
   }
   #ViewPage #view-author-container #followBtn {
     width: 8.95976vw;
+    padding-left: 1.13895vw;
   }
   #ViewPage #view-author-container #followingBtn {
     width: 10.47836vw;
+    padding-left: 0.83523vw;
   }
   #ViewPage #title {
     font-size: 3.64465vw;
@@ -306,6 +308,30 @@
 }
 
 @media screen and (max-width: 774px) {
+  #ViewPage #view-author-container {
+    gap: 3.66667vw;
+    height: 11.16667vw;
+    margin-left: 16.66667vw;
+    margin-bottom: 0.83333vw;
+  }
+  #ViewPage #view-author-container #view-profile-img {
+    width: 8.16667vw;
+  }
+  #ViewPage #view-author-container #view-author-name {
+    font-size: 2.66667vw;
+  }
+  #ViewPage #view-author-container #followBtn, #ViewPage #view-author-container #followingBtn {
+    font-size: 3vw;
+    height: 6.33333vw;
+  }
+  #ViewPage #view-author-container #followBtn {
+    width: 19.66667vw;
+    padding-left: 2.5vw;
+  }
+  #ViewPage #view-author-container #followingBtn {
+    width: 23vw;
+    padding-left: 1.83333vw;
+  }
   #ViewPage #modal {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
