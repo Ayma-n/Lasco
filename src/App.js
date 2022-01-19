@@ -11,40 +11,56 @@ import PortalNav from './PortalNav';
 import Portal from './Portal';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+// We will import AuthContext.Provider which will provide us with the value object,
+// i.e., the email, the signup method, etc.
+import { AuthProvider } from "./contexts/AuthContext";
+import PrivateRoute from './PrivateRoute';
+import Search from '@mui/icons-material/Search';
+
 function App() {
 
   const user = "johnnyrose";
   const navBarPages = []
 
   return (<>
-    <div id="App">
-      <Router>
-        <body>
+      <div id="App">
+        <Router>
+        <AuthProvider>
+          {/* https://stackoverflow.com/questions/70393557/react-routes-not-showing-when-using-routes */}
+          <Routes>
+            <Route path="/" element={<Landing />} />
 
-        </body>
-        {/*comments out feedpost for testing purposes */}
-        {/* <FeedPost></FeedPost> */}
-        {/* comments out profile for testing purposes */}
-        {/* <Profile></Profile> */}
-        {/* <SearchBarPage></SearchBarPage> */}
-        {/* <View></View> */}
+            {/* Paths that require a PrivateRoute (i.e., are only accessible via auth) */}
 
-        {/* https://stackoverflow.com/questions/70393557/react-routes-not-showing-when-using-routes */}
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/feed" element={<Portal currentPage={FeedPost} />} />
-          <Route path={`/profiles/${user}`} element={< Portal currentPage={Profile} />} />
-          <Route path="/view" element={< ViewPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/search" element={<Portal currentPage={SearchBarPage} />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/navbar" element={<PortalNav />} />
-          {/* <Route path="/community" element={<Community />} />
+            <Route element={<PrivateRoute/>}>
+              <Route path="/feed" element={<Portal currentPage={FeedPost} />} />
+              <Route path={`/profiles/${user}`} element={<Portal currentPage={Profile} />} />
+              <Route path={`/search`} element={<Portal currentPage={SearchBarPage} />} />
+            </Route>
+
+            {/* <Route path="/feed" element={<PrivateRoute redirectLink="/login">
+              <Portal currentPage={FeedPost} />
+            </PrivateRoute>} />
+
+            <Route path={`/profiles/${user}`} element={<PrivateRoute redirectLink="/login">
+              <Portal currentPage={Profile} />
+            </PrivateRoute>} />
+
+            <Route path={`/search`} element={<PrivateRoute redirectLink="/login">
+              <Portal currentPage={SearchBarPage} />
+            </PrivateRoute>} /> */}
+
+            <Route path="/view" element={< ViewPage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/navbar" element={<PortalNav />} />
+            {/* <Route path="/community" element={<Community />} />
           <Route path="/governance" element={<Governance />} /> */}
-        </Routes>
-      </Router>
-    </div>
+          </Routes>
+          </AuthProvider>
+        </Router>
+      </div>
   </>);
 }
 
