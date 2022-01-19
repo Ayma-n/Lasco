@@ -8,6 +8,8 @@ import './Profile.css'
 import axios from 'axios';
 import FollowBtn from "./FollowBtn"
 import PortalNav from "./PortalNav"
+import ViewPage from "./ViewPage"
+import { height } from "@mui/system"
 
 function Profile() {
     const [isFollowing, setIsFollowing] = useState(true);
@@ -69,9 +71,33 @@ function handleSetData(body) {
       }
   }
 
-    return (
+  function handleImgClick() {
+    document.getElementById("image").src = 'https://hdwallpaperim.com/wp-content/uploads/2017/08/23/458235-digital_art-fantasy_art-painting-DeviantArt-bicycle-futuristic-clouds-building-city-flag-reflection-chair-surreal-colorful-musical_notes-birds.jpg';
+    var width = document.getElementById("image").style.width;
+    // document.getElementById('image').style.width = '300px';
+    var height =  300 * document.getElementById("image").height / document.getElementById("image").width;
+    console.log("height: ", parseInt(height));
+    if (height > width) {
+      height = `${Math.min(parseInt(height), 500)}px`;
+      width = height * width / document.getElementById("image").height
+    }
+    else {
+      width = `${Math.min(parseInt(width), 800)}px`
+    }
+   console.log(width)
+   document.getElementById("image").style.width = width;
+
+    document.getElementById("ViewPage").style.display = 'block';
+    document.getElementById("Profile").classList.toggle("blur");
+    document.getElementById("PortalNav").classList.toggle("blur");
+    
+  }
+
+    return (<>
+      <ViewPage id="ViewPage" />
         <div id="Profile">
         {/* <PortalNav></PortalNav> */}
+        
         <div id="dashboard">
         {isDataLoaded && <img className="profileImg" src={userData.profile_picture} />}
            <h2 className="profileName">Johnny Rose</h2>
@@ -80,7 +106,7 @@ function handleSetData(body) {
            <FollowBtn></FollowBtn>
         </div>
         <div id="gallery">
-            <img className="galleryImg" src={img1} />
+            <img className="galleryImg" onClick={handleImgClick} src={img1} />
             <img className="galleryImg" src={img2} />
             <img className="galleryImg" src={img3} />
             <img className="galleryImg" src={img4} />
@@ -95,7 +121,7 @@ function handleSetData(body) {
 
         </div>
         </div>
-      );
+        </>);
 }
 
 export default Profile;

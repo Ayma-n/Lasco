@@ -6,7 +6,7 @@ $modal-w: 1317px;
 $modal-h: 982px;
 $modal-border-radius: 30px;
 $modal-ver-padding: 10px;
-$modal-background-color: rgba(255, 250, 243, 0.9);
+$modal-background-color: rgba(255, 250, 243, 0.95);
 
 $default-font-size: 18px;
 
@@ -93,9 +93,14 @@ $auth-cont-mb: 5px;
     // justify-content: center;
   }
 
-  // DONT FORGET TO REMOVE
-  // HERE FOR TESTING PURPOSES
-  background: blue;
+  position: absolute;
+  // sets default display to invisible so it is overriden on click
+  display: none;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
 
   #close-btn {
     position: absolute;

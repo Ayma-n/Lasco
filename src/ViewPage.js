@@ -19,11 +19,23 @@ function setCommVis() {
 
 useEffect( () => {
   setCommVis()
-}, [seeComments])
+}, [seeComments]);
+
+function handleCloseClick() {
+  document.getElementById("ViewPage").style.display = 'none';
+  const profile = document.getElementById("Profile");
+  const portalNav = document.getElementById("PortalNav");
+  // if the profile and nav bar exist, then toggle their blur class when the close btn is clicked
+  if (profile && portalNav) {
+    profile.classList.toggle("blur");
+    portalNav.classList.toggle("blur");
+  }
+
+}
 
   return (
     <div id="ViewPage">
-      <img id="close-btn" src={close} onClick={() => document.getElementById("modal").style.display = 'none'} />
+      <img id="close-btn" src={close} onClick={handleCloseClick} />
       <div id="modal">
         <div className="left">
           <div className="centered">

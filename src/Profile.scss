@@ -8,6 +8,10 @@ $imgGap: 40px;
 // number of max images in a row
 $numImgs: 4;
 
+.blur {
+    filter: blur(8px);
+}
+
 // TODO: add these numbers to constants
 // BONUS: remove uneccessary ones
 #Profile {
