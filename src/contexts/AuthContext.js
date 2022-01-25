@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendPasswordResetEmail, deleteUser } from "firebase/auth"
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendPasswordResetEmail, deleteUser, updateEmail, updatePassword, EmailAuthProvider, reauthenticateWithCredential } from "firebase/auth"
 import { auth } from "../firebase"
 
 const AuthContext = React.createContext();
@@ -32,6 +32,24 @@ export function AuthProvider({ children }) {
         return deleteUser(currentUser);
     }
 
+    function updateUserEmail(email) {
+        return updateEmail(currentUser, email);
+    }
+
+    function updateUserPassword(password) {
+        return updatePassword(currentUser, password)
+    }
+
+    function reauthenticateUser(password) {
+        var credential = EmailAuthProvider.credential(
+            currentUser.email, password
+        );
+
+        console.log(credential);
+
+        return reauthenticateWithCredential(currentUser, credential);
+    }
+
     useEffect(handleAuthStateChanged, [])
 
     // As soon as the state of authentication (on login/logout), a variable "user" is given
@@ -57,7 +75,10 @@ export function AuthProvider({ children }) {
         signup,
         login,
         signout, 
-        resetPassword
+        resetPassword,
+        updateUserEmail,
+        updateUserPassword,
+        reauthenticateUser
     }
 
     return (
