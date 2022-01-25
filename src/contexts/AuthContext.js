@@ -36,16 +36,14 @@ export function AuthProvider({ children }) {
         return updateEmail(currentUser, email);
     }
 
-    function updateUserPassword(password) {
-        return updatePassword(currentUser, password)
+    function updateUserPassword(providedPassword) {
+        return updatePassword(currentUser, providedPassword)
     }
 
-    function reauthenticateUser(password) {
+    function reauthenticateUser(providedPassword) {
         var credential = EmailAuthProvider.credential(
-            currentUser.email, password
+            currentUser.email, providedPassword
         );
-
-        console.log(credential);
 
         return reauthenticateWithCredential(currentUser, credential);
     }

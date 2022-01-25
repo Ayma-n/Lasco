@@ -17,22 +17,19 @@ export default function AccountSettings() {
     
     const navigate = useNavigate();
 
-    async function handleSubmit(e) {
+    function handleSubmit(e) {
         setError("");
         setLoading(true);
         e.preventDefault();
 
-        reauthenticateUser(oldPasswordRef)
-        .then(() => {
-            console.log("yay");
-        })
+        reauthenticateUser(oldPasswordRef.current.value)
         .catch((err) => {
             console.error(err);
             return setError("Invalid current password.")
         })
 
         // If passwords do not match, then update the error and return (stops the method)
-        if (passwordRef.current.value !== passwordConfRef.current.email) {
+        if (passwordRef.current.value !== passwordConfRef.current.value) {
             setLoading(false);
             return setError("Passwords do not match!")
         }
