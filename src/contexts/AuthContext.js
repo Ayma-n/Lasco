@@ -76,7 +76,8 @@ export function AuthProvider({ children }) {
         resetPassword,
         updateUserEmail,
         updateUserPassword,
-        reauthenticateUser
+        reauthenticateUser, 
+        deleteAccount
     }
 
     return (

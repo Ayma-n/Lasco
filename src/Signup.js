@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import "./Signup.css"
 import demoLogo from "./sample/posts/demo-logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // This line imports the custom hook we created in AuthContext which returns
 // the AuthContext with a useContext() hook applied on it.
@@ -12,11 +12,8 @@ function Signup() {
     const emailRef = useRef();
     const passwordRef = useRef();
 
-    // We get the usable AuthContext with useAuth().
-    const authContext = useAuth();
-
-    // We get the signup method from the auth context.
-    const signup = authContext.signup;
+    // Deconstructs the useAuth() hook to get signup and login
+    const { signup, login } = useAuth();
 
     // Creates a state for errors.
     const [error, setError] = useState('');
@@ -24,6 +21,9 @@ function Signup() {
     // Creates a loading state that we will use to disable the button when the signup is
     // being processed.
     const [loading, setLoading] = useState(false);
+
+    // Uses to useNavigate hook to redirect user
+    const navigate = useNavigate();
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -38,6 +38,8 @@ function Signup() {
             setError('');
             setLoading(true);
             await signup(emailRef.current.value, passwordRef.current.value);
+            await login(emailRef.current.value, passwordRef.current.value);
+            navigate("/feed");
         } catch {
             setError('Something wrong happened with creating your account...');   
         }

@@ -1,10 +1,10 @@
 import React, { useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { useAuth } from "./contexts/AuthContext";
 
 export default function AccountSettings() {
 
-    const { currentUser, updateUserEmail, updateUserPassword, reauthenticateUser } = useAuth();
+    const { currentUser, updateUserEmail, updateUserPassword, reauthenticateUser, deleteAccount } = useAuth();
 
     const emailRef = useRef();
     const oldPasswordRef = useRef();
@@ -61,6 +61,20 @@ export default function AccountSettings() {
 
     }
 
+    async function submitAccountDeletion() {
+        setLoading(true);
+        deleteAccount()
+        .then(() => {
+            // This does NOT work: it goes back to settings and redirects to login because of the private route.
+            return navigate("/");
+        })
+        .catch(() => {
+            setLoading(false);
+            return setError("We encountered an error in deleting your account.")
+        })
+        setLoading(false);
+    }
+
     return (
         <div id="AccountSettings">
             <div>Account Settings</div>
@@ -77,6 +91,7 @@ export default function AccountSettings() {
                 <input type="password" ref={passwordConfRef}></input>
                 <button disabled={loading}>Update</button>
             </form>
+            <button onClick={submitAccountDeletion}>DELETE ACCOUNT</button>
         </div>
     )
 }
