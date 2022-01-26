@@ -9,6 +9,7 @@ import Landing from './Landing';
 import About from './About';
 import PortalNav from './PortalNav';
 import Portal from './Portal';
+import ForgotPassword from './ForgotPassword';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // We will import AuthContext.Provider which will provide us with the value object,
@@ -16,6 +17,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
 import PrivateRoute from './PrivateRoute';
 import Search from '@mui/icons-material/Search';
+import AccountSettings from './AccountSettings';
 
 function App() {
 
@@ -36,6 +38,7 @@ function App() {
               <Route path="/feed" element={<Portal currentPage={FeedPost} />} />
               <Route path={`/profiles/${user}`} element={<Portal currentPage={Profile} />} />
               <Route path={`/search`} element={<Portal currentPage={SearchBarPage} />} />
+              <Route path="/settings" element={<AccountSettings/>} />
             </Route>
 
             {/* <Route path="/feed" element={<PrivateRoute redirectLink="/login">
@@ -53,6 +56,7 @@ function App() {
             <Route path="/view" element={< ViewPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/forgot" element={<ForgotPassword />} />
             <Route path="/about" element={<About />} />
             <Route path="/navbar" element={<PortalNav />} />
             {/* <Route path="/community" element={<Community />} />

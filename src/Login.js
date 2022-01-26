@@ -56,6 +56,7 @@ function Login() {
                     <input id="password" type="password" ref={passwordRef} placeholder='Password' />
                     <button id="sign-button" className='filled-btn' disabled={loading}>
                     Login</button>
+                    <div><Link to="/forgot">Forgot Password?</Link></div>
                     <div id="has-account">Need an account? <Link id= "signup-link" className="magenta-text" to="/signup">Sign Up</Link></div>
                 </form>
                 <div id="logo-div">

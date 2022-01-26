@@ -20,7 +20,7 @@ function Portal(props) {
             navigate("/")
         } catch {
             setError('Failed to Sign Out');
-        } 
+        }
     }
 
     return (
