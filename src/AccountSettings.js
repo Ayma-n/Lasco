@@ -1,19 +1,35 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useAuth } from "./contexts/AuthContext";
+import { useDb } from './contexts/DatabaseContext';
 
 export default function AccountSettings() {
 
     const { currentUser, updateUserEmail, updateUserPassword, reauthenticateUser, deleteAccount } = useAuth();
+    const { getProfileData } = useDb();
 
     const emailRef = useRef();
     const oldPasswordRef = useRef();
     const passwordRef = useRef();
     const passwordConfRef = useRef();
+    const usernameRef = useRef();
 
     const [error, setError] = useState()
     const [loading, setLoading] = useState();
     const [message, setMessage] = useState();
+
+    const [userInfo, setUserInfo] = useState({displayName: "Ayman"});
+
+    async function fetchUserData() {
+        console.log(currentUser.uid);
+        const userInfoObj = await getProfileData(currentUser.uid);
+        //console.log(userInfoObj);
+        //console.log(currentUser.uid);
+        setUserInfo(userInfoObj);
+        //console.log(userInfoObj);
+    }
+
+    useEffect(fetchUserData, [currentUser])
     
     const navigate = useNavigate();
 
@@ -75,12 +91,15 @@ export default function AccountSettings() {
         setLoading(false);
     }
 
+
     return (
         <div id="AccountSettings">
             <div>Account Settings</div>
             {error && <div>{error}</div>}
             {message && <div>{message}</div>}
             <form onSubmit={handleSubmit}>
+                <label>Display Name:</label>
+                <input value={userInfo.displayName} ref={usernameRef}></input>
                 <label>Email: </label>
                 <input type="email" value={currentUser.email} ref={emailRef}></input>
                 <label>Current Password: </label>

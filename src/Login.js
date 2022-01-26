@@ -21,6 +21,9 @@ function Login() {
     // We get the login method from the auth context.
     const login = authContext.login;
 
+    // TEMPORARY, TO REMOVE
+    const currentUser = authContext.currentUser;
+
     // Creates a state for errors.
     const [error, setError] = useState('');
 
@@ -33,7 +36,11 @@ function Login() {
         try {
             setError('');
             setLoading(true);
-            await login(emailRef.current.value, passwordRef.current.value);
+            await login(emailRef.current.value, passwordRef.current.value)
+            .then(() => {
+                console.log(currentUser.uid);
+            })
+            
             navigate("/feed");
         } catch {
             setError('Invalid email or password');   

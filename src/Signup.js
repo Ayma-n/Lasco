@@ -7,13 +7,26 @@ import { Link, useNavigate } from "react-router-dom";
 // the AuthContext with a useContext() hook applied on it.
 import { useAuth } from "./contexts/AuthContext";
 
+// Imports useDb to get data from the database
+import { useDb } from "./contexts/DatabaseContext";
+
 function Signup() {
+
+    let newUID;
+
+
     // We create refs for the data we will need to gather from the form.
     const emailRef = useRef();
     const passwordRef = useRef();
+    const nameRef = useRef();
+    const usernameRef = useRef(); 
+    const useCaseRef = useRef();
 
     // Deconstructs the useAuth() hook to get signup and login
-    const { signup, login } = useAuth();
+    const { signup, login, currentUser } = useAuth();
+
+    // Deconstructs the useDb() hook to get the database
+    const { createUser } = useDb();
 
     // Creates a state for errors.
     const [error, setError] = useState('');
@@ -37,10 +50,24 @@ function Signup() {
         try {
             setError('');
             setLoading(true);
-            await signup(emailRef.current.value, passwordRef.current.value);
+            await signup(emailRef.current.value, passwordRef.current.value)
+            .then((userCredential) => {
+                newUID = userCredential.user.uid;
+            });
             await login(emailRef.current.value, passwordRef.current.value);
+
+            console.log(newUID);
+
+            await createUser({
+                uid: newUID,
+                username: usernameRef.current.value,
+                displayName: nameRef.current.value,
+                useCase: useCaseRef.current.value,
+            })
+
             navigate("/feed");
-        } catch {
+        } catch(err) {
+            console.error(err);
             setError('Something wrong happened with creating your account...');   
         }
         setLoading(false);
@@ -52,11 +79,11 @@ function Signup() {
                 <div id="explore-text">Explore Art. <span className="magenta-text">Together.</span></div>
                 {error && <div>{error}</div>}
                 <form onSubmit={handleSubmit}>
-                    <input id="name" type="text" placeholder="Name" />
+                    <input id="name" type="text" placeholder="Name" ref={nameRef}/>
                     <input id="email" type="text" placeholder="E-mail" ref={emailRef}/>
-                    <input id="username" type="text" placeholder="Username" />
+                    <input id="username" type="text" placeholder="Username" ref={usernameRef}/>
                     <input id="password" type="password" placeholder='Password' ref={passwordRef} />
-                    <select id="use-for" placeholder='What will you use Lasco for?'>
+                    <select id="use-for" placeholder='What will you use Lasco for?' ref={useCaseRef}>
                         <option value="">What will you use Lasco for?</option>
                         <option value="buyer">Looking to buy art.</option>
                         <option valie="artist">Looking to be part of a community of artists.</option>
