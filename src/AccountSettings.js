@@ -12,24 +12,26 @@ export default function AccountSettings() {
     const oldPasswordRef = useRef();
     const passwordRef = useRef();
     const passwordConfRef = useRef();
+    const nameRef = useRef();
     const usernameRef = useRef();
 
     const [error, setError] = useState()
     const [loading, setLoading] = useState();
     const [message, setMessage] = useState();
 
-    const [userInfo, setUserInfo] = useState({displayName: "Ayman"});
+    const [userInfo, setUserInfo] = useState({displayName: "", username: ""});
 
     async function fetchUserData() {
-        console.log(currentUser.uid);
+        //console.log(currentUser.uid);
         const userInfoObj = await getProfileData(currentUser.uid);
+        //console.log(userInfoObj);
         //console.log(userInfoObj);
         //console.log(currentUser.uid);
         setUserInfo(userInfoObj);
         //console.log(userInfoObj);
     }
 
-    useEffect(fetchUserData, [currentUser])
+    useEffect(fetchUserData, []);
     
     const navigate = useNavigate();
 
@@ -99,7 +101,9 @@ export default function AccountSettings() {
             {message && <div>{message}</div>}
             <form onSubmit={handleSubmit}>
                 <label>Display Name:</label>
-                <input value={userInfo.displayName} ref={usernameRef}></input>
+                <input value={userInfo.displayName} ref={nameRef}></input>
+                <label>Username: </label>
+                <input value={userInfo.username} ref={usernameRef}></input>
                 <label>Email: </label>
                 <input type="email" value={currentUser.email} ref={emailRef}></input>
                 <label>Current Password: </label>

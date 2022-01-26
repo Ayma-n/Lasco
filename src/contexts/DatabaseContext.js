@@ -21,11 +21,17 @@ export function DbProvider({ children }) {
         
         const querySnapshot = await getDocs(q);
         //console.log(queryResult);
-        console.log(querySnapshot);
-        console.log(uid);
+        //console.log(querySnapshot);
+        //console.log(uid);
+        //console.log(querySnapshot)
+
+        const docs = [];
+
         querySnapshot.forEach((doc) => {
-            console.log(doc.data());
+            docs.push(doc.data());
         })
+
+        return docs[0];
     }
 
     const value = {
