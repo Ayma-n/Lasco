@@ -1,5 +1,5 @@
 import React from "react";
-import astronight from "../sample/posts/astronight.png";
+import astronight from "../sample/icons/astronight.png";
 import profileImg from "../sample/posts/fakeProfileCircle.png";
 import "../css/FeedPost.css";
 
@@ -11,12 +11,12 @@ function FeedPost() {
   return (
     <>
       <div id="FeedPost">
-      {/* <PortalNav></PortalNav> */}
+        {/* <PortalNav></PortalNav> */}
         <div id="containerRect">
           <img id="postImage" src={postSrc} />
           <div id="authorContainer">
             <img id="profileImg" src={profileImg} />
-            <div id="authorName" >Johnny R.</div>
+            <div id="authorName">Johnny R.</div>
           </div>
           <div id="artTitle">Astronight</div>
           <div className="commentSec">
