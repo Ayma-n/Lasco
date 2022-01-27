@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { db } from "../firebase";
+import { db } from "../components/firebase";
 import { collection, addDoc, getDoc, query, where, getDocs } from "firebase/firestore";
 
 const DatabaseContext = React.createContext();
