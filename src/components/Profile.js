@@ -12,6 +12,7 @@ import ViewPage from "./ViewPage"
 import { height } from "@mui/system"
 import {useDb} from '../contexts/DatabaseContext'
 import {useAuth} from '../contexts/AuthContext'
+import { Link } from 'react-router-dom'
 
 function Profile() {
     const [isFollowing, setIsFollowing] = useState(true);
@@ -103,7 +104,13 @@ function handleSetData(body) {
         {/* <PortalNav></PortalNav> */}
         
         <div id="dashboard">
+        <div className="flex" id="profile-div">
+        <Link to="/settings">
+        <button>Edit Profile</button>
+        </Link>
         {userInfo && <img className="profileImg" src={userInfo.photoURL} />}
+        <button>Stats</button>
+        </div>
         {currentUser && <h1>{currentUser.displayName}</h1>}
            {userInfo && <h2 className="profileName">{userInfo.displayName}</h2>}
            {userInfo && <p className="username"> {`@${userInfo.username}`}</p>}

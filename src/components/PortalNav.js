@@ -38,7 +38,7 @@ function PortalNav() {
             case "/search":
                 setCurrentPage(1);
                 break;
-            case `/profiles/${userInfo.username}`:
+            case `/profile`:
                 setCurrentPage(2);
                 break;
         }
@@ -71,7 +71,7 @@ function PortalNav() {
                     className="icon"
                 ></SearchIcon>
             </Link>
-            <Link onClick={() => updateSelecElement()} to={`/profiles/${userInfo.username}`}>
+            <Link onClick={() => updateSelecElement()} to={`/profile`}>
                 {currentPage === 2 ? <FilledProfileIcon
                     className="icon"
                     id="profile-icon"
