@@ -12,7 +12,7 @@ export default function AccountSettings() {
     reauthenticateUser,
     deleteAccount,
   } = useAuth();
-  const { getProfileData } = useDb();
+  const { getProfileData, userInfo } = useDb();
 
   const emailRef = useRef();
   const oldPasswordRef = useRef();
@@ -25,19 +25,7 @@ export default function AccountSettings() {
   const [loading, setLoading] = useState();
   const [message, setMessage] = useState();
 
-  const [userInfo, setUserInfo] = useState({ displayName: "", username: "" });
 
-  async function fetchUserData() {
-    //console.log(currentUser.uid);
-    const userInfoObj = await getProfileData(currentUser.uid);
-    //console.log(userInfoObj);
-    //console.log(userInfoObj);
-    //console.log(currentUser.uid);
-    setUserInfo(userInfoObj);
-    //console.log(userInfoObj);
-  }
-
-  useEffect(fetchUserData, []);
 
   const navigate = useNavigate();
 
