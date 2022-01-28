@@ -12,7 +12,7 @@ export default function AccountSettings() {
     reauthenticateUser,
     deleteAccount,
   } = useAuth();
-  const { getProfileData, updateBio, userInfo } = useDb();
+  const { getProfileData, updateDb, userInfo } = useDb();
 
   const emailRef = useRef();
   const oldPasswordRef = useRef();
@@ -21,7 +21,6 @@ export default function AccountSettings() {
   const nameRef = useRef();
   const usernameRef = useRef();
   const bioRef = useRef();
-  const displayNameRef = useRef();
 
   const [error, setError] = useState();
   const [loading, setLoading] = useState();
@@ -56,10 +55,15 @@ export default function AccountSettings() {
     if (emailRef.current.value !== currentUser.email) {
       promises.push(updateUserEmail(emailRef.current.value));
     }
+    // If the email given by the user in the form is different from the user's current email,
+    // then update Email (adds a promise to the array of promises)
+    if (nameRef.current.value !== userInfo.displayName) {
+      promises.push(updateDb({displayName: nameRef.current.value}, currentUser.uid));
+    }
     // If the bio given by the user in the form is different from the user's current bio,
     // then update bio (adds a promise to the array of promises)
     if (bioRef.current.value !== userInfo.bio) {
-      promises.push(updateBio(bioRef.current.value, currentUser.uid));
+      promises.push(updateDb({bio: bioRef.current.value}, currentUser.uid));
     }
 
     // If the password's not blank, then update the user's password to that.
@@ -109,19 +113,19 @@ export default function AccountSettings() {
       <form onSubmit={handleSubmit} className="flex flex-col border-2 border-solid relative text-center al-items-c gap-3 w-screen">
         <div>
           <label className="relative text-left self-start">Display Name:</label>
-          <input value={userInfo.displayName} ref={nameRef} className="flex flex-col border-2 border-solid"></input>
+          <input defaultValue={userInfo.displayName} ref={nameRef} className="flex flex-col border-2 border-solid"></input>
         </div>
         <div>
           <label className="relative text-left self-start">Bio:</label>
-          <input value={userInfo.bio} ref={bioRef} className="flex flex-col border-2 border-solid"></input>
+          <input defaultValue={userInfo.bio} ref={bioRef} className="flex flex-col border-2 border-solid"></input>
         </div>
         <div>
           <label className="relative text-left self-start">Username: </label>
-          <input value={userInfo.username} ref={usernameRef} className="flex flex-col border-2 border-solid"></input>
+          <input defaultValue={userInfo.username} ref={usernameRef} className="flex flex-col border-2 border-solid"></input>
         </div>
         <div>
           <label className="relative text-left self-start">Email: </label>
-          <input type="email" value={currentUser.email} ref={emailRef} className="flex flex-col border-2 border-solid" ></input>
+          <input type="email" defaultValue={currentUser.email} ref={emailRef} className="flex flex-col border-2 border-solid" ></input>
         </div>
         <div>
           <label className="relative text-left self-start">Current Password: </label>

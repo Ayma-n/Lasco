@@ -26,7 +26,7 @@ export function DbProvider({ children }) {
     return addDoc(profilesRef, userObject);
   }
 
-  async function updateBio(newBio, uid) {
+  async function updateDb(newBio, uid) {
     const profilesRef = collection(db, "profiles");
     const q = query(profilesRef, where("uid", "==", uid));
 
@@ -39,11 +39,11 @@ export function DbProvider({ children }) {
     const docs = [];
     var docId = '';
     querySnapshot.forEach((doc) => {
-      docs.push(doc);
+      // docs.push(doc);
        docId = doc.id;
     });
-    console.log("docs0", docs[0])
-    setDoc(doc(profilesRef, docId), {bio: newBio}, {merge: true});
+    // console.log("docs0", docs[0])
+    setDoc(doc(profilesRef, docId), newBio, {merge: true});
   }
 
   async function getProfileData(uid) {
@@ -84,7 +84,7 @@ export function DbProvider({ children }) {
   const value = {
     createUser,
     getProfileData,
-    updateBio,
+    updateDb,
     userInfo,
   };
 
