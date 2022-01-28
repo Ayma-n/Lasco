@@ -56,7 +56,7 @@ export function DbProvider({ children }) {
     //console.log(userInfoObj);
   }
 
-  useEffect(fetchUserData, [currentUser.uid]);
+  useEffect(fetchUserData, [currentUser]);
   //fetchUserData();
 
   const value = {
