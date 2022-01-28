@@ -24,6 +24,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "devStart": "concurrently \"python3 src/utils/tailwind-to-isolated-css.py\" \"react-scripts start\"",
+    "test": "python3 src/utils/tailwind-to-isolated-css.py & react-scripts start",
+    "dev": "concurrently \"sass --watch src/scss:src/css\" \"react-scripts start\" ",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

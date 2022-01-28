@@ -25,6 +25,7 @@ function App() {
   const user = "johnnyrose";
   const navBarPages = []
 
+
   return (<>
     <div id="App">
       <Router>
@@ -38,7 +39,7 @@ function App() {
 
               <Route element={<PrivateRoute />}>
                 <Route path="/feed" element={<Portal currentPage={FeedPost} />} />
-                <Route path={`/profiles/${user}`} element={<Portal currentPage={Profile} />} />
+                <Route path={`/profiles/${userInfo.username}`} element={<Portal currentPage={Profile} />} />
                 <Route path={`/search`} element={<Portal currentPage={SearchBarPage} />} />
                 <Route path="/settings" element={<AccountSettings />} />
               </Route>

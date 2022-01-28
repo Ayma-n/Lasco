@@ -47,7 +47,7 @@ export function DbProvider({ children }) {
 
   async function fetchUserData() {
     //console.log(currentUser.uid);
-    if (!currentUser) return;
+    if (!currentUser || currentUser == 'loading') return;
     const userInfoObj = await getProfileData(currentUser.uid);
     //console.log(userInfoObj);
     //console.log(userInfoObj);
