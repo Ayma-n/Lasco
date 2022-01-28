@@ -7,22 +7,22 @@ import time
 import os
 wrappingClass = input("Name of Wrapping CSS Class: ")
 
-componentPath = "./src/components/" + wrappingClass + ".js"
+componentPath = "src/components/" + wrappingClass + ".js"
 oldComponentCode = ""
 
 def updateOutputCSS():
-    os.system("npx tailwindcss -i ./src/tailwind/manual.css -o ./src/output.css")
-    os.system("cp ./src/output.css ./src/output.scss")
+    os.system("npx tailwindcss -i src/tailwind/manual.css -o src/output.css")
+    os.system("cp src/output.css src/output.scss")
 
-    with open("./src/output.css", "r") as f:
+    with open("src/output.scss", "r") as f:
         plainSCSS = f.read()
 
     newSCSS = "#" + wrappingClass + "{" + plainSCSS + "}"
 
-    with open("./src/output.scss", "w") as f:
+    with open("src/output.scss", "w") as f:
         f.write(newSCSS);
 
-    os.system("sass ./src/output.scss:./src/output.css")
+    os.system("sass src/output.scss:src/output.css")
     time.sleep(2)
     print("Output CSS updated")
 
