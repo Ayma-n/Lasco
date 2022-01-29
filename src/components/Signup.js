@@ -68,7 +68,7 @@ function Signup() {
                 username: usernameRef.current.value,
                 displayName: nameRef.current.value,
                 useCase: useCaseRef.current.value,
-                photoURL: "https://i.imgur.com/xED7N8L.png",
+                photoURL: "https://i.imgur.com/57elNxz.jpg",
             })
             // const imageRef = ref(storage, 'image.jpg');
           

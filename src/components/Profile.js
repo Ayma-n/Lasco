@@ -114,7 +114,7 @@ function handleSetData(body) {
         {currentUser && <h1>{currentUser.displayName}</h1>}
            {userInfo && <h2 className="profileName">{userInfo.displayName}</h2>}
            {userInfo && <p className="username"> {`@${userInfo.username}`}</p>}
-           <p className="bio">This is my bio. I am the king of NFTs.</p>   
+           {userInfo && <p className="bio">{userInfo.bio}</p>}   
            <FollowBtn></FollowBtn>
         </div>
         <div id="gallery">

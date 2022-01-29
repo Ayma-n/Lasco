@@ -99,14 +99,15 @@ export default function AccountSettings() {
     setLoading(false);
   }
 
-  // back btn in top left that goes back to feed
-  function handleBack() {
-      navigate('/feed')
+  // back btn in top left, redirects to previous page
+  // TODO: get profile to refresh when bio changes....
+  function handleBackClick() {
+    navigate(-1)
   }
 
   return (
     <div id="AccountSettings">
-    <button onClick={handleBack} className="absolute left-2 hover:underline">Back</button>
+    <button onClick={handleBackClick} className="absolute left-2 hover:underline">Back</button>
       <div className="text-2xl font-bold">Account Settings</div>
       {error && <div>{error}</div>}
       {message && <div>{message}</div>}
