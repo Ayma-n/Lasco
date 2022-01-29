@@ -9,10 +9,15 @@ import { useAuth } from "../contexts/AuthContext";
 
 // Imports useDb to get data from the database
 import { useDb } from "../contexts/DatabaseContext";
+import { getStorage, ref, uploadBytes } from "firebase/storage";
+
+import test from '../sample/posts/fakeProfileCircle.png';
 
 function Signup() {
 
     let newUID;
+    const storage = getStorage();
+   
 
 
     // We create refs for the data we will need to gather from the form.
@@ -23,7 +28,7 @@ function Signup() {
     const useCaseRef = useRef();
 
     // Deconstructs the useAuth() hook to get signup and login
-    const { signup, login, currentUser } = useAuth();
+    const { signup, login, currentUser, updateUserProfile } = useAuth();
 
     // Deconstructs the useDb() hook to get the database
     const { createUser } = useDb();
@@ -63,7 +68,19 @@ function Signup() {
                 username: usernameRef.current.value,
                 displayName: nameRef.current.value,
                 useCase: useCaseRef.current.value,
+                photoURL: "https://i.imgur.com/xED7N8L.png",
             })
+            // const imageRef = ref(storage, 'image.jpg');
+          
+            // uploadBytes(imageRef, test).then((snapshot) => {
+            //     console.log('File uploaded!')
+            // })
+
+            // await updateUserProfile(nameRef.current.value, "https://i.imgur.com/xED7N8L.png").then(() => {
+            //     console.log('user profile updated')
+            // }).catch((err) => {
+            //     console.error(err)
+            // });
 
             navigate("/feed");
         } catch(err) {

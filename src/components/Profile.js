@@ -10,6 +10,9 @@ import FollowBtn from "./FollowBtn"
 import PortalNav from "./PortalNav"
 import ViewPage from "./ViewPage"
 import { height } from "@mui/system"
+import {useDb} from '../contexts/DatabaseContext'
+import {useAuth} from '../contexts/AuthContext'
+import { Link } from 'react-router-dom'
 
 function Profile() {
     const [isFollowing, setIsFollowing] = useState(true);
@@ -25,6 +28,8 @@ function Profile() {
       console.log(e.target.value);
       console.log(e.target.files[0]);
     }
+    const {userInfo} = useDb(); 
+    const {currentUser} = useAuth(); 
   
     // effect hook that gets user data; second param is blank array so that it is constant and getData only gets called once after render.
     useEffect(() => {
@@ -99,9 +104,16 @@ function handleSetData(body) {
         {/* <PortalNav></PortalNav> */}
         
         <div id="dashboard">
-        {isDataLoaded && <img className="profileImg" src={userData.profile_picture} />}
-           <h2 className="profileName">Johnny Rose</h2>
-           <p className="username">@johnnyrose</p>
+        <div className="flex" id="profile-div">
+        <Link to="/settings">
+        <button>Edit Profile</button>
+        </Link>
+        {userInfo && <img className="profileImg" src={userInfo.photoURL} />}
+        <button>Stats</button>
+        </div>
+        {currentUser && <h1>{currentUser.displayName}</h1>}
+           {userInfo && <h2 className="profileName">{userInfo.displayName}</h2>}
+           {userInfo && <p className="username"> {`@${userInfo.username}`}</p>}
            <p className="bio">This is my bio. I am the king of NFTs.</p>   
            <FollowBtn></FollowBtn>
         </div>

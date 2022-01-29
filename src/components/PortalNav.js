@@ -10,12 +10,16 @@ import FilledProfileIcon from '@mui/icons-material/AccountCircle';
 
 import { Link } from "react-router-dom";
 
+import { useDb} from '../contexts/DatabaseContext'
+
 
 function PortalNav() {
     const [currentPage, setCurrentPage] = useState(0);
     const [prevSelecElement, setPrevSelecElement] = useState();
     const selecPosArray = [0, 78, 156];
     const selecIconArray = ["home-icon", "search-icon", "profile-icon"];
+
+    const { userInfo } = useDb();
 
     function moveSelector() {
         document.getElementById("purple-selector").style.left =
@@ -34,7 +38,7 @@ function PortalNav() {
             case "/search":
                 setCurrentPage(1);
                 break;
-            case "/profiles/johnnyrose":
+            case `/profile`:
                 setCurrentPage(2);
                 break;
         }
@@ -67,7 +71,7 @@ function PortalNav() {
                     className="icon"
                 ></SearchIcon>
             </Link>
-            <Link onClick={() => updateSelecElement()} to="/profiles/johnnyrose">
+            <Link onClick={() => updateSelecElement()} to={`/profile`}>
                 {currentPage === 2 ? <FilledProfileIcon
                     className="icon"
                     id="profile-icon"

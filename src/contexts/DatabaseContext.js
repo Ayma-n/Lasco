@@ -7,6 +7,8 @@ import {
   query,
   where,
   getDocs,
+  setDoc,
+  doc,
 } from "firebase/firestore";
 import { useAuth } from "./AuthContext";
 
@@ -22,6 +24,26 @@ export function DbProvider({ children }) {
   function createUser(userObject) {
     const profilesRef = collection(db, "/profiles");
     return addDoc(profilesRef, userObject);
+  }
+
+  async function updateDb(newBio, uid) {
+    const profilesRef = collection(db, "profiles");
+    const q = query(profilesRef, where("uid", "==", uid));
+
+    const querySnapshot = await getDocs(q);
+    //console.log(queryResult);
+    //console.log(querySnapshot);
+    //console.log(uid);
+    //console.log(querySnapshot)
+
+    const docs = [];
+    var docId = '';
+    querySnapshot.forEach((doc) => {
+      // docs.push(doc);
+       docId = doc.id;
+    });
+    // console.log("docs0", docs[0])
+    setDoc(doc(profilesRef, docId), newBio, {merge: true});
   }
 
   async function getProfileData(uid) {
@@ -47,7 +69,7 @@ export function DbProvider({ children }) {
 
   async function fetchUserData() {
     //console.log(currentUser.uid);
-    if (!currentUser || currentUser === "loading") return;
+    if (!currentUser || currentUser === 'loading') return;
     const userInfoObj = await getProfileData(currentUser.uid);
     //console.log(userInfoObj);
     //console.log(userInfoObj);
@@ -62,6 +84,7 @@ export function DbProvider({ children }) {
   const value = {
     createUser,
     getProfileData,
+    updateDb,
     userInfo,
   };
 
