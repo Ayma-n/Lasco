@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { useDb } from "../contexts/DatabaseContext";
-import '../output.css'
+import "../output.css";
 
 export default function AccountSettings() {
   const {
@@ -26,8 +26,6 @@ export default function AccountSettings() {
   const [loading, setLoading] = useState();
   const [message, setMessage] = useState();
 
-
-
   const navigate = useNavigate();
 
   function handleSubmit(e) {
@@ -35,11 +33,11 @@ export default function AccountSettings() {
     setLoading(true);
     e.preventDefault();
     if (passwordRef.current.value) {
-    reauthenticateUser(oldPasswordRef.current.value).catch((err) => {
-      console.error(err);
-      return setError("Invalid current password.");
-    });
-  }
+      reauthenticateUser(oldPasswordRef.current.value).catch((err) => {
+        console.error(err);
+        return setError("Invalid current password.");
+      });
+    }
 
     // If passwords do not match, then update the error and return (stops the method)
     if (passwordRef.current.value !== passwordConfRef.current.value) {
@@ -58,12 +56,14 @@ export default function AccountSettings() {
     // If the email given by the user in the form is different from the user's current email,
     // then update Email (adds a promise to the array of promises)
     if (nameRef.current.value !== userInfo.displayName) {
-      promises.push(updateDb({displayName: nameRef.current.value}, currentUser.uid));
+      promises.push(
+        updateDb({ displayName: nameRef.current.value }, currentUser.uid)
+      );
     }
     // If the bio given by the user in the form is different from the user's current bio,
     // then update bio (adds a promise to the array of promises)
     if (bioRef.current.value !== userInfo.bio) {
-      promises.push(updateDb({bio: bioRef.current.value}, currentUser.uid));
+      promises.push(updateDb({ bio: bioRef.current.value }, currentUser.uid));
     }
 
     // If the password's not blank, then update the user's password to that.
@@ -102,47 +102,117 @@ export default function AccountSettings() {
   // back btn in top left, redirects to previous page
   // TODO: get profile to refresh when bio changes....
   function handleBackClick() {
-    navigate(-1)
+    navigate(-1);
+  }
+
+  async function uploadProfileImg(e) {
+    e.preventDefault();
+    const file = document.getElementById("profileInput").files[0];
+
+    // TODO: Verify authentication before fetching (send the server a token, or something)
+    const request = await fetch("http://localhost:8454/s3");
+    //.then((res) => res.json())
+    //.catch((err) => console.log(err));
+    console.log(request);
   }
 
   return (
     <div id="AccountSettings">
-    <button onClick={handleBackClick} className="absolute left-2 hover:underline">Back</button>
+      <button
+        onClick={handleBackClick}
+        className="absolute left-2 hover:underline"
+      >
+        Back
+      </button>
       <div className="text-2xl font-bold">Account Settings</div>
       {error && <div>{error}</div>}
       {message && <div>{message}</div>}
-      <form onSubmit={handleSubmit} className="flex flex-col border-2 border-solid relative text-center al-items-c gap-3 w-screen">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col border-2 border-solid relative text-center al-items-c gap-3 w-screen"
+      >
         <div>
           <label className="relative text-left self-start">Display Name:</label>
-          <input defaultValue={userInfo.displayName} ref={nameRef} className="flex flex-col border-2 border-solid"></input>
+          <input
+            defaultValue={userInfo.displayName}
+            ref={nameRef}
+            className="flex flex-col border-2 border-solid"
+          ></input>
         </div>
         <div>
           <label className="relative text-left self-start">Bio:</label>
-          <input defaultValue={userInfo.bio} ref={bioRef} className="flex flex-col border-2 border-solid"></input>
+          <input
+            defaultValue={userInfo.bio}
+            ref={bioRef}
+            className="flex flex-col border-2 border-solid"
+          ></input>
         </div>
         <div>
           <label className="relative text-left self-start">Username: </label>
-          <input defaultValue={userInfo.username} ref={usernameRef} className="flex flex-col border-2 border-solid"></input>
+          <input
+            defaultValue={userInfo.username}
+            ref={usernameRef}
+            className="flex flex-col border-2 border-solid"
+          ></input>
         </div>
         <div>
           <label className="relative text-left self-start">Email: </label>
-          <input type="email" defaultValue={currentUser.email} ref={emailRef} className="flex flex-col border-2 border-solid" ></input>
+          <input
+            type="email"
+            defaultValue={currentUser.email}
+            ref={emailRef}
+            className="flex flex-col border-2 border-solid"
+          ></input>
         </div>
         <div>
-          <label className="relative text-left self-start">Current Password: </label>
-          <input type="password" ref={oldPasswordRef} className="flex flex-col border-2 border-solid"></input>
+          <label className="relative text-left self-start">
+            Current Password:{" "}
+          </label>
+          <input
+            type="password"
+            ref={oldPasswordRef}
+            className="flex flex-col border-2 border-solid"
+          ></input>
         </div>
         <div>
-          <label className="relative text-left self-start">New Password: </label>
-          <input type="password" ref={passwordRef} className="flex flex-col border-2 border-solid"></input>
+          <label className="relative text-left self-start">
+            New Password:{" "}
+          </label>
+          <input
+            type="password"
+            ref={passwordRef}
+            className="flex flex-col border-2 border-solid"
+          ></input>
         </div>
         <div>
-          <label className="relative text-left self-start">Password Confirmation: </label>
-          <input type="password" ref={passwordConfRef} className="flex flex-col border-2 border-solid"></input>
+          <label className="relative text-left self-start">
+            Password Confirmation:{" "}
+          </label>
+          <input
+            type="password"
+            ref={passwordConfRef}
+            className="flex flex-col border-2 border-solid"
+          ></input>
         </div>
-        <button disabled={loading}className="bg-blue-500 hover:bg-blue-700 text-white hover:-translate-y-1 transition-all font-bold py-4 rounded-full shadow-lg text-2xl focus:bg-purple-500 relative sm:px-6" >Update</button>
+        <button
+          disabled={loading}
+          className="bg-blue-500 hover:bg-blue-700 text-white hover:-translate-y-1 transition-all font-bold py-4 rounded-full shadow-lg text-2xl focus:bg-purple-500 relative sm:px-6"
+        >
+          Update
+        </button>
       </form>
-      <button  className="my-10 bg-red-800 hover:bg-red-1000 text-white hover:-translate-y-1 transition-all font-bold py-4 rounded-full shadow-lg text-2xl focus:bg-purple-500 relative sm:px-6" onClick={submitAccountDeletion}>DELETE ACCOUNT</button>
+      <form onSubmit={uploadProfileImg}>
+        <input id="profileInput" type="file"></input>
+        <button className="bg-red-800 hover:bg-red-1000 text-white hover:-translate-y-1 transition-all font-bold py-4 rounded-full shadow-lg text-2xl focus:bg-purple-500 relative sm:px-6">
+          Upload
+        </button>
+      </form>
+      <button
+        className="my-10 bg-red-800 hover:bg-red-1000 text-white hover:-translate-y-1 transition-all font-bold py-4 rounded-full shadow-lg text-2xl focus:bg-purple-500 relative sm:px-6"
+        onClick={submitAccountDeletion}
+      >
+        DELETE ACCOUNT
+      </button>
     </div>
   );
 }
