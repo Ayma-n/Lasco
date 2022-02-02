@@ -110,10 +110,16 @@ export default function AccountSettings() {
     const file = document.getElementById("profileInput").files[0];
 
     // TODO: Verify authentication before fetching (send the server a token, or something)
-    const request = fetch("http://localhost:8454/s3")
+    const { url } = fetch("http://localhost:8454/s3")
     .then((res) => res.json())
-    .catch((err) => console.log(err));
-    console.log(request);
+
+    await fetch({
+      method: "PUT",
+      headers: {
+        "Content-Type": "mutlipart-"
+      }
+    })
+    console.log(url);
   }
 
   return (
