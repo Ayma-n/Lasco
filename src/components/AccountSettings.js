@@ -110,9 +110,9 @@ export default function AccountSettings() {
     const file = document.getElementById("profileInput").files[0];
 
     // TODO: Verify authentication before fetching (send the server a token, or something)
-    const request = await fetch("http://localhost:8454/s3");
-    //.then((res) => res.json())
-    //.catch((err) => console.log(err));
+    const request = fetch("http://localhost:8454/s3")
+    .then((res) => res.json())
+    .catch((err) => console.log(err));
     console.log(request);
   }
 
