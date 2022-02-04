@@ -26,10 +26,10 @@ export function DbProvider({ children }) {
     return addDoc(profilesRef, userObject);
   }
 
-  async function updateDb(newBio, uid) {
+  async function updateDb(newItem, uid) {
     const profilesRef = collection(db, "profiles");
+    // gets doc in db that corresponds to current user
     const q = query(profilesRef, where("uid", "==", uid));
-
     const querySnapshot = await getDocs(q);
     //console.log(queryResult);
     //console.log(querySnapshot);
@@ -43,7 +43,8 @@ export function DbProvider({ children }) {
        docId = doc.id;
     });
     // console.log("docs0", docs[0])
-    setDoc(doc(profilesRef, docId), newBio, {merge: true});
+    // updates current db by adding new key/value pair, which replaces existing key if it exists (bc of merge)
+    setDoc(doc(profilesRef, docId), newItem, {merge: true});
   }
 
   async function getProfileData(uid) {

@@ -128,6 +128,7 @@ export default function AccountSettings() {
   
     const imageUrl = url.split('?')[0]
     console.log("IMAGEURL", imageUrl)
+    updateDb({photoURL: imageUrl}, currentUser.uid)
   }
 
   return (
