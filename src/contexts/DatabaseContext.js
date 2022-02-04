@@ -11,7 +11,6 @@ import {
   doc,
 } from "firebase/firestore";
 import { useAuth } from "./AuthContext";
-import { promisify } from "util";
 
 const DatabaseContext = React.createContext();
 

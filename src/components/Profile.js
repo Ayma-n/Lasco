@@ -13,7 +13,6 @@ import { height } from "@mui/system"
 import {useDb} from '../contexts/DatabaseContext'
 import {useAuth} from '../contexts/AuthContext'
 import { Link } from 'react-router-dom'
-import {promisify} from 'util'
 
 function Profile() {
     const [isFollowing, setIsFollowing] = useState(true);
