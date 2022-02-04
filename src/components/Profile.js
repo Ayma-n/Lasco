@@ -13,6 +13,7 @@ import { height } from "@mui/system"
 import {useDb} from '../contexts/DatabaseContext'
 import {useAuth} from '../contexts/AuthContext'
 import { Link } from 'react-router-dom'
+import {promisify} from 'util'
 
 function Profile() {
     const [isFollowing, setIsFollowing] = useState(true);
@@ -28,7 +29,7 @@ function Profile() {
       console.log(e.target.value);
       console.log(e.target.files[0]);
     }
-    const {userInfo, updateDb} = useDb(); 
+    const {userInfo, updateDb, fetchUserData} = useDb(); 
     const {currentUser} = useAuth(); 
   
     // effect hook that gets user data; second param is blank array so that it is constant and getData only gets called once after render.
@@ -132,14 +133,21 @@ function handleSetData(body) {
     }
     console.log(currentArt)
     updateDb({artwork: currentArt}, currentUser.uid)
+    // await fetchUserData();
+    // console.log("waited")
+    // console.log(userInfo)
+    // window.location.reload();
+    
     // const img = document.createElement("img")
     // img.src = imageUrl
     // document.getElementById("gallery").append(img)
   }
 
-  // useEffect(() => {
-  //   window.location.reload()
-  // }, [currentUser.artwork])
+  // TODO: THIS LINE IS MAGIC, IT MAKES THE DOC RE-RENDER and I don't know why.
+  // how does userInfo state know when firebase database has changed?
+  useEffect(() => {
+    fetchUserData();
+  }, [userInfo])
   // useEffect(() => {
   //   const gallery = document.getElementById("gallery")
   //  for (let i = 0; i++; i < currentUser.artwork.length) {

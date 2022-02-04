@@ -11,6 +11,7 @@ import {
   doc,
 } from "firebase/firestore";
 import { useAuth } from "./AuthContext";
+import { promisify } from "util";
 
 const DatabaseContext = React.createContext();
 
@@ -72,7 +73,7 @@ export function DbProvider({ children }) {
     //console.log(currentUser.uid);
     if (!currentUser || currentUser === 'loading') return;
     const userInfoObj = await getProfileData(currentUser.uid);
-    //console.log(userInfoObj);
+    console.log(userInfoObj);
     //console.log(userInfoObj);
     //console.log(currentUser.uid);
     setUserInfo(userInfoObj);
@@ -85,6 +86,7 @@ export function DbProvider({ children }) {
   const value = {
     createUser,
     getProfileData,
+    fetchUserData,
     updateDb,
     userInfo,
   };
