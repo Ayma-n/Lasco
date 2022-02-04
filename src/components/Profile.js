@@ -28,7 +28,7 @@ function Profile() {
       console.log(e.target.value);
       console.log(e.target.files[0]);
     }
-    const {userInfo} = useDb(); 
+    const {userInfo, updateDb} = useDb(); 
     const {currentUser} = useAuth(); 
   
     // effect hook that gets user data; second param is blank array so that it is constant and getData only gets called once after render.
@@ -98,6 +98,55 @@ function handleSetData(body) {
     
   }
 
+  async function uploadArt(e) {
+    e.preventDefault();
+    const file = document.getElementById("art-input").files[0];
+
+    // TODO: Verify authentication before fetching (send the server a token, or something)
+     // makes a req to server with img as body
+      // then, once server receives s3 bucket url from s3, 
+    /// get img upload url from server and upload img directly to it
+    // Does fetch automatically wait until the promise is resolved before passing its value into a var? why dont we need an wait here?
+    // TODO: blocked by cors policy. How to fix?
+    const { url } = await fetch("http://localhost:8454/art").then((res) => res.json())
+    console.log("URL: ", url)
+    await fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "mutlipart/form-data"
+      },
+      body: file
+    })
+  
+    const imageUrl = url.split('?')[0]
+    console.log("IMAGEURL", imageUrl)
+    var currentArt;
+    console.log(userInfo.artwork)
+    if(userInfo.artwork) {
+      console.log("Hello")
+      currentArt = [...userInfo.artwork, imageUrl]
+    }
+    else {
+      console.log("Nope")
+      currentArt = [imageUrl]
+    }
+    console.log(currentArt)
+    updateDb({artwork: currentArt}, currentUser.uid)
+    // const img = document.createElement("img")
+    // img.src = imageUrl
+    // document.getElementById("gallery").append(img)
+  }
+
+  // useEffect(() => {
+  //   window.location.reload()
+  // }, [currentUser.artwork])
+  // useEffect(() => {
+  //   const gallery = document.getElementById("gallery")
+  //  for (let i = 0; i++; i < currentUser.artwork.length) {
+  //     gallery.append()
+  //  }
+  // }, [currentUser.artwork])
+
     return (<>
       <ViewPage id="ViewPage" />
         <div id="Profile">
@@ -111,6 +160,12 @@ function handleSetData(body) {
         {userInfo && <img className="profileImg" src={userInfo.photoURL} />}
         <button>Stats</button>
         </div>
+        <form onSubmit={uploadArt}>
+        <input id="art-input" type="file"></input>
+        <button className="bg-red-800 hover:bg-red-1000 text-white hover:-translate-y-1 transition-all font-bold py-4 rounded-full shadow-lg text-2xl focus:bg-purple-500 relative sm:px-6">
+          Upload
+        </button>
+      </form>
         {currentUser && <h1>{currentUser.displayName}</h1>}
            {userInfo && <h2 className="profileName">{userInfo.displayName}</h2>}
            {userInfo && <p className="username"> {`@${userInfo.username}`}</p>}
@@ -125,6 +180,11 @@ function handleSetData(body) {
             <img className="galleryImg" src={img1} />
             <img className="galleryImg" src={img2} />
             <img className="galleryImg" src={img3} />
+            {userInfo.artwork && userInfo.artwork.map((val) => {
+              return (
+                <img className="galleryImg" onClick={handleImgClick} src={val} />
+              )
+            })}
             {/* {artList} */}
             {/* {isDataLoaded && <img className="galleryImg" src={userData.held_artwork[0].img_url} />} */}
             {/* {userData.held_artwork.map((val, key) => {
