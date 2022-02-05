@@ -98,6 +98,7 @@ function handleSetData(body) {
     
   }
 
+  
   async function uploadArt(e) {
     e.preventDefault();
     const file = document.getElementById("art-input").files[0];
@@ -144,15 +145,34 @@ function handleSetData(body) {
 
   // TODO: THIS LINE IS MAGIC, IT MAKES THE DOC RE-RENDER and I don't know why.
   // how does userInfo state know when firebase database has changed?
-  useEffect(() => {
-    fetchUserData();
-  }, [userInfo])
+  // TODO: remove, as this function is getting called every second
+  // useEffect(() => {
+  //   fetchUserData();
+  // }, [userInfo])
   // useEffect(() => {
   //   const gallery = document.getElementById("gallery")
   //  for (let i = 0; i++; i < currentUser.artwork.length) {
   //     gallery.append()
   //  }
   // }, [currentUser.artwork])
+  // deletes img from firestore db and sends req to server to del from s3 bucket
+  function handleDelImg(val) {
+    // creates new list of art with art passed in removed
+    const newArt = userInfo.artwork.filter(art => art !== val);
+   // updates db with new artwork
+    updateDb({artwork: newArt}, currentUser.uid);
+    // await fetch("http://localhost:8454/deleteArt")
+    fetch("http://localhost:8454/deleteArt", {
+      method: "POST",
+      body: JSON.stringify({val: val}),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      mode: 'cors',
+    }).then(text => {return false})
+    
+  }
+
 
     return (<>
       <ViewPage id="ViewPage" />
@@ -188,9 +208,10 @@ function handleSetData(body) {
             <img className="galleryImg" src={img2} />
             <img className="galleryImg" src={img3} />
             {userInfo.artwork && userInfo.artwork.map((val) => {
-              return (
+              return (<>
                 <img className="galleryImg" onClick={handleImgClick} src={val} />
-              )
+                <button onClick={() => handleDelImg(val)}>Delete</button>
+                </>)
             })}
             {/* {artList} */}
             {/* {isDataLoaded && <img className="galleryImg" src={userData.held_artwork[0].img_url} />} */}

@@ -68,6 +68,7 @@ export function DbProvider({ children }) {
 
   const [userInfo, setUserInfo] = useState({ displayName: "", username: "" });
 
+  // TODO: this function is getting called every second
   async function fetchUserData() {
     //console.log(currentUser.uid);
     if (!currentUser || currentUser === 'loading') return;
