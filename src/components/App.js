@@ -44,6 +44,8 @@ function App() {
                 <Route path="/settings" element={<AccountSettings />} />
               </Route>
 
+              //TODO: loop through 
+
               {/* <Route path="/feed" element={<PrivateRoute redirectLink="/login">
               <Portal currentPage={FeedPost} />
             </PrivateRoute>} />
