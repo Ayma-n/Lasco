@@ -120,21 +120,22 @@ function Profile() {
   }
 
   // deletes img from firestore db and sends req to server to del from s3 bucket
-  function handleDelImg(val) {
+  async function handleDelImg(val) {
     // creates new list of art with art passed in removed
     const newArt = userInfo.artwork.filter(art => art !== val);
     // updates db with new artwork
     updateDb({ artwork: newArt }, currentUser.uid);
     // await fetch("http://localhost:8454/deleteArt")
-    fetch("http://localhost:8454/deleteArt", {
+    await fetch("http://localhost:8454/deleteArt", {
       method: "POST",
       body: JSON.stringify({ val: val }),
       headers: {
         "Content-Type": "application/json"
       },
       mode: 'cors',
-    }).then(text => { return false })
-
+    }).then(text => {return false})
+    navigate(0)
+    
   }
 
 

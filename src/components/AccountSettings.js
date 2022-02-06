@@ -111,24 +111,27 @@ export default function AccountSettings() {
     const file = document.getElementById("profileInput").files[0];
 
     // TODO: Verify authentication before fetching (send the server a token, or something)
-     // makes a req to server with img as body
-      // then, once server receives s3 bucket url from s3, 
+    // makes a req to server with img as body
+    // then, once server receives s3 bucket url from s3,
     /// get img upload url from server and upload img directly to it
     // Does fetch automatically wait until the promise is resolved before passing its value into a var? why dont we need an wait here?
     // TODO: blocked by cors policy. How to fix?
-    const { url } = await fetch("http://localhost:8454/s3").then((res) => res.json())
-    console.log("URL: ", url)
+    const { url } = await fetch("http://localhost:8454/s3").then((res) =>
+      res.json()
+    );
+    console.log("URL: ", url);
     await fetch(url, {
       method: "PUT",
       headers: {
-        "Content-Type": "mutlipart/form-data"
+        "Content-Type": "mutlipart/form-data",
       },
-      body: file
-    })
-  
-    const imageUrl = url.split('?')[0]
-    console.log("IMAGEURL", imageUrl)
-    updateDb({photoURL: imageUrl}, currentUser.uid)
+      body: file,
+    });
+
+    const imageUrl = url.split("?")[0];
+    console.log("IMAGEURL", imageUrl);
+    await updateDb({ photoURL: imageUrl }, currentUser.uid);
+    navigate(0);
   }
 
   return (
