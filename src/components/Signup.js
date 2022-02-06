@@ -68,7 +68,7 @@ function Signup() {
                 username: usernameRef.current.value,
                 displayName: nameRef.current.value,
                 useCase: useCaseRef.current.value,
-                photoURL: "https://i.imgur.com/57elNxz.jpg",
+                photoURL: "https://lasco-dev.s3.amazonaws.com/profile-pics/defaultProfile.png",
             })
             // const imageRef = ref(storage, 'image.jpg');
           
