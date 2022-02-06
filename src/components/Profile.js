@@ -109,8 +109,10 @@ function handleSetData(body) {
     /// get img upload url from server and upload img directly to it
     // Does fetch automatically wait until the promise is resolved before passing its value into a var? why dont we need an wait here?
     // TODO: blocked by cors policy. How to fix?
+    // gets generated url for putting image in
     const { url } = await fetch("http://localhost:8454/art").then((res) => res.json())
     console.log("URL: ", url)
+    // sends image to bucket url for hosting
     await fetch(url, {
       method: "PUT",
       headers: {
@@ -118,17 +120,20 @@ function handleSetData(body) {
       },
       body: file
     })
-  
+    // gets actual image, that is now stored on bucket
     const imageUrl = url.split('?')[0]
     console.log("IMAGEURL", imageUrl)
     var currentArt;
     console.log(userInfo.artwork)
     if(userInfo.artwork) {
       console.log("Hello")
+      // takes existing array, adds new artwork url to it
       currentArt = [...userInfo.artwork, imageUrl]
     }
+    // TODO: remove this
     else {
       console.log("Nope")
+      
       currentArt = [imageUrl]
     }
     console.log(currentArt)
