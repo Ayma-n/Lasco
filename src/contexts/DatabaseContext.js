@@ -9,6 +9,10 @@ import {
   getDocs,
   setDoc,
   doc,
+  startAt,
+  endAt,
+  limit,
+  orderBy,
 } from "firebase/firestore";
 import { useAuth } from "./AuthContext";
 
@@ -64,6 +68,25 @@ export function DbProvider({ children }) {
     });
 
     return docs[0];
+  }
+
+  async function searchUsers(username) {
+    console.log(username)
+    const profilesRef = collection(db, "/profiles");
+    const q = query(profilesRef, orderBy("username"), startAt(username), endAt(username + '\uf8ff'), limit(3));
+    const querySnapshot = await getDocs(q);
+    //console.log(queryResult);
+    //console.log(querySnapshot);
+    //console.log(uid);
+    //console.log(querySnapshot)
+
+    const docs = [];
+
+    querySnapshot.forEach((doc) => {
+      docs.push(doc.data());
+    });
+    console.log(docs)
+    return docs;
   }
 
   async function getUIDfromUsername(username) {
@@ -132,6 +155,7 @@ export function DbProvider({ children }) {
     updateDb,
     uploadArtDb,
     getUIDfromUsername,
+    searchUsers,
     userInfo,
   };
 

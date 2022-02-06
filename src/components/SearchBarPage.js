@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import magGlass from '../sample/posts/magGlass.svg';
 import '../css/SearchBarPage.css';
 import PortalNav from './PortalNav';
+import { useDb } from '../contexts/DatabaseContext'
+import { Link } from 'react-router-dom';
 
 function SearchBarPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const maxScreenW = '1100px'; // event handler for selecting the search bar, removes placeholder and moves search bar up and increases its size if on desktop
   // BONUS: figure out a better system for changing width, since when not changing width it stays where it is in the screen
+  const { searchUsers } = useDb();
+  const [users, setUsers] = useState('');
 
   function handleFocus() {
     document.getElementById("placeholder").style.display = 'none';
@@ -38,6 +42,11 @@ function SearchBarPage() {
         document.getElementById("searchText").style.color = "black";
         document.getElementById("searchText").style.caretColor = "gray";
       }
+      searchUsers(e.target.value).then(res => {
+        setUsers(res);
+      })
+      
+
   }
 
   return <>
@@ -55,6 +64,15 @@ function SearchBarPage() {
         id="searchText" type="search" value={searchTerm} onChange={handleChangeSearch} onFocus={handleFocus} // TODO: replace with onBlur and onFocus
         onFocusOut={handleFocusOut} />
         </div>
+
+        {users && users.map((val) => {
+          return (<Link to={`/profiles/${val.username}`}>
+            <div>
+          <div>{val.username}</div>
+          <img src={val.photoURL} width="100px" />
+          </div>
+          </Link>)
+        })}
         </div>
     </>;
 }
