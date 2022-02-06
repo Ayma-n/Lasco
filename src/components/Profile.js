@@ -125,17 +125,9 @@ function handleSetData(body) {
     console.log("IMAGEURL", imageUrl)
     var currentArt;
     console.log(userInfo.artwork)
-    if(userInfo.artwork) {
-      console.log("Hello")
       // takes existing array, adds new artwork url to it
       currentArt = [...userInfo.artwork, imageUrl]
-    }
-    // TODO: remove this
-    else {
-      console.log("Nope")
-      
-      currentArt = [imageUrl]
-    }
+    // TODO: remove this.
     console.log(currentArt)
     updateDb({artwork: currentArt}, currentUser.uid)
     // await fetchUserData();
