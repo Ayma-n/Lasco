@@ -15,14 +15,26 @@ import { height } from "@mui/system"
 import { useDb } from '../contexts/DatabaseContext'
 import { useAuth } from '../contexts/AuthContext'
 import { Link, useNavigate } from 'react-router-dom'
+import { getAdditionalUserInfo } from 'firebase/auth';
 
 function PublicProfile() {
   const navigate = useNavigate();
   const { user } = useParams();
 
-  const { updateDb, uploadArtDb, getUIDfromUsername } = useDb();
-  const [userInfo, setUserInfo] = useState(getUIDfromUsername(user));
+  const { updateDb, uploadArtDb, getUIDfromUsername, getProfileData } = useDb();
+  const [userInfo, setUserInfo] = useState("");
   const { currentUser } = useAuth();
+
+  useEffect(() => {
+    getProfile();
+  }, [])
+
+  async function getProfile() {
+    const UID = await getUIDfromUsername(user);
+    const profileData = await getProfileData(UID);
+    setUserInfo(profileData)
+    console.log(profileData);
+  }
 
   function handleImgClick() {
     document.getElementById("image").src = 'https://hdwallpaperim.com/wp-content/uploads/2017/08/23/458235-digital_art-fantasy_art-painting-DeviantArt-bicycle-futuristic-clouds-building-city-flag-reflection-chair-surreal-colorful-musical_notes-birds.jpg';
