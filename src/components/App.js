@@ -19,7 +19,7 @@ import { DbProvider } from "../contexts/DatabaseContext"
 import PrivateRoute from './PrivateRoute';
 import Search from '@mui/icons-material/Search';
 import AccountSettings from './AccountSettings';
-import TempProfile from './TempProfile';
+import PublicProfile from './PublicProfile';
 
 function App() {
 
@@ -65,7 +65,7 @@ function App() {
               <Route path="/forgot" element={<ForgotPassword />} />
               <Route path="/about" element={<About />} />
               <Route path="/navbar" element={<PortalNav />} />
-              <Route path="/profiles/:user" element={<TempProfile />} />
+              <Route path="/profiles/:user" element={<PublicProfile />} />
               {/* <Route path="/community" element={<Community />} />
           <Route path="/governance" element={<Governance />} /> */}
             </Routes>

@@ -66,6 +66,20 @@ export function DbProvider({ children }) {
     return docs[0];
   }
 
+  async function getUIDfromUsername(username) {
+    const profilesRef = collection(db, "/profiles");
+    const q = query(profilesRef, where("username", "==", username));
+    const querySnapshot = await getDocs(q);
+    const docs = [];
+
+    querySnapshot.forEach((doc) => {
+      docs.push(doc.data());
+    });
+
+    console.log(docs[0])
+    return docs[0].uid;
+  }
+
     // TODO: Verify authentication before fetching (send the server a token, or something)
   async function uploadArtDb(file) {
     const { url } = await fetch("http://localhost:8454/art").then((res) => res.json())
@@ -114,6 +128,7 @@ export function DbProvider({ children }) {
     fetchUserData,
     updateDb,
     uploadArtDb,
+    getUIDfromUsername,
     userInfo,
   };
 
