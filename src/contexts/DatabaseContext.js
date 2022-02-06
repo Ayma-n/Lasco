@@ -44,7 +44,7 @@ export function DbProvider({ children }) {
     });
     // console.log("docs0", docs[0])
     // updates current db by adding new key/value pair, which replaces existing key if it exists (bc of merge)
-    setDoc(doc(profilesRef, docId), newItem, {merge: true});
+    return setDoc(doc(profilesRef, docId), newItem, {merge: true});
   }
 
   async function getProfileData(uid) {
@@ -87,8 +87,8 @@ export function DbProvider({ children }) {
       currentArt = [...userInfo.artwork, imageUrl]
     // TODO: remove this.
     console.log(currentArt)
-    updateDb({artwork: currentArt}, currentUser.uid)
-    fetchUserData();
+    return updateDb({artwork: currentArt}, currentUser.uid)
+    //fetchUserData();
   }
 
   const [userInfo, setUserInfo] = useState({ displayName: "", username: "" });
