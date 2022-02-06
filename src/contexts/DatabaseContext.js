@@ -66,6 +66,31 @@ export function DbProvider({ children }) {
     return docs[0];
   }
 
+    // TODO: Verify authentication before fetching (send the server a token, or something)
+  async function uploadArtDb(file) {
+    const { url } = await fetch("http://localhost:8454/art").then((res) => res.json())
+    console.log("URL: ", url)
+    // sends image to bucket url for hosting
+    await fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "mutlipart/form-data"
+      },
+      body: file
+    })
+    // gets actual image, that is now stored on bucket
+    const imageUrl = url.split('?')[0]
+    console.log("IMAGEURL", imageUrl)
+    var currentArt;
+    console.log(userInfo.artwork)
+      // takes existing array, adds new artwork url to it
+      currentArt = [...userInfo.artwork, imageUrl]
+    // TODO: remove this.
+    console.log(currentArt)
+    updateDb({artwork: currentArt}, currentUser.uid)
+    fetchUserData();
+  }
+
   const [userInfo, setUserInfo] = useState({ displayName: "", username: "" });
 
   // TODO: this function is getting called every second
@@ -88,6 +113,7 @@ export function DbProvider({ children }) {
     getProfileData,
     fetchUserData,
     updateDb,
+    uploadArtDb,
     userInfo,
   };
 

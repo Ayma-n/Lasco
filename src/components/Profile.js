@@ -28,7 +28,7 @@ function Profile() {
       console.log(e.target.value);
       console.log(e.target.files[0]);
     }
-    const {userInfo, updateDb, fetchUserData} = useDb(); 
+    const {userInfo, updateDb, uploadArtDb} = useDb(); 
     const {currentUser} = useAuth(); 
   
     // effect hook that gets user data; second param is blank array so that it is constant and getData only gets called once after render.
@@ -102,35 +102,10 @@ function handleSetData(body) {
   async function uploadArt(e) {
     e.preventDefault();
     const file = document.getElementById("art-input").files[0];
-
-    // TODO: Verify authentication before fetching (send the server a token, or something)
-     // makes a req to server with img as body
-      // then, once server receives s3 bucket url from s3, 
-    /// get img upload url from server and upload img directly to it
-    // Does fetch automatically wait until the promise is resolved before passing its value into a var? why dont we need an wait here?
-    // TODO: blocked by cors policy. How to fix?
-    // gets generated url for putting image in
-    const { url } = await fetch("http://localhost:8454/art").then((res) => res.json())
-    console.log("URL: ", url)
-    // sends image to bucket url for hosting
-    await fetch(url, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "mutlipart/form-data"
-      },
-      body: file
-    })
-    // gets actual image, that is now stored on bucket
-    const imageUrl = url.split('?')[0]
-    console.log("IMAGEURL", imageUrl)
-    var currentArt;
-    console.log(userInfo.artwork)
-      // takes existing array, adds new artwork url to it
-      currentArt = [...userInfo.artwork, imageUrl]
-    // TODO: remove this.
-    console.log(currentArt)
-    updateDb({artwork: currentArt}, currentUser.uid)
-    // await fetchUserData();
+    // calls uploadArt fun in DBContext, which uploads art file to s3 bucket and adds it to firestore db.
+    uploadArtDb(file);
+ 
+    
     // console.log("waited")
     // console.log(userInfo)
     // window.location.reload();
