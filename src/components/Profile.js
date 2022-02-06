@@ -98,35 +98,14 @@ function handleSetData(body) {
     
   }
 
-  
+  // this fun gets file that was submitted, and uploads it to s3 db by calling helper fun in DBContext.  
   async function uploadArt(e) {
     e.preventDefault();
     const file = document.getElementById("art-input").files[0];
     // calls uploadArt fun in DBContext, which uploads art file to s3 bucket and adds it to firestore db.
     uploadArtDb(file);
- 
-    
-    // console.log("waited")
-    // console.log(userInfo)
-    // window.location.reload();
-    
-    // const img = document.createElement("img")
-    // img.src = imageUrl
-    // document.getElementById("gallery").append(img)
   }
 
-  // TODO: THIS LINE IS MAGIC, IT MAKES THE DOC RE-RENDER and I don't know why.
-  // how does userInfo state know when firebase database has changed?
-  // TODO: remove, as this function is getting called every second
-  // useEffect(() => {
-  //   fetchUserData();
-  // }, [userInfo])
-  // useEffect(() => {
-  //   const gallery = document.getElementById("gallery")
-  //  for (let i = 0; i++; i < currentUser.artwork.length) {
-  //     gallery.append()
-  //  }
-  // }, [currentUser.artwork])
   // deletes img from firestore db and sends req to server to del from s3 bucket
   function handleDelImg(val) {
     // creates new list of art with art passed in removed
