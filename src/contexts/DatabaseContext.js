@@ -76,8 +76,11 @@ export function DbProvider({ children }) {
       docs.push(doc.data());
     });
 
-    console.log(docs[0])
-    return docs[0].uid;
+    if (docs[0]) {
+      return docs[0].uid;
+    } else {
+      return "";
+    }
   }
 
     // TODO: Verify authentication before fetching (send the server a token, or something)

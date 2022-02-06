@@ -14,7 +14,7 @@ import ViewPage from "./ViewPage"
 import { height } from "@mui/system"
 import { useDb } from '../contexts/DatabaseContext'
 import { useAuth } from '../contexts/AuthContext'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, Navigate } from 'react-router-dom'
 import { getAdditionalUserInfo } from 'firebase/auth';
 
 function PublicProfile() {
@@ -31,6 +31,9 @@ function PublicProfile() {
 
   async function getProfile() {
     const UID = await getUIDfromUsername(user);
+    if (UID === "") {
+      navigate("/")
+    }
     const profileData = await getProfileData(UID);
     setUserInfo(profileData)
     console.log(profileData);
@@ -80,7 +83,7 @@ function PublicProfile() {
         <img className="galleryImg" src={img1} />
         <img className="galleryImg" src={img2} />
         <img className="galleryImg" src={img3} />
-        {userInfo.artwork && userInfo.artwork.map((val) => {
+        {userInfo && userInfo.artwork.map((val) => {
           return (<>
             <img className="galleryImg" onClick={handleImgClick} src={val} />
           </>)
