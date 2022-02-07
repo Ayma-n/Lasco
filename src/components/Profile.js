@@ -35,6 +35,7 @@ function Profile() {
   const { currentUser } = useAuth();
 
   // effect hook that gets user data; second param is blank array so that it is constant and getData only gets called once after render.
+  //TODO: remove
   useEffect(() => {
     getData();
   }, [artForSale])
@@ -162,7 +163,6 @@ function Profile() {
         {userInfo && <h2 className="profileName">{userInfo.displayName}</h2>}
         {userInfo && <p className="username"> {`@${userInfo.username}`}</p>}
         {userInfo && <p className="bio">{userInfo.bio}</p>}
-        <FollowBtn></FollowBtn>
       </div>
       <div id="gallery">
         <img className="galleryImg" onClick={handleImgClick} src={img1} />

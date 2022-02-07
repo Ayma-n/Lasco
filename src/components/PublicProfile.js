@@ -21,8 +21,8 @@ function PublicProfile() {
   const navigate = useNavigate();
   const { user } = useParams();
 
-  const { updateDb, uploadArtDb, getUIDfromUsername, getProfileData } = useDb();
-  const [userInfo, setUserInfo] = useState("");
+  const { updateDb, uploadArtDb, getUIDfromUsername, getProfileData, userInfo, followUser } = useDb();
+  const [publicUserInfo, setPublicUserInfo] = useState("");
   const { currentUser } = useAuth();
 
   useEffect(() => {
@@ -35,8 +35,17 @@ function PublicProfile() {
       navigate("/")
     }
     const profileData = await getProfileData(UID);
-    setUserInfo(profileData)
+    setPublicUserInfo(profileData)
     console.log(profileData);
+  }
+
+  // TODO: create function that gets current user and updates db with username of this profile appended to his 'following' list
+  //TODO: unfollow functionality
+  // TODO: change updateDb to updateMyDb
+  async function follow() {
+    console.log("USERINFO", userInfo)
+    await updateDb({following: [...userInfo.following, user]}, currentUser.uid)
+    return followUser(user).then(res => console.log("res", res)).catch(err => console.error(err))
   }
 
   function handleImgClick() {
@@ -67,13 +76,14 @@ function PublicProfile() {
 
       <div id="dashboard">
         <div className="flex" id="profile-div">
-          {userInfo && <img className="profileImg" src={userInfo.photoURL} />}
+          {publicUserInfo && <img className="profileImg" src={publicUserInfo.photoURL} />}
         </div>
         {currentUser && <h1>{currentUser.displayName}</h1>}
-        {userInfo && <h2 className="profileName">{userInfo.displayName}</h2>}
-        {userInfo && <p className="username"> {`@${userInfo.username}`}</p>}
-        {userInfo && <p className="bio">{userInfo.bio}</p>}
+        {publicUserInfo && <h2 className="profileName">{publicUserInfo.displayName}</h2>}
+        {publicUserInfo && <p className="username"> {`@${publicUserInfo.username}`}</p>}
+        {publicUserInfo && <p className="bio">{publicUserInfo.bio}</p>}
         <FollowBtn></FollowBtn>
+        <button onClick={follow}></button>
       </div>
       <div id="gallery">
         <img className="galleryImg" onClick={handleImgClick} src={img1} />
@@ -83,7 +93,7 @@ function PublicProfile() {
         <img className="galleryImg" src={img1} />
         <img className="galleryImg" src={img2} />
         <img className="galleryImg" src={img3} />
-        {userInfo && userInfo.artwork.map((val) => {
+        {publicUserInfo && publicUserInfo.artwork.map((val) => {
           return (<>
             <img className="galleryImg" onClick={handleImgClick} src={val} />
           </>)

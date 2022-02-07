@@ -22,8 +22,19 @@ export function useDb() {
   return useContext(DatabaseContext);
 }
 
+
+
 export function DbProvider({ children }) {
   const { currentUser } = useAuth();
+  const [userInfo, setUserInfo] = useState({ uid: '',
+  username: '',
+  displayName: '',
+  useCase: '',
+  photoURL: "",
+  artwork: [],
+  followers: [],
+  following: [],
+ });
 
   function createUser(userObject) {
     const profilesRef = collection(db, "/profiles");
@@ -68,6 +79,51 @@ export function DbProvider({ children }) {
     });
 
     return docs[0];
+  }
+  // grabs doc with specified username, and augments that users follower list
+  // TODO: write the function
+  async function followUser(username) {
+    // queries db for document with username to follow
+    const profilesRef = collection(db, "/profiles");
+    console.log("username", username)
+    const q = query(profilesRef, where("username", "==", username));
+    const querySnapshot = await getDocs(q);
+    const docs = [];
+    var docId;
+    var doc1;
+    await querySnapshot.forEach((doc) => {
+       docId = doc.id;
+       doc1 = doc.data();
+    });
+    console.log("doc0", username)
+
+    //TODO: take followers list and edit it
+    // updates current db by adding new key/value pair, which replaces existing key if it exists (bc of merge)
+    console.log("doc", doc1)
+    return setDoc(doc(profilesRef, docId), {followers: [...doc1.followers, username]}, {merge: true})
+  }
+
+  async function unfollowUser(username) {
+    // queries db for document with username to follow
+    const profilesRef = collection(db, "/profiles");
+    console.log("username", username)
+    const q = query(profilesRef, where("username", "==", username));
+    const querySnapshot = await getDocs(q);
+    const docs = [];
+    var docId;
+    var doc1;
+    await querySnapshot.forEach((doc) => {
+       docId = doc.id;
+       doc1 = doc.data();
+    });
+    console.log("doc0", username)
+
+    //TODO: take followers list and edit it
+    // updates current db by adding new key/value pair, which replaces existing key if it exists (bc of merge)
+    console.log("doc", doc1)
+    const unfollowedList = doc1.followers.filter(val => 
+      val !== username);
+    return setDoc(doc(profilesRef, docId), {followers: unfollowedList}, {merge: true})
   }
 
   async function searchUsers(username) {
@@ -131,7 +187,7 @@ export function DbProvider({ children }) {
     //fetchUserData();
   }
 
-  const [userInfo, setUserInfo] = useState({ displayName: "", username: "" });
+ 
 
   // TODO: this function is getting called every second
   async function fetchUserData() {
@@ -156,6 +212,8 @@ export function DbProvider({ children }) {
     uploadArtDb,
     getUIDfromUsername,
     searchUsers,
+    followUser,
+    unfollowUser,
     userInfo,
   };
 
