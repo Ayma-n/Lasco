@@ -69,7 +69,7 @@ function Landing() {
       <div id="Landing">
         <NavBar></NavBar>
         <div id="intro-text">
-          So you're curious about <span className="text-gradient">NFTs</span> ?
+          Explore Art. <span className="text-gradient">Together. </span>
         </div>
 
         <div id="parent-div">
