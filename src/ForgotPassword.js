@@ -39,7 +39,7 @@ export default function ForgotPassword() {
                     <input id="email" type="text" ref={emailRef} placeholder="Email" />
                     <button id="sign-button" className='filled-btn' disabled={loading}>
                         Send</button>
-                    <div><Link to="/login">Login</Link></div>
+                    <div id="login-div"><Link to="/login">Login</Link></div>
                 </form>        
                 <div id="logo-div">
                     <img src={demoLogo}></img>
