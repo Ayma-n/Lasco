@@ -8,8 +8,8 @@
 #Login #forgotPass {
   text-align: center;
 }
-#Login #forgotPass * {
-  align-self: center;
+#Login #login-div {
+  text-align: center;
 }
 #Login #left-rect {
   position: relative;
