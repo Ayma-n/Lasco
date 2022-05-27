@@ -24,6 +24,17 @@ $input-padding-left-ini: 24px;
 }
 
 #Login {
+   #forgotPass {
+        // display: flex;
+        // position: relative;
+        // width: 100%;
+        // align-items: center;
+        // margin: 0 auto;
+        text-align: center;
+    }
+    #forgotPass * {
+        align-self: center;
+    }
     #left-rect {
         position: relative;
         background-color: white;
