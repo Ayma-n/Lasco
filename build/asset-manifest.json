@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.602ece0d.css",
-    "main.js": "/static/js/main.c49a8be1.js",
+    "main.css": "/static/css/main.24220b3b.css",
+    "main.js": "/static/js/main.16616565.js",
     "static/js/787.9eaef3bc.chunk.js": "/static/js/787.9eaef3bc.chunk.js",
     "static/media/Demo-Landing-Belt.png": "/static/media/Demo-Landing-Belt.721476d4bda296c66520.png",
     "static/media/viewArt.jpeg": "/static/media/viewArt.14df9f0e7f155f5d0d12.jpeg",
@@ -20,12 +20,12 @@
     "static/media/cancel.svg": "/static/media/cancel.4e066aa878407d5da6f2.svg",
     "static/media/plus.svg": "/static/media/plus.95777d4f3f5fe638653fc035a391d25b.svg",
     "static/media/check.svg": "/static/media/check.6ab9c2c7fe806c29c0c6f4ff1659a094.svg",
-    "main.602ece0d.css.map": "/static/css/main.602ece0d.css.map",
-    "main.c49a8be1.js.map": "/static/js/main.c49a8be1.js.map",
+    "main.24220b3b.css.map": "/static/css/main.24220b3b.css.map",
+    "main.16616565.js.map": "/static/js/main.16616565.js.map",
     "787.9eaef3bc.chunk.js.map": "/static/js/787.9eaef3bc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.602ece0d.css",
-    "static/js/main.c49a8be1.js"
+    "static/css/main.24220b3b.css",
+    "static/js/main.16616565.js"
   ]
 }
