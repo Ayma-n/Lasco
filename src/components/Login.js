@@ -56,7 +56,7 @@ function Login() {
     return (<>
         <div id="Login">
             <div id="left-rect">
-                {error && <div>{error}</div>}
+                {error && <div id="error">{error}</div>}
                 <div id="welcome-text">Welcome <span className="magenta-text">Back.</span></div>
                 <form onSubmit={handleSubmit}>
                     <input id="username" type="text" ref={emailRef} placeholder="Email" />
