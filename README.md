@@ -1,5 +1,5 @@
 # Lasco
-# By: Jakobi Haskell and Ayman Benjelloun
+# By: Jakobi Haskell and Ayman Benjelloun Touimi
 
 This repo holds the webpages for a prototype website of Lasco. Lasco is a social digital art platform, in every meaning of the phrase. We make it easy for talented artists to interact with fans, collaborate with fellow artists, and sell their digital art with NFTs. We are excited to see how creative artists explore new mediums and hope that through our platform, artists can explore this new world of NFTs together!
 
