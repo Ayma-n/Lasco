@@ -131,7 +131,7 @@ function Profile() {
     // updates db with new artwork
     updateDb({ artwork: newArt }, currentUser.uid);
     // await fetch("http://localhost:8454/deleteArt")
-    await fetch(process.env.SERVER_URL + "/deleteart", {
+    await fetch(process.env.SERVER_URL + "/?route=deleteart", {
       method: "POST",
       body: JSON.stringify({ val: val }),
       headers: {
