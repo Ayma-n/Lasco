@@ -9,7 +9,7 @@ import FilledProfileIcon from '@mui/icons-material/AccountCircle';
 
 import { Link } from "react-router-dom";
 
-import { useDb} from '../contexts/DatabaseContext'
+import { useDb } from '../contexts/DatabaseContext'
 
 
 function PortalNav() {
