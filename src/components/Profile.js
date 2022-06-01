@@ -53,17 +53,18 @@ function Profile() {
   }
 
   async function getData() {
-    let domain = process.env.SERVER_URL;
-    let url = `${domain}/profile/johnnyrose`;
-    await axios
-      .get(url)
-      .then((body) => handleSetData(body))
-      .catch((error) => {
-        console.log("Get existing profile failed");
-      });
-    console.log(userData.profile_id);
-    console.log(userData.held_artwork.length);
-    console.log(userData.held_artwork[0].img_url);
+    // let domain = process.env.CLIENT_URL;
+    // console.log("domain", domain)
+    // let url = `/profile/test123`;
+    // await axios
+    //   .get(url)
+    //   .then((body) => handleSetData(body))
+    //   .catch((error) => {
+    //     console.log("Get existing profile failed");
+    //   });
+    // console.log(userData.profile_id);
+    // console.log(userData.held_artwork.length);
+    // console.log(userData.held_artwork[0].img_url);
   }
   // sets user data in a hook, is called by async function
   function handleSetData(body) {
@@ -112,6 +113,7 @@ function Profile() {
     e.preventDefault();
     const file = document.getElementById("art-input").files[0];
     // calls uploadArt fun in DBContext, which uploads art file to s3 bucket and adds it to firestore db.
+    console.log("file", file)
     await uploadArtDb(file);
     navigate(0);
 

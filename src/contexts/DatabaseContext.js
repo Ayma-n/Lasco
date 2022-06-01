@@ -164,13 +164,16 @@ export function DbProvider({ children }) {
 
     // TODO: Verify authentication before fetching (send the server a token, or something)
   async function uploadArtDb(file) {
-    const { url } = await fetch(process.env.SERVER_URL + "/?route=art").then((res) => res.json())
+    const { url } = await fetch("https://data.lascoapp.com/s3/").then((res) => {
+      console.log("res", res);
+      return res.json()
+    })
     console.log("URL: ", url)
     // sends image to bucket url for hosting
     await fetch(url, {
       method: "PUT",
       headers: {
-        "Content-Type": "mutlipart/form-data"
+        "Content-Type": "multipart/form-data"
       },
       body: file
     })
