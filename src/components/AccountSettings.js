@@ -116,7 +116,7 @@ export default function AccountSettings() {
     /// get img upload url from server and upload img directly to it
     // Does fetch automatically wait until the promise is resolved before passing its value into a var? why dont we need an wait here?
     // TODO: blocked by cors policy. How to fix?
-    const { url } = await fetch("http://localhost:8454/s3").then((res) =>
+    const { url } = await fetch(process.env.REACT_APP_SERVER_URL).then((res) =>
       res.json()
     );
     console.log("URL: ", url);

@@ -53,17 +53,17 @@ function Profile() {
   }
 
   async function getData() {
-    let domain = process.env.SERVER_URL;
-    let url = `${domain}/profile/johnnyrose`;
-    await axios
-      .get(url)
-      .then((body) => handleSetData(body))
-      .catch((error) => {
-        console.log("Get existing profile failed");
-      });
-    console.log(userData.profile_id);
-    console.log(userData.held_artwork.length);
-    console.log(userData.held_artwork[0].img_url);
+    // let domain = process.env.SERVER_URL;
+    // let url = `${domain}/profile/johnnyrose`;
+    // await axios
+    //   .get(url)
+    //   .then((body) => handleSetData(body))
+    //   .catch((error) => {
+    //     console.log("Get existing profile failed");
+    //   });
+    // console.log(userData.profile_id);
+    // console.log(userData.held_artwork.length);
+    // console.log(userData.held_artwork[0].img_url);
   }
   // sets user data in a hook, is called by async function
   function handleSetData(body) {
@@ -131,7 +131,7 @@ function Profile() {
     // updates db with new artwork
     updateDb({ artwork: newArt }, currentUser.uid);
     // await fetch("http://localhost:8454/deleteArt")
-    await fetch(process.env.SERVER_URL + "/?route=deleteart", {
+    await fetch(process.env.REACT_APP_SERVER_URL + "/?route=deleteart", {
       method: "POST",
       body: JSON.stringify({ val: val }),
       headers: {
