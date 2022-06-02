@@ -164,7 +164,7 @@ export function DbProvider({ children }) {
 
     // TODO: Verify authentication before fetching (send the server a token, or something)
   async function uploadArtDb(file) {
-    const { url } = await fetch(process.env.REACT_APP_SERVER_URL).then((res) => res.json())
+    const { url } = await fetch(process.env.REACT_APP_SERVER_URL + '/?route=upload-art').then((res) => res.json())
     console.log("URL: ", url)
     // sends image to bucket url for hosting
     await fetch(url, {
