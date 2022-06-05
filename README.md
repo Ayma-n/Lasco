@@ -6,3 +6,5 @@ This repo holds the webpages for a prototype website of Lasco. Lasco is a social
 All profiles will have two sections: a general section, for posts, doodles, and updates that artists don't necessarily want to sell but still want to share with their fans. There will also be a marketplace section, where users can post art they are selling and show off art they have bought. In the future, we might experiment with group buying, such that a group of friends who are all interested in a certain piece of art can buy it, even if it is too expensive individually.
 
 In order to maximally support our artists, we will also hold curated exhibitions, both online, and in person on digital frames, where people can walk in and buy art from their phone!
+
+Test change
