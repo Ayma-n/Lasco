@@ -53,8 +53,9 @@ function Profile() {
   }
 
   async function getData() {
-    // let domain = process.env.SERVER_URL;
-    // let url = `${domain}/profile/johnnyrose`;
+    // let domain = process.env.CLIENT_URL;
+    // console.log("domain", domain)
+    // let url = `/profile/test123`;
     // await axios
     //   .get(url)
     //   .then((body) => handleSetData(body))
@@ -112,6 +113,7 @@ function Profile() {
     e.preventDefault();
     const file = document.getElementById("art-input").files[0];
     // calls uploadArt fun in DBContext, which uploads art file to s3 bucket and adds it to firestore db.
+    console.log("file", file)
     await uploadArtDb(file);
     navigate(0);
 
