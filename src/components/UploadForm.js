@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 export default function UploadForm() {
 
   const { currentUser } = useAuth();
-  const { uploadArtImage, updateArtData } = useDb();
+  const { uploadArtImage, updateArtData, userInfo } = useDb();
   const navigate = useNavigate();
 
   const refs = {
@@ -31,10 +31,9 @@ export default function UploadForm() {
     }
 
     const newArtURL = await uploadArtImage(refs.image.current.files[0]);
-    
 
     const newArt = {
-      author: currentUser.displayName,
+      author: userInfo.username,
       description: refs.description.current.value,
       likes: 0,
       price: refs.price.current.value,
