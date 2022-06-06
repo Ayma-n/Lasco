@@ -5,7 +5,7 @@ import { useDb } from "../contexts/DatabaseContext"
 export default function UploadForm() {
 
   const { currentUser } = useAuth();
-  const { uploadArtDb } = useDb();
+  const { uploadArtImage, updateArtData } = useDb();
 
   const refs = {
     title: useRef(),
@@ -26,8 +26,7 @@ export default function UploadForm() {
       return setError("Price must be a number.")
     }
 
-    // Upload on S3 and get the URL
-  
+    const newArtURL = await uploadArtImage(refs.image.current.value.files[0]);  
 
     newArt = {
       author: currentUser.displayName,
@@ -35,11 +34,11 @@ export default function UploadForm() {
       likes: 0,
       price: refs.price.current.value,
       title: refs.title.current.value,
+      url: newArtURL
     }
 
-
+    await updateArtData(newArt);
     setLoading(false)
-
   }
 
   return (

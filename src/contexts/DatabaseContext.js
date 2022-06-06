@@ -165,7 +165,7 @@ export function DbProvider({ children }) {
   }
 
     // TODO: Verify authentication before fetching (send the server a token, or something)
-  async function uploadArtDb(file) {
+  async function uploadArtImage(file) {
     const { url } = await fetch(process.env.REACT_APP_SERVER_URL + "/upload-art").then((res) => {
       console.log("res", res);
       return res.json()
@@ -182,10 +182,16 @@ export function DbProvider({ children }) {
     // gets actual image, that is now stored on bucket
     const imageUrl = url.split('?')[0]
     console.log("IMAGEURL", imageUrl)
-    var currentArt = userInfo.artwork;
-    currentArt.push(imageUrl);
+
+    return imageUrl;
+    //var currentArt = userInfo.artwork;
+    //currentArt.push(imageUrl);
     
-    return updateDb({artwork: currentArt}, currentUser.uid)
+    //return updateDb({artwork: currentArt}, currentUser.uid)
+  }
+
+  async function updateArtData(artworkObject) {
+    return updateDb({artwork: artworkObject}, currentUser.uid)
   }
 
 
@@ -209,7 +215,8 @@ export function DbProvider({ children }) {
     getProfileData,
     fetchUserData,
     updateDb,
-    uploadArtDb,
+    uploadArtImage,
+    updateArtData,
     getUIDfromUsername,
     searchUsers,
     followUser,
