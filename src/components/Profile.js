@@ -16,6 +16,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { Fab, Button } from "@material-ui/core";
 import AddIcon from "@mui/icons-material/Add";
 
+import UploadForm from "./UploadForm"
+
 function Profile() {
   const [isFollowing, setIsFollowing] = useState(true);
   // imported from pixelpalace
@@ -24,6 +26,8 @@ function Profile() {
   const [userData, setUserData] = useState("");
   const [isDataLoaded, setIsDataLoaded] = useState(false);
   const [artForSale, setArtForSale] = useState(0);
+
+  const [isUpload, setIsUpload] = useState(false);
 
   const navigate = useNavigate();
 
@@ -112,11 +116,12 @@ function Profile() {
   // this fun gets file that was submitted, and uploads it to s3 db by calling helper fun in DBContext.
   async function uploadArt(e) {
     e.preventDefault();
-    const file = document.getElementById("art-input").files[0];
+    //const file = document.getElementById("art-input").files[0];
     // calls uploadArt fun in DBContext, which uploads art file to s3 bucket and adds it to firestore db.
-    console.log("file", file);
-    await uploadArtDb(file);
-    navigate(0);
+    //console.log("file", file)
+    //await uploadArtDb(file);
+    setIsUpload(true);
+    //navigate(0);
   }
 
   // deletes img from firestore db and sends req to server to del from s3 bucket
@@ -144,6 +149,7 @@ function Profile() {
   return (
     <>
       <ViewPage id="ViewPage" />
+      {isUpload && <UploadForm id="UploadForm" />}
       <div id="Profile">
         <div id="dashboard">
           <div className="flex profile-link" id="profile-div">
@@ -155,43 +161,32 @@ function Profile() {
             {userInfo && <img className="profileImg" src={userInfo.photoURL} />}
             <button className="profile-btn">Stats</button>
           </div>
-
-          {/* </form> */}
+          <form onSubmit={uploadArt}>
+            {/* <input id="art-input" type="file" accept="image/*"></input> */}
+            <button className="bg-red-800 hover:bg-red-1000 text-white hover:-translate-y-1 transition-all font-bold py-4 rounded-full shadow-lg text-2xl focus:bg-purple-500 relative sm:px-6">
+              Upload
+            </button>
+          </form>
           {currentUser && <h1>{currentUser.displayName}</h1>}
           {userInfo && <h2 className="profileName">{userInfo.displayName}</h2>}
           {userInfo && <p className="username"> {`@${userInfo.username}`}</p>}
           {userInfo && <p className="bio">{userInfo.bio}</p>}
-
-          <label htmlFor="art-input">
-            <input
-              style={{ display: "none" }}
-              id="art-input"
-              name="art-input"
-              type="file"
-              onChange={uploadArt}
-            />
-            <br />
-            <br />
-            <Fab color="primary" size="small" component="span" aria-label="add">
-              <AddIcon />
-            </Fab>
-          </label>
         </div>
         <div id="gallery">
           {userInfo.artwork &&
             userInfo.artwork.map((val) => {
               return (
-                <div key={val} style={{ position: "relative"}} onMouseOver={() => handleMouseOverImg(val)}
-                    onMouseOut={() => document.getElementById(`${val}-del`).style.display = "none"}>
+                <div key={val.url} style={{ position: "relative"}} onMouseOver={() => handleMouseOverImg(val.url)}
+                    onMouseOut={() => document.getElementById(`${val.url}-del`).style.display = "none"}>
                 <div className="container">
                   <img
                     alt="gallery"
                     className="galleryImg"
                     onClick={handleImgClick}
-                    src={val}
+                    src={val.url}
                   />
                   </div>
-                  <button onClick={() => handleDelImg(val)} id={`${val}-del`} style={{display: "none"}} className="del-btn">X</button>
+                  <button onClick={() => handleDelImg(val)} id={`${val.url}-del`} style={{display: "none"}} className="del-btn">X</button>
                 </div>
               );
             })}
