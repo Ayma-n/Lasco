@@ -73,17 +73,6 @@ function Signup() {
                 followers: [],
                 following: [],
             })
-            // const imageRef = ref(storage, 'image.jpg');
-          
-            // uploadBytes(imageRef, test).then((snapshot) => {
-            //     console.log('File uploaded!')
-            // })
-
-            // await updateUserProfile(nameRef.current.value, "https://i.imgur.com/xED7N8L.png").then(() => {
-            //     console.log('user profile updated')
-            // }).catch((err) => {
-            //     console.error(err)
-            // });
 
             navigate("/feed");
         } catch(err) {
