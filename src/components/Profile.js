@@ -146,13 +146,13 @@ function Profile() {
         <div id="dashboard">
           <div className="flex" id="profile-div">
             <Link to="/settings">
-              <button>Edit Profile</button>
+              <button id="edit-profile-btn">Edit Profile</button>
             </Link>
             {userInfo && <img className="profileImg" src={userInfo.photoURL} />}
             <button>Stats</button>
           </div>
           <form onSubmit={uploadArt}>
-            <input id="art-input" type="file"></input>
+            <input id="art-input" type="file" accept="image/*"></input>
             <button className="bg-red-800 hover:bg-red-1000 text-white hover:-translate-y-1 transition-all font-bold py-4 rounded-full shadow-lg text-2xl focus:bg-purple-500 relative sm:px-6">
               Upload
             </button>

@@ -62,5 +62,14 @@
   margin: 34px auto;
   grid-template-rows: auto;
 }
+#Profile #profile-div {
+  /* centers profile div */
+  margin: 0 auto;
+  width: min-content;
+}
+#Profile #edit-profile-btn {
+  width: 100px;
+  height: 30px;
+}
 
 /*# sourceMappingURL=Profile.css.map */

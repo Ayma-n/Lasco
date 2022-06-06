@@ -98,4 +98,19 @@ width: 118px;
     // fills rows with images until none are left
     grid-template-rows: auto;
 }
+
+#profile-div {
+    /* centers profile div */
+    margin: 0 auto;
+    width: min-content;
+}
+
+#edit-profile-btn {
+    width: 100px;
+    height: 30px;
+    // justify-self: center;
+    // align-self: center;
+    // margin: auto auto;
+}
+
 }

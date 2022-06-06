@@ -72,8 +72,6 @@ function PublicProfile() {
   return (<>
     <ViewPage id="ViewPage" />
     <div id="Profile">
-      {/* <PortalNav></PortalNav> */}
-
       <div id="dashboard">
         <div className="flex" id="profile-div">
           {publicUserInfo && <img className="profileImg" src={publicUserInfo.photoURL} />}
