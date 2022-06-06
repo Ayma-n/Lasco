@@ -106,11 +106,22 @@ width: 118px;
 }
 
 #edit-profile-btn {
-    width: 100px;
-    height: 30px;
     // justify-self: center;
     // align-self: center;
     // margin: auto auto;
+}
+
+.profile-link {
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+}
+
+.profile-btn {
+    width: 100px;
+    height: 30px;
 }
 
 }

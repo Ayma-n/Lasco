@@ -143,12 +143,12 @@ function Profile() {
         {/* <PortalNav></PortalNav> */}
 
         <div id="dashboard">
-          <div className="flex" id="profile-div">
-            <Link to="/settings">
-              <button id="edit-profile-btn">Edit Profile</button>
+          <div className="flex profile-link" id="profile-div">
+            <Link to="/settings" id="profile-link">
+              <button id="edit-profile-btn" className="profile-btn">Edit Profile</button>
             </Link>
             {userInfo && <img className="profileImg" src={userInfo.photoURL} />}
-            <button>Stats</button>
+            <button className="profile-btn">Stats</button>
           </div>
           <form onSubmit={uploadArt}>
             <input id="art-input" type="file" accept="image/*"></input>

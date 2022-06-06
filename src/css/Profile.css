@@ -67,7 +67,14 @@
   margin: 0 auto;
   width: min-content;
 }
-#Profile #edit-profile-btn {
+#Profile .profile-link {
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  align-content: center;
+  display: flex;
+}
+#Profile .profile-btn {
   width: 100px;
   height: 30px;
 }
