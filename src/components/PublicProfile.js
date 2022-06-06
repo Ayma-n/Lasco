@@ -83,7 +83,6 @@ function PublicProfile() {
         {publicUserInfo && <p className="username"> {`@${publicUserInfo.username}`}</p>}
         {publicUserInfo && <p className="bio">{publicUserInfo.bio}</p>}
         <FollowBtn></FollowBtn>
-        <button onClick={follow}></button>
       </div>
       <div id="gallery">
         <img className="galleryImg" onClick={handleImgClick} src={img1} />
