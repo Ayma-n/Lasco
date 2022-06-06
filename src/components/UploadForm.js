@@ -1,11 +1,13 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { useAuth } from "../contexts/AuthContext"
 import { useDb } from "../contexts/DatabaseContext"
+import { useNavigate } from 'react-router-dom';
 
 export default function UploadForm() {
 
   const { currentUser } = useAuth();
-  const { uploadArtDb } = useDb();
+  const { uploadArtImage, updateArtData, userInfo } = useDb();
+  const navigate = useNavigate();
 
   const refs = {
     title: useRef(),
@@ -17,43 +19,46 @@ export default function UploadForm() {
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     setError("");
     setLoading(true);
+
+    console.log(refs.title.current.value);
 
     if (isNaN(refs.price.current.value)) {
       return setError("Price must be a number.")
     }
 
-    // Upload on S3 and get the URL
-  
+    const newArtURL = await uploadArtImage(refs.image.current.files[0]);
 
-    newArt = {
-      author: currentUser.displayName,
+    const newArt = {
+      author: userInfo.username,
       description: refs.description.current.value,
       likes: 0,
       price: refs.price.current.value,
       title: refs.title.current.value,
+      url: newArtURL
     }
 
-
-    setLoading(false)
-
+    await updateArtData(newArt);
+    setLoading(false);
+    
+    navigate("/profile");
   }
 
   return (
     <div id="UploadForm">
         <div id="form-title">Upload artwork</div>
         <form onSubmit={handleSubmit}>
-            <label for="artwork-title">Title: </label>
+            <label htmlFor="artwork-title">Title: </label>
             <input ref={refs.title} type="text" id="artwork-title" name="artwork-title"></input>
-            <label for="artwork-desc">Description: </label>
+            <label htmlFor="artwork-desc">Description: </label>
             <input ref={refs.description} type="text" id="artwork-desc" name="artwork-desc"></input>
-            <label for="artwork-price">Price: </label>
+            <label htmlFor="artwork-price">Price: </label>
             <input ref={refs.price} type="text" id="artwork-price" name="artwork-price"></input>
-            <label for="artwork-image">Image: </label>
-            <input id="artwork-image" type="file" accept="image/*"></input>
+            <label htmlFor="artwork-image">Image: </label>
+            <input ref={refs.image} id="artwork-image" type="file" accept="image/*"></input>
             <button type="submit" disabled={loading}></button>
             {error && <div>{error}</div>}
         </form>
