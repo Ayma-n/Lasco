@@ -1,11 +1,9 @@
 import React, { useRef, useState } from 'react'
-import { useAuth } from "../contexts/AuthContext"
 import { useDb } from "../contexts/DatabaseContext"
 import { useNavigate } from 'react-router-dom';
 
 export default function UploadForm() {
 
-  const { currentUser } = useAuth();
   const { uploadArtImage, updateArtData, userInfo } = useDb();
   const navigate = useNavigate();
 
