@@ -43,6 +43,7 @@ function App() {
                 <Route path={`/profile`} element={<Portal currentPage={Profile} />} />
                 <Route path={`/search`} element={<Portal currentPage={SearchBarPage} />} />
                 <Route path="/settings" element={<AccountSettings />} />
+                <Route path="/profiles/:user" element={<PublicProfile />} />
               </Route>
 
               //TODO: loop through 
@@ -65,7 +66,6 @@ function App() {
               <Route path="/forgot" element={<ForgotPassword />} />
               <Route path="/about" element={<About />} />
               <Route path="/navbar" element={<PortalNav />} />
-              <Route path="/profiles/:user" element={<PublicProfile />} />
               {/* <Route path="/community" element={<Community />} />
           <Route path="/governance" element={<Governance />} /> */}
             </Routes>
