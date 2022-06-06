@@ -178,7 +178,7 @@ function Profile() {
           {userInfo.artwork &&
             userInfo.artwork.map((val) => {
               return (
-                <div key={val}>
+                <div key={val.url}>
                   <img
                     alt="gallery"
                     className="galleryImg"
