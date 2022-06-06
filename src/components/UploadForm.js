@@ -33,7 +33,7 @@ export default function UploadForm() {
     const newArt = {
       author: userInfo.username,
       description: refs.description.current.value,
-      likes: 0,
+      likes: [],
       price: refs.price.current.value,
       title: refs.title.current.value,
       url: newArtURL
