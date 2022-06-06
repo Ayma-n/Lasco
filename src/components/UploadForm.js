@@ -1,11 +1,13 @@
 import React, { useRef, useState } from 'react'
 import { useAuth } from "../contexts/AuthContext"
 import { useDb } from "../contexts/DatabaseContext"
+import { useNavigate } from 'react-router-dom';
 
 export default function UploadForm() {
 
   const { currentUser } = useAuth();
   const { uploadArtImage, updateArtData } = useDb();
+  const navigate = useNavigate();
 
   const refs = {
     title: useRef(),
@@ -41,7 +43,9 @@ export default function UploadForm() {
     }
 
     await updateArtData(newArt);
-    setLoading(false)
+    setLoading(false);
+    
+    navigate("/profile");
   }
 
   return (
