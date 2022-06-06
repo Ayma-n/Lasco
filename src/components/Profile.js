@@ -116,24 +116,16 @@ function Profile() {
     console.log("file", file)
     await uploadArtDb(file);
     navigate(0);
-
-    // console.log("waited")
-    // console.log(userInfo)
-    // window.location.reload();
-
-    // const img = document.createElement("img")
-    // img.src = imageUrl
-    // document.getElementById("gallery").append(img)
   }
 
   // deletes img from firestore db and sends req to server to del from s3 bucket
-  // TODO: ALSO DELETE ART FROM FIRESTORE
   async function handleDelImg(val) {
+
     // creates new list of art with art passed in removed
     const newArt = userInfo.artwork.filter((art) => art !== val);
     // updates db with new artwork
-    updateDb({ artwork: newArt }, currentUser.uid);
-    // await fetch("http://localhost:8454/deleteArt")
+    await updateDb({ artwork: newArt }, currentUser.uid);
+    
     await fetch(process.env.REACT_APP_SERVER_URL + "/delete-art", {
       method: "POST",
       body: JSON.stringify({ val: val }),
@@ -141,10 +133,8 @@ function Profile() {
         "Content-Type": "application/json",
       },
       mode: "cors",
-    }).then((text) => {
-      return false;
-    });
-    navigate(0);
+    })
+    navigate(0)
   }
 
   return (

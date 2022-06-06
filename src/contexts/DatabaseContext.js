@@ -42,6 +42,7 @@ export function DbProvider({ children }) {
   }
 
   async function updateDb(newItem, uid) {
+    console.log("updateDb was called.")
     const profilesRef = collection(db, "profiles");
     // gets doc in db that corresponds to current user
     const q = query(profilesRef, where("uid", "==", uid));
@@ -59,6 +60,7 @@ export function DbProvider({ children }) {
     });
     // console.log("docs0", docs[0])
     // updates current db by adding new key/value pair, which replaces existing key if it exists (bc of merge)
+    console.log("inside ran.")
     return setDoc(doc(profilesRef, docId), newItem, {merge: true});
   }
 
@@ -180,14 +182,10 @@ export function DbProvider({ children }) {
     // gets actual image, that is now stored on bucket
     const imageUrl = url.split('?')[0]
     console.log("IMAGEURL", imageUrl)
-    var currentArt;
-    console.log(userInfo.artwork)
-      // takes existing array, adds new artwork url to it
-      currentArt = [...userInfo.artwork, imageUrl]
-    // TODO: remove this.
-    console.log(currentArt)
+    var currentArt = userInfo.artwork;
+    currentArt.push(imageUrl);
+    
     return updateDb({artwork: currentArt}, currentUser.uid)
-    //fetchUserData();
   }
 
  
