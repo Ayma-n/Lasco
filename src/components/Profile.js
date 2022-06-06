@@ -15,8 +15,10 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { Fab, Button } from "@material-ui/core";
 import AddIcon from "@mui/icons-material/Add";
+import UploadIcon from "@mui/icons-material/Upload";
 
-import UploadForm from "./UploadForm"
+import UploadForm from "./UploadForm";
+import { PhotoCamera } from "@mui/icons-material";
 
 function Profile() {
   const [isFollowing, setIsFollowing] = useState(true);
@@ -163,9 +165,14 @@ function Profile() {
           </div>
           <form onSubmit={uploadArt}>
             {/* <input id="art-input" type="file" accept="image/*"></input> */}
-            <button className="bg-red-800 hover:bg-red-1000 text-white hover:-translate-y-1 transition-all font-bold py-4 rounded-full shadow-lg text-2xl focus:bg-purple-500 relative sm:px-6">
+            {/* <button className="bg-red-800 hover:bg-red-1000 text-white hover:-translate-y-1 transition-all font-bold py-4 rounded-full shadow-lg text-2xl focus:bg-purple-500 relative sm:px-6">
               Upload
-            </button>
+            </button> */}
+            <label htmlFor="art-input">
+            <button id="art-input" style={{ display: "none"}}></button>
+            <Fab color="primary" size="small" component="span" aria-label="add">
+              <UploadIcon />
+            </Fab></label>
           </form>
           {currentUser && <h1>{currentUser.displayName}</h1>}
           {userInfo && <h2 className="profileName">{userInfo.displayName}</h2>}
@@ -176,17 +183,31 @@ function Profile() {
           {userInfo.artwork &&
             userInfo.artwork.map((val) => {
               return (
-                <div key={val.url} style={{ position: "relative"}} onMouseOver={() => handleMouseOverImg(val.url)}
-                    onMouseOut={() => document.getElementById(`${val.url}-del`).style.display = "none"}>
-                <div className="container">
-                  <img
-                    alt="gallery"
-                    className="galleryImg"
-                    onClick={handleImgClick}
-                    src={val.url}
-                  />
+                <div
+                  key={val.url}
+                  style={{ position: "relative" }}
+                  onMouseOver={() => handleMouseOverImg(val.url)}
+                  onMouseOut={() =>
+                    (document.getElementById(`${val.url}-del`).style.display =
+                      "none")
+                  }
+                >
+                  <div className="container">
+                    <img
+                      alt="gallery"
+                      className="galleryImg"
+                      onClick={handleImgClick}
+                      src={val.url}
+                    />
                   </div>
-                  <button onClick={() => handleDelImg(val)} id={`${val.url}-del`} style={{display: "none"}} className="del-btn">X</button>
+                  <button
+                    onClick={() => handleDelImg(val)}
+                    id={`${val.url}-del`}
+                    style={{ display: "none" }}
+                    className="del-btn"
+                  >
+                    X
+                  </button>
                 </div>
               );
             })}
