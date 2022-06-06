@@ -188,7 +188,6 @@ export function DbProvider({ children }) {
     return updateDb({artwork: currentArt}, currentUser.uid)
   }
 
- 
 
   // TODO: this function is getting called every second
   async function fetchUserData() {
