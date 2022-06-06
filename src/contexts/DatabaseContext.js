@@ -191,7 +191,9 @@ export function DbProvider({ children }) {
   }
 
   async function updateArtData(artworkObject) {
-    return updateDb({artwork: artworkObject}, currentUser.uid)
+    var currentArt = userInfo.artwork;
+    currentArt.push(artworkObject)
+    return updateDb({artwork: currentArt}, currentUser.uid)
   }
 
 

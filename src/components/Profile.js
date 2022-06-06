@@ -14,6 +14,8 @@ import { useDb } from "../contexts/DatabaseContext";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 
+import UploadForm from "./UploadForm"
+
 function Profile() {
   const [isFollowing, setIsFollowing] = useState(true);
   // imported from pixelpalace
@@ -22,6 +24,8 @@ function Profile() {
   const [userData, setUserData] = useState("");
   const [isDataLoaded, setIsDataLoaded] = useState(false);
   const [artForSale, setArtForSale] = useState(0);
+
+  const [isUpload, setIsUpload] = useState(false);
 
   const navigate = useNavigate();
 
@@ -110,11 +114,12 @@ function Profile() {
   // this fun gets file that was submitted, and uploads it to s3 db by calling helper fun in DBContext.
   async function uploadArt(e) {
     e.preventDefault();
-    const file = document.getElementById("art-input").files[0];
+    //const file = document.getElementById("art-input").files[0];
     // calls uploadArt fun in DBContext, which uploads art file to s3 bucket and adds it to firestore db.
-    console.log("file", file)
-    await uploadArtDb(file);
-    navigate(0);
+    //console.log("file", file)
+    //await uploadArtDb(file);
+    setIsUpload(true);
+    //navigate(0);
   }
 
   // deletes img from firestore db and sends req to server to del from s3 bucket
@@ -139,6 +144,7 @@ function Profile() {
   return (
     <>
       <ViewPage id="ViewPage" />
+      {isUpload && <UploadForm id="UploadForm" />}
       <div id="Profile">
         {/* <PortalNav></PortalNav> */}
 
@@ -151,7 +157,7 @@ function Profile() {
             <button className="profile-btn">Stats</button>
           </div>
           <form onSubmit={uploadArt}>
-            <input id="art-input" type="file" accept="image/*"></input>
+            {/* <input id="art-input" type="file" accept="image/*"></input> */}
             <button className="bg-red-800 hover:bg-red-1000 text-white hover:-translate-y-1 transition-all font-bold py-4 rounded-full shadow-lg text-2xl focus:bg-purple-500 relative sm:px-6">
               Upload
             </button>
@@ -177,7 +183,7 @@ function Profile() {
                     alt="gallery"
                     className="galleryImg"
                     onClick={handleImgClick}
-                    src={val}
+                    src={val.url}
                   />
                   <button onClick={() => handleDelImg(val)}>Delete</button>
                 </div>
