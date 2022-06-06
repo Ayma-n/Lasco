@@ -127,6 +127,7 @@ function Profile() {
   }
 
   // deletes img from firestore db and sends req to server to del from s3 bucket
+  // TODO: ALSO DELETE ART FROM FIRESTORE
   async function handleDelImg(val) {
     // creates new list of art with art passed in removed
     const newArt = userInfo.artwork.filter((art) => art !== val);
