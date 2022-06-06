@@ -18,8 +18,6 @@ function Signup() {
     let newUID;
     const storage = getStorage();
    
-
-
     // We create refs for the data we will need to gather from the form.
     const emailRef = useRef();
     const passwordRef = useRef();
@@ -42,6 +40,11 @@ function Signup() {
 
     // Uses to useNavigate hook to redirect user
     const navigate = useNavigate();
+
+    // Redirect user to feed if logged in.
+    if (currentUser) {
+        navigate("/feed")
+    }
 
     async function handleSubmit(e) {
         e.preventDefault();

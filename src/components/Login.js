@@ -27,6 +27,11 @@ function Login() {
     // Creates a state for errors.
     const [error, setError] = useState('');
 
+    // Redirect user to feed if logged in.
+    if (authContext.currentUser) {
+        navigate("/feed")
+    }
+
     async function handleSubmit(e) {
         e.preventDefault();
 

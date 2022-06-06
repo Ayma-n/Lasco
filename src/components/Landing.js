@@ -3,7 +3,19 @@ import "../css/Landing.css";
 import demoLandingBelt from "../sample/posts/Demo-Landing-Belt.png";
 import NavBar from "./NavBar";
 
+import { useAuth } from "../contexts/AuthContext"
+import { useNavigate } from "react-router-dom";
+
 function Landing() {
+
+  const { currentUser } = useAuth();
+  const navigate = useNavigate();
+
+  // Redirects to feed if user is logged in.
+  if (currentUser) {
+    navigate("/feed");
+  }
+
   var belt;
   var beltDiv;
   var scrollInterval;
