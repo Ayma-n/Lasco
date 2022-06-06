@@ -85,9 +85,8 @@ function Profile() {
     }
   }
 
-  function handleImgClick() {
-    document.getElementById("image").src =
-      "https://hdwallpaperim.com/wp-content/uploads/2017/08/23/458235-digital_art-fantasy_art-painting-DeviantArt-bicycle-futuristic-clouds-building-city-flag-reflection-chair-surreal-colorful-musical_notes-birds.jpg";
+  function handleImgClick(e) {
+    document.getElementById("image").src = e.target.src;
     var width = document.getElementById("image").style.width;
     // document.getElementById('image').style.width = '300px';
     var height =
