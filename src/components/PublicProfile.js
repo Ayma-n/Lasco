@@ -83,13 +83,6 @@ function PublicProfile() {
         <FollowBtn></FollowBtn>
       </div>
       <div id="gallery">
-        <img className="galleryImg" onClick={handleImgClick} src={img1} />
-        <img className="galleryImg" src={img2} />
-        <img className="galleryImg" src={img3} />
-        <img className="galleryImg" src={img4} />
-        <img className="galleryImg" src={img1} />
-        <img className="galleryImg" src={img2} />
-        <img className="galleryImg" src={img3} />
         {publicUserInfo && publicUserInfo.artwork.map((val) => {
           return (<>
             <img className="galleryImg" onClick={handleImgClick} src={val} />

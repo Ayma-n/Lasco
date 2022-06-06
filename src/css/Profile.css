@@ -66,6 +66,7 @@
   /* centers profile div */
   margin: 0 auto;
   width: min-content;
+  gap: 20px;
 }
 #Profile .profile-link {
   align-items: center;
@@ -73,6 +74,35 @@
   justify-content: center;
   align-content: center;
   display: flex;
+}
+#Profile .del-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+#Profile .container {
+  width: 195px;
+  height: 195px;
+  border-radius: 20px;
+}
+#Profile .container img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+@supports (object-fit: cover) {
+  #Profile .container img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
 }
 #Profile .profile-btn {
   width: 100px;

@@ -13,6 +13,8 @@ import { height } from "@mui/system";
 import { useDb } from "../contexts/DatabaseContext";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import { Fab, Button } from "@material-ui/core";
+import AddIcon from "@mui/icons-material/Add";
 
 function Profile() {
   const [isFollowing, setIsFollowing] = useState(true);
@@ -112,19 +114,18 @@ function Profile() {
     e.preventDefault();
     const file = document.getElementById("art-input").files[0];
     // calls uploadArt fun in DBContext, which uploads art file to s3 bucket and adds it to firestore db.
-    console.log("file", file)
+    console.log("file", file);
     await uploadArtDb(file);
     navigate(0);
   }
 
   // deletes img from firestore db and sends req to server to del from s3 bucket
   async function handleDelImg(val) {
-
     // creates new list of art with art passed in removed
     const newArt = userInfo.artwork.filter((art) => art !== val);
     // updates db with new artwork
     await updateDb({ artwork: newArt }, currentUser.uid);
-    
+
     await fetch(process.env.REACT_APP_SERVER_URL + "/delete-art", {
       method: "POST",
       body: JSON.stringify({ val: val }),
@@ -132,62 +133,68 @@ function Profile() {
         "Content-Type": "application/json",
       },
       mode: "cors",
-    })
-    navigate(0)
+    });
+    navigate(0);
+  }
+
+  function handleMouseOverImg(val) {
+    document.getElementById(`${val}-del`).style.display = "block";
   }
 
   return (
     <>
       <ViewPage id="ViewPage" />
       <div id="Profile">
-        {/* <PortalNav></PortalNav> */}
-
         <div id="dashboard">
           <div className="flex profile-link" id="profile-div">
             <Link to="/settings" id="profile-link">
-              <button id="edit-profile-btn" className="profile-btn">Edit Profile</button>
+              <button id="edit-profile-btn" className="profile-btn">
+                Edit Profile
+              </button>
             </Link>
             {userInfo && <img className="profileImg" src={userInfo.photoURL} />}
             <button className="profile-btn">Stats</button>
           </div>
-          <form onSubmit={uploadArt}>
-            <input id="art-input" type="file" accept="image/*"></input>
-            <button className="bg-red-800 hover:bg-red-1000 text-white hover:-translate-y-1 transition-all font-bold py-4 rounded-full shadow-lg text-2xl focus:bg-purple-500 relative sm:px-6">
-              Upload
-            </button>
-          </form>
+
+          {/* </form> */}
           {currentUser && <h1>{currentUser.displayName}</h1>}
           {userInfo && <h2 className="profileName">{userInfo.displayName}</h2>}
           {userInfo && <p className="username"> {`@${userInfo.username}`}</p>}
           {userInfo && <p className="bio">{userInfo.bio}</p>}
+
+          <label htmlFor="art-input">
+            <input
+              style={{ display: "none" }}
+              id="art-input"
+              name="art-input"
+              type="file"
+              onChange={uploadArt}
+            />
+            <br />
+            <br />
+            <Fab color="primary" size="small" component="span" aria-label="add">
+              <AddIcon />
+            </Fab>
+          </label>
         </div>
         <div id="gallery">
-          <img className="galleryImg" onClick={handleImgClick} src={img1} />
-          <img className="galleryImg" src={img2} />
-          <img className="galleryImg" src={img3} />
-          <img className="galleryImg" src={img4} />
-          <img className="galleryImg" src={img1} />
-          <img className="galleryImg" src={img2} />
-          <img className="galleryImg" src={img3} />
           {userInfo.artwork &&
             userInfo.artwork.map((val) => {
               return (
-                <div key={val}>
+                <div key={val} style={{ position: "relative"}} onMouseOver={() => handleMouseOverImg(val)}
+                    onMouseOut={() => document.getElementById(`${val}-del`).style.display = "none"}>
+                <div className="container">
                   <img
                     alt="gallery"
                     className="galleryImg"
                     onClick={handleImgClick}
                     src={val}
                   />
-                  <button onClick={() => handleDelImg(val)}>Delete</button>
+                  </div>
+                  <button onClick={() => handleDelImg(val)} id={`${val}-del`} style={{display: "none"}} className="del-btn">X</button>
                 </div>
               );
             })}
-          {/* {artList} */}
-          {/* {isDataLoaded && <img className="galleryImg" src={userData.held_artwork[0].img_url} />} */}
-          {/* {userData.held_artwork.map((val, key) => {
-        return (<img className="galleryImg" src={val.img_url} />);
-      })} */}
         </div>
       </div>
     </>
