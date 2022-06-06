@@ -164,7 +164,7 @@ export function DbProvider({ children }) {
 
     // TODO: Verify authentication before fetching (send the server a token, or something)
   async function uploadArtDb(file) {
-    const { url } = await fetch("https://data.lascoapp.com/s3/").then((res) => {
+    const { url } = await fetch(process.env.REACT_APP_SERVER_URL + "/upload-art").then((res) => {
       console.log("res", res);
       return res.json()
     })
