@@ -173,14 +173,15 @@ function Profile() {
           {userInfo.artwork &&
             userInfo.artwork.map((val) => {
               return (
-                <>
+                <div key={val}>
                   <img
+                    alt="gallery"
                     className="galleryImg"
                     onClick={handleImgClick}
                     src={val}
                   />
                   <button onClick={() => handleDelImg(val)}>Delete</button>
-                </>
+                </div>
               );
             })}
           {/* {artList} */}
