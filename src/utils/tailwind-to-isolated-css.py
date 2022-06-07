@@ -19,7 +19,7 @@ def updateOutputCSS():
         plainSCSS = f.read()
 
     newSCSS = "#" + wrappingClass + "{" + plainSCSS + "}"
-
+        # appends wrapping class to end of existing scss file
     with open("src/output.scss", "a") as f:
         f.write(newSCSS);
 
