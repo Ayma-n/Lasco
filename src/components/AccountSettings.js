@@ -32,6 +32,7 @@ export default function AccountSettings() {
     setError("");
     setLoading(true);
     e.preventDefault();
+    // TODO: replace with try catch
     if (passwordRef.current.value) {
       reauthenticateUser(oldPasswordRef.current.value).catch((err) => {
         console.error(err);
@@ -103,6 +104,10 @@ export default function AccountSettings() {
   // TODO: get profile to refresh when bio changes....
   function handleBackClick() {
     navigate(-1);
+    // refreshes page so that updates load, but has to wait after profile page has loaded
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000)
   }
 
   // uploads profile img to s3 bucket by asking server to get upload url, then uploading img directly to that url
