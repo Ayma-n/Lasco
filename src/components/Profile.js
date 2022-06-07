@@ -16,9 +16,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { Fab, Button } from "@material-ui/core";
 import AddIcon from "@mui/icons-material/Add";
 import UploadIcon from "@mui/icons-material/Upload";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 import UploadForm from "./UploadForm";
-import { PhotoCamera } from "@mui/icons-material";
+import { BarChartOutlined, PhotoCamera } from "@mui/icons-material";
 
 function Profile() {
   const [isFollowing, setIsFollowing] = useState(true);
@@ -156,12 +157,44 @@ function Profile() {
         <div id="dashboard">
           <div className="flex profile-link" id="profile-div">
             <Link to="/settings" id="profile-link">
-              <button id="edit-profile-btn" className="profile-btn">
-                Edit Profile
-              </button>
+              <label htmlFor="edit-profile-btn">
+                <button
+                  id="edit-profile-btn"
+                  className="profile-btn"
+                  style={{ display: "none" }}
+                >
+                  Edit Profile
+                </button>
+                <Button
+                  variant="contained"
+                  size="small"
+                  color="primary"
+                  startIcon={<AccountCircleIcon></AccountCircleIcon>}
+                >
+                  Edit
+                </Button>
+              </label>
             </Link>
             {userInfo && <img className="profileImg" src={userInfo.photoURL} />}
-            <button className="profile-btn">Stats</button>
+        <Link to="/stats" id="stats-link">
+            <label htmlFor="stats-btn">
+              <button
+                id="stats-btn"
+                className="profile-btn"
+                style={{ display: "none" }}
+              >
+                Stats
+              </button>
+              <Button
+                variant="contained"
+                size="small"
+                color="primary"
+                startIcon={<BarChartOutlined></BarChartOutlined>}
+              >
+                Stats
+              </Button>
+            </label>
+            </Link>
           </div>
           <form onSubmit={uploadArt}>
             {/* <input id="art-input" type="file" accept="image/*"></input> */}
@@ -169,10 +202,16 @@ function Profile() {
               Upload
             </button> */}
             <label htmlFor="art-input">
-            <button id="art-input" style={{ display: "none"}}></button>
-            <Fab color="primary" size="small" component="span" aria-label="add">
-              <UploadIcon />
-            </Fab></label>
+              <button id="art-input" style={{ display: "none" }}></button>
+              <Fab
+                color="primary"
+                size="small"
+                component="span"
+                aria-label="add"
+              >
+                <UploadIcon />
+              </Fab>
+            </label>
           </form>
           {currentUser && <h1>{currentUser.displayName}</h1>}
           {userInfo && <h2 className="profileName">{userInfo.displayName}</h2>}

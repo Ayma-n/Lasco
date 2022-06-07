@@ -9,6 +9,7 @@ import Landing from './Landing';
 import About from './About';
 import PortalNav from './PortalNav';
 import Portal from './Portal';
+import StatsPage from './StatsPage';
 import ForgotPassword from './ForgotPassword';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -66,6 +67,7 @@ function App() {
               <Route path="/forgot" element={<ForgotPassword />} />
               <Route path="/about" element={<About />} />
               <Route path="/navbar" element={<PortalNav />} />
+              <Route path="/stats" element={<StatsPage />} />
               {/* <Route path="/community" element={<Community />} />
           <Route path="/governance" element={<Governance />} /> */}
             </Routes>
