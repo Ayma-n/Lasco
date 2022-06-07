@@ -9,18 +9,18 @@ import os
 wrappingClass = input("Name of Wrapping CSS Class: ")
 
 componentPath = "src/components/" + wrappingClass + ".js"
-oldComponentCode = ""
+oldComponentCode = "" #What is this for?
 
 def updateOutputCSS():
-    os.system("npx tailwindcss -i src/tailwind/manual.css -o src/output.css")
-    os.system("cp src/output.css src/output.scss")
+    os.system("npx tailwindcss -i src/tailwind/manual.css -o src/intermediary.css")
+    os.system("cp src/intermediary.css src/intermediary.scss")
 
-    with open("src/output.scss", "r") as f:
+    with open("src/intermediary.scss", "r") as f:
         plainSCSS = f.read()
 
     newSCSS = "#" + wrappingClass + "{" + plainSCSS + "}"
 
-    with open("src/output.scss", "w") as f:
+    with open("src/output.scss", "a") as f:
         f.write(newSCSS);
 
     os.system("sass src/output.scss:src/output.css")
