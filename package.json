@@ -25,7 +25,7 @@
   "scripts": {
     "start": "BROWSER='brave' react-scripts start",
     "build": "react-scripts build",
-    "devStart": "concurrently \"python3 src/utils/tailwind-to-isolated-css.py\" \"react-scripts start\"",
+    "devStart": "react-scripts start & python3 src/utils/tailwind-to-isolated-css.py",
     "test": "react-scripts test",
     "tailwind": "python3 src/utils/tailwind-to-isolated-css.py",
     "dev": "BROWSER='brave' concurrently \"sass --watch src/scss:src/css\" \"react-scripts start\" ",
