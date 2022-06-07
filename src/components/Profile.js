@@ -117,6 +117,12 @@ function Profile() {
               </label>
             </Link>
           </div>
+
+          {currentUser && <h1>{currentUser.displayName}</h1>}
+          {userInfo && <h2 className="profileName">{userInfo.displayName}</h2>}
+          {userInfo && <p className="username"> {`@${userInfo.username}`}</p>}
+          {userInfo && <p className="bio">{userInfo.bio}</p>}
+
           <label htmlFor="art-input">
             <button
               id="art-input"
@@ -127,10 +133,6 @@ function Profile() {
               <AddIcon />
             </Fab>
           </label>
-          {currentUser && <h1>{currentUser.displayName}</h1>}
-          {userInfo && <h2 className="profileName">{userInfo.displayName}</h2>}
-          {userInfo && <p className="username"> {`@${userInfo.username}`}</p>}
-          {userInfo && <p className="bio">{userInfo.bio}</p>}
         </div>
         <div id="gallery">
           {userInfo.artwork &&
