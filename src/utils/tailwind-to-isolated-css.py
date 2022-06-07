@@ -2,6 +2,7 @@
 # If there are changes, Tailwind re-renders the output CSS.
 # Then, it is converted to SCSS and the wrapping class is added to the file.
 # Sass then processes the new SCSS file and outputs a CSS where the styling is only defined for the wrapping class.
+# TODO: make it work with multiple wrapping classes
 
 import time
 import os

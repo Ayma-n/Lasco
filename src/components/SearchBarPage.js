@@ -67,9 +67,9 @@ function SearchBarPage() {
 
         {users && users.map((val) => {
           return (<Link to={`/profiles/${val.username}`}>
-            <div>
-          <div>{val.username}</div>
+            <div className="flex flex-row">
           <img src={val.photoURL} width="100px" />
+          <div className="self-center justify-center">{val.username}</div>
           </div>
           </Link>)
         })}
