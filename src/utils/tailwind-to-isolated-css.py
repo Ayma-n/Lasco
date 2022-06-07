@@ -9,7 +9,7 @@ import os
 wrappingClass = input("Name of Wrapping CSS Class: ")
 
 componentPath = "src/components/" + wrappingClass + ".js"
-oldComponentCode = "" #What is this for?
+oldComponentCode = ""
 
 def updateOutputCSS():
     os.system("npx tailwindcss -i src/tailwind/manual.css -o src/intermediary.css")
