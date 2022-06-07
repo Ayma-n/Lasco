@@ -21,6 +21,7 @@ import PrivateRoute from './PrivateRoute';
 import Search from '@mui/icons-material/Search';
 import AccountSettings from './AccountSettings';
 import PublicProfile from './PublicProfile';
+import UploadForm from './UploadForm';
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
                 <Route path={`/search`} element={<Portal currentPage={SearchBarPage} />} />
                 <Route path="/settings" element={<AccountSettings />} />
                 <Route path="/profiles/:user" element={<PublicProfile />} />
+                <Route path="/upload" element={<UploadForm />} />
               </Route>
 
               //TODO: loop through 

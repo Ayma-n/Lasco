@@ -19,80 +19,13 @@ import UploadIcon from "@mui/icons-material/Upload";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 import UploadForm from "./UploadForm";
-import { BarChartOutlined, PhotoCamera } from "@mui/icons-material";
+import { AddBox, BarChartOutlined, PhotoCamera } from "@mui/icons-material";
 
 function Profile() {
-  const [isFollowing, setIsFollowing] = useState(true);
-  // imported from pixelpalace
-  const [seeEdit, setSeeEdit] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(true);
-  const [userData, setUserData] = useState("");
-  const [isDataLoaded, setIsDataLoaded] = useState(false);
-  const [artForSale, setArtForSale] = useState(0);
-
-  const [isUpload, setIsUpload] = useState(false);
-
   const navigate = useNavigate();
 
-  // functionTest();
-  function handleFileChange(e) {
-    console.log(e);
-    console.log(e.target.value);
-    console.log(e.target.files[0]);
-  }
-  const { userInfo, updateDb, uploadArtDb } = useDb();
+  const { userInfo, updateDb } = useDb();
   const { currentUser } = useAuth();
-
-  // effect hook that gets user data; second param is blank array so that it is constant and getData only gets called once after render.
-  //TODO: remove
-  useEffect(() => {
-    getData();
-  }, [artForSale]);
-
-  function countArt() {
-    if (userData) {
-      let count = 0;
-      for (let i = 0; i < userData.held_artwork.length; i++) {
-        if (userData.held_artwork[i].for_sale) {
-          count += 1;
-        }
-      }
-      return count;
-    }
-  }
-
-  async function getData() {
-    // let domain = process.env.CLIENT_URL;
-    // console.log("domain", domain)
-    // let url = `/profile/test123`;
-    // await axios
-    //   .get(url)
-    //   .then((body) => handleSetData(body))
-    //   .catch((error) => {
-    //     console.log("Get existing profile failed");
-    //   });
-    // console.log(userData.profile_id);
-    // console.log(userData.held_artwork.length);
-    // console.log(userData.held_artwork[0].img_url);
-  }
-  // sets user data in a hook, is called by async function
-  function handleSetData(body) {
-    setUserData(body.data);
-    // console.log(userData.held_artwork[1])
-    setIsDataLoaded(true);
-    setArtForSale(countArt());
-  }
-  function createList() {
-    if (isDataLoaded) {
-      var artList = [];
-      for (let i = 0; i < userData.held_artwork.length; i++) {
-        artList.append(
-          <img className="galleryImg" src={userData.held_artwork[i].img_url} />
-        );
-      }
-      return artList;
-    }
-  }
 
   function handleImgClick(e) {
     document.getElementById("image").src = e.target.src;
@@ -114,17 +47,6 @@ function Profile() {
     document.getElementById("ViewPage").style.display = "block";
     document.getElementById("Profile").classList.toggle("blur");
     document.getElementById("PortalNav").classList.toggle("blur");
-  }
-
-  // this fun gets file that was submitted, and uploads it to s3 db by calling helper fun in DBContext.
-  async function uploadArt(e) {
-    e.preventDefault();
-    //const file = document.getElementById("art-input").files[0];
-    // calls uploadArt fun in DBContext, which uploads art file to s3 bucket and adds it to firestore db.
-    //console.log("file", file)
-    //await uploadArtDb(file);
-    setIsUpload(true);
-    //navigate(0);
   }
 
   // deletes img from firestore db and sends req to server to del from s3 bucket
@@ -152,7 +74,6 @@ function Profile() {
   return (
     <>
       <ViewPage id="ViewPage" />
-      {isUpload && <UploadForm id="UploadForm" />}
       <div id="Profile">
         <div id="dashboard">
           <div className="flex profile-link" id="profile-div">
@@ -176,43 +97,36 @@ function Profile() {
               </label>
             </Link>
             {userInfo && <img className="profileImg" src={userInfo.photoURL} />}
-        <Link to="/stats" id="stats-link">
-            <label htmlFor="stats-btn">
-              <button
-                id="stats-btn"
-                className="profile-btn"
-                style={{ display: "none" }}
-              >
-                Stats
-              </button>
-              <Button
-                variant="contained"
-                size="small"
-                color="primary"
-                startIcon={<BarChartOutlined></BarChartOutlined>}
-              >
-                Stats
-              </Button>
-            </label>
+            <Link to="/stats" id="stats-link">
+              <label htmlFor="stats-btn">
+                <button
+                  id="stats-btn"
+                  className="profile-btn"
+                  style={{ display: "none" }}
+                >
+                  Stats
+                </button>
+                <Button
+                  variant="contained"
+                  size="small"
+                  color="primary"
+                  startIcon={<BarChartOutlined></BarChartOutlined>}
+                >
+                  Stats
+                </Button>
+              </label>
             </Link>
           </div>
-          <form onSubmit={uploadArt}>
-            {/* <input id="art-input" type="file" accept="image/*"></input> */}
-            {/* <button className="bg-red-800 hover:bg-red-1000 text-white hover:-translate-y-1 transition-all font-bold py-4 rounded-full shadow-lg text-2xl focus:bg-purple-500 relative sm:px-6">
-              Upload
-            </button> */}
-            <label htmlFor="art-input">
-              <button id="art-input" style={{ display: "none" }}></button>
-              <Fab
-                color="primary"
-                size="small"
-                component="span"
-                aria-label="add"
-              >
-                <UploadIcon />
-              </Fab>
-            </label>
-          </form>
+          <label htmlFor="art-input">
+            <button
+              id="art-input"
+              style={{ display: "none" }}
+              onClick={() => navigate("/upload")}
+            ></button>
+            <Fab color="primary" size="small" component="span" aria-label="add">
+              <AddIcon />
+            </Fab>
+          </label>
           {currentUser && <h1>{currentUser.displayName}</h1>}
           {userInfo && <h2 className="profileName">{userInfo.displayName}</h2>}
           {userInfo && <p className="username"> {`@${userInfo.username}`}</p>}

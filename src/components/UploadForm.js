@@ -1,11 +1,10 @@
 import React, { useRef, useState } from "react";
 import { useDb } from "../contexts/DatabaseContext";
 import { useNavigate } from "react-router-dom";
-import { Fab, Button, Input, TextField, IconButton} from "@material-ui/core";
+import { Fab, Button, Input, TextField, IconButton } from "@material-ui/core";
 import AddIcon from "@mui/icons-material/Add";
-import InputAdornment from '@mui/material/InputAdornment';
+import InputAdornment from "@mui/material/InputAdornment";
 import { PhotoCamera } from "@mui/icons-material";
-
 
 export default function UploadForm() {
   const { uploadArtImage, updateArtData, userInfo } = useDb();
@@ -26,6 +25,7 @@ export default function UploadForm() {
     e.preventDefault();
     setError("");
     setLoading(true);
+    console.log("hiiiii");
 
     console.log(refs.title.current.value);
 
@@ -74,19 +74,30 @@ export default function UploadForm() {
             name="artwork-desc"
             style={{ display: "none" }}
           ></input>
-           <TextField  variant="outlined" multiline placeholder="Lucious Greens and Blues in the Jungle of the Clouds" />
+          <TextField
+            variant="outlined"
+            multiline
+            placeholder="Lucious Greens and Blues in the Jungle of the Clouds"
+          />
         </label>
-        <label htmlFor="artwork-price">Price: 
-        <input
-          ref={refs.price}
-          type="text"
-          id="artwork-price"
-          name="artwork-price"
-          style={{display: "none"}}
-          
-        ></input>
-         <TextField placeholder="250" variant="outlined" onChange={(e) => setPrice(e.target.value)} error={isNaN(price)} helperText="Price must be a number." startadornment={<InputAdornment position="start">$</InputAdornment>} />
-         </label>
+        <label htmlFor="artwork-price">
+          Price:
+          <input
+            ref={refs.price}
+            type="text"
+            id="artwork-price"
+            name="artwork-price"
+            style={{ display: "none" }}
+          ></input>
+          <TextField
+            placeholder="250"
+            variant="outlined"
+            onChange={(e) => setPrice(e.target.value)}
+            error={isNaN(price)}
+            helperText="Price must be a number."
+            startadornment={<InputAdornment position="start">$</InputAdornment>}
+          />
+        </label>
         <label htmlFor="upload-image">
           Image:
           <input
@@ -101,10 +112,16 @@ export default function UploadForm() {
             <PhotoCamera />
           </Fab>
         </label>
-        <label htmlFor="submit-artwork">
-        <button id="submit-artwork" type="submit" disabled={loading} style={{display: "none"}}></button>
-        <Button variant="contained" color="primary">Post</Button>
-        </label>
+        <Button
+          id="submit-button"
+          variant="contained"
+          disabled={loading}
+          color="primary"
+          type="submit"
+        >
+          Post
+        </Button>
+
         {error && <div>{error}</div>}
       </form>
     </div>
