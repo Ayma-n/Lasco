@@ -211,6 +211,9 @@ export function DbProvider({ children }) {
     return updateDb({ artwork: currentArt }, currentUser.uid);
   }
 
+  // TODO: like someone else's post
+  // TODO: test whether follow works on someone else's profile
+  // TODO: add comment functionality
   async function likeMyPost(e) {
     console.log("liked!");
     const targetUrl = document.getElementById("image").src
@@ -221,9 +224,44 @@ export function DbProvider({ children }) {
       (art) => art.url === targetUrl
     )[0];
     console.log("artWorkObj", JSON.stringify(artWorkObj));
-    const newArtWorkObj = {...artWorkObj, likes: [...artWorkObj.likes, currentUser.username]};
+    const newLikes = [...artWorkObj.likes, userInfo.username];
+    console.log("new likes", newLikes);
+    console.log("old likes", artWorkObj.likes);
+    console.log("username", userInfo.username);
+    const newArtWorkObj = {...artWorkObj, likes: newLikes};
     const newArtArray = [...oldArtArray, newArtWorkObj];
     console.log("newArt", newArtArray);
+    console.log("newArt", [JSON.stringify({ artwork: newArtArray }), currentUser.uid]);
+    return updateDb({ artwork: newArtArray }, currentUser.uid);
+  }
+
+  async function unlikeMyPost(e) {
+    console.log("unliked!");
+    console.log("user artwork", userInfo.artwork);
+    const targetUrl = document.getElementById("image").src
+    console.log("targetUrl", targetUrl);
+    const oldArtArray = userInfo.artwork.filter(
+      (art) => art.url !== targetUrl
+    );
+    const artWorkObj = userInfo.artwork.filter(
+      (art) => art.url === targetUrl
+    )[0];
+    console.log("artWorkObj", JSON.stringify(artWorkObj));
+    // removes username of current user from likes array
+    artWorkObj.likes = artWorkObj.likes.filter(like => like !== userInfo.username)
+    console.log("new likes", artWorkObj.likes);
+    console.log("username", userInfo.username);
+    const newArtWorkObj = artWorkObj;
+    console.log("newArtWorkObn", JSON.stringify(newArtWorkObj));
+    const newArtArray = userInfo.artwork.map(art => {
+      if (art.url === targetUrl) {
+        return newArtWorkObj
+      }
+      return art
+    })
+    console.log("oldArtArray", oldArtArray);
+    console.log("newArtArray", newArtArray);
+    console.log("newArt", [JSON.stringify({ artwork: newArtArray }), currentUser.uid]);
     return updateDb({ artwork: newArtArray }, currentUser.uid);
   }
 
@@ -254,6 +292,7 @@ export function DbProvider({ children }) {
     followUser,
     unfollowUser,
     likeMyPost,
+    unlikeMyPost,
     userInfo,
   };
 

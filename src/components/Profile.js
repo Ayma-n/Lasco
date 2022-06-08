@@ -33,12 +33,12 @@ function Profile() {
     // TODO: create a ref on image of author, then reference that
     console.log("dataset", e.target.dataset);
     document.getElementById("title").innerText = e.target.dataset.title;
-    document.getElementById("description").innerText = e.target.dataset.description;
+    document.getElementById("description").innerText =
+      e.target.dataset.description;
     document.getElementById("price").innerText = `$${e.target.dataset.price}`;
     document.getElementById("view-author-name").innerHTML =
       userInfo.displayName;
-    document.getElementById("comment-stat").innerHTML =
-      e.target.dataset.likes;
+    document.getElementById("likes-stat").innerHTML = `likes: ${e.target.dataset.likes}`;
     var width = document.getElementById("image").style.width;
     // document.getElementById('image').style.width = '300px';
     var height =

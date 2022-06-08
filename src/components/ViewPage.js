@@ -8,11 +8,18 @@ import "../css/ViewPage.css";
 import FollowBtn from "./FollowBtn";
 import { getAdditionalUserInfo } from "firebase/auth";
 import { useDb } from "../contexts/DatabaseContext";
+import { IconButton } from "@mui/material";
+import { Favorite, FavoriteBorder } from "@mui/icons-material";
 
 function ViewPage() {
   // use state for ability to see comments or not, is changed on click of comment icon
   const [seeComments, setSeeComments] = useState(false);
-  const { userInfo, likeMyPost } = useDb();
+  const { userInfo, likeMyPost, unlikeMyPost } = useDb();
+  // TODO: this is wrong
+  const liked = userInfo.artwork.map(art => art.likes).includes(userInfo.username);
+  console.log("liked", liked)
+  // TODO: cant have one hook for all posts
+  const [isLiked, setIsLiked] = useState(false);
 
   function setCommVis() {
     let value = seeComments ? "block" : "none";
@@ -33,10 +40,19 @@ function ViewPage() {
       portalNav.classList.toggle("blur");
     }
   }
+  async function likeOrUnlike(isLiked) {
+    if (isLiked) {
+      await unlikeMyPost();
+      setIsLiked(false);
+    } else {
+      await likeMyPost();
+      setIsLiked(true);
+    }
+  }
 
   return (
     <div id="ViewPage">
-      <div id="comment-stat"></div>
+      <div id="likes-stat"></div>
       <img id="close-btn" src={close} onClick={handleCloseClick} />
       <div id="modal">
         <div className="left">
@@ -48,15 +64,29 @@ function ViewPage() {
                 className="profile-img"
                 src={profileImg}
               />
-                <div id="view-author-name" className="author-name">
-                 John Smith
-                </div>
+              <div id="view-author-name" className="author-name">
+                John Smith
+              </div>
 
               <FollowBtn />
             </div>
             <img id="image" src={testImg} />
             <div id="title-line">
-              <img src={fire} alt="fire icon" id="like-icon" onClick={likeMyPost} />
+              {/* <img src={fire} alt="fire icon" id="like-icon" onClick={() => likeOrUnlike(isLiked)} /> */}
+              <IconButton
+                alt="fire icon"
+                id="like-icon"
+                onClick={() => likeOrUnlike(isLiked)}
+              >
+                <FavoriteBorder
+                  style={{ display: isLiked ? "none" : "block" }}
+                  fontSize="large"
+                ></FavoriteBorder>
+                <Favorite
+                  style={{ display: isLiked ? "block" : "none" }}
+                  fontSize="large"
+                ></Favorite>
+              </IconButton>
               <div id="title">JungleCity</div>
               <img
                 src={comment}
