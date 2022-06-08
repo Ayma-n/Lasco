@@ -29,6 +29,16 @@ function Profile() {
 
   function handleImgClick(e) {
     document.getElementById("image").src = e.target.src;
+    // sets modal name to user logged in
+    // TODO: create a ref on image of author, then reference that
+    console.log("dataset", e.target.dataset);
+    document.getElementById("title").innerText = e.target.dataset.title;
+    document.getElementById("description").innerText = e.target.dataset.description;
+    document.getElementById("price").innerText = `$${e.target.dataset.price}`;
+    document.getElementById("view-author-name").innerHTML =
+      userInfo.displayName;
+    document.getElementById("comment-stat").innerHTML =
+      e.target.dataset.likes;
     var width = document.getElementById("image").style.width;
     // document.getElementById('image').style.width = '300px';
     var height =
@@ -136,15 +146,16 @@ function Profile() {
         </div>
         <div id="gallery">
           {userInfo.artwork &&
-            userInfo.artwork.map((val) => {
+            userInfo.artwork.map((artObj) => {
               return (
                 <div
-                  key={val.url}
+                  key={artObj.url}
                   style={{ position: "relative" }}
-                  onMouseOver={() => handleMouseOverImg(val.url)}
+                  onMouseOver={() => handleMouseOverImg(artObj.url)}
                   onMouseOut={() =>
-                    (document.getElementById(`${val.url}-del`).style.display =
-                      "none")
+                    (document.getElementById(
+                      `${artObj.url}-del`
+                    ).style.display = "none")
                   }
                 >
                   <div className="container">
@@ -152,12 +163,17 @@ function Profile() {
                       alt="gallery"
                       className="galleryImg"
                       onClick={handleImgClick}
-                      src={val.url}
+                      data-author={artObj.author}
+                      data-title={artObj.title}
+                      data-description={artObj.description}
+                      data-price={artObj.price}
+                      data-likes={artObj.likes.length}
+                      src={artObj.url}
                     />
                   </div>
                   <button
-                    onClick={() => handleDelImg(val)}
-                    id={`${val.url}-del`}
+                    onClick={() => handleDelImg(artObj)}
+                    id={`${artObj.url}-del`}
                     style={{ display: "none" }}
                     className="del-btn"
                   >

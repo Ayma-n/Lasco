@@ -107,7 +107,7 @@ export default function AccountSettings() {
     // refreshes page so that updates load, but has to wait after profile page has loaded
     setTimeout(() => {
       window.location.reload();
-    }, 1000)
+    }, 200)
   }
 
   // uploads profile img to s3 bucket by asking server to get upload url, then uploading img directly to that url

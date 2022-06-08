@@ -22,19 +22,18 @@ export function useDb() {
   return useContext(DatabaseContext);
 }
 
-
-
 export function DbProvider({ children }) {
   const { currentUser } = useAuth();
-  const [userInfo, setUserInfo] = useState({ uid: '',
-  username: '',
-  displayName: '',
-  useCase: '',
-  photoURL: "",
-  artwork: [],
-  followers: [],
-  following: [],
- });
+  const [userInfo, setUserInfo] = useState({
+    uid: "",
+    username: "",
+    displayName: "",
+    useCase: "",
+    photoURL: "",
+    artwork: [],
+    followers: [],
+    following: [],
+  });
 
   function createUser(userObject) {
     const profilesRef = collection(db, "/profiles");
@@ -42,7 +41,8 @@ export function DbProvider({ children }) {
   }
 
   async function updateDb(newItem, uid) {
-    console.log("updateDb was called.")
+    console.log("updateDb was called.");
+    console.log("newItem: ", newItem);
     const profilesRef = collection(db, "profiles");
     // gets doc in db that corresponds to current user
     const q = query(profilesRef, where("uid", "==", uid));
@@ -53,15 +53,15 @@ export function DbProvider({ children }) {
     //console.log(querySnapshot)
 
     const docs = [];
-    var docId = '';
+    var docId = "";
     querySnapshot.forEach((doc) => {
       // docs.push(doc);
-       docId = doc.id;
+      docId = doc.id;
     });
     // console.log("docs0", docs[0])
     // updates current db by adding new key/value pair, which replaces existing key if it exists (bc of merge)
-    console.log("inside ran.")
-    return setDoc(doc(profilesRef, docId), newItem, {merge: true});
+    console.log("inside ran.");
+    return setDoc(doc(profilesRef, docId), newItem, { merge: true });
   }
 
   async function getProfileData(uid) {
@@ -87,51 +87,64 @@ export function DbProvider({ children }) {
   async function followUser(username) {
     // queries db for document with username to follow
     const profilesRef = collection(db, "/profiles");
-    console.log("username", username)
+    console.log("username", username);
     const q = query(profilesRef, where("username", "==", username));
     const querySnapshot = await getDocs(q);
     const docs = [];
     var docId;
     var doc1;
     await querySnapshot.forEach((doc) => {
-       docId = doc.id;
-       doc1 = doc.data();
+      docId = doc.id;
+      doc1 = doc.data();
     });
-    console.log("doc0", username)
+    console.log("doc0", username);
 
     //TODO: take followers list and edit it
     // updates current db by adding new key/value pair, which replaces existing key if it exists (bc of merge)
-    console.log("doc", doc1)
-    return setDoc(doc(profilesRef, docId), {followers: [...doc1.followers, username]}, {merge: true})
+    console.log("doc", doc1);
+    return setDoc(
+      doc(profilesRef, docId),
+      { followers: [...doc1.followers, username] },
+      { merge: true }
+    );
   }
 
   async function unfollowUser(username) {
     // queries db for document with username to follow
     const profilesRef = collection(db, "/profiles");
-    console.log("username", username)
+    console.log("username", username);
     const q = query(profilesRef, where("username", "==", username));
     const querySnapshot = await getDocs(q);
     const docs = [];
     var docId;
     var doc1;
     await querySnapshot.forEach((doc) => {
-       docId = doc.id;
-       doc1 = doc.data();
+      docId = doc.id;
+      doc1 = doc.data();
     });
-    console.log("doc0", username)
+    console.log("doc0", username);
 
     //TODO: take followers list and edit it
     // updates current db by adding new key/value pair, which replaces existing key if it exists (bc of merge)
-    console.log("doc", doc1)
-    const unfollowedList = doc1.followers.filter(val => 
-      val !== username);
-    return setDoc(doc(profilesRef, docId), {followers: unfollowedList}, {merge: true})
+    console.log("doc", doc1);
+    const unfollowedList = doc1.followers.filter((val) => val !== username);
+    return setDoc(
+      doc(profilesRef, docId),
+      { followers: unfollowedList },
+      { merge: true }
+    );
   }
 
   async function searchUsers(username) {
-    console.log(username)
+    console.log(username);
     const profilesRef = collection(db, "/profiles");
-    const q = query(profilesRef, orderBy("username"), startAt(username), endAt(username + '\uf8ff'), limit(3));
+    const q = query(
+      profilesRef,
+      orderBy("username"),
+      startAt(username),
+      endAt(username + "\uf8ff"),
+      limit(3)
+    );
     const querySnapshot = await getDocs(q);
     //console.log(queryResult);
     //console.log(querySnapshot);
@@ -143,7 +156,7 @@ export function DbProvider({ children }) {
     querySnapshot.forEach((doc) => {
       docs.push(doc.data());
     });
-    console.log(docs)
+    console.log(docs);
     return docs;
   }
 
@@ -164,43 +177,60 @@ export function DbProvider({ children }) {
     }
   }
 
-    // TODO: Verify authentication before fetching (send the server a token, or something)
+  // TODO: Verify authentication before fetching (send the server a token, or something)
   async function uploadArtImage(file) {
-    const { url } = await fetch(process.env.REACT_APP_SERVER_URL + "/upload-art").then((res) => {
+    const { url } = await fetch(
+      process.env.REACT_APP_SERVER_URL + "/upload-art"
+    ).then((res) => {
       console.log("res", res);
-      return res.json()
-    })
-    console.log("URL: ", url)
+      return res.json();
+    });
+    console.log("URL: ", url);
     // sends image to bucket url for hosting
     await fetch(url, {
       method: "PUT",
       headers: {
-        "Content-Type": "multipart/form-data"
+        "Content-Type": "multipart/form-data",
       },
-      body: file
-    })
+      body: file,
+    });
     // gets actual image, that is now stored on bucket
-    const imageUrl = url.split('?')[0]
-    console.log("IMAGEURL", imageUrl)
+    const imageUrl = url.split("?")[0];
+    console.log("IMAGEURL", imageUrl);
 
     return imageUrl;
     //var currentArt = userInfo.artwork;
     //currentArt.push(imageUrl);
-    
+
     //return updateDb({artwork: currentArt}, currentUser.uid)
   }
 
   async function updateArtData(artworkObject) {
     var currentArt = userInfo.artwork;
-    currentArt.push(artworkObject)
-    return updateDb({artwork: currentArt}, currentUser.uid)
+    currentArt.push(artworkObject);
+    return updateDb({ artwork: currentArt }, currentUser.uid);
   }
 
+  async function likeMyPost(e) {
+    console.log("liked!");
+    const targetUrl = document.getElementById("image").src
+    const oldArtArray = userInfo.artwork.filter(
+      (art) => art.url !== targetUrl
+    );
+    const artWorkObj = userInfo.artwork.filter(
+      (art) => art.url === targetUrl
+    )[0];
+    console.log("artWorkObj", JSON.stringify(artWorkObj));
+    const newArtWorkObj = {...artWorkObj, likes: [...artWorkObj.likes, currentUser.username]};
+    const newArtArray = [...oldArtArray, newArtWorkObj];
+    console.log("newArt", newArtArray);
+    return updateDb({ artwork: newArtArray }, currentUser.uid);
+  }
 
   // TODO: this function is getting called every second
   async function fetchUserData() {
     //console.log(currentUser.uid);
-    if (!currentUser || currentUser === 'loading') return;
+    if (!currentUser || currentUser === "loading") return;
     const userInfoObj = await getProfileData(currentUser.uid);
     console.log(userInfoObj);
     //console.log(userInfoObj);
@@ -223,6 +253,7 @@ export function DbProvider({ children }) {
     searchUsers,
     followUser,
     unfollowUser,
+    likeMyPost,
     userInfo,
   };
 

@@ -18,6 +18,13 @@ export default function UploadForm() {
     image: useRef(),
   };
 
+  const [inputs, setInputs] = useState({
+    title: "",
+    description: "",
+    price: "",
+    image: "",
+  });
+
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
 
@@ -25,7 +32,6 @@ export default function UploadForm() {
     e.preventDefault();
     setError("");
     setLoading(true);
-    console.log("hiiiii");
 
     console.log(refs.title.current.value);
 
@@ -34,15 +40,16 @@ export default function UploadForm() {
     }
 
     const newArtURL = await uploadArtImage(refs.image.current.files[0]);
-
     const newArt = {
       author: userInfo.username,
-      description: refs.description.current.value,
+      description: inputs.description,
       likes: [],
-      price: refs.price.current.value,
-      title: refs.title.current.value,
+      price: inputs.price,
+      title: inputs.title,
       url: newArtURL,
     };
+
+    console.log("new art", newArt);
 
     await updateArtData(newArt);
     setLoading(false);
@@ -56,14 +63,23 @@ export default function UploadForm() {
       <form onSubmit={handleSubmit}>
         <label htmlFor="artwork-title">
           Title:
+          {/* TODO: factor input out to component */}
           <input
             ref={refs.title}
             type="text"
             id="artwork-title"
             name="artwork-title"
             style={{ display: "none" }}
+            value={inputs.title}
+            onChange={(e) => {
+              console.log(inputs.title)
+              setInputs({ ...inputs, title: e.target.value })
+              }}
           ></input>
-          <TextField variant="outlined" placeholder="Forever Peace" />
+          <TextField variant="outlined" value={inputs.title}  onChange={(e) => {
+              console.log(inputs.title)
+              setInputs({ ...inputs, title: e.target.value })
+              }}  placeholder="Forever Peace" />
         </label>
         <label htmlFor="artwork-desc">
           Description:
@@ -78,6 +94,10 @@ export default function UploadForm() {
             variant="outlined"
             multiline
             placeholder="Lucious Greens and Blues in the Jungle of the Clouds"
+            value={inputs.description}  onChange={(e) => {
+              console.log(inputs.description)
+              setInputs({ ...inputs, description: e.target.value })
+              }}
           />
         </label>
         <label htmlFor="artwork-price">
@@ -92,8 +112,9 @@ export default function UploadForm() {
           <TextField
             placeholder="250"
             variant="outlined"
-            onChange={(e) => setPrice(e.target.value)}
-            error={isNaN(price)}
+            value={inputs.price}
+            onChange={(e) => setInputs({...inputs, price: e.target.value})}
+            error={isNaN(inputs.price)}
             helperText="Price must be a number."
             startadornment={<InputAdornment position="start">$</InputAdornment>}
           />
