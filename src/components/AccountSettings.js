@@ -101,7 +101,6 @@ export default function AccountSettings() {
   }
 
   // back btn in top left, redirects to previous page
-  // TODO: get profile to refresh when bio changes....
   function handleBackClick() {
     navigate(-1);
     // refreshes page so that updates load, but has to wait after profile page has loaded
@@ -120,7 +119,6 @@ export default function AccountSettings() {
     // then, once server receives s3 bucket url from s3,
     /// get img upload url from server and upload img directly to it
     // Does fetch automatically wait until the promise is resolved before passing its value into a var? why dont we need an wait here?
-    // TODO: blocked by cors policy. How to fix?
     const { url } = await fetch(process.env.REACT_APP_SERVER_URL + "/upload-profile-pic").then((res) =>
       res.json()
     );

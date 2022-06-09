@@ -21,44 +21,47 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import UploadForm from "./UploadForm";
 import { AddBox, BarChartOutlined, PhotoCamera } from "@mui/icons-material";
 
+function handleImgClick(e, userObj) {
+  document.getElementById("image").src = e.target.src;
+  // sets modal name to user logged in
+  // TODO: create a ref on image of author, then reference that
+  console.log("dataset", e.target.dataset);
+  document.getElementById("title").innerText = e.target.dataset.title;
+  document.getElementById("description").innerText =
+    e.target.dataset.description;
+  document.getElementById("price").innerText = `$${e.target.dataset.price}`;
+  // TODO: change to be more general, include public profile
+  document.getElementById("view-author-name").innerHTML =
+    userObj.displayName;
+  document.getElementById("likes-stat").innerHTML = `likes: ${e.target.dataset.likes}`;
+  var width = document.getElementById("image").style.width;
+  // document.getElementById('image').style.width = '300px';
+  var height =
+    (300 * document.getElementById("image").height) /
+    document.getElementById("image").width;
+  console.log("height: ", parseInt(height));
+  if (height > width) {
+    height = `${Math.min(parseInt(height), 500)}px`;
+    width = (height * width) / document.getElementById("image").height;
+  } else {
+    width = `${Math.min(parseInt(width), 800)}px`;
+  }
+  console.log(width);
+  document.getElementById("image").style.width = width;
+
+  document.getElementById("ViewPage").style.display = "block";
+  document.getElementById("Profile").classList.toggle("blur");
+  document.getElementById("PortalNav").classList.toggle("blur");
+}
+
+
 function Profile() {
   const navigate = useNavigate();
 
   const { userInfo, updateDb } = useDb();
   const { currentUser } = useAuth();
 
-  function handleImgClick(e) {
-    document.getElementById("image").src = e.target.src;
-    // sets modal name to user logged in
-    // TODO: create a ref on image of author, then reference that
-    console.log("dataset", e.target.dataset);
-    document.getElementById("title").innerText = e.target.dataset.title;
-    document.getElementById("description").innerText =
-      e.target.dataset.description;
-    document.getElementById("price").innerText = `$${e.target.dataset.price}`;
-    document.getElementById("view-author-name").innerHTML =
-      userInfo.displayName;
-    document.getElementById("likes-stat").innerHTML = `likes: ${e.target.dataset.likes}`;
-    var width = document.getElementById("image").style.width;
-    // document.getElementById('image').style.width = '300px';
-    var height =
-      (300 * document.getElementById("image").height) /
-      document.getElementById("image").width;
-    console.log("height: ", parseInt(height));
-    if (height > width) {
-      height = `${Math.min(parseInt(height), 500)}px`;
-      width = (height * width) / document.getElementById("image").height;
-    } else {
-      width = `${Math.min(parseInt(width), 800)}px`;
-    }
-    console.log(width);
-    document.getElementById("image").style.width = width;
-
-    document.getElementById("ViewPage").style.display = "block";
-    document.getElementById("Profile").classList.toggle("blur");
-    document.getElementById("PortalNav").classList.toggle("blur");
-  }
-
+ 
   // deletes img from firestore db and sends req to server to del from s3 bucket
   async function handleDelImg(val) {
     // creates new list of art with art passed in removed
@@ -162,7 +165,7 @@ function Profile() {
                     <img
                       alt="gallery"
                       className="galleryImg"
-                      onClick={handleImgClick}
+                      onClick={(e) => handleImgClick(e, userInfo)}
                       data-author={artObj.author}
                       data-title={artObj.title}
                       data-description={artObj.description}

@@ -83,7 +83,6 @@ export function DbProvider({ children }) {
     return docs[0];
   }
   // grabs doc with specified username, and augments that users follower list
-  // TODO: write the function
   async function followUser(username) {
     // queries db for document with username to follow
     const profilesRef = collection(db, "/profiles");
@@ -211,6 +210,19 @@ export function DbProvider({ children }) {
     return updateDb({ artwork: currentArt }, currentUser.uid);
   }
 
+  async function likeSomeoneElsePost(userId, url) {
+   console.log("liked someone else post"); 
+    searchUsers(userId).then((user) => {
+      console.log("user", user);
+      var currentLikes = user[0].likes;
+      currentLikes.push(url);
+      console.log("currentLikes", currentLikes);
+      return updateDb({ likes: currentLikes }, userId);
+
+   // get this user's artwork
+  });
+}
+
   // TODO: like someone else's post
   // TODO: test whether follow works on someone else's profile
   // TODO: add comment functionality
@@ -293,6 +305,7 @@ export function DbProvider({ children }) {
     unfollowUser,
     likeMyPost,
     unlikeMyPost,
+    likeSomeoneElsePost,
     userInfo,
   };
 
