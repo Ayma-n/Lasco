@@ -106,7 +106,7 @@ function Profile() {
                 </Button>
               </label>
             </Link>
-            {userInfo && <img className="profileImg" src={userInfo.photoURL} />}
+            {userInfo.photoURL && <img className="profileImg" src={userInfo.photoURL} />}
             <Link to="/stats" id="stats-link">
               <label htmlFor="stats-btn">
                 <button
