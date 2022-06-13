@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDb } from "../contexts/DatabaseContext";
 import { useNavigate } from "react-router-dom";
 import { Fab, Button, Input, TextField, IconButton } from "@material-ui/core";
-import AddIcon from "@mui/icons-material/Add";
 import InputAdornment from "@mui/material/InputAdornment";
 import { PhotoCamera } from "@mui/icons-material";
 
@@ -60,7 +59,6 @@ export default function UploadForm() {
     }
     return true;
   }
-  
 
   return (
     <div id="UploadForm">
