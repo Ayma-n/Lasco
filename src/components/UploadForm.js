@@ -17,10 +17,6 @@ export default function UploadForm() {
     image: ""
   });
 
-  useEffect(() => {
-    console.log(inputs.image)
-  }, [inputs.image])
-
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
 
@@ -30,6 +26,7 @@ export default function UploadForm() {
     setLoading(true);
 
     const newArtURL = await uploadArtImage(inputs.image);
+    
     const newArt = {
       author: userInfo.username,
       description: inputs.description,
@@ -38,8 +35,6 @@ export default function UploadForm() {
       title: inputs.title,
       url: newArtURL,
     };
-
-    console.log("new art", newArt);
 
     await updateArtData(newArt);
     setLoading(false);
@@ -57,9 +52,8 @@ export default function UploadForm() {
           variant="outlined"
           value={inputs.title}
           id="artwork-title" 
-          onChange={(e) => {
-              setInputs({ ...inputs, title: e.target.value })
-              }}  placeholder="Forever Peace" />
+          onChange={(e) => setInputs({ ...inputs, title: e.target.value })}  
+          placeholder="Forever Peace" />
         </label>
         <label htmlFor="artwork-desc">
           Description:
@@ -93,9 +87,7 @@ export default function UploadForm() {
             name="upload-image"
             type="file"
             accept="image/*"
-            onChange={(e) => {
-              setInputs({ ...inputs, image: e.target.files[0]})
-            }}
+            onChange={(e) => setInputs({ ...inputs, image: e.target.files[0]})}
           />
           <Fab color="primary" size="small" component="span" aria-label="add">
             <PhotoCamera />
