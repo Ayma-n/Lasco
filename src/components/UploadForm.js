@@ -14,7 +14,7 @@ export default function UploadForm() {
     title: "",
     description: "",
     price: "",
-    image: ""
+    image: null
   });
 
   const [error, setError] = useState();
@@ -24,6 +24,11 @@ export default function UploadForm() {
     e.preventDefault();
     setError("");
     setLoading(true);
+    
+    if (!isFormValid()) {
+      setLoading(false);
+      return;
+    }
 
     const newArtURL = await uploadArtImage(inputs.image);
     
@@ -41,6 +46,21 @@ export default function UploadForm() {
 
     navigate("/profile");
   }
+
+  function isFormValid() {
+    for (var k in Object.keys(inputs)) {
+      if (!inputs[Object.keys(inputs)[k]]) {
+         setError("Some fields are empty.");
+         return false;
+       }
+    }
+    if (isNaN(inputs.price)) {
+      setError("Price must be a number");
+      return false;
+    }
+    return true;
+  }
+  
 
   return (
     <div id="UploadForm">
