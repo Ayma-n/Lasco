@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDb } from "../contexts/DatabaseContext";
 import { useNavigate } from "react-router-dom";
 import { Fab, Button, Input, TextField, IconButton } from "@material-ui/core";
@@ -9,21 +9,17 @@ import { PhotoCamera } from "@mui/icons-material";
 export default function UploadForm() {
   const { uploadArtImage, updateArtData, userInfo } = useDb();
   const navigate = useNavigate();
-  const [price, setPrice] = useState(0);
-
-  const refs = {
-    title: useRef(),
-    description: useRef(),
-    price: useRef(),
-    image: useRef(),
-  };
 
   const [inputs, setInputs] = useState({
     title: "",
     description: "",
     price: "",
-    image: "",
+    image: ""
   });
+
+  useEffect(() => {
+    console.log(inputs.image)
+  }, [inputs.image])
 
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
@@ -33,13 +29,7 @@ export default function UploadForm() {
     setError("");
     setLoading(true);
 
-    console.log(refs.title.current.value);
-
-    if (isNaN(refs.price.current.value)) {
-      return setError("Price must be a number.");
-    }
-
-    const newArtURL = await uploadArtImage(refs.image.current.files[0]);
+    const newArtURL = await uploadArtImage(inputs.image);
     const newArt = {
       author: userInfo.username,
       description: inputs.description,
@@ -63,55 +53,31 @@ export default function UploadForm() {
       <form onSubmit={handleSubmit}>
         <label htmlFor="artwork-title">
           Title:
-          {/* TODO: factor input out to component */}
-          <input
-            ref={refs.title}
-            type="text"
-            id="artwork-title"
-            name="artwork-title"
-            style={{ display: "none" }}
-            value={inputs.title}
-            onChange={(e) => {
-              console.log(inputs.title)
-              setInputs({ ...inputs, title: e.target.value })
-              }}
-          ></input>
-          <TextField variant="outlined" value={inputs.title}  onChange={(e) => {
-              console.log(inputs.title)
+          <TextField 
+          variant="outlined"
+          value={inputs.title}
+          id="artwork-title" 
+          onChange={(e) => {
               setInputs({ ...inputs, title: e.target.value })
               }}  placeholder="Forever Peace" />
         </label>
         <label htmlFor="artwork-desc">
           Description:
-          <input
-            ref={refs.description}
-            type="text"
-            id="artwork-desc"
-            name="artwork-desc"
-            style={{ display: "none" }}
-          ></input>
           <TextField
             variant="outlined"
+            id="artwork-desc"
             multiline
             placeholder="Lucious Greens and Blues in the Jungle of the Clouds"
-            value={inputs.description}  onChange={(e) => {
-              console.log(inputs.description)
-              setInputs({ ...inputs, description: e.target.value })
-              }}
+            value={inputs.description}  
+            onChange={(e) => setInputs({ ...inputs, description: e.target.value })}
           />
         </label>
         <label htmlFor="artwork-price">
           Price:
-          <input
-            ref={refs.price}
-            type="text"
-            id="artwork-price"
-            name="artwork-price"
-            style={{ display: "none" }}
-          ></input>
           <TextField
             placeholder="250"
             variant="outlined"
+            id="artwork-price"
             value={inputs.price}
             onChange={(e) => setInputs({...inputs, price: e.target.value})}
             error={isNaN(inputs.price)}
@@ -127,7 +93,9 @@ export default function UploadForm() {
             name="upload-image"
             type="file"
             accept="image/*"
-            ref={refs.image}
+            onChange={(e) => {
+              setInputs({ ...inputs, image: e.target.files[0]})
+            }}
           />
           <Fab color="primary" size="small" component="span" aria-label="add">
             <PhotoCamera />
