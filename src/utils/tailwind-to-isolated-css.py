@@ -8,13 +8,13 @@ import os
 
 # Asks the user about the name of the React component's style wrapping class.
 # By convention, the wrapping class's name is the component's name.
-wrappingClass = input("Name of Wrapping CSS Class: ")
+wrapping_class = input("Name of Wrapping CSS Class: ")
 
 # Gets the path of the JS component based on the wrapping class's name.
-componentPath = "src/components/" + wrappingClass + ".js"
-oldComponentCode = ""
+component_path = "src/components/" + wrapping_class + ".js"
+old_component_code = ""
 
-def updateOutputCSS():
+def update_output_css():
     # Outputs an intermediary CSS class based on the manual CSS, and based on the tailwind classes read in components.
     os.system("npx tailwindcss -i src/tailwind/manual.css -o src/intermediary.css")
 
@@ -23,12 +23,12 @@ def updateOutputCSS():
 
     # Reads the content of the new SCSS file.
     with open("src/intermediary.scss", "r") as f:
-        plainSCSS = f.read()
+        plain_scss = f.read()
 
-    newSCSS = "#" + wrappingClass + "{" + plainSCSS + "}"
+    new_scss = "#" + wrapping_class + "{" + plain_scss + "}"
     # Appends wrapping class to end of existing scss file
     with open("src/output.scss", "a") as f:
-        f.write(newSCSS);
+        f.write(new_scss);
 
     # Compiles the new, modified SCSS file with Sass into a CSS file.
     os.system("sass src/output.scss:src/output.css")
@@ -37,9 +37,9 @@ def updateOutputCSS():
 
 # Infinite loop used for watching the component code for changes.
 while True:
-    with open(componentPath, "r") as f:
+    with open(component_path, "r") as f:
         componentCode = f.read()
-    if componentCode != oldComponentCode:
-        updateOutputCSS()
-        oldComponentCode = componentCode
+    if componentCode != old_component_code:
+        update_output_css()
+        old_component_code = componentCode
     time.sleep(0.1)
