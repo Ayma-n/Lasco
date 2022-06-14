@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDb } from "../contexts/DatabaseContext";
 import { useNavigate } from "react-router-dom";
-import { Fab, Button, Input, TextField, IconButton } from "@material-ui/core";
+import { Fab, Button, Input, TextField, IconButton, FormLabel } from "@material-ui/core";
 import InputAdornment from "@mui/material/InputAdornment";
 import { PhotoCamera } from "@mui/icons-material";
 
@@ -63,8 +63,8 @@ export default function UploadForm() {
   return (
     <div id="UploadForm">
       <div id="form-title">Upload artwork</div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="artwork-title">
+        <div id="form-wrapper" style={{display: "flex", flexDirection: "column", width: '80vw'}}>
+        <FormLabel>
           Title:
           <TextField 
           variant="outlined"
@@ -72,8 +72,8 @@ export default function UploadForm() {
           id="artwork-title" 
           onChange={(e) => setInputs({ ...inputs, title: e.target.value })}  
           placeholder="Forever Peace" />
-        </label>
-        <label htmlFor="artwork-desc">
+        </FormLabel>
+        <FormLabel>
           Description:
           <TextField
             variant="outlined"
@@ -83,8 +83,8 @@ export default function UploadForm() {
             value={inputs.description}  
             onChange={(e) => setInputs({ ...inputs, description: e.target.value })}
           />
-        </label>
-        <label htmlFor="artwork-price">
+        </FormLabel>
+        <FormLabel>
           Price:
           <TextField
             placeholder="250"
@@ -96,8 +96,8 @@ export default function UploadForm() {
             helperText="Price must be a number."
             startadornment={<InputAdornment position="start">$</InputAdornment>}
           />
-        </label>
-        <label htmlFor="upload-image">
+        </FormLabel>
+        <FormLabel>
           Image:
           <input
             style={{ display: "none" }}
@@ -110,19 +110,19 @@ export default function UploadForm() {
           <Fab color="primary" size="small" component="span" aria-label="add">
             <PhotoCamera />
           </Fab>
-        </label>
+        </FormLabel>
         <Button
           id="submit-button"
           variant="contained"
           disabled={loading}
           color="primary"
-          type="submit"
+          onClick={handleSubmit}
         >
           Post
         </Button>
 
         {error && <div>{error}</div>}
-      </form>
+    </div>
     </div>
   );
 }
