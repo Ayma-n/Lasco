@@ -7,13 +7,6 @@ import { PhotoCamera } from "@mui/icons-material";
 import "../css/UploadForm.css"
 import FeedPost from "./FeedPost";
 
-const toBase64 = (file) => new Promise((resolve, reject) => {
-  const reader = new FileReader();
-  reader.readAsDataURL(file);
-  reader.onload = () => resolve(reader.result);
-  reader.onerror = error => reject(error);
-});
-
 export default function UploadForm() {
   const { uploadArtImage, updateArtData, userInfo } = useDb();
   const navigate = useNavigate();
@@ -160,7 +153,6 @@ export default function UploadForm() {
         authorProfilePic={userInfo.photoURL}
         description={inputs.description}
         image={inputs.image ? URL.createObjectURL(inputs.image) : undefined}/>
-        
       </div>
       <div id="right-rect">
         {uploadFormContent()}
