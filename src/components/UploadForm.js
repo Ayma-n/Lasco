@@ -1,22 +1,20 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDb } from "../contexts/DatabaseContext";
 import { useNavigate } from "react-router-dom";
-import { Fab, Button, Input, TextField, IconButton } from "@material-ui/core";
-import AddIcon from "@mui/icons-material/Add";
+import { Fab, Button, Input, TextField, IconButton, FormLabel } from "@material-ui/core";
 import InputAdornment from "@mui/material/InputAdornment";
 import { PhotoCamera } from "@mui/icons-material";
 
 export default function UploadForm() {
   const { uploadArtImage, updateArtData, userInfo } = useDb();
   const navigate = useNavigate();
-  const [price, setPrice] = useState(0);
 
-  const refs = {
-    title: useRef(),
-    description: useRef(),
-    price: useRef(),
-    image: useRef(),
-  };
+  const [inputs, setInputs] = useState({
+    title: "",
+    description: "",
+    price: "",
+    image: null
+  });
 
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
@@ -25,22 +23,20 @@ export default function UploadForm() {
     e.preventDefault();
     setError("");
     setLoading(true);
-    console.log("hiiiii");
-
-    console.log(refs.title.current.value);
-
-    if (isNaN(refs.price.current.value)) {
-      return setError("Price must be a number.");
+    
+    if (!isFormValid()) {
+      setLoading(false);
+      return;
     }
 
-    const newArtURL = await uploadArtImage(refs.image.current.files[0]);
-
+    const newArtURL = await uploadArtImage(inputs.image);
+    
     const newArt = {
       author: userInfo.username,
-      description: refs.description.current.value,
+      description: inputs.description,
       likes: [],
-      price: refs.price.current.value,
-      title: refs.title.current.value,
+      price: inputs.price,
+      title: inputs.title,
       url: newArtURL,
     };
 
@@ -50,55 +46,58 @@ export default function UploadForm() {
     navigate("/profile");
   }
 
+  function isFormValid() {
+    for (var k in Object.keys(inputs)) {
+      if (!inputs[Object.keys(inputs)[k]]) {
+         setError("Some fields are empty.");
+         return false;
+       }
+    }
+    if (isNaN(inputs.price)) {
+      setError("Price must be a number");
+      return false;
+    }
+    return true;
+  }
+
   return (
     <div id="UploadForm">
       <div id="form-title">Upload artwork</div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="artwork-title">
+        <div id="form-wrapper" style={{display: "flex", flexDirection: "column", width: '80vw'}}>
+        <FormLabel>
           Title:
-          <input
-            ref={refs.title}
-            type="text"
-            id="artwork-title"
-            name="artwork-title"
-            style={{ display: "none" }}
-          ></input>
-          <TextField variant="outlined" placeholder="Forever Peace" />
-        </label>
-        <label htmlFor="artwork-desc">
+          <TextField 
+          variant="outlined"
+          value={inputs.title}
+          id="artwork-title" 
+          onChange={(e) => setInputs({ ...inputs, title: e.target.value })}  
+          placeholder="Forever Peace" />
+        </FormLabel>
+        <FormLabel>
           Description:
-          <input
-            ref={refs.description}
-            type="text"
-            id="artwork-desc"
-            name="artwork-desc"
-            style={{ display: "none" }}
-          ></input>
           <TextField
             variant="outlined"
+            id="artwork-desc"
             multiline
             placeholder="Lucious Greens and Blues in the Jungle of the Clouds"
+            value={inputs.description}  
+            onChange={(e) => setInputs({ ...inputs, description: e.target.value })}
           />
-        </label>
-        <label htmlFor="artwork-price">
+        </FormLabel>
+        <FormLabel>
           Price:
-          <input
-            ref={refs.price}
-            type="text"
-            id="artwork-price"
-            name="artwork-price"
-            style={{ display: "none" }}
-          ></input>
           <TextField
             placeholder="250"
             variant="outlined"
-            onChange={(e) => setPrice(e.target.value)}
-            error={isNaN(price)}
+            id="artwork-price"
+            value={inputs.price}
+            onChange={(e) => setInputs({...inputs, price: e.target.value})}
+            error={isNaN(inputs.price)}
             helperText="Price must be a number."
             startadornment={<InputAdornment position="start">$</InputAdornment>}
           />
-        </label>
-        <label htmlFor="upload-image">
+        </FormLabel>
+        <FormLabel>
           Image:
           <input
             style={{ display: "none" }}
@@ -106,24 +105,24 @@ export default function UploadForm() {
             name="upload-image"
             type="file"
             accept="image/*"
-            ref={refs.image}
+            onChange={(e) => setInputs({ ...inputs, image: e.target.files[0]})}
           />
           <Fab color="primary" size="small" component="span" aria-label="add">
             <PhotoCamera />
           </Fab>
-        </label>
+        </FormLabel>
         <Button
           id="submit-button"
           variant="contained"
           disabled={loading}
           color="primary"
-          type="submit"
+          onClick={handleSubmit}
         >
           Post
         </Button>
 
         {error && <div>{error}</div>}
-      </form>
+    </div>
     </div>
   );
 }

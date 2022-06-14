@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-
+// TODO: combine code from this and Profile
 import profileImg from '../sample/posts/profile2.png'
 import img1 from '../sample/posts/Rectangle 3.png'
 import img2 from '../sample/posts/Rectangle 4.png'
@@ -21,7 +21,7 @@ function PublicProfile() {
   const navigate = useNavigate();
   const { user } = useParams();
 
-  const { updateDb, uploadArtDb, getUIDfromUsername, getProfileData, userInfo, followUser } = useDb();
+  const { updateDb, uploadArtDb, getUIDfromUsername, getProfileData, userInfo, followUser, likeSomeoneElsePost  } = useDb();
   const [publicUserInfo, setPublicUserInfo] = useState("");
   const { currentUser } = useAuth();
 
@@ -48,8 +48,13 @@ function PublicProfile() {
     return followUser(user).then(res => console.log("res", res)).catch(err => console.error(err))
   }
 
-  function handleImgClick() {
-    document.getElementById("image").src = 'https://hdwallpaperim.com/wp-content/uploads/2017/08/23/458235-digital_art-fantasy_art-painting-DeviantArt-bicycle-futuristic-clouds-building-city-flag-reflection-chair-surreal-colorful-musical_notes-birds.jpg';
+  async function likePost(url) {
+    console.log("USERINFO", userInfo)
+    await likeSomeoneElsePost(publicUserInfo.uid, url)
+  }
+
+  function handleImgClick(e) {
+    document.getElementById("image").src = e.target.src;
     var width = document.getElementById("image").style.width;
     // document.getElementById('image').style.width = '300px';
     var height = 300 * document.getElementById("image").height / document.getElementById("image").width;
@@ -83,9 +88,9 @@ function PublicProfile() {
         <FollowBtn></FollowBtn>
       </div>
       <div id="gallery">
-        {publicUserInfo && publicUserInfo.artwork.map((val) => {
+        {publicUserInfo && publicUserInfo.artwork.map((artObj) => {
           return (<>
-            <img className="galleryImg" onClick={handleImgClick} src={val} />
+            <img className="galleryImg" onClick={handleImgClick} src={artObj.url} />
           </>)
         })}
         {/* {artList} */}

@@ -11,8 +11,6 @@ import { useAuth } from "../contexts/AuthContext";
 import { useDb } from "../contexts/DatabaseContext";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 
-import test from '../sample/posts/fakeProfileCircle.png';
-
 function Signup() {
 
     let newUID;
@@ -48,9 +46,13 @@ function Signup() {
 
     async function handleSubmit(e) {
         e.preventDefault();
-
         // If we want a confirm password, we can put this here
 
+        const email = emailRef.current.value;
+        const username = usernameRef.current.value;
+        const name = nameRef.current.value;
+        const useCase = useCaseRef.current.value;
+        const password = passwordRef.current.value;
 
         // When first signing up, we make sure that the error is blank.
         // Then, we set loading to true, before we actually fire up the async signup method
@@ -58,19 +60,17 @@ function Signup() {
         try {
             setError('');
             setLoading(true);
-            await signup(emailRef.current.value, passwordRef.current.value)
-            .then((userCredential) => {
-                newUID = userCredential.user.uid;
-            });
-            await login(emailRef.current.value, passwordRef.current.value);
+            const userCredential = await signup(email, password)
+            const newUID = userCredential.user.uid;
+            await login(email, password);
 
-            console.log(newUID);
+            console.log("newUID", newUID);
 
             await createUser({
                 uid: newUID,
-                username: usernameRef.current.value,
-                displayName: nameRef.current.value,
-                useCase: useCaseRef.current.value,
+                username: username,
+                displayName: name,
+                useCase: useCase,
                 photoURL: "https://lasco-dev.s3.amazonaws.com/profile-pics/defaultProfile.png",
                 artwork: [],
                 followers: [],
@@ -101,7 +101,7 @@ function Signup() {
                         <option valie="artist">Looking to be part of a community of artists.</option>
                     </select>
                     {/* If currently loading, the sign up button is disabled. */}
-                    <button id="sign-button" className='filled-btn' disabled={loading}>Sign Up</button>
+                    <button id="sign-button" className='filled-btn' disabled={loading} type="submit">Sign Up</button>
                     <div id="has-account">Already have an account? <Link id= "login-link" className="magenta-text" to="/login">Login</Link></div>
                 </form>
                 <div id="logo-div">
