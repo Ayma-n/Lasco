@@ -2,7 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { useDb } from "../contexts/DatabaseContext";
-import "../output.css";
+// import "../output.css";
+import { Button, Fab } from "@material-ui/core";
+import { PhotoCamera } from "@mui/icons-material";
 
 export default function AccountSettings() {
   const {
@@ -13,6 +15,8 @@ export default function AccountSettings() {
     deleteAccount,
   } = useAuth();
   const { getProfileData, updateDb, userInfo } = useDb();
+
+  const [profileImg, setProfileImg] = useState(null);
 
   const emailRef = useRef();
   const oldPasswordRef = useRef();
@@ -27,6 +31,7 @@ export default function AccountSettings() {
   const [message, setMessage] = useState();
 
   const navigate = useNavigate();
+
 
   function handleSubmit(e) {
     setError("");
@@ -110,10 +115,9 @@ export default function AccountSettings() {
   }
 
   // uploads profile img to s3 bucket by asking server to get upload url, then uploading img directly to that url
-  async function uploadProfileImg(e) {
-    e.preventDefault();
-    const file = document.getElementById("profileInput").files[0];
-
+  async function uploadProfileImg(img) {
+    // const file = document.getElementById("profileInput").files[0];
+    const file = img;
     // TODO: Verify authentication before fetching (send the server a token, or something)
     // makes a req to server with img as body
     // then, once server receives s3 bucket url from s3,
@@ -215,19 +219,43 @@ export default function AccountSettings() {
             className="flex flex-col border-2 border-solid"
           ></input>
         </div>
-        <button
+        {/* <button
           disabled={loading}
           className="bg-blue-500 hover:bg-blue-700 text-white hover:-translate-y-1 transition-all font-bold py-4 rounded-full shadow-lg text-2xl focus:bg-purple-500 relative sm:px-6"
         >
           Update
-        </button>
+        </button> */}
+        {/* <Button disabled={loading} variant="contained" color="blue" >Update</Button> */}
+        <Button
+          id="submit-button"
+          variant="contained"
+          disabled={loading}
+          color="primary"
+          type="submit"
+        >
+          Update
+        </Button>
       </form>
-      <form onSubmit={uploadProfileImg}>
+      {/* <form onSubmit={uploadProfileImg}>
         <input id="profileInput" type="file"></input>
         <button className="bg-red-800 hover:bg-red-1000 text-white hover:-translate-y-1 transition-all font-bold py-4 rounded-full shadow-lg text-2xl focus:bg-purple-500 relative sm:px-6">
           Upload
         </button>
-      </form>
+      </form> */}
+      <label htmlFor="upload-image">
+          Image:
+          <input
+            style={{ display: "none" }}
+            id="upload-image"
+            name="upload-image"
+            type="file"
+            accept="image/*"
+            onChange={(e) => uploadProfileImg(e.target.files[0])}
+          />
+          <Fab color="primary" size="small" component="span" aria-label="add">
+            <PhotoCamera />
+          </Fab>
+        </label>
       <button
         className="my-10 bg-red-800 hover:bg-red-1000 text-white hover:-translate-y-1 transition-all font-bold py-4 rounded-full shadow-lg text-2xl focus:bg-purple-500 relative sm:px-6"
         onClick={submitAccountDeletion}
