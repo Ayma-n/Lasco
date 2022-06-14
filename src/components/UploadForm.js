@@ -146,7 +146,11 @@ export default function UploadForm() {
   return (
     <div id="UploadForm">
       <div id="left-rect">
-        <FeedPost author={handleDisplayName(userInfo.displayName)} title={inputs.title} authorProfilePic={userInfo.photoURL}/>
+        <FeedPost 
+        author={handleDisplayName(userInfo.displayName)} 
+        title={inputs.title} 
+        authorProfilePic={userInfo.photoURL}
+        description={inputs.description}/>
       </div>
       <div id="right-rect">
         {uploadFormContent()}

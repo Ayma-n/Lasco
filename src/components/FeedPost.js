@@ -19,6 +19,7 @@ function FeedPost(props) {
             <div id="authorName">{props.author ? props.author : "Johnny R."}</div>
           </div>
           <div id="artTitle">{props.title ? props.title : "Astronight"}</div>
+          <div id="art-description">{props.description}</div>
           <div className="commentSec">
             <div className="commentDiv">
               <img src={profileImg} className="commentImg" />

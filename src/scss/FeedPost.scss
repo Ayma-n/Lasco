@@ -220,6 +220,14 @@ $commentSecTop: 21px;
     // margin-block-end: 0;
     // font-weight: normal;
   }
+
+  #art-description {
+    position: relative;
+    text-align: left;
+    left: 100vw * 12px / $contRectW;
+    top: 100vw * 5px / $contRectH;
+  }
+
   .commentSec {
     position: relative;
     overflow: auto;

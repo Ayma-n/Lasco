@@ -157,6 +157,12 @@
   position: relative;
   text-align: left;
 }
+#FeedPost #art-description {
+  position: relative;
+  text-align: left;
+  left: 1.7595307918vw;
+  top: 0.6693440428vw;
+}
 #FeedPost .commentSec {
   position: relative;
   overflow: auto;
