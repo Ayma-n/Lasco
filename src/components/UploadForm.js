@@ -62,7 +62,7 @@ export default function UploadForm() {
     return true;
   }
 
-  function UploadFormContent() {
+  function uploadFormContent() {
     return <div id="form-wrapper">
       <FormLabel>
         Title:
@@ -135,7 +135,7 @@ export default function UploadForm() {
         <FeedPost />
       </div>
       <div id="right-rect">
-        <UploadFormContent />
+        {uploadFormContent()}
       </div>
       {/* <div id="form-title">Upload artwork</div> */}
 
