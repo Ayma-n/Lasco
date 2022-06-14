@@ -5,6 +5,7 @@ import { useDb } from "../contexts/DatabaseContext";
 // import "../output.css";
 import { Button, Fab } from "@material-ui/core";
 import { PhotoCamera } from "@mui/icons-material";
+import { CircularProgress } from "@mui/material";
 
 export default function AccountSettings() {
   const {
@@ -28,6 +29,7 @@ export default function AccountSettings() {
 
   const [error, setError] = useState();
   const [loading, setLoading] = useState();
+  const [profileLoading, setProfileLoading] = useState();
   const [message, setMessage] = useState();
 
   const navigate = useNavigate();
@@ -116,6 +118,7 @@ export default function AccountSettings() {
 
   // uploads profile img to s3 bucket by asking server to get upload url, then uploading img directly to that url
   async function uploadProfileImg(img) {
+    setProfileLoading(true);
     // const file = document.getElementById("profileInput").files[0];
     const file = img;
     // TODO: Verify authentication before fetching (send the server a token, or something)
@@ -138,6 +141,7 @@ export default function AccountSettings() {
     const imageUrl = url.split("?")[0];
     console.log("IMAGEURL", imageUrl);
     await updateDb({ photoURL: imageUrl }, currentUser.uid);
+    setProfileLoading(false);
     navigate(0);
   }
 
@@ -242,7 +246,7 @@ export default function AccountSettings() {
           Upload
         </button>
       </form> */}
-      <label htmlFor="upload-image">
+      <label htmlFor="upload-image" style={{display: profileLoading ? "none": "inherit"}}>
           Image:
           <input
             style={{ display: "none" }}
@@ -255,7 +259,9 @@ export default function AccountSettings() {
           <Fab color="primary" size="small" component="span" aria-label="add">
             <PhotoCamera />
           </Fab>
+          
         </label>
+        <CircularProgress style={{display: profileLoading ? "inherit" : "none" }} />
       <button
         className="my-10 bg-red-800 hover:bg-red-1000 text-white hover:-translate-y-1 transition-all font-bold py-4 rounded-full shadow-lg text-2xl focus:bg-purple-500 relative sm:px-6"
         onClick={submitAccountDeletion}
