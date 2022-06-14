@@ -75,6 +75,14 @@ export default function UploadForm() {
     return splitName[0] + " " + splitName[1][0] + "."
   }
 
+  function handleImageObject(img) {
+    toBase64(img).then(
+      () => {
+
+      }
+    )
+  }
+
   function uploadFormContent() {
 
     return <div id="form-wrapper">
@@ -150,7 +158,9 @@ export default function UploadForm() {
         author={handleDisplayName(userInfo.displayName)} 
         title={inputs.title} 
         authorProfilePic={userInfo.photoURL}
-        description={inputs.description}/>
+        description={inputs.description}
+        image={inputs.image ? URL.createObjectURL(inputs.image) : undefined}/>
+        
       </div>
       <div id="right-rect">
         {uploadFormContent()}
