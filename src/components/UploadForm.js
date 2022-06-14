@@ -7,6 +7,13 @@ import { PhotoCamera } from "@mui/icons-material";
 import "../css/UploadForm.css"
 import FeedPost from "./FeedPost";
 
+const toBase64 = (file) => new Promise((resolve, reject) => {
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = () => resolve(reader.result);
+  reader.onerror = error => reject(error);
+});
+
 export default function UploadForm() {
   const { uploadArtImage, updateArtData, userInfo } = useDb();
   const navigate = useNavigate();
@@ -62,7 +69,14 @@ export default function UploadForm() {
     return true;
   }
 
+  function handleDisplayName(fullName) {
+    if (!fullName) return;
+    const splitName = fullName.split(" ")
+    return splitName[0] + " " + splitName[1][0] + "."
+  }
+
   function uploadFormContent() {
+
     return <div id="form-wrapper">
       <FormLabel>
         Title:
@@ -132,7 +146,7 @@ export default function UploadForm() {
   return (
     <div id="UploadForm">
       <div id="left-rect">
-        <FeedPost />
+        <FeedPost author={handleDisplayName(userInfo.displayName)} title={inputs.title} authorProfilePic={userInfo.photoURL}/>
       </div>
       <div id="right-rect">
         {uploadFormContent()}
