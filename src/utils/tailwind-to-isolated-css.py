@@ -32,7 +32,6 @@ def update_output_css():
 
     # Compiles the new, modified SCSS file with Sass into a CSS file.
     os.system("sass src/output.scss:src/output.css")
-    time.sleep(2)
     print("Output CSS updated")
 
 # Infinite loop used for watching the component code for changes.
