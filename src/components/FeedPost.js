@@ -1,12 +1,12 @@
 import React from "react";
-import astronight from "../sample/icons/astronight.png";
+import piranhas from "../sample/posts/piranhas_poker.jpeg";
 import profileImg from "../sample/posts/fakeProfileCircle.png";
 import "../css/FeedPost.css";
 
 function FeedPost(props) {
   // This is just a sample image we get from the public folder
   // Basically, we will later update this variable with the image that the post should display.
-  const postSrc = astronight;
+  const postSrc = piranhas;
 
   return (
     <>
