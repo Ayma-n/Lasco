@@ -3,9 +3,9 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { useDb } from "../contexts/DatabaseContext";
 // import "../output.css";
-import { Button, Fab } from "@material-ui/core";
+import { Button, Fab, TextField} from "@material-ui/core";
 import { PhotoCamera } from "@mui/icons-material";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, FormLabel } from "@mui/material";
 
 export default function AccountSettings() {
   const {
@@ -18,6 +18,16 @@ export default function AccountSettings() {
   const { getProfileData, updateDb, userInfo } = useDb();
 
   const [profileImg, setProfileImg] = useState(null);
+
+  const [inputs, setInputs] = useState({
+    email: userInfo.email,
+    oldPassword: "",
+    password: "",
+    passwordConf: null,
+    name: userInfo.displayName,
+    username: currentUser.username,
+    bio: userInfo.bio,
+  });
 
   const emailRef = useRef();
   const oldPasswordRef = useRef();
@@ -33,7 +43,6 @@ export default function AccountSettings() {
   const [message, setMessage] = useState();
 
   const navigate = useNavigate();
-
 
   function handleSubmit(e) {
     setError("");
@@ -113,7 +122,7 @@ export default function AccountSettings() {
     // refreshes page so that updates load, but has to wait after profile page has loaded
     setTimeout(() => {
       window.location.reload();
-    }, 200)
+    }, 200);
   }
 
   // uploads profile img to s3 bucket by asking server to get upload url, then uploading img directly to that url
@@ -126,9 +135,9 @@ export default function AccountSettings() {
     // then, once server receives s3 bucket url from s3,
     /// get img upload url from server and upload img directly to it
     // Does fetch automatically wait until the promise is resolved before passing its value into a var? why dont we need an wait here?
-    const { url } = await fetch(process.env.REACT_APP_SERVER_URL + "/upload-profile-pic").then((res) =>
-      res.json()
-    );
+    const { url } = await fetch(
+      process.env.REACT_APP_SERVER_URL + "/upload-profile-pic"
+    ).then((res) => res.json());
     console.log("URL: ", url);
     await fetch(url, {
       method: "PUT",
@@ -144,7 +153,7 @@ export default function AccountSettings() {
     setProfileLoading(false);
     navigate(0);
   }
-
+  // TODO: PRIORITY GET INPUTS MUI TO WORK
   return (
     <div id="AccountSettings">
       <button
@@ -158,70 +167,169 @@ export default function AccountSettings() {
       {message && <div>{message}</div>}
       <form
         onSubmit={handleSubmit}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
         className="flex flex-col border-2 border-solid relative text-center al-items-c gap-3 w-screen"
       >
         <div>
-          <label className="relative text-left self-start">Display Name:</label>
+          {/* <label className="relative text-left self-start">Display Name:</label>
           <input
             defaultValue={userInfo.displayName}
             ref={nameRef}
+            style={{ display: "none"}}
             className="flex flex-col border-2 border-solid"
-          ></input>
+          ></input> */}
+
+          <FormLabel>
+            Display Name:
+            <TextField
+              variant="outlined"
+              id="display-name"
+              placeholder="Aaron Walker"
+              value={inputs.displayName}
+              onChange={(e) =>
+                setInputs({ ...inputs, displayName: e.target.value })
+              }
+            />
+          </FormLabel>
         </div>
         <div>
-          <label className="relative text-left self-start">Bio:</label>
+          {/* <label className="relative text-left self-start">Bio:</label>
           <input
             defaultValue={userInfo.bio}
             ref={bioRef}
             className="flex flex-col border-2 border-solid"
-          ></input>
+          ></input> */}
+             <FormLabel>
+            Bio:
+            <TextField
+              variant="outlined"
+              id="bio"
+              placeholder="My bio"
+              value={inputs.bio}
+              onChange={(e) =>
+                setInputs({ ...inputs, bio: e.target.value })
+              }
+            />
+          </FormLabel>
         </div>
         <div>
-          <label className="relative text-left self-start">Username: </label>
+          {/* <label className="relative text-left self-start">Username: </label>
           <input
             defaultValue={userInfo.username}
             ref={usernameRef}
             className="flex flex-col border-2 border-solid"
-          ></input>
+          ></input> */}
+             <FormLabel>
+            Username:
+            <TextField
+              variant="outlined"
+              id="display-name"
+              placeholder="aaronwalker"
+              value={inputs.username}
+              onChange={(e) =>
+                setInputs({ ...inputs, username: e.target.value })
+              }
+            />
+          </FormLabel>
         </div>
         <div>
-          <label className="relative text-left self-start">Email: </label>
+          {/* <label className="relative text-left self-start">Email: </label>
           <input
             type="email"
             defaultValue={currentUser.email}
             ref={emailRef}
             className="flex flex-col border-2 border-solid"
-          ></input>
+          ></input> */}
+
+          <FormLabel>
+          Email:
+            <TextField
+              variant="outlined"
+              id="email"
+              placeholder=""
+              value={inputs.email}
+              onChange={(e) =>
+                setInputs({ ...inputs, email: e.target.value })
+              }
+            />
+          </FormLabel>
         </div>
         <div>
-          <label className="relative text-left self-start">
+          {/* <label className="relative text-left self-start">
             Current Password:{" "}
           </label>
           <input
             type="password"
             ref={oldPasswordRef}
             className="flex flex-col border-2 border-solid"
-          ></input>
+          ></input> */}
+
+             <FormLabel>
+            Current Password:
+            <TextField
+              variant="outlined"
+              id="current-password"
+              type="password"
+              placeholder=""
+              value={inputs.oldPassword}
+              onChange={(e) =>
+                setInputs({ ...inputs, oldPassword: e.target.value })
+              }
+            />
+          </FormLabel>
         </div>
         <div>
-          <label className="relative text-left self-start">
+          {/* <label className="relative text-left self-start">
             New Password:{" "}
           </label>
           <input
             type="password"
             ref={passwordRef}
             className="flex flex-col border-2 border-solid"
-          ></input>
+          ></input> */}
+          <FormLabel>
+            New Password:
+            <TextField
+              variant="outlined"
+              id="current-password"
+              type="password"
+              placeholder=""
+              value={inputs.password}
+              onChange={(e) =>
+                setInputs({ ...inputs, password: e.target.value })
+              }
+            />
+          </FormLabel>
+
         </div>
         <div>
-          <label className="relative text-left self-start">
+          {/* <label className="relative text-left self-start">
             Password Confirmation:{" "}
           </label>
           <input
             type="password"
             ref={passwordConfRef}
             className="flex flex-col border-2 border-solid"
-          ></input>
+          ></input> */}
+
+          <FormLabel>
+            New Password Confirmation:
+            <TextField
+              variant="outlined"
+              id="current-password"
+              type="password"
+              placeholder=""
+              value={inputs.passwordConf}
+              onChange={(e) =>
+                setInputs({ ...inputs, passwordConf: e.target.value })
+              }
+            />
+          </FormLabel>
+
         </div>
         {/* <button
           disabled={loading}
@@ -246,28 +354,33 @@ export default function AccountSettings() {
           Upload
         </button>
       </form> */}
-      <label htmlFor="upload-image" style={{display: profileLoading ? "none": "inherit"}}>
-          Image:
-          <input
-            style={{ display: "none" }}
-            id="upload-image"
-            name="upload-image"
-            type="file"
-            accept="image/*"
-            onChange={(e) => uploadProfileImg(e.target.files[0])}
-          />
-          <Fab color="primary" size="small" component="span" aria-label="add">
-            <PhotoCamera />
-          </Fab>
-          
-        </label>
-        <CircularProgress style={{display: profileLoading ? "inherit" : "none" }} />
-      <button
-        className="my-10 bg-red-800 hover:bg-red-1000 text-white hover:-translate-y-1 transition-all font-bold py-4 rounded-full shadow-lg text-2xl focus:bg-purple-500 relative sm:px-6"
-        onClick={submitAccountDeletion}
+      <label
+        htmlFor="upload-image"
+        style={{ display: profileLoading ? "none" : "inherit" }}
       >
-        DELETE ACCOUNT
-      </button>
+        Image:
+        <input
+          style={{ display: "none" }}
+          id="upload-image"
+          name="upload-image"
+          type="file"
+          accept="image/*"
+          onChange={(e) => uploadProfileImg(e.target.files[0])}
+        />
+        <Fab color="primary" size="small" component="span" aria-label="add">
+          <PhotoCamera />
+        </Fab>
+      </label>
+      <CircularProgress
+        style={{ display: profileLoading ? "inherit" : "none" }}
+      />
+      <Button
+        variant="contained"
+        onClick={submitAccountDeletion}
+        color="secondary"
+      >
+        Delete account
+      </Button>
     </div>
   );
 }
