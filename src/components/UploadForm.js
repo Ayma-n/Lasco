@@ -68,14 +68,6 @@ export default function UploadForm() {
     return splitName[0] + " " + splitName[1][0] + "."
   }
 
-  function handleImageObject(img) {
-    toBase64(img).then(
-      () => {
-
-      }
-    )
-  }
-
   function uploadFormContent() {
 
     return <div id="form-wrapper">
