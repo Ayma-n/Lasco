@@ -190,6 +190,9 @@ $commentSecTop: 21px;
     /* parent is relative */
     position: relative;
     width: 100%;
+    border-radius: #{100% * $border-radius/$contRectW}/#{100% * $border-radius/557px};
+    height: 557px;
+    object-fit: cover;
   }
   /* rounded container that contains author img and name */
   #authorContainer {

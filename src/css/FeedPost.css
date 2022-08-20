@@ -135,6 +135,9 @@
   /* parent is relative */
   position: relative;
   width: 100%;
+  border-radius: 4.3988269795%/5.3859964093%;
+  height: 557px;
+  object-fit: cover;
 }
 #FeedPost #authorContainer {
   position: absolute;
