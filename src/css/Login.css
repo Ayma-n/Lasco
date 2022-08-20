@@ -24,7 +24,7 @@
   justify-content: center;
 }
 #Login #right-rect {
-  background-image: url("/Users/aaronwalker/Documents/personal-projects/Lasco/Lascaux/src/sample/sky/skydrawing.png");
+  background-image: url("../sample/sky/skydrawing.png");
   background-size: cover;
   background-position: center;
   width: 50vw;
