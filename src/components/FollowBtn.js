@@ -5,7 +5,6 @@ import "../css/FollowBtn.css";
 import { useDb } from '../contexts/DatabaseContext'
 import { useAuth } from '../contexts/AuthContext'
 import { useNavigate, useParams } from 'react-router-dom'
-import { limit } from "firebase/firestore";
 import { useEffect } from "react/cjs/react.development";
 
 

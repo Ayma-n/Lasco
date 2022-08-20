@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import magGlass from "../sample/posts/magGlass.svg";
 import "../css/SearchBarPage.css";
-import PortalNav from "./PortalNav";
 import { useDb } from "../contexts/DatabaseContext";
 import { Link } from "react-router-dom";
 

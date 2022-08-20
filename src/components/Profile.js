@@ -1,25 +1,13 @@
-import React, { useState, useEffect } from "react";
-import profileImg from "../sample/posts/profile2.png";
-import img1 from "../sample/posts/Rectangle 3.png";
-import img2 from "../sample/posts/Rectangle 4.png";
-import img3 from "../sample/posts/Rectangle 5.png";
-import img4 from "../sample/posts/Rectangle 6.png";
-import "../css/Profile.css";
-import axios from "axios";
-import FollowBtn from "./FollowBtn";
-import PortalNav from "./PortalNav";
+import React, {  } from "react";
 import ViewPage from "./ViewPage";
-import { height } from "@mui/system";
 import { useDb } from "../contexts/DatabaseContext";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { Fab, Button } from "@material-ui/core";
 import AddIcon from "@mui/icons-material/Add";
-import UploadIcon from "@mui/icons-material/Upload";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
-import UploadForm from "./UploadForm";
-import { AddBox, BarChartOutlined, PhotoCamera } from "@mui/icons-material";
+import { BarChartOutlined } from "@mui/icons-material";
 
 function handleImgClick(e, userObj) {
   document.getElementById("image").src = e.target.src;

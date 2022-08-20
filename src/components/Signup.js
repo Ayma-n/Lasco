@@ -9,7 +9,7 @@ import { useAuth } from "../contexts/AuthContext";
 
 // Imports useDb to get data from the database
 import { useDb } from "../contexts/DatabaseContext";
-import { getStorage, ref, uploadBytes } from "firebase/storage";
+import { getStorage } from "firebase/storage";
 
 function Signup() {
 
