@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import check from "../sample/posts/check.svg";
 import plus from "../sample/posts/plus.svg";
 import "../css/FollowBtn.css";
 import { useDb } from '../contexts/DatabaseContext'
 import { useAuth } from '../contexts/AuthContext'
 import { useNavigate, useParams } from 'react-router-dom'
-import { useEffect } from "react/cjs/react.development";
 
 
 function FollowBtn() {
