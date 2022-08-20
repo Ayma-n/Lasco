@@ -18,13 +18,9 @@ function FeedPost(props) {
             <img id="profileImg" src={props.authorProfilePic || profileImg} />
             <div id="authorName">{props.author ||  "Johnny R."}</div>
           </div>
-          <div id="artTitle">{props.title || "Forever Peace"}</div>
-          <div id="art-description">{props.description || "Lucious Greens and Blues in the Jungle of the Clouds"}</div>
+          <div id="artTitle">{props.title || "Fishy Business"}</div>
+          <div id="art-description">{props.description || "Piranhas playing poker with fish food"}</div>
           <div className="commentSec">
-            <div className="commentDiv">
-              <img src={profileImg} className="commentImg" />
-              <div className="commentText">Awesome artwork! Keep it up!</div>
-            </div>
             <div className="commentDiv">
               <img src={profileImg} className="commentImg" />
               <div className="commentText">Awesome artwork! Keep it up!</div>
