@@ -18,7 +18,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "../contexts/AuthContext";
 import { DbProvider } from "../contexts/DatabaseContext"
 import PrivateRoute from './PrivateRoute';
-import Search from '@mui/icons-material/Search';
 import AccountSettings from './AccountSettings';
 import PublicProfile from './PublicProfile';
 import UploadForm from './UploadForm';

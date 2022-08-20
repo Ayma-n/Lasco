@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import close from "../sample/posts/cancel-black.svg";
 import fire from "../sample/posts/fire.svg";
 import profileImg from "../sample/posts/profile2.png";
-import testImg from "../sample/posts/viewArt.jpeg";
+import testImg from "../sample/posts/testDigital5.jpeg";
 import comment from "../sample/posts/message-circle.svg";
 import "../css/ViewPage.css";
 import FollowBtn from "./FollowBtn";
