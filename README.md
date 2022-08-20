@@ -3,6 +3,7 @@
 
 # Lasco
 
+![Landing Page](https://i.imgur.com/A0PUuXn.png)
 Client-side repo for a portfolio project by Ayman Benjelloun-Touimi and Jakobi Haskell, both CS students at [Brown University](https://brown.edu).
 
 ## Overview
