@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 // TODO: combine code from this and Profile
-import profileImg from '../sample/posts/profile2.png'
-import img1 from '../sample/posts/Rectangle 3.png'
-import img2 from '../sample/posts/Rectangle 4.png'
-import img3 from '../sample/posts/Rectangle 5.png'
-import img4 from '../sample/posts/Rectangle 6.png'
 import '../css/Profile.css'
-import axios from 'axios';
 import FollowBtn from "./FollowBtn"
 import PortalNav from "./PortalNav"
 import ViewPage from "./ViewPage"
