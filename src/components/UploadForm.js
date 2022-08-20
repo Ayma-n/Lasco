@@ -65,7 +65,12 @@ export default function UploadForm() {
   function handleDisplayName(fullName) {
     if (!fullName) return;
     const splitName = fullName.split(" ")
-    return splitName[0] + " " + splitName[1][0] + "."
+    try {
+      return splitName[0] + " " + splitName[1][0] + "."
+    } catch (e) {
+      return fullName;
+    }
+    
   }
 
   function uploadFormContent() {
