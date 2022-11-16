@@ -55,12 +55,6 @@ function NavBar() {
         <a href="/about" className="nav-link" id="about">
           About
         </a>
-        <a href="/community" className="nav-link" id="community">
-          Community
-        </a>
-        <a href="/future" className="nav-link" id="future">
-          Future 
-        </a>
       </div>
       <div id="button-div-2">
         <a href="/login">

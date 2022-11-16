@@ -48,20 +48,6 @@ function App() {
                 <Route path="/upload" element={<UploadForm />} />
               </Route>
 
-              //TODO: loop through 
-
-              {/* <Route path="/feed" element={<PrivateRoute redirectLink="/login">
-              <Portal currentPage={FeedPost} />
-            </PrivateRoute>} />
-
-            <Route path={`/profiles/${user}`} element={<PrivateRoute redirectLink="/login">
-              <Portal currentPage={Profile} />
-            </PrivateRoute>} />
-
-            <Route path={`/search`} element={<PrivateRoute redirectLink="/login">
-              <Portal currentPage={SearchBarPage} />
-            </PrivateRoute>} /> */}
-
               <Route path="/view" element={< ViewPage />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
